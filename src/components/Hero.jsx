@@ -13,7 +13,7 @@ export default function Hero() {
           className="h-full w-full object-cover"
           loading="eager"
         />
-        <div className="hero-overlay absolute inset-0 bg-[#0F4C81]/60" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#0F4C81]/30" aria-hidden="true" />
       </div>
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 py-24 text-center text-white">
         <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/80">Skooli Executive</p>
