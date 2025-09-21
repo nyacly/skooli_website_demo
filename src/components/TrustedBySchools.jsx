@@ -1,3 +1,5 @@
+import { Shield } from 'lucide-react'
+
 const schools = [
   { name: 'Gayaza High School', tooltip: 'National pilot school partner since 2022' },
   { name: 'St. Henry’s College', tooltip: 'STEM inventory automated with Skooli' },
@@ -24,10 +26,11 @@ export default function TrustedBySchools() {
           {schools.map((school) => (
             <div
               key={school.name}
-              className="flex h-24 items-center justify-center rounded-2xl border border-dashed border-slate-200 bg-white/60 px-4 text-center text-sm font-semibold uppercase tracking-wide text-slate-500 transition hover:border-[#0F4C81] hover:bg-white"
+              className="group flex h-24 items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 text-center text-sm font-semibold tracking-wide text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:border-[#0F4C81] hover:shadow-md"
               title={school.tooltip}
             >
-              {school.name}
+              <Shield className="size-4 text-slate-400 transition group-hover:text-[#0F4C81]" aria-hidden="true" />
+              <span className="uppercase">{school.name}</span>
             </div>
           ))}
         </div>

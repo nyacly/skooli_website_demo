@@ -1,19 +1,23 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, UsersRound } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
-import heroImage from '@/assets/Skooli_website_template.jpeg'
+// Using provided attachment for hero background
+const HERO_IMG_URL = 'https://cdn.builder.io/api/v1/image/assets%2Feb657e2225a74a4699503a4763b81a78%2Fe9cdffd3a65549fbb8751e6354a30d35?format=webp&width=1600'
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-[75vh] items-center justify-center overflow-hidden" id="hero">
       <div className="absolute inset-0">
         <img
-          src={heroImage}
+          src={HERO_IMG_URL}
           alt="Smiling student receiving a Skooli delivery"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-center"
           loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          sizes="100vw"
         />
-        <div className="hero-overlay absolute inset-0 bg-[#0F4C81]/60" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#0F4C81]/30" aria-hidden="true" />
       </div>
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 py-24 text-center text-white">
         <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/80">Skooli Executive</p>
