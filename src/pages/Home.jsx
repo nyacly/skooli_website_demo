@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero.jsx'
+import HeroStats from '@/components/HeroStats.jsx'
 import QuickGateways from '@/components/QuickGateways.jsx'
 import TrustedBySchools from '@/components/TrustedBySchools.jsx'
 import HowItWorksPreview from '@/components/HowItWorksPreview.jsx'
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <div className="space-y-0">
       <Hero />
+      <HeroStats />
       <QuickGateways />
       <TrustedBySchools />
       <ExpansionJourney />
