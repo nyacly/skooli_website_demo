@@ -11,8 +11,11 @@ export default function Hero() {
         <img
           src={HERO_IMG_URL}
           alt="Smiling student receiving a Skooli delivery"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-center"
           loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-[#0F4C81]/30" aria-hidden="true" />
       </div>
