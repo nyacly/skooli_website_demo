@@ -1,68 +1,57 @@
-import React from 'react'
-import { Users, Package, Heart, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { UserRound, GraduationCap, Building2 } from 'lucide-react'
 
-const QuickGateways = () => {
-  const gateways = [
-    {
-      icon: Users,
-      number: '3',
-      label: 'Pilot Schools',
-      description: 'Leading educational institutions partnering with us',
-      href: '#schools'
-    },
-    {
-      icon: Package,
-      number: '1,000+',
-      label: 'Products',
-      description: 'Educational supplies and resources available',
-      href: '#products'
-    },
-    {
-      icon: Heart,
-      number: 'Serving',
-      label: 'Families Across Uganda',
-      description: 'Empowering communities through education',
-      href: '#impact'
-    }
-  ]
+const gateways = [
+  {
+    title: 'Parent Portal',
+    description: 'Track orders, manage layaway plans, and unlock family discounts.',
+    icon: UserRound,
+    to: '/shop-now#parent-portal',
+  },
+  {
+    title: 'Student Account',
+    description: 'Cashless allowances, school store access, and delivery alerts.',
+    icon: GraduationCap,
+    to: '/shop-now#student-account',
+  },
+  {
+    title: 'School Admin',
+    description: 'Consolidated procurement, analytics, and SLA oversight dashboards.',
+    icon: Building2,
+    to: '/schools#admin',
+  },
+]
 
+export default function QuickGateways() {
   return (
-    <section className="py-16 bg-[#0F4C81]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {gateways.map((gateway, index) => {
-            const IconComponent = gateway.icon
+    <section className="bg-white py-16" id="gateways">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">Quick gateways</p>
+            <h2 className="mt-4 text-3xl font-semibold text-[#0F4C81] sm:text-4xl">Purpose-built portals for each stakeholder</h2>
+          </div>
+          <p className="max-w-xl text-base text-slate-600">
+            Access the right experience instantly—parents, students, and administrators each get a tailored, secure entry point powered by Skooli.
+          </p>
+        </div>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {gateways.map(({ title, description, icon, to }) => {
+            const IconComponent = icon
             return (
-              <div
-                key={index}
-                className="group cursor-pointer"
-                onClick={() => window.location.href = gateway.href}
-              >
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                  <div className="flex justify-center mb-6">
-                    <div className="w-16 h-16 bg-[#F05A28] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-8 h-8 text-white" />
-                    </div>
-                  </div>
-                  
-                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                    {gateway.number}
-                  </div>
-                  
-                  <h3 className="text-xl font-semibold text-white mb-3">
-                    {gateway.label}
-                  </h3>
-                  
-                  <p className="text-white/80 text-sm leading-relaxed mb-4">
-                    {gateway.description}
-                  </p>
-                  
-                  <div className="flex items-center justify-center text-[#F05A28] group-hover:text-white transition-colors">
-                    <span className="text-sm font-medium mr-2">Learn More</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
+            <Link
+              key={title}
+              to={to}
+              className="group flex h-[200px] w-full flex-col justify-between rounded-2xl border border-slate-100 bg-[#F7F5EF] p-6 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:border-[#F05A28]/60 hover:shadow-xl"
+            >
+              <div className="flex size-12 items-center justify-center rounded-2xl bg-white text-[#0F4C81] shadow-md shadow-black/5 transition group-hover:bg-[#0F4C81] group-hover:text-white">
+                <IconComponent className="size-6" aria-hidden="true" />
               </div>
+              <div>
+                <h3 className="text-lg font-semibold text-[#0F4C81]">{title}</h3>
+                <p className="mt-2 text-sm text-slate-600">{description}</p>
+              </div>
+            </Link>
             )
           })}
         </div>
@@ -70,6 +59,3 @@ const QuickGateways = () => {
     </section>
   )
 }
-
-export default QuickGateways
-

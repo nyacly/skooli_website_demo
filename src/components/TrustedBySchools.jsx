@@ -1,59 +1,37 @@
-import React from 'react'
-import { Shield } from 'lucide-react'
+const schools = [
+  { name: 'Gayaza High School', tooltip: 'National pilot school partner since 2022' },
+  { name: 'St. Henry’s College', tooltip: 'STEM inventory automated with Skooli' },
+  { name: 'Bishop Cypriano Kihangire', tooltip: 'Faith-based distribution partner' },
+  { name: 'Ndejje SS', tooltip: 'Boarding supplies delivered every term' },
+  { name: 'Seeta High', tooltip: 'Cashless canteen + analytics rollout' },
+  { name: 'King’s College Budo', tooltip: 'Scholar support bundles for 500 learners' },
+]
 
-const TrustedBySchools = () => {
-  const schools = [
-    { name: 'Kampala International School', location: 'Kampala' },
-    { name: 'Makerere University', location: 'Kampala' },
-    { name: 'Buganda Royal Institute', location: 'Mengo' },
-    { name: 'St. Mary\'s College Kisubi', location: 'Wakiso' },
-    { name: 'Gayaza High School', location: 'Gayaza' },
-    { name: 'King\'s College Budo', location: 'Wakiso' }
-  ]
-
+export default function TrustedBySchools() {
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0F4C81] mb-4">
-            Trusted by Leading Schools
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Partnering with educational institutions across Uganda to transform learning experiences
+    <section className="bg-[#F7F5EF] py-16" id="trusted-by">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">Trusted by schools</p>
+            <h2 className="mt-4 text-3xl font-semibold text-[#0F4C81]">Serving Uganda’s most trusted institutions</h2>
+          </div>
+          <p className="max-w-xl text-sm text-slate-600">
+            From rural diocesan schools to national academies, Skooli powers reliable delivery and transparent reporting.
           </p>
         </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-          {schools.map((school, index) => (
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+          {schools.map((school) => (
             <div
-              key={index}
-              className="group flex flex-col items-center p-4 rounded-lg hover:bg-gray-50 transition-all duration-300 cursor-pointer"
-              title={`${school.name} - ${school.location}`}
+              key={school.name}
+              className="flex h-24 items-center justify-center rounded-2xl border border-dashed border-slate-200 bg-white/60 px-4 text-center text-sm font-semibold uppercase tracking-wide text-slate-500 transition hover:border-[#0F4C81] hover:bg-white"
+              title={school.tooltip}
             >
-              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-3 group-hover:bg-[#0F4C81] group-hover:scale-110 transition-all duration-300">
-                <Shield className="w-8 h-8 text-gray-400 group-hover:text-white transition-colors" />
-              </div>
-              <div className="text-center">
-                <h3 className="text-xs font-medium text-gray-700 group-hover:text-[#0F4C81] transition-colors leading-tight">
-                  {school.name}
-                </h3>
-                <p className="text-xs text-gray-500 mt-1">
-                  {school.location}
-                </p>
-              </div>
+              {school.name}
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <p className="text-sm text-gray-500">
-            Join 50+ educational institutions already transforming their logistics
-          </p>
         </div>
       </div>
     </section>
   )
 }
-
-export default TrustedBySchools
-

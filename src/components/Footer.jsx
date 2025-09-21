@@ -1,173 +1,188 @@
-import React from 'react'
-import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, Heart } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, Heart, Send } from 'lucide-react'
 
-const Footer = () => {
-  const footerLinks = {
-    company: [
-      { name: 'About Us', href: '#about' },
-      { name: 'Our Mission', href: '#mission' },
-      { name: 'How It Works', href: '#how-it-works' },
-      { name: 'Meet the Team', href: '#team' },
-      { name: 'Careers', href: '#careers' }
-    ],
-    services: [
-      { name: 'For Schools', href: '#schools' },
-      { name: 'For Parents', href: '#parents' },
-      { name: 'For Partners', href: '#partners' },
-      { name: 'Technology & AI', href: '#technology' },
-      { name: 'Investor Centre', href: '#investors' }
-    ],
-    resources: [
-      { name: 'Impact Report', href: '#impact' },
-      { name: 'News & Updates', href: '#news' },
-      { name: 'Case Studies', href: '#case-studies' },
-      { name: 'Documentation', href: '#docs' },
-      { name: 'Support Center', href: '#support' }
-    ],
-    legal: [
-      { name: 'Privacy Policy', href: '#privacy' },
-      { name: 'Terms of Use', href: '#terms' },
-      { name: 'Faith & Ethics', href: '#ethics' },
-      { name: 'Cookie Policy', href: '#cookies' },
-      { name: 'Data Protection', href: '#data-protection' }
-    ]
-  }
+const footerSections = {
+  company: [
+    { label: 'Our Story', to: '/vision-impact' },
+    { label: 'Mission & Values', to: '/vision-impact#mission' },
+    { label: 'Meet the Team', to: '/team' },
+    { label: 'Newsroom', to: '/news' },
+  ],
+  services: [
+    { label: 'Shop Now', to: '/shop-now' },
+    { label: 'For Schools', to: '/schools' },
+    { label: 'Partner With Us', to: '/partner' },
+    { label: 'Technology & AI', to: '/technology-ai' },
+  ],
+  resources: [
+    { label: 'Impact Report', to: '/funders#downloads' },
+    { label: 'Investor Deck', to: '/funders#investor-deck' },
+    { label: 'FAQs', to: '/how-it-works#faq' },
+    { label: 'Support Centre', to: '/contact' },
+  ],
+  legal: [
+    { label: 'Privacy Policy', to: '/legal#privacy' },
+    { label: 'Terms of Use', to: '/legal#terms' },
+    { label: 'Faith & Ethics', to: '/legal#faith' },
+    { label: 'Cookies', to: '/legal#cookies' },
+  ],
+}
 
+export default function Footer() {
   return (
     <footer className="bg-[#0F4C81] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* Company Info */}
-          <div className="lg:col-span-1">
-            <div className="mb-6">
-              <h2 className="text-2xl font-bold mb-4">Skooli</h2>
-              <p className="text-white/80 leading-relaxed mb-6">
-                Transforming education logistics across Africa. Ethically. 
-                Efficiently. Faithfully.
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-2xl font-bold">Skooli</h2>
+              <p className="mt-4 max-w-xs text-sm text-white/80">
+                Education logistics built for every Ugandan learner. Ethically sourced.
+                Efficiently delivered. Faithfully stewarded.
               </p>
             </div>
-
-            {/* Contact Info */}
-            <div className="space-y-3 mb-6">
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-[#F05A28] mt-0.5 flex-shrink-0" />
-                <div className="text-sm text-white/80">
-                  <p className="font-medium">Uganda HQ</p>
+            <div className="space-y-4 text-sm text-white/80">
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-0.5 size-5 text-[#F05A28]" />
+                <div>
+                  <p className="font-semibold">Uganda HQ</p>
                   <p>Plot 12, Hassim Road, Buziga</p>
                   <p>Kampala, Uganda</p>
                 </div>
               </div>
-              
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-[#F05A28] mt-0.5 flex-shrink-0" />
-                <div className="text-sm text-white/80">
-                  <p className="font-medium">UK Office</p>
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-0.5 size-5 text-[#F05A28]" />
+                <div>
+                  <p className="font-semibold">UK Office</p>
                   <p>128 City Road</p>
                   <p>London, EC1V 2NX</p>
                 </div>
               </div>
-              
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-[#F05A28] flex-shrink-0" />
-                <a href="mailto:hello@skooli.africa" className="text-sm text-white/80 hover:text-white transition-colors">
+              <div className="flex items-center gap-3">
+                <Mail className="size-5 text-[#F05A28]" />
+                <a className="hover:text-white" href="mailto:hello@skooli.africa">
                   hello@skooli.africa
                 </a>
               </div>
+              <div className="flex items-center gap-3">
+                <Phone className="size-5 text-[#F05A28]" />
+                <a className="hover:text-white" href="tel:+256414000000">
+                  +256 414 000 000
+                </a>
+              </div>
             </div>
-
-            {/* Social Links */}
-            <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#F05A28] transition-colors">
-                <Linkedin className="w-5 h-5" />
+            <div className="flex gap-3">
+              <a
+                className="flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-[#F05A28]"
+                href="https://www.linkedin.com/company/skooli"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="size-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#F05A28] transition-colors">
-                <Twitter className="w-5 h-5" />
+              <a
+                className="flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-[#F05A28]"
+                href="https://twitter.com/skooli_africa"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Twitter"
+              >
+                <Twitter className="size-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-[#F05A28] transition-colors">
-                <Youtube className="w-5 h-5" />
+              <a
+                className="flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-[#F05A28]"
+                href="https://www.youtube.com/@skooli"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="YouTube"
+              >
+                <Youtube className="size-5" />
               </a>
             </div>
           </div>
 
-          {/* Company Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Company</h3>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href} className="text-white/80 hover:text-white transition-colors text-sm">
-                    {link.name}
-                  </a>
+            <h3 className="text-lg font-semibold">Company</h3>
+            <ul className="mt-6 space-y-3 text-sm text-white/80">
+              {footerSections.company.map((item) => (
+                <li key={item.label}>
+                  <Link className="hover:text-white" to={item.to}>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Services Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Services</h3>
-            <ul className="space-y-3">
-              {footerLinks.services.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href} className="text-white/80 hover:text-white transition-colors text-sm">
-                    {link.name}
-                  </a>
+            <h3 className="text-lg font-semibold">Services</h3>
+            <ul className="mt-6 space-y-3 text-sm text-white/80">
+              {footerSections.services.map((item) => (
+                <li key={item.label}>
+                  <Link className="hover:text-white" to={item.to}>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Resources & Legal */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Resources</h3>
-            <ul className="space-y-3 mb-8">
-              {footerLinks.resources.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href} className="text-white/80 hover:text-white transition-colors text-sm">
-                    {link.name}
-                  </a>
+            <h3 className="text-lg font-semibold">Resources & Legal</h3>
+            <ul className="mt-6 space-y-3 text-sm text-white/80">
+              {[...footerSections.resources, ...footerSections.legal].map((item) => (
+                <li key={item.label}>
+                  <Link className="hover:text-white" to={item.to}>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
-
-            <h3 className="text-lg font-semibold mb-6">Legal</h3>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href} className="text-white/80 hover:text-white transition-colors text-sm">
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-8 space-y-3 rounded-2xl bg-white/10 p-4">
+              <p className="text-sm font-semibold">Stay in the loop</p>
+              <p className="text-xs text-white/70">Monthly executive briefings on logistics, impact and technology.</p>
+              <form
+                className="flex items-center gap-2"
+                onSubmit={(event) => {
+                  event.preventDefault()
+                  const form = event.currentTarget
+                  const email = form.email.value
+                  if (email) {
+                    window.open(`https://skooli.us7.list-manage.com/subscribe?MERGE0=${encodeURIComponent(email)}`)
+                    form.reset()
+                  }
+                }}
+              >
+                <input
+                  className="h-10 flex-1 rounded-full border border-white/30 bg-white/20 px-3 text-sm text-white placeholder:text-white/70 focus:border-[#F05A28] focus:outline-none"
+                  type="email"
+                  name="email"
+                  aria-label="Email for newsletter"
+                  placeholder="you@organisation.com"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="flex h-10 items-center justify-center rounded-full bg-[#F05A28] px-3 text-sm font-semibold text-white shadow hover:bg-[#e14a1e]"
+                >
+                  <Send className="size-4" />
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-
-        {/* Bottom Section */}
-        <div className="border-t border-white/20 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-sm text-white/60">
-              <p>© 2025 Skooli Technologies Group Ltd. All rights reserved.</p>
-              <p className="mt-1">Registered in the United Kingdom and Uganda.</p>
-            </div>
-            
-            <div className="flex items-center space-x-2 text-sm text-white/60">
+        <div className="mt-12 border-t border-white/10 pt-6">
+          <div className="flex flex-col gap-4 text-sm text-white/70 md:flex-row md:items-center md:justify-between">
+            <p>© {new Date().getFullYear()} Skooli Technologies Group Ltd. All rights reserved.</p>
+            <div className="flex items-center gap-2">
               <span>Made with</span>
-              <Heart className="w-4 h-4 text-[#F05A28] fill-current" />
+              <Heart className="size-4 text-[#F05A28]" />
               <span>for African education</span>
             </div>
-          </div>
-
-          <div className="mt-6 text-center">
-            <p className="text-sm text-white/60 italic">
-              "Redefining Access. Restoring Dignity. Reshaping Education."
-            </p>
           </div>
         </div>
       </div>
     </footer>
   )
 }
-
-export default Footer
-
