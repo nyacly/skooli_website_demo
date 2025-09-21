@@ -1,71 +1,57 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
+import { ArrowRight, UsersRound } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
-import { ArrowRight, Play } from 'lucide-react'
-import heroImage from '../assets/Skooli_website_template.jpeg'
+import heroImage from '@/assets/Skooli_website_template.jpeg'
 
-const Hero = () => {
+export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+    <section className="relative flex min-h-[75vh] items-center justify-center overflow-hidden" id="hero">
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Students learning with teacher"
-          className="w-full h-full object-cover"
+          alt="Smiling student receiving a Skooli delivery"
+          className="h-full w-full object-cover"
+          loading="eager"
         />
-        <div className="absolute inset-0 hero-overlay"></div>
+        <div className="hero-overlay absolute inset-0 bg-[#0F4C81]/60" aria-hidden="true" />
       </div>
-
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Transforming Education Logistics
-            <span className="block">Across Africa</span>
-          </h1>
-          
-          <div className="space-y-4 mb-8">
-            <p className="text-xl md:text-2xl text-white font-semibold">
-              Ethically.
-            </p>
-            <p className="text-xl md:text-2xl text-white font-semibold">
-              Efficiently.
-            </p>
-            <p className="text-xl md:text-2xl text-white font-semibold">
-              Faithfully.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg" 
-              className="bg-[#F05A28] hover:bg-[#E04A1F] text-white px-8 py-4 text-lg font-semibold rounded-md shadow-lg hover:shadow-xl transition-all"
-            >
-              Explore Our Mission
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-[#0F4C81] px-8 py-4 text-lg font-semibold rounded-md backdrop-blur-sm transition-all"
-            >
-              <Play className="mr-2 h-5 w-5" />
-              Watch Our Story
-            </Button>
-          </div>
+      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 py-24 text-center text-white">
+        <p className="text-sm font-semibold uppercase tracking-[0.4em] text-white/80">Skooli Executive</p>
+        <h1 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+          The Smarter Way to Shop for School
+        </h1>
+        <p className="mt-6 max-w-2xl text-lg text-white/90">
+          Seamlessly source, finance, and deliver essential learning materials so every Ugandan student starts the term ready to thrive.
+        </p>
+        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+          <Button
+            size="lg"
+            className="rounded-md bg-[#F05A28] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-[#e14a1e]"
+            asChild
+          >
+            <Link to="/shop-now">
+              Shop Now
+              <ArrowRight className="ml-2 size-5" aria-hidden="true" />
+            </Link>
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="rounded-md border-2 border-white/90 bg-white/10 px-8 py-4 text-base font-semibold text-white shadow transition hover:-translate-y-0.5 hover:bg-white hover:text-[#0F4C81]"
+            asChild
+          >
+            <Link to="/partner">
+              Partner With Us
+            </Link>
+          </Button>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+        <div className="mt-16 flex flex-wrap items-center justify-center gap-6 text-sm font-semibold text-white/80">
+          <div className="flex items-center gap-2">
+            <UsersRound className="size-5" aria-hidden="true" />
+            Trusted by education ministries and faith-based networks across Uganda
+          </div>
         </div>
       </div>
     </section>
   )
 }
-
-export default Hero
-
