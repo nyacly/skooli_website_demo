@@ -12,6 +12,7 @@ export default function Home() {
       <Hero />
       <QuickGateways />
       <TrustedBySchools />
+      <ExpansionJourney />
       <HowItWorksPreview />
       <ImpactSnapshot />
       <NewsletterCTA />
