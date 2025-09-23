@@ -1,4 +1,4 @@
-const MAP_IMG_URL = 'https://cdn.builder.io/api/v1/image/assets%2Feb657e2225a74a4699503a4763b81a78%2F3a6b61b3133048129df2eac65806b467?format=webp&width=1600'
+import MapImg from '@/assets/map_of_africa.png'
 
 const legendItems = [
   { name: 'Pilot', color: 'bg-blue-400' },
@@ -24,7 +24,7 @@ export default function ExpansionJourney() {
           </div>
           <div className="overflow-hidden">
             <img
-              src={MAP_IMG_URL}
+              src={MapImg}
               alt="Map of Africa highlighting Skooli expansion journey"
               loading="lazy"
               className="w-full h-auto object-contain"
