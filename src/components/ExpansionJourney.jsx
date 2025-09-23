@@ -1,4 +1,5 @@
-import MapImg from '@/assets/map_of_africa.png'
+const MAP_IMAGE_URL =
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Africa_%28orthographic_projection%29.svg/1024px-Africa_%28orthographic_projection%29.svg.png'
 
 const legendItems = [
   { name: 'Pilot', color: 'bg-blue-400' },
@@ -24,7 +25,7 @@ export default function ExpansionJourney() {
           </div>
           <div className="overflow-hidden">
             <img
-              src={MapImg}
+              src={MAP_IMAGE_URL}
               alt="Map of Africa highlighting Skooli expansion journey"
               loading="lazy"
               className="w-full h-auto object-contain"
