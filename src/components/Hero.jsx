@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button.jsx'
-import HeroImg from '@/assets/classroom_banner.jpeg'
+
+const HERO_IMAGE_URL =
+  'https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=2400&q=80'
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-[85vh] items-center justify-start overflow-hidden" id="hero">
       <div className="absolute inset-0">
         <img
-          src={HeroImg}
+          src={HERO_IMAGE_URL}
           alt="A teacher helping students in a classroom"
           className="h-full w-full object-cover object-center"
           loading="eager"
