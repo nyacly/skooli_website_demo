@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button.jsx'
-import HeroImg from '@/assets/Skooli_website_template.jpeg'
+import HeroImg from '@/assets/classroom_banner.jpeg'
 
 export default function Hero() {
   return (
@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="absolute inset-0">
         <img
           src={HeroImg}
-          alt="Transforming Education Logistics Across Africa"
+          alt="A teacher helping students in a classroom"
           className="h-full w-full object-cover object-center"
           loading="eager"
           decoding="async"
