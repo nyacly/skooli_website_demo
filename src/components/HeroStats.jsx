@@ -5,13 +5,15 @@ export default function HeroStats() {
     { value: 'Serving', label: 'Families Across Uganda' },
   ]
   return (
-    <section className="bg-white py-16 sm:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+    <section className="-mt-10 bg-transparent pb-6">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="grid gap-4 rounded-2xl bg-white/95 p-4 shadow-xl shadow-black/5 backdrop-blur sm:grid-cols-3">
           {items.map((item) => (
-            <div key={item.label} className="text-center">
-              <p className="text-5xl font-bold tracking-tight text-slate-900">{item.value}</p>
-              <p className="mt-2 text-base text-slate-500">{item.label}</p>
+            <div key={item.label} className="flex items-center justify-center rounded-xl p-4 text-center">
+              <div>
+                <p className="text-2xl font-bold text-[#0F4C81] sm:text-3xl">{item.value}</p>
+                <p className="mt-1 text-sm font-medium text-slate-600">{item.label}</p>
+              </div>
             </div>
           ))}
         </div>
