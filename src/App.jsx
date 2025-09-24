@@ -13,7 +13,6 @@ import ContactPage from '@/pages/Contact.jsx'
 import LegalEthics from '@/pages/LegalEthics.jsx'
 import ShopNow from '@/pages/ShopNow.jsx'
 import NotFound from '@/pages/NotFound.jsx'
-import Services from '@/pages/Services.jsx'
 
 export default function App() {
   return (
@@ -26,7 +25,6 @@ export default function App() {
         <Route path="/partner" element={<PartnerWithUs />} />
         <Route path="/funders" element={<FundersInvestors />} />
         <Route path="/schools" element={<ForSchools />} />
-        <Route path="/services" element={<Services />} />
         <Route path="/technology-ai" element={<TechnologyAI />} />
         <Route path="/team" element={<MeetTheTeam />} />
         <Route path="/news" element={<NewsUpdates />} />
