@@ -51,7 +51,7 @@ export default function ContactPage() {
                     Name
                   </label>
                   <input
-                    className="mt-1 w-full rounded-2xl border border-[#0F4C81]/20 bg-[#F7F5EF] px-4 py-3 text-sm text-slate-700 focus:border-[#F05A28] focus:outline-none"
+                    className="mt-1 w-full rounded-md border border-[#0F4C81]/20 bg-[#F7F5EF] px-4 py-3 text-sm text-slate-700 focus:border-[#F05A28] focus:outline-none"
                     type="text"
                     id="name"
                     name="name"
@@ -63,7 +63,7 @@ export default function ContactPage() {
                     Email
                   </label>
                   <input
-                    className="mt-1 w-full rounded-2xl border border-[#0F4C81]/20 bg-[#F7F5EF] px-4 py-3 text-sm text-slate-700 focus:border-[#F05A28] focus:outline-none"
+                    className="mt-1 w-full rounded-md border border-[#0F4C81]/20 bg-[#F7F5EF] px-4 py-3 text-sm text-slate-700 focus:border-[#F05A28] focus:outline-none"
                     type="email"
                     id="email"
                     name="email"
@@ -75,7 +75,7 @@ export default function ContactPage() {
                     Message
                   </label>
                   <textarea
-                    className="mt-1 h-32 w-full rounded-2xl border border-[#0F4C81]/20 bg-[#F7F5EF] px-4 py-3 text-sm text-slate-700 focus:border-[#F05A28] focus:outline-none"
+                    className="mt-1 h-32 w-full rounded-md border border-[#0F4C81]/20 bg-[#F7F5EF] px-4 py-3 text-sm text-slate-700 focus:border-[#F05A28] focus:outline-none"
                     id="message"
                     name="message"
                     required
@@ -83,7 +83,7 @@ export default function ContactPage() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full rounded-2xl bg-[#F05A28] py-3 text-sm font-semibold text-white shadow hover:bg-[#e14a1e]"
+                  className="w-full rounded-md bg-[#F05A28] py-3 text-sm font-semibold text-white shadow hover:bg-[#e14a1e]"
                   disabled={status === 'loading'}
                 >
                   {status === 'loading' ? 'Sending…' : status === 'success' ? 'Message sent!' : 'Send message'}
