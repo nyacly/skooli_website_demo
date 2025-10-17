@@ -86,7 +86,7 @@ export default function MeetTheTeam() {
                 <p className="text-sm font-semibold text-[#F05A28]">{founder.role}</p>
                 <p className="mt-3 text-sm text-slate-600">{founder.bio}</p>
                 <a
-                  className="mt-4 inline-flex items-center gap-2 rounded-full border border-[#0F4C81] px-4 py-2 text-sm font-semibold text-[#0F4C81] shadow hover:bg-[#0F4C81] hover:text-white"
+                  className="mt-4 inline-flex items-center gap-2 rounded-md border border-[#0F4C81] px-4 py-2 text-sm font-semibold text-[#0F4C81] shadow hover:bg-[#0F4C81] hover:text-white"
                   href={founder.linkedin}
                   target="_blank"
                   rel="noreferrer"
