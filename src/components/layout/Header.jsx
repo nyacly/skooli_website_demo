@@ -28,16 +28,16 @@ export default function Header() {
         <Link to="/" className="flex items-center gap-2 text-[#0F4C81]">
           <span className="text-2xl font-bold tracking-tight">Skooli</span>
         </Link>
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-3 lg:flex">
           {navItems.map(({ name, to }) => (
             <NavLink
               key={to}
               to={to}
               className={({ isActive }) =>
-                `text-sm font-semibold transition-colors ${
+                `px-4 py-2 rounded-md bg-white border border-slate-200 text-sm font-semibold transition-all duration-200 border-b-2 ${
                   isActive
-                    ? 'text-[#0F4C81] underline underline-offset-8 decoration-[#F05A28]/80'
-                    : 'text-slate-600 hover:text-[#0F4C81]'
+                    ? 'text-[#0F4C81] border-b-[#F05A28]'
+                    : 'text-slate-700 border-b-transparent hover:border-b-[#F05A28] hover:text-[#0F4C81]'
                 }`
               }
             >
