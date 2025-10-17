@@ -4,17 +4,11 @@ import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
 
 const navItems = [
-  { name: 'Home', to: '/' },
-  { name: 'How It Works', to: '/how-it-works' },
-  { name: 'Vision & Impact', to: '/vision-impact' },
-  { name: 'Partner With Us', to: '/partner' },
-  { name: 'For Funders', to: '/funders' },
-  { name: 'For Schools', to: '/schools' },
-  { name: 'Technology & AI', to: '/technology-ai' },
-  { name: 'Meet the Team', to: '/team' },
-  { name: 'News & Updates', to: '/news' },
-  { name: 'Contact', to: '/contact' },
-  { name: 'Legal & Ethics', to: '/legal' },
+  { name: 'About', to: '/how-it-works' },
+  { name: 'Impact', to: '/vision-impact' },
+  { name: 'Services', to: '/schools' },
+  { name: 'Investor centre', to: '/funders' },
+  { name: 'Join our impact', to: '/partner' },
 ]
 
 export default function Header() {
@@ -46,19 +40,6 @@ export default function Header() {
           ))}
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
-          <Button
-            className="rounded-md bg-[#F05A28] px-5 py-2 text-sm font-semibold text-white shadow transition hover:-translate-y-0.5 hover:bg-[#e14a1e]"
-            asChild
-          >
-            <Link to="/shop-now">Shop Now</Link>
-          </Button>
-          <Button
-            variant="outline"
-            className="rounded-md border-[#0F4C81] px-5 py-2 text-sm font-semibold text-[#0F4C81] shadow transition hover:-translate-y-0.5 hover:bg-[#0F4C81] hover:text-white"
-            asChild
-          >
-            <Link to="/partner">Partner</Link>
-          </Button>
           <Button
             variant="ghost"
             className="rounded-md px-3 py-2 text-sm font-semibold text-[#0F4C81] hover:text-[#F05A28]"
@@ -94,20 +75,6 @@ export default function Header() {
               </NavLink>
             ))}
             <div className="mt-4 flex flex-col gap-2">
-              <Button className="w-full rounded-md bg-[#F05A28] py-2 text-sm font-semibold text-white" asChild>
-                <Link to="/shop-now" onClick={closeMenu}>
-                  Shop Now
-                </Link>
-              </Button>
-              <Button
-                variant="outline"
-                className="w-full rounded-md border-[#0F4C81] py-2 text-sm font-semibold text-[#0F4C81]"
-                asChild
-              >
-                <Link to="/partner" onClick={closeMenu}>
-                  Partner
-                </Link>
-              </Button>
               <Button
                 variant="ghost"
                 className="w-full rounded-md py-2 text-sm font-semibold text-[#0F4C81] hover:text-[#F05A28]"
