@@ -34,7 +34,7 @@ export default function NewsUpdates() {
                     key={category}
                     type="button"
                     onClick={() => setActiveCategory(category)}
-                    className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
+                    className={`rounded-md border px-4 py-2 text-sm font-semibold transition ${
                       activeCategory === category
                         ? 'border-[#F05A28] bg-[#F7F5EF] text-[#0F4C81]'
                         : 'border-transparent bg-white text-slate-600 hover:border-[#F05A28]/40 hover:bg-[#F7F5EF]'
@@ -80,10 +80,10 @@ export default function NewsUpdates() {
                     type="email"
                     name="email"
                     required
-                    className="h-11 rounded-full border border-[#0F4C81]/20 bg-[#F7F5EF] px-4 text-sm text-slate-700 placeholder:text-slate-400 focus:border-[#F05A28] focus:outline-none"
+                    className="h-11 rounded-md border border-[#0F4C81]/20 bg-[#F7F5EF] px-4 text-sm text-slate-700 placeholder:text-slate-400 focus:border-[#F05A28] focus:outline-none"
                     placeholder="you@example.com"
                   />
-                  <Button type="submit" className="rounded-full bg-[#F05A28] text-white hover:bg-[#e14a1e]">
+                  <Button type="submit" className="rounded-md bg-[#F05A28] text-white hover:bg-[#e14a1e]">
                     Subscribe
                   </Button>
                 </form>

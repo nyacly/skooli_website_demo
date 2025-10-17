@@ -147,11 +147,11 @@ export default function FundersInvestors() {
                   required
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
-                  className="h-12 flex-1 rounded-full border border-[#0F4C81]/20 bg-[#F7F5EF] px-4 text-sm text-slate-700 placeholder:text-slate-400 focus:border-[#F05A28] focus:outline-none"
+                  className="h-12 flex-1 rounded-md border border-[#0F4C81]/20 bg-[#F7F5EF] px-4 text-sm text-slate-700 placeholder:text-slate-400 focus:border-[#F05A28] focus:outline-none"
                   placeholder="you@fund.org"
                   aria-label="Work email"
                 />
-                <Button type="submit" className="h-12 rounded-full bg-[#F05A28] px-6 text-white hover:bg-[#e14a1e]">
+                <Button type="submit" className="h-12 rounded-md bg-[#F05A28] px-6 text-white hover:bg-[#e14a1e]">
                   Unlock files
                 </Button>
               </form>

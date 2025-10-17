@@ -78,7 +78,7 @@ export default function ShopNow() {
                 {benefits.map(({ title, description, icon }) => {
                   const BenefitIcon = icon
                   return (
-                    <div key={title} className="rounded-2xl bg-white p-5 shadow-lg shadow-black/5">
+                    <div key={title} className="rounded-3xl bg-white p-5 shadow-lg shadow-black/5">
                       <div className="flex items-center gap-3 text-[#0F4C81]">
                         <BenefitIcon className="size-5" aria-hidden="true" />
                         <h3 className="text-base font-semibold">{title}</h3>
@@ -89,23 +89,23 @@ export default function ShopNow() {
                 })}
               </div>
             </div>
-            <div className="rounded-2xl bg-white p-8 shadow-xl shadow-black/10">
+            <div className="rounded-3xl bg-white p-8 shadow-xl shadow-black/10">
               <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">
                 <Sparkles className="size-5" />
                 Demo view
               </div>
               <div className="mt-6 space-y-4 text-left">
-                <div className="rounded-xl border border-slate-200 p-4">
+                <div className="rounded-2xl border border-slate-200 p-4">
                   <p className="text-xs uppercase tracking-wide text-slate-500">Child accounts</p>
                   <p className="mt-2 text-lg font-semibold text-[#0F4C81]">Naomi | P6 · Ethan | S2</p>
                   <p className="mt-1 text-sm text-slate-600">Toggle between learners and approve top-up budgets instantly.</p>
                 </div>
-                <div className="rounded-xl border border-slate-200 p-4">
+                <div className="rounded-2xl border border-slate-200 p-4">
                   <p className="text-xs uppercase tracking-wide text-slate-500">Delivery status</p>
                   <p className="mt-2 text-lg font-semibold text-[#0F4C81]">Warehouse scan complete</p>
                   <p className="mt-1 text-sm text-slate-600">Driver Moses heads to Gayaza High. ETA 08:30 with SMS alerts.</p>
                 </div>
-                <div className="rounded-xl border border-slate-200 p-4">
+                <div className="rounded-2xl border border-slate-200 p-4">
                   <p className="text-xs uppercase tracking-wide text-slate-500">Savings</p>
                   <p className="mt-2 text-lg font-semibold text-[#0F4C81]">UGX 64,000 saved this term</p>
                   <p className="mt-1 text-sm text-slate-600">Earn credit when friends join via your referral code.</p>
@@ -131,7 +131,7 @@ export default function ShopNow() {
               </ul>
             </div>
             <div className="lg:w-1/2">
-              <div className="rounded-2xl bg-[#F7F5EF] p-8 shadow-lg shadow-black/5">
+              <div className="rounded-3xl bg-[#F7F5EF] p-8 shadow-lg shadow-black/5">
                 <h3 className="text-lg font-semibold text-[#0F4C81]">What parents say</h3>
                 <p className="mt-3 text-sm text-slate-600">
                   “Skooli’s wallet replaced sending cash through boda riders. I get alerts, my daughter feels trusted, and I know she has what she needs.”
@@ -154,7 +154,7 @@ export default function ShopNow() {
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {bundles.map((bundle) => (
-              <div key={bundle.name} className="flex h-full flex-col rounded-2xl bg-white p-6 shadow-lg shadow-black/5">
+              <div key={bundle.name} className="flex h-full flex-col rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
                 <div className="flex items-center gap-3 text-[#0F4C81]">
                   <PackageSearch className="size-5" />
                   <h3 className="text-lg font-semibold">{bundle.name}</h3>
