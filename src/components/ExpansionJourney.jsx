@@ -1,6 +1,4 @@
-import expansionMapSvg from '@/assets/branding/skooli-expansion-map.svg?url'
-
-const expansionMapPng = '/assets/branding/skooli-expansion-map.png'
+const expansionMapPng = '/assets/branding/skooli_african_map.png'
 
 const expansionMapFallback = `data:image/svg+xml;utf8,${encodeURIComponent(
   `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'>
@@ -12,7 +10,7 @@ const expansionMapFallback = `data:image/svg+xml;utf8,${encodeURIComponent(
       </defs>
       <rect width='1200' height='800' fill='url(#expansionGradient)' />
       <text x='50%' y='50%' font-family='Inter, Arial, sans-serif' font-size='42' fill='#ffffff' text-anchor='middle'>
-        Upload skooli-expansion-map assets to public/assets/branding
+        Upload skooli_african_map.png to public/assets/branding
       </text>
     </svg>`
 )}`
@@ -57,7 +55,6 @@ export default function ExpansionJourney() {
           </div>
           <div className="overflow-hidden">
             <picture>
-              <source srcSet={expansionMapSvg} type="image/svg+xml" />
               <img
                 src={expansionMapPng}
                 alt="Map of Africa highlighting Skooli expansion journey"
