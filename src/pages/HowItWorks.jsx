@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import { ArrowLeft, ArrowRight, Sparkles, Route, Play, CalendarCheck } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Sparkles, Route, Play, CalendarCheck, FileDown } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
 import ComplianceKit from '@/components/ComplianceKit.jsx'
 
@@ -306,18 +306,20 @@ export default function HowItWorks() {
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button
                   asChild
-                  className="rounded-full bg-[var(--brand-emerald)] px-5 py-2 text-white hover:bg-[color-mix(in_srgb,var(--brand-emerald)_85%,#000_15%)]"
+                  className="inline-flex items-center gap-2 rounded-full bg-[var(--brand-emerald)] px-5 py-2 text-white hover:bg-[color-mix(in_srgb,var(--brand-emerald)_85%,#000_15%)]"
                 >
                   <a href="/templates/mou-template.pdf" download>
+                    <FileDown className="size-4" aria-hidden="true" />
                     Download MoU template
                   </a>
                 </Button>
                 <Button
                   asChild
                   variant="outline"
-                  className="rounded-full border-[var(--brand-emerald)]/40 bg-white px-5 py-2 text-[var(--brand-emerald)] hover:border-[var(--brand-emerald)]"
+                  className="inline-flex items-center gap-2 rounded-full border-[var(--brand-emerald)]/40 bg-white px-5 py-2 text-[var(--brand-emerald)] hover:border-[var(--brand-emerald)]"
                 >
                   <a href="/templates/data-sharing-template.pdf" download>
+                    <FileDown className="size-4" aria-hidden="true" />
                     Download data sharing template
                   </a>
                 </Button>

@@ -1,7 +1,7 @@
 import { FileDown, ShieldCheck, ScrollText } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-const documents = [
+const defaultDocuments = [
   {
     title: 'Memorandum of Understanding',
     description: 'Defines governance, rollout scope, and responsibilities for each party.',
@@ -22,7 +22,12 @@ const documents = [
   },
 ]
 
-export default function ComplianceKit({ className, title = 'Compliance kit', blurb = 'Standard templates to fast-track legal reviews and procurement approval.' }) {
+export default function ComplianceKit({
+  className,
+  title = 'Compliance kit',
+  blurb = 'Standard templates to fast-track legal reviews and procurement approval.',
+  documents = defaultDocuments,
+}) {
   return (
     <div className={cn('rounded-3xl bg-white p-6 shadow-lg shadow-black/5', className)}>
       <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">{title}</p>
