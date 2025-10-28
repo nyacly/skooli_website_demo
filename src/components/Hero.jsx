@@ -2,19 +2,17 @@ import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button.jsx'
 
-const heroPrimarySrc = '/assets/branding/skooli_banner_image.jpg'
-
 const heroFallback = `data:image/svg+xml;utf8,${encodeURIComponent(
   `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'>
       <defs>
         <linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'>
           <stop offset='0%' stop-color='#009877'/>
-          <stop offset='100%' stop-color='#FCE6AE'/>
+          <stop offset='100%' stop-color='rgba(0,152,119,0)'/>
         </linearGradient>
       </defs>
       <rect width='1200' height='800' fill='url(#g)' />
       <text x='50%' y='50%' font-family='Inter, Arial, sans-serif' font-size='42' fill='#ffffff' text-anchor='middle'>
-        Upload skooli_banner_image.jpg to public/assets/branding
+        Upload skooli-classroom-hero images to public/assets/branding
       </text>
     </svg>`
 )}`
@@ -33,9 +31,19 @@ export default function Hero() {
     <section className="relative flex min-h-[85vh] items-center justify-start overflow-hidden" id="hero">
       <div className="absolute inset-0">
         <picture>
+          <source
+            type="image/webp"
+            srcSet="/assets/branding/skooli-classroom-hero-2000.webp 2000w, /assets/branding/skooli-classroom-hero-1200.webp 1200w, /assets/branding/skooli-classroom-hero-768.webp 768w"
+            sizes="100vw"
+          />
+          <source
+            type="image/jpeg"
+            srcSet="/assets/branding/skooli-classroom-hero-2000.jpg 2000w, /assets/branding/skooli-classroom-hero-1200.jpg 1200w, /assets/branding/skooli-classroom-hero-768.jpg 768w"
+            sizes="100vw"
+          />
           <img
-            src={heroPrimarySrc}
-            alt="Students learning with a Skooli teacher in a bright classroom"
+            src="/assets/branding/skooli-classroom-hero-1200.jpg"
+            alt="Skooli facilitator guiding learners in class"
             className="h-full w-full object-cover object-center"
             loading="eager"
             decoding="async"
@@ -44,15 +52,21 @@ export default function Hero() {
             onError={handleHeroImageError}
           />
         </picture>
-        <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+        <div
+          className="absolute inset-0 bg-gradient-to-r from-[rgba(0,152,119,0.85)] via-[rgba(2,45,36,0.65)] to-transparent"
+          aria-hidden="true"
+        />
       </div>
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-24 text-left text-white sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-            Transforming Education Logistics Across Africa
+          <p className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)] shadow-lg shadow-black/10 backdrop-blur">
+            Executive briefing
+          </p>
+          <h1 className="mt-6 text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+            Operational assurance for national education pilots
           </h1>
-          <p className="mt-6 text-2xl font-medium text-white/90">
-            Ethically. Efficiently. Faithfully.
+          <p className="mt-6 text-xl font-medium text-white/90">
+            Skooli deploys accountable facilitators, verified suppliers, and transparent financial rails so ministries see auditable results from the first cohort through national scale.
           </p>
           <div className="mt-10">
             <Button
@@ -60,8 +74,8 @@ export default function Hero() {
               className="rounded-md bg-[var(--brand-gold)] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
               asChild
             >
-              <Link to="/vision-impact">
-                Explore Our Mission
+              <Link to="/downloads/skooli-impact-report.pdf" target="_blank" rel="noreferrer noopener">
+                Review the executive impact brief
               </Link>
             </Button>
           </div>
