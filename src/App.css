@@ -1,0 +1,259 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --brand-emerald: #009B77;
+  --brand-gold: #FFD700;
+  --brand-gold-dark: #b59410;
+  --brand-cream: #FCE6AE;
+  --brand-white: #FFFFFF;
+
+  --radius: 1rem; /* 16px for cards, 8px for buttons */
+  --background: var(--brand-cream); /* Warm Skooli cream */
+  --foreground: var(--brand-emerald); /* Emerald for headings and key text */
+  --card: var(--brand-white);
+  --card-foreground: var(--brand-emerald);
+  --popover: var(--brand-white);
+  --popover-foreground: var(--brand-emerald);
+  --primary: var(--brand-emerald);
+  --primary-foreground: var(--brand-white);
+  --secondary: var(--brand-cream);
+  --secondary-foreground: var(--brand-emerald);
+  --muted: color-mix(in srgb, var(--brand-cream) 70%, var(--brand-white));
+  --muted-foreground: #26594c;
+  --accent: var(--brand-gold);
+  --accent-foreground: var(--brand-emerald);
+  --destructive: #c2410c;
+  --border: color-mix(in srgb, var(--brand-emerald) 15%, var(--brand-white));
+  --input: color-mix(in srgb, var(--brand-cream) 80%, var(--brand-white));
+  --ring: color-mix(in srgb, var(--brand-emerald) 65%, #05382c);
+  --chart-1: var(--brand-emerald);
+  --chart-2: var(--brand-gold);
+  --chart-3: #7fd1b9;
+  --chart-4: #f6ab3f;
+  --chart-5: #7b4c00;
+  --sidebar: var(--brand-white);
+  --sidebar-foreground: var(--brand-emerald);
+  --sidebar-primary: var(--brand-emerald);
+  --sidebar-primary-foreground: var(--brand-white);
+  --sidebar-accent: var(--brand-gold);
+  --sidebar-accent-foreground: var(--brand-emerald);
+  --sidebar-border: color-mix(in srgb, var(--brand-emerald) 20%, var(--brand-white));
+  --sidebar-ring: color-mix(in srgb, var(--brand-emerald) 65%, #05382c);
+}
+
+.dark {
+  --background: #021d18;
+  --foreground: #e3fff9;
+  --card: #032823;
+  --card-foreground: #e3fff9;
+  --popover: #032823;
+  --popover-foreground: #e3fff9;
+  --primary: var(--brand-gold);
+  --primary-foreground: #032823;
+  --secondary: #094236;
+  --secondary-foreground: #e3fff9;
+  --muted: #094236;
+  --muted-foreground: #7fd1b9;
+  --accent: var(--brand-gold);
+  --accent-foreground: #032823;
+  --destructive: #f97316;
+  --border: rgba(255, 215, 0, 0.15);
+  --input: rgba(255, 215, 0, 0.2);
+  --ring: rgba(0, 152, 119, 0.6);
+  --chart-1: #7fd1b9;
+  --chart-2: var(--brand-gold);
+  --chart-3: #ffd55c;
+  --chart-4: #5ad1b0;
+  --chart-5: #ffeaae;
+  --sidebar: #032823;
+  --sidebar-foreground: #e3fff9;
+  --sidebar-primary: var(--brand-gold);
+  --sidebar-primary-foreground: #032823;
+  --sidebar-accent: #0b5f4d;
+  --sidebar-accent-foreground: #e3fff9;
+  --sidebar-border: rgba(255, 215, 0, 0.12);
+  --sidebar-ring: rgba(0, 152, 119, 0.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+/* Skooli Custom Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Tone of voice guide ------------------------------------------------------
+   Skooli copy should sound hopeful, dignifying, and pragmatic. Lead with
+   evidence-backed impact, avoid hype, and always center the families and
+   educators we serve. Keep sentences warm and invitational, balancing
+   confident verbs with people-first nouns. */
+
+/* Button radius overrides */
+.btn-primary {
+  @apply text-white rounded-md shadow hover:shadow-lg transition-shadow;
+  background-color: var(--brand-emerald);
+}
+
+.btn-accent {
+  @apply rounded-md shadow hover:shadow-lg transition-shadow;
+  background-color: var(--brand-gold);
+  color: var(--brand-emerald);
+}
+
+.btn-secondary {
+  @apply border-2 bg-transparent rounded-md transition-all;
+  border-color: var(--brand-emerald);
+  color: var(--brand-emerald);
+}
+
+.btn-secondary:hover {
+  background-color: var(--brand-emerald);
+  color: var(--brand-white);
+}
+
+/* Card styles */
+.skooli-card {
+  @apply bg-white rounded-3xl shadow-lg shadow-black/5 p-6;
+}
+
+/* Hero overlay */
+.hero-overlay {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--brand-emerald) 30%, transparent) 0%, color-mix(in srgb, var(--brand-emerald) 40%, transparent) 100%);
+}
+
+/* Animation utilities */
+.animate-counter {
+  @apply transition-all duration-1000 ease-out;
+}
+
+/* Icon styles */
+.icon-primary {
+  color: var(--brand-emerald);
+}
+
+.icon-accent {
+  color: var(--brand-gold);
+}
+
+/* Responsive grid */
+.skooli-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+/* Typography */
+.heading-primary {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  color: var(--brand-emerald);
+}
+
+.heading-secondary {
+  @apply text-2xl md:text-3xl lg:text-4xl font-semibold;
+  color: var(--brand-emerald);
+}
+
+.text-body {
+  @apply text-base md:text-lg text-gray-700 leading-relaxed;
+}
+
+/* Navigation */
+.nav-link {
+  @apply transition-colors font-medium;
+  color: var(--brand-emerald);
+}
+
+.nav-link:hover {
+  color: var(--brand-gold);
+}
+
+.nav-cta {
+  @apply px-4 py-2 rounded-md transition-colors font-medium;
+  background-color: var(--brand-gold);
+  color: var(--brand-emerald);
+}
+
+.nav-cta:hover {
+  background-color: color-mix(in srgb, var(--brand-gold) 80%, #000 20%);
+}
+
+.text-brand-emerald {
+  color: var(--brand-emerald);
+}
+
+.text-brand-gold {
+  color: var(--brand-gold);
+}
+
+.text-brand-gold-dark {
+  color: var(--brand-gold-dark);
+}
+
+.bg-brand-emerald {
+  background-color: var(--brand-emerald);
+}
+
+.bg-brand-gold {
+  background-color: var(--brand-gold);
+}
+
+.bg-brand-cream {
+  background-color: var(--brand-cream);
+}
+
+.border-brand-emerald {
+  border-color: var(--brand-emerald);
+}
+
+.border-brand-gold {
+  border-color: var(--brand-gold);
+}
