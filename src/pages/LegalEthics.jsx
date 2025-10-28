@@ -1,8 +1,61 @@
-import { useState } from 'react'
-import { ShieldCheck, BookOpen, HeartHandshake } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { ShieldCheck, BookOpen, HeartHandshake, Download } from 'lucide-react'
+
+const compliancePacks = [
+  {
+    title: 'Uganda Ministry of Education compliance pack',
+    description: 'Policy summaries, delivery assurance templates, and safeguarding forms tailored to Ugandan districts.',
+    fileName: 'Skooli Uganda_ Comprehensive Compliance Framework 2025.pdf',
+    size: '4.2 MB PDF',
+  },
+  {
+    title: 'UK Charity Commission governance kit',
+    description: 'Trustee briefing decks, data processing registers, and quarterly assurance checklist for UK supporters.',
+    fileName: 'Skooli_ UK Governance Upgrade for African Logistics.pdf',
+    size: '3.4 MB PDF',
+  },
+  {
+    title: 'Faith-aligned safeguarding framework',
+    description: 'Chaplains’ code of conduct, parental consent forms, and counselling referral pathways for ministry partners.',
+    fileName: 'Uganda Education Logistics Safeguarding Framework.pdf',
+    size: '2.8 MB PDF',
+  },
+]
 
 export default function LegalEthics() {
-  const [analyticsCookies, setAnalyticsCookies] = useState(true)
+  const [analyticsCookies, setAnalyticsCookies] = useState(() => {
+    if (typeof window === 'undefined') return true
+    return window.localStorage.getItem('skooli-analytics-cookies') !== 'disabled'
+  })
+  const [cookieBannerVisible, setCookieBannerVisible] = useState(() => {
+    if (typeof window === 'undefined') return true
+    return window.localStorage.getItem('skooli-cookie-consent') !== 'accepted'
+  })
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    window.localStorage.setItem('skooli-analytics-cookies', analyticsCookies ? 'enabled' : 'disabled')
+  }, [analyticsCookies])
+
+  const storeConsent = (status) => {
+    if (typeof window === 'undefined') return
+    window.localStorage.setItem('skooli-cookie-consent', status)
+  }
+
+  const handleAcceptAll = () => {
+    setAnalyticsCookies(true)
+    setCookieBannerVisible(false)
+    storeConsent('accepted')
+  }
+
+  const handleManagePreferences = () => {
+    setCookieBannerVisible(false)
+    storeConsent('customised')
+    const cookieSection = document.getElementById('cookies')
+    if (cookieSection) {
+      cookieSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 
   return (
     <div className="bg-[var(--brand-cream)]">
@@ -61,6 +114,40 @@ export default function LegalEthics() {
             </p>
           </div>
 
+          <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5" id="compliance">
+            <div className="flex items-center gap-3 text-[var(--brand-emerald)]">
+              <Download className="size-6" />
+              <h2 className="text-3xl font-semibold">Downloadable compliance packs</h2>
+            </div>
+            <p className="mt-4 text-sm text-slate-600">
+              Access ready-to-use documentation for regulators, donors, and chaplaincy partners. Each pack is refreshed bi-annually and includes editable templates plus audit trails.
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {compliancePacks.map((pack) => {
+                const encodedFile = `/downloads/${encodeURIComponent(pack.fileName)}`
+                return (
+                  <a
+                    key={pack.title}
+                    href={encodedFile}
+                    download={pack.fileName}
+                    className="group flex h-full flex-col justify-between rounded-3xl bg-[var(--brand-cream)]/80 p-5 text-left shadow transition hover:-translate-y-1 hover:bg-[var(--brand-emerald)]/90"
+                  >
+                    <div>
+                      <p className="text-sm font-semibold text-[var(--brand-emerald)] group-hover:text-white">{pack.title}</p>
+                      <p className="mt-3 text-xs text-slate-600 group-hover:text-white/90">{pack.description}</p>
+                    </div>
+                    <div className="mt-5 flex items-center justify-between text-xs font-semibold text-[var(--brand-emerald)] group-hover:text-white">
+                      <span>{pack.size}</span>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-white/40 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-[var(--brand-emerald)] group-hover:bg-[var(--brand-gold)] group-hover:text-[var(--brand-emerald)]">
+                        <Download className="size-3" /> PDF
+                      </span>
+                    </div>
+                  </a>
+                )
+              })}
+            </div>
+          </div>
+
           <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5" id="cookies">
             <h2 className="text-2xl font-semibold text-[var(--brand-emerald)]">Cookie preferences</h2>
             <p className="mt-2 text-sm text-slate-600">Control how we use cookies on our executive website.</p>
@@ -94,6 +181,31 @@ export default function LegalEthics() {
           </div>
         </div>
       </section>
+
+      {cookieBannerVisible && (
+        <div className="fixed bottom-6 left-1/2 z-40 w-[min(90%,32rem)] -translate-x-1/2 rounded-3xl bg-[var(--brand-emerald)]/95 p-6 text-white shadow-2xl shadow-black/30 ring-1 ring-white/20">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Cookies & stewardship</p>
+          <p className="mt-3 text-sm text-white/90">
+            We use essential cookies to run Skooli and analytics cookies to understand how leaders engage with our resources. Accept all or customise your preferences.
+          </p>
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button
+              type="button"
+              onClick={handleAcceptAll}
+              className="inline-flex flex-1 items-center justify-center rounded-full bg-[var(--brand-gold)] px-5 py-2 text-sm font-semibold text-[var(--brand-emerald)] shadow transition hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
+            >
+              Accept all cookies
+            </button>
+            <button
+              type="button"
+              onClick={handleManagePreferences}
+              className="inline-flex flex-1 items-center justify-center rounded-full border border-white/50 px-5 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              Manage preferences
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

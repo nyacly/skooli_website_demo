@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="pastoralTitle pastoralDesc">
+  <title id="pastoralTitle">Pastoral care support illustration</title>
+  <desc id="pastoralDesc">Soft-focus landscape with sunbeams shining over hills and a chapel representing pastoral support.</desc>
+  <defs>
+    <linearGradient id="dawnSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fef8ec" />
+      <stop offset="55%" stop-color="#b9e6d3" />
+      <stop offset="100%" stop-color="#5ca78d" />
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0.5" cy="0.2" r="0.6">
+      <stop offset="0%" stop-color="#ffe9a8" stop-opacity="0.95" />
+      <stop offset="65%" stop-color="#fdd377" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#efb15c" stop-opacity="0.2" />
+    </radialGradient>
+    <linearGradient id="hillGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c4d38" />
+      <stop offset="100%" stop-color="#127d5d" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#dawnSky)" />
+  <circle cx="800" cy="210" r="320" fill="url(#sunGlow)" />
+  <g opacity="0.6" fill="#ffffff">
+    <path d="M0 380c180-70 340-90 520-60s320 110 480 124 340-22 600-124v160H0z" opacity="0.25" />
+    <path d="M0 540c200-80 360-106 520-88s320 96 480 108 340-18 600-108v160H0z" opacity="0.2" />
+  </g>
+  <g fill="url(#hillGradient)">
+    <path d="M0 640c210-94 410-126 590-102s320 122 490 138 340-28 520-138v462H0z" opacity="0.88" />
+    <path d="M0 790c200-84 370-112 520-96s300 118 470 134 330-26 610-134v306H0z" opacity="0.75" />
+  </g>
+  <g transform="translate(720 520)">
+    <path d="M80 180h160v-220l-80-60-80 60z" fill="#f6e7b3" opacity="0.92" />
+    <path d="M140-14h40v374h-40z" fill="#c4963d" />
+    <path d="M20 180h280v60H20z" fill="#2b5f4b" opacity="0.8" />
+    <circle cx="160" cy="40" r="52" fill="#f5d781" opacity="0.9" />
+    <path d="M144 36h32v136h-32z" fill="#deac3c" opacity="0.85" />
+    <path d="M80 180l80-60 80 60z" fill="#f2b94f" opacity="0.7" />
+  </g>
+  <g fill="white" opacity="0.3">
+    <path d="M200 180l60 220 80-100 40 120 120-160 60 200 100-180 80 180 120-220 80 200 120-180 60 160 120-180 60 220" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.35" />
+  </g>
+</svg>

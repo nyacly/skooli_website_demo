@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Skooli leadership gradient background</title>
+  <desc id="desc">An emerald to gold gradient with soft overlays echoing silhouettes of collaborative leaders.</desc>
+  <defs>
+    <linearGradient id="emeraldGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022f26" />
+      <stop offset="50%" stop-color="#0a7a63" />
+      <stop offset="100%" stop-color="#f5c64c" />
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.35)" />
+      <stop offset="70%" stop-color="rgba(255,255,255,0.08)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#emeraldGold)" />
+  <ellipse cx="1180" cy="200" rx="520" ry="320" fill="url(#glow)" />
+  <g fill="rgba(255,255,255,0.14)">
+    <path d="M320,640c0,-120 92,-220 206,-220s206,100 206,220" opacity="0.85" />
+    <path d="M746,640c0,-140 108,-252 240,-252s240,112 240,252" opacity="0.6" />
+    <path d="M1120,640c0,-100 76,-180 168,-180s168,80 168,180" opacity="0.5" />
+  </g>
+  <g fill="rgba(10,58,48,0.45)">
+    <circle cx="460" cy="360" r="140" />
+    <circle cx="860" cy="300" r="180" />
+    <circle cx="1260" cy="420" r="160" />
+  </g>
+</svg>
