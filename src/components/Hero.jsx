@@ -2,19 +2,7 @@ import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button.jsx'
 
-const heroWebpSrcSet = [
-  '/assets/branding/skooli-classroom-hero-2000.webp 2000w',
-  '/assets/branding/skooli-classroom-hero-1200.webp 1200w',
-  '/assets/branding/skooli-classroom-hero-768.webp 768w',
-].join(', ')
-
-const heroJpgSrcSet = [
-  '/assets/branding/skooli-classroom-hero-2000.jpg 2000w',
-  '/assets/branding/skooli-classroom-hero-1200.jpg 1200w',
-  '/assets/branding/skooli-classroom-hero-768.jpg 768w',
-].join(', ')
-
-const heroPrimarySrc = '/assets/branding/skooli-classroom-hero-2000.jpg'
+const heroPrimarySrc = '/assets/branding/skooli_banner_image.jpg'
 
 const heroFallback = `data:image/svg+xml;utf8,${encodeURIComponent(
   `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'>
@@ -26,7 +14,7 @@ const heroFallback = `data:image/svg+xml;utf8,${encodeURIComponent(
       </defs>
       <rect width='1200' height='800' fill='url(#g)' />
       <text x='50%' y='50%' font-family='Inter, Arial, sans-serif' font-size='42' fill='#ffffff' text-anchor='middle'>
-        Upload skooli-classroom-hero images to public/assets/branding
+        Upload skooli_banner_image.jpg to public/assets/branding
       </text>
     </svg>`
 )}`
@@ -45,8 +33,6 @@ export default function Hero() {
     <section className="relative flex min-h-[85vh] items-center justify-start overflow-hidden" id="hero">
       <div className="absolute inset-0">
         <picture>
-          <source type="image/webp" srcSet={heroWebpSrcSet} sizes="100vw" />
-          <source type="image/jpeg" srcSet={heroJpgSrcSet} sizes="100vw" />
           <img
             src={heroPrimarySrc}
             alt="Students learning with a Skooli teacher in a bright classroom"
