@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, Heart, Send } from 'lucide-react'
+import leadershipGradient from '@/assets/leadership-gradient.svg'
+import leadershipPortrait from '@/assets/leadership-portrait.svg'
 
 const footerSections = {
   company: [
@@ -30,8 +32,20 @@ const footerSections = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--brand-emerald)] text-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <footer className="relative overflow-hidden text-white">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `linear-gradient(120deg, rgba(2,47,38,0.96), rgba(0,152,119,0.9)), url(${leadershipPortrait})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+      <div
+        className="absolute inset-0 opacity-55"
+        style={{ backgroundImage: `url(${leadershipGradient})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      />
+      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-6">
             <div>
@@ -172,7 +186,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-white/10 pt-6">
+        <div className="mt-12 border-t border-white/20 pt-6">
           <div className="flex flex-col gap-4 text-sm text-white/70 md:flex-row md:items-center md:justify-between">
             <p>© {new Date().getFullYear()} Skooli Technologies Group Ltd. All rights reserved.</p>
             <div className="flex items-center gap-2">

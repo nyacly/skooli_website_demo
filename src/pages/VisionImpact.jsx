@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { Compass, Globe2, Users2, HeartHandshake, Quote, ArrowLeft, ArrowRight } from 'lucide-react'
 
 const pillars = [
@@ -24,6 +24,25 @@ const districts = [
   { id: 'mbale', name: 'Mbale', cx: 260, cy: 140, radius: 19, schools: 15 },
   { id: 'mbarara', name: 'Mbarara', cx: 120, cy: 190, radius: 21, schools: 22 },
 ]
+
+const MAP = { width: 320, height: 240, tooltipWidth: 150, tooltipHeight: 68, margin: 12 }
+const numberFormatter = new Intl.NumberFormat('en-GB')
+
+const mapDistricts = districts.map((district) => {
+  const students = district.schools * 480
+  const tooltipBaseX = district.cx + district.radius + 10
+  const tooltipBaseY = district.cy - MAP.tooltipHeight / 2
+  const tooltipX = Math.min(Math.max(tooltipBaseX, MAP.margin), MAP.width - MAP.tooltipWidth - MAP.margin)
+  const tooltipY = Math.min(Math.max(tooltipBaseY, MAP.margin), MAP.height - MAP.tooltipHeight - MAP.margin)
+
+  return {
+    ...district,
+    students,
+    tooltipX,
+    tooltipY,
+    studentLabel: numberFormatter.format(students),
+  }
+})
 
 const sdgTiles = [
   {
@@ -62,16 +81,11 @@ const stories = [
 ]
 
 export default function VisionImpact() {
-  const [activeDistrict, setActiveDistrict] = useState(districts[0])
+  const [activeDistrict, setActiveDistrict] = useState(mapDistricts[0])
   const [storyIndex, setStoryIndex] = useState(0)
 
   const nextStory = () => setStoryIndex((index) => (index + 1) % stories.length)
   const prevStory = () => setStoryIndex((index) => (index - 1 + stories.length) % stories.length)
-
-  const highlightedDistrict = useMemo(
-    () => districts.find((district) => district.id === activeDistrict.id) ?? districts[0],
-    [activeDistrict.id],
-  )
 
   return (
     <div className="bg-[var(--brand-cream)]">
@@ -87,7 +101,12 @@ export default function VisionImpact() {
               <h1 className="mt-6 text-4xl font-bold leading-tight">
                 “Every learner equipped. Every school empowered.”
               </h1>
-              <p className="mt-4 text-lg text-white/90">— CEO, Christian Foundations</p>
+              <p className="mt-4 text-lg text-white/90">— Christine Namaganda, Founder & CEO</p>
+              <p className="mt-6 text-base text-white/80">
+                We mobilise churches, district governments, and diaspora donors to deliver verified learning materials within
+                48 hours of each term starting. Our model keeps children in class, advances gender equity, and ensures local
+                suppliers prosper alongside the schools they serve.
+              </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-3">
                 {pillars.map((pillar) => (
                   <div key={pillar.title} className="rounded-2xl bg-white/10 p-4">
@@ -105,7 +124,9 @@ export default function VisionImpact() {
                 Skooli envisions an Africa where access to education supplies is never a barrier to learning or dignity.
               </p>
               <p className="mt-4 text-sm text-slate-600">
-                We combine data, logistics, and ministry partnerships to strengthen education ecosystems—one on-time delivery at a time.
+                Each delivery cycle is mapped to the UN Sustainable Development Goals: we uplift quality education (SDG 4),
+                dignify livelihoods through decent work (SDG 8), and modernise rural logistics with ethical technology (SDG 9).
+                Transparent dashboards ensure every donor and ministry partner sees the progress their contributions unlock.
               </p>
             </div>
           </div>
@@ -124,14 +145,14 @@ export default function VisionImpact() {
               >
                 <title id="ugandaMapTitle">Uganda impact map with Skooli districts</title>
                 <rect x="0" y="0" width="320" height="240" fill="var(--brand-cream)" rx="32" />
-                {districts.map((district) => (
+                {mapDistricts.map((district) => (
                   <g key={district.id}>
                     <circle
                       cx={district.cx}
                       cy={district.cy}
                       r={district.radius}
-                      fill={district.id === highlightedDistrict.id ? 'var(--brand-gold)' : 'var(--brand-emerald)'}
-                      fillOpacity={district.id === highlightedDistrict.id ? 0.85 : 0.65}
+                      fill={district.id === activeDistrict.id ? 'var(--brand-gold)' : 'var(--brand-emerald)'}
+                      fillOpacity={district.id === activeDistrict.id ? 0.9 : 0.6}
                       className="cursor-pointer transition hover:fill-[var(--brand-gold)]"
                       onMouseEnter={() => setActiveDistrict(district)}
                       onFocus={() => setActiveDistrict(district)}
@@ -147,6 +168,23 @@ export default function VisionImpact() {
                     >
                       {district.name}
                     </text>
+                    <foreignObject
+                      x={district.tooltipX}
+                      y={district.tooltipY}
+                      width="150"
+                      height="68"
+                      pointerEvents="none"
+                    >
+                      <div className="flex h-full flex-col justify-center rounded-2xl bg-[var(--brand-emerald)]/90 px-3 py-2 text-white shadow-lg ring-1 ring-white/30">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">
+                          {district.name}
+                        </p>
+                        <p className="mt-1 text-xs font-semibold">
+                          {district.schools} partner schools
+                        </p>
+                        <p className="text-[11px] text-white/85">{district.studentLabel} students</p>
+                      </div>
+                    </foreignObject>
                   </g>
                 ))}
               </svg>
@@ -160,10 +198,10 @@ export default function VisionImpact() {
                 Hover over each cluster to explore how many schools and students are served.
               </p>
               <div className="rounded-2xl bg-white p-6 shadow-lg shadow-black/5">
-                <p className="text-sm font-semibold text-[var(--brand-emerald)]">{highlightedDistrict.name}</p>
+                <p className="text-sm font-semibold text-[var(--brand-emerald)]">{activeDistrict.name}</p>
                 <p className="mt-2 text-sm text-slate-600">
-                  <strong>{highlightedDistrict.schools}</strong> partner schools •
-                  <strong> {highlightedDistrict.schools * 480}</strong> students supported
+                  <strong>{activeDistrict.schools}</strong> partner schools •
+                  <strong> {activeDistrict.studentLabel}</strong> students supported
                 </p>
                 <p className="mt-3 text-xs uppercase tracking-[0.3em] text-[var(--brand-gold)]">Data refreshed weekly</p>
               </div>
@@ -176,6 +214,10 @@ export default function VisionImpact() {
         <div className="mx-auto max-w-6xl px-4">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">SDG alignment</p>
           <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Anchored to global goals</h2>
+          <p className="mt-3 text-sm text-slate-600">
+            Every cohort of learners we serve is linked to a Sustainable Development Goal target and tracked through quarterly
+            evidence reviews shared with boards, funders, and district leaders.
+          </p>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {sdgTiles.map(({ sdg, metric, icon }) => {
               const SdgIcon = icon
@@ -189,6 +231,9 @@ export default function VisionImpact() {
                     <p className="text-sm font-semibold uppercase tracking-[0.3em]">{sdg}</p>
                   </div>
                   <p className="mt-4 text-base text-slate-600 group-hover:text-white/90">{metric}</p>
+                  <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-gold)] group-hover:text-[var(--brand-gold)]/90">
+                    Independently verified twice yearly
+                  </p>
                 </div>
               )
             })}
