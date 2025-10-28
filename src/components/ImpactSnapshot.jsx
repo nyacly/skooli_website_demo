@@ -35,15 +35,36 @@ export default function ImpactSnapshot() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Impact snapshot</p>
+            <span className="inline-flex items-center rounded-full bg-white/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)] shadow-lg shadow-black/20 backdrop-blur">
+              Executive Dashboard Sync
+            </span>
+            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Impact snapshot</p>
             <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
               Real-time mission metrics from our executive dashboard
             </h2>
             <p className="mt-4 max-w-xl text-sm text-white/80">
               Figures sync hourly from our internal CMS—giving partners and investors visibility into performance and promises delivered.
             </p>
+            <div className="mt-6 flex flex-wrap items-center gap-4">
+              <a
+                href="/downloads/skooli-impact-report.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-[var(--brand-emerald)] shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[var(--brand-gold)] hover:text-[color-mix(in_srgb,#032823_80%,#ffffff_20%)]"
+              >
+                Download the executive impact briefing (PDF)
+              </a>
+              <a
+                href="/downloads/skooli-unit-economics.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-white hover:bg-white/10"
+              >
+                View unit economics supplement (PDF)
+              </a>
+            </div>
           </div>
-          <div className="rounded-2xl bg-white/10 p-6 backdrop-blur">
+          <div className="rounded-2xl border border-white/20 bg-white/10 p-6 shadow-lg shadow-black/10 backdrop-blur">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Updated</p>
             <p className="text-2xl font-semibold">29 Jan 2025 • 14:00 EAT</p>
           </div>
@@ -58,7 +79,7 @@ export default function ImpactSnapshot() {
             return (
               <div
                 key={label}
-                className="rounded-2xl bg-white/10 p-8 text-center shadow-lg shadow-black/10 backdrop-blur transition hover:bg-white/15"
+                className="rounded-2xl border border-white/15 bg-white/10 p-8 text-center shadow-lg shadow-black/15 backdrop-blur transition hover:bg-white/15"
               >
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">{label}</p>
                 <p className="mt-4 text-4xl font-bold">

@@ -1,24 +1,24 @@
 import { Link } from 'react-router-dom'
-import { UserRound, GraduationCap, Building2 } from 'lucide-react'
+import { ShieldCheck, ServerCog, BarChart3 } from 'lucide-react'
 
 const gateways = [
   {
-    title: 'Parent Portal',
-    description: 'Track orders, manage layaway plans, and unlock family discounts.',
-    icon: UserRound,
-    to: '/shop-now#parent-portal',
+    title: 'Enterprise Control Center',
+    description: 'Real-time governance dashboards, escalation workflows, and enterprise authentication baked in.',
+    icon: ShieldCheck,
+    to: '/enterprise#governance',
   },
   {
-    title: 'Student Account',
-    description: 'Cashless allowances, school store access, and delivery alerts.',
-    icon: GraduationCap,
-    to: '/shop-now#student-account',
+    title: 'Integration Hub',
+    description: 'Secure APIs for SIS, ERP, and treasury systems with data residency controls for each market.',
+    icon: ServerCog,
+    to: '/platform#integrations',
   },
   {
-    title: 'School Admin',
-    description: 'Consolidated procurement, analytics, and SLA oversight dashboards.',
-    icon: Building2,
-    to: '/schools#admin',
+    title: 'Partner Success Desk',
+    description: 'Dedicated facilitator enablement, compliance tooling, and multi-country SLA monitoring.',
+    icon: BarChart3,
+    to: '/support#partner-success',
   },
 ]
 
@@ -29,29 +29,48 @@ export default function QuickGateways() {
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Quick gateways</p>
-            <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)] sm:text-4xl">Purpose-built portals for each stakeholder</h2>
+            <h2 className="mt-4 text-3xl font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_88%,#032823_12%)] sm:text-4xl">
+              Enterprise-ready touchpoints for every operator
+            </h2>
           </div>
-          <p className="max-w-xl text-base text-slate-600">
-            Access the right experience instantly—parents, students, and administrators each get a tailored, secure entry point powered by Skooli.
+          <p className="max-w-xl text-base text-[color-mix(in_srgb,var(--brand-emerald)_35%,#05382c_65%)]">
+            Each tile is wired for enterprise security and reporting so procurement leaders, technology teams, and field facilitators land on the exact controls they need.
           </p>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {gateways.map(({ title, description, icon, to }) => {
             const IconComponent = icon
             return (
-            <Link
-              key={title}
-              to={to}
-              className="group flex h-[200px] w-full flex-col justify-between rounded-2xl border border-slate-100 bg-[var(--brand-cream)] p-6 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:border-[var(--brand-gold)]/60 hover:shadow-xl"
-            >
-              <div className="flex size-12 items-center justify-center rounded-2xl bg-white text-[var(--brand-emerald)] shadow-md shadow-black/5 transition group-hover:bg-[var(--brand-emerald)] group-hover:text-white">
-                <IconComponent className="size-6" aria-hidden="true" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-[var(--brand-emerald)]">{title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{description}</p>
-              </div>
-            </Link>
+              <Link
+                key={title}
+                to={to}
+                className="group flex h-[220px] w-full flex-col justify-between rounded-2xl border border-[color-mix(in_srgb,var(--brand-emerald)_25%,#ffffff)] bg-white p-6 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:border-[var(--brand-gold)]/70 hover:shadow-xl"
+              >
+                <div className="flex size-12 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--brand-emerald)_12%,#ffffff_88%)] text-[var(--brand-emerald)] shadow-md shadow-black/5 transition group-hover:bg-[var(--brand-emerald)] group-hover:text-white">
+                  <IconComponent className="size-6" aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-[var(--brand-emerald)]">{title}</h3>
+                  <p className="mt-2 text-sm text-[color-mix(in_srgb,var(--brand-emerald)_35%,#05382c_65%)]">{description}</p>
+                </div>
+                <span className="inline-flex items-center justify-start text-sm font-semibold text-[var(--brand-emerald)] transition group-hover:text-[var(--brand-gold)]">
+                  Explore
+                  <svg
+                    className="ml-2 size-4 transition group-hover:translate-x-1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </span>
+              </Link>
             )
           })}
         </div>

@@ -1,8 +1,8 @@
 export default function HeroStats() {
   const items = [
-    { value: '3', label: 'Pilot Schools' },
-    { value: '1,000+', label: 'Products' },
-    { value: 'Serving', label: 'Families Across Uganda' },
+    { value: '30%+', label: 'Parent adoption in first 60 days' },
+    { value: '95%', label: 'On-time service level delivery' },
+    { value: '4.8/5', label: 'Facilitator satisfaction from pilot surveys' },
   ]
   return (
     <section className="-mt-10 bg-transparent pb-6">
@@ -12,7 +12,9 @@ export default function HeroStats() {
             <div key={item.label} className="flex items-center justify-center rounded-xl p-4 text-center">
               <div>
                 <p className="text-2xl font-bold text-[var(--brand-emerald)] sm:text-3xl">{item.value}</p>
-                <p className="mt-1 text-sm font-medium text-slate-600">{item.label}</p>
+                <p className="mt-1 text-sm font-medium text-[color-mix(in_srgb,var(--brand-emerald)_25%,#05382c_75%)]">
+                  {item.label}
+                </p>
               </div>
             </div>
           ))}
