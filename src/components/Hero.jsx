@@ -74,7 +74,7 @@ export default function Hero() {
               className="rounded-md bg-[var(--brand-gold)] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
               asChild
             >
-              <Link to="/downloads/skooli-impact-report.pdf" target="_blank" rel="noreferrer noopener">
+              <Link to="/downloads/skooli-impact-report-2025.pdf" target="_blank" rel="noreferrer noopener">
                 Review the executive impact brief
               </Link>
             </Button>

@@ -1,0 +1,25 @@
+<svg width="640" height="360" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="circleGradient" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="0%" stop-color="#f5d48b" />
+      <stop offset="100%" stop-color="#0f4c3a" />
+    </radialGradient>
+  </defs>
+  <rect width="640" height="360" rx="28" fill="#0b2f24" />
+  <circle cx="320" cy="180" r="150" fill="url(#circleGradient)" opacity="0.85" />
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.4" stroke-width="3">
+    <circle cx="320" cy="180" r="110" />
+    <circle cx="320" cy="180" r="80" />
+  </g>
+  <g fill="#0b2f24">
+    <circle cx="320" cy="70" r="16" />
+    <circle cx="460" cy="140" r="16" />
+    <circle cx="460" cy="240" r="16" />
+    <circle cx="320" cy="290" r="16" />
+    <circle cx="180" cy="240" r="16" />
+    <circle cx="180" cy="140" r="16" />
+  </g>
+  <rect x="240" y="120" width="160" height="32" rx="12" fill="rgba(11,47,36,0.55)" />
+  <rect x="240" y="164" width="140" height="20" rx="10" fill="rgba(11,47,36,0.45)" />
+  <rect x="240" y="194" width="120" height="20" rx="10" fill="rgba(11,47,36,0.35)" />
+</svg>

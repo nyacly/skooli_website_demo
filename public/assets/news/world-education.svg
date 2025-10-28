@@ -1,0 +1,17 @@
+<svg width="640" height="360" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stageGradient" x1="0" x2="1" y1="1" y2="0">
+      <stop offset="0%" stop-color="#0b3529" />
+      <stop offset="100%" stop-color="#e7c870" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" rx="28" fill="url(#stageGradient)" />
+  <ellipse cx="320" cy="300" rx="240" ry="40" fill="rgba(0,0,0,0.25)" />
+  <rect x="160" y="80" width="320" height="160" rx="24" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.25)" />
+  <rect x="200" y="120" width="240" height="80" rx="18" fill="rgba(11,53,41,0.45)" />
+  <path d="M80 40 L120 40 L200 280 L160 280 Z" fill="rgba(255,255,255,0.18)" />
+  <path d="M560 40 L520 40 L440 280 L480 280 Z" fill="rgba(255,255,255,0.18)" />
+  <circle cx="320" cy="88" r="28" fill="#ffffff" opacity="0.6" />
+  <circle cx="240" cy="88" r="20" fill="#ffffff" opacity="0.35" />
+  <circle cx="400" cy="88" r="20" fill="#ffffff" opacity="0.35" />
+</svg>

@@ -47,7 +47,7 @@ export default function ImpactSnapshot() {
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4">
               <a
-                href="/downloads/skooli-impact-report.pdf"
+                href="/downloads/skooli-impact-report-2025.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-[var(--brand-emerald)] shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[var(--brand-gold)] hover:text-[color-mix(in_srgb,#032823_80%,#ffffff_20%)]"
@@ -55,7 +55,7 @@ export default function ImpactSnapshot() {
                 Download the executive impact briefing (PDF)
               </a>
               <a
-                href="/downloads/skooli-unit-economics.pdf"
+                href="/downloads/skooli-unit-economics-2025.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-white hover:bg-white/10"
