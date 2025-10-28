@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { ShieldCheck, Wallet, BarChart3, CalendarDays, Star, Quote } from 'lucide-react'
+import { ShieldCheck, Wallet, BarChart3, CalendarDays, Star, Quote, Activity, BadgeCheck, AlertTriangle } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
+import ComplianceKit from '@/components/ComplianceKit.jsx'
 
 const benefits = [
   {
@@ -24,6 +25,21 @@ const timeline = [
   { label: 'Signing', description: 'MOU + vendor onboarding workshop', weeks: 0 },
   { label: 'Onboarding (2 wks)', description: 'Portal setup, staff training, parent comms', weeks: 2 },
   { label: 'First Delivery (4 wks)', description: 'Pilot grade distribution + review session', weeks: 4 },
+]
+
+const riskCallouts = [
+  {
+    title: 'Supply continuity',
+    detail: 'Dual sourcing per category plus 30-day safety stock across Kampala and Gulu warehouses.',
+  },
+  {
+    title: 'Data governance',
+    detail: 'Role-based access, encryption at rest, and parent consent workflows reviewed quarterly.',
+  },
+  {
+    title: 'Financial integrity',
+    detail: 'Daily reconciliation of wallets with reversal protocols and bank-backed trust accounts.',
+  },
 ]
 
 const testimonials = [
@@ -56,6 +72,14 @@ export default function ForSchools() {
               <p className="mt-4 text-base text-slate-600">
                 Streamline procurement, enhance parent confidence, and receive analytics designed for school leadership.
               </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <div className="flex items-center gap-2 rounded-full bg-[var(--brand-emerald)]/10 px-4 py-2 text-sm font-semibold text-[var(--brand-emerald)]">
+                  <BadgeCheck className="size-4" aria-hidden="true" /> ≥30% parent adoption in first term
+                </div>
+                <div className="flex items-center gap-2 rounded-full bg-[var(--brand-gold)]/10 px-4 py-2 text-sm font-semibold text-[var(--brand-emerald)]">
+                  <Activity className="size-4" aria-hidden="true" /> ≥95% delivery SLA maintained
+                </div>
+              </div>
             </div>
             <div className="rounded-3xl bg-[var(--brand-emerald)] p-6 text-white shadow-lg shadow-black/10">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Bursar hotline</p>
@@ -115,6 +139,39 @@ export default function ForSchools() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Risk mitigation</p>
+              <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Controls that de-risk your procurement board</h2>
+              <p className="mt-3 text-sm text-slate-600">
+                Every partnership is underpinned by proactive risk ownership—from diversified suppliers to data privacy audits—so school governors stay confident in scale decisions.
+              </p>
+              <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                {riskCallouts.map((item) => (
+                  <div key={item.title} className="rounded-3xl bg-white p-4 shadow-lg shadow-black/5">
+                    <AlertTriangle className="size-5 text-[var(--brand-gold)]" aria-hidden="true" />
+                    <h3 className="mt-3 text-sm font-semibold text-[var(--brand-emerald)]">{item.title}</h3>
+                    <p className="mt-2 text-xs text-slate-600">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="space-y-6">
+              <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
+                <RiskMitigationMatrix />
+              </div>
+              <ComplianceKit
+                className="bg-[var(--brand-cream)]"
+                title="Compliance guardrails"
+                blurb="Rapid access to reviewed templates that satisfy procurement committees and safeguarding boards."
+              />
             </div>
           </div>
         </div>
@@ -199,5 +256,95 @@ function PortalLoop() {
         </div>
       ))}
     </div>
+  )
+}
+
+function RiskMitigationMatrix() {
+  return (
+    <svg
+      viewBox="0 0 320 220"
+      className="h-full w-full"
+      role="img"
+      aria-labelledby="riskMatrixTitle riskMatrixDesc"
+    >
+      <title id="riskMatrixTitle">Risk mitigation matrix</title>
+      <desc id="riskMatrixDesc">Matrix plotting likelihood versus impact with highlighted mitigation tactics.</desc>
+      <rect x="0" y="0" width="320" height="220" rx="24" fill="var(--brand-cream)" />
+      <g transform="translate(48 36)">
+        <text x="-24" y="60" transform="rotate(-90 -24 60)" fill="var(--brand-emerald)" fontSize="12" fontWeight="600">
+          Impact
+        </text>
+        <text x="72" y="152" fill="var(--brand-emerald)" fontSize="12" fontWeight="600">
+          Likelihood
+        </text>
+        <rect x="0" y="0" width="200" height="140" fill="white" stroke="var(--brand-emerald)" strokeWidth="1" />
+        {[0, 1, 2].map((index) => (
+          <line
+            key={`h-${index}`}
+            x1="0"
+            y1={(index + 1) * 35}
+            x2="200"
+            y2={(index + 1) * 35}
+            stroke="var(--brand-emerald)"
+            strokeOpacity="0.15"
+          />
+        ))}
+        {[0, 1, 2].map((index) => (
+          <line
+            key={`v-${index}`}
+            x1={(index + 1) * 50}
+            y1="0"
+            x2={(index + 1) * 140}
+            y2="140"
+            stroke="var(--brand-emerald)"
+            strokeOpacity="0.15"
+          />
+        ))}
+        <g>
+          <rect x="24" y="92" width="56" height="32" rx="8" fill="var(--brand-gold)" fillOpacity="0.2" />
+          <text x="28" y="112" fill="var(--brand-emerald)" fontSize="10" fontWeight="600">
+            Late deliveries
+          </text>
+          <text x="28" y="124" fill="var(--brand-emerald)" fontSize="9">
+            Backup fleet & alerts
+          </text>
+        </g>
+        <g>
+          <rect x="96" y="48" width="72" height="32" rx="8" fill="var(--brand-emerald)" fillOpacity="0.2" />
+          <text x="102" y="66" fill="var(--brand-emerald)" fontSize="10" fontWeight="600">
+            Data breach
+          </text>
+          <text x="102" y="78" fill="var(--brand-emerald)" fontSize="9">
+            ISO27001 controls
+          </text>
+        </g>
+        <g>
+          <rect x="136" y="16" width="48" height="32" rx="8" fill="var(--brand-gold)" fillOpacity="0.25" />
+          <text x="140" y="36" fill="var(--brand-emerald)" fontSize="10" fontWeight="600">
+            Fraud
+          </text>
+          <text x="140" y="48" fill="var(--brand-emerald)" fontSize="9">
+            Daily reconciliations
+          </text>
+        </g>
+      </g>
+      <g transform="translate(220 48)">
+        <text x="0" y="0" fill="var(--brand-emerald)" fontSize="12" fontWeight="700">
+          Mitigation levers
+        </text>
+        <text x="0" y="18" fill="var(--brand-emerald)" fontSize="10">
+          • Supplier scorecards monthly
+        </text>
+        <text x="0" y="34" fill="var(--brand-emerald)" fontSize="10">
+          • Encryption & access reviews
+        </text>
+        <text x="0" y="50" fill="var(--brand-emerald)" fontSize="10">
+          • Independent finance audits
+        </text>
+        <text x="0" y="66" fill="var(--brand-emerald)" fontSize="10">
+          • Incident drills each term
+        </text>
+      </g>
+    </svg>
   )
 }

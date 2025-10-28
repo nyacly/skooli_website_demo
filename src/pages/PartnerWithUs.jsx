@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Building, Landmark, Handshake, Church, BarChart3, PieChart, LineChart, ClipboardCheck, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
+import ComplianceKit from '@/components/ComplianceKit.jsx'
 
 const segments = {
   ngos: {
@@ -67,6 +68,39 @@ const sharedBenefits = [
     icon: ClipboardCheck,
     title: 'Compliance-ready',
     description: 'Aligned to Ugandan PPDA guidelines, donor requirements, and safeguarding protocols.',
+  },
+]
+
+const stakeholderGrid = [
+  {
+    title: 'Administration',
+    benefit: 'Single control tower for procurement, finance, and safeguarding audit trails.',
+    collateral: { label: 'Leadership launch brief', href: '/templates/mou-template.pdf', download: true },
+  },
+  {
+    title: 'Parents',
+    benefit: 'Flexible payment options with multilingual communications and hotline support.',
+    collateral: { label: 'Parent communication pack', href: '/templates/parent-communication-pack.pdf', download: true },
+  },
+  {
+    title: 'Students',
+    benefit: 'Bundled wellness support, inclusive sizing, and dignity-first distribution.',
+    collateral: { label: 'Student onboarding guide', href: '/templates/student-onboarding-guide.pdf', download: true },
+  },
+  {
+    title: 'Government',
+    benefit: 'Policy-aligned procurement with API access for ministry oversight and PPDA compliance.',
+    collateral: { label: 'Data sharing template', href: '/templates/data-sharing-template.pdf', download: true },
+  },
+  {
+    title: 'Suppliers',
+    benefit: 'Guaranteed demand forecasts, quality audits, and digitised payments.',
+    collateral: { label: 'Supplier service agreement', href: '/templates/supplier-service-agreement.pdf', download: true },
+  },
+  {
+    title: 'Faith leaders',
+    benefit: 'Story-driven mobilisation kits with safeguarding guidelines and transparent reporting.',
+    collateral: { label: 'Faith leader briefing', href: '/templates/faith-leader-brief.pdf', download: true },
   },
 ]
 
@@ -188,6 +222,40 @@ export default function PartnerWithUs() {
                 </div>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Stakeholder alignment</p>
+              <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Value narratives tailored to every decision maker</h2>
+              <p className="mt-3 text-sm text-slate-600">
+                Ensure every stakeholder group understands the programme promise and has ready-to-share collateral for swift
+                internal approvals.
+              </p>
+              <div className="mt-8 grid gap-4 md:grid-cols-2">
+                {stakeholderGrid.map((stakeholder) => (
+                  <div key={stakeholder.title} className="flex flex-col justify-between rounded-3xl bg-white p-5 shadow-lg shadow-black/5">
+                    <div>
+                      <p className="text-sm font-semibold text-[var(--brand-emerald)]">{stakeholder.title}</p>
+                      <p className="mt-2 text-xs text-slate-600">{stakeholder.benefit}</p>
+                    </div>
+                    <a
+                      href={stakeholder.collateral.href}
+                      className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-[var(--brand-gold)] hover:text-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
+                      download={stakeholder.collateral.download}
+                    >
+                      {stakeholder.collateral.label}
+                      <ExternalLink className="size-3" aria-hidden="true" />
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <ComplianceKit title="Legal & compliance hub" blurb="MoU, privacy, and supplier templates pre-vetted for procurement teams and donors." />
           </div>
         </div>
       </section>
