@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import { ArrowLeft, ArrowRight, Sparkles, Route, Play } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Sparkles, Route, Play, CalendarCheck } from 'lucide-react'
+import { Button } from '@/components/ui/button.jsx'
+import ComplianceKit from '@/components/ComplianceKit.jsx'
 
 const carouselSlides = [
   {
@@ -50,6 +52,49 @@ const bundles = [
       'Mindfulness audio access',
       'Nutrition boosters & hydration',
     ],
+  },
+]
+
+const pilotPlaybook = [
+  {
+    week: 'Week 1',
+    title: 'Alignment & approvals',
+    highlights: ['Kick-off workshop with school & Skooli leads', 'MoU signatures and safeguarding policy review'],
+  },
+  {
+    week: 'Week 2',
+    title: 'Data foundations',
+    highlights: ['Upload student roster & class mapping', 'Confirm data sharing protocol with IT focal persons'],
+  },
+  {
+    week: 'Week 3',
+    title: 'Parent mobilisation',
+    highlights: ['Community agent training & scripts', 'Send launch SMS and letterpack to parents'],
+  },
+  {
+    week: 'Week 4',
+    title: 'Portal activation',
+    highlights: ['Enable bursar dashboards & finance integrations', 'Pilot parent onboarding clinics across campuses'],
+  },
+  {
+    week: 'Week 5',
+    title: 'Fulfilment rehearsal',
+    highlights: ['Dry-run delivery with sample kits', 'Incident response drill for lost or damaged items'],
+  },
+  {
+    week: 'Week 6',
+    title: 'Pilot distribution',
+    highlights: ['Distribute to pioneer grade & capture feedback', 'Daily debrief with administration and agents'],
+  },
+  {
+    week: 'Week 7',
+    title: 'Iteration window',
+    highlights: ['Optimise catalogue based on uptake data', 'Refine communication cadence & escalation matrix'],
+  },
+  {
+    week: 'Week 8',
+    title: 'Scale decision',
+    highlights: ['Leadership review on KPIs & ROI', 'Commit next cohort timeline and SLA refinements'],
   },
 ]
 
@@ -250,6 +295,59 @@ export default function HowItWorks() {
 
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4">
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-start">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Pilot launch playbook</p>
+              <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Eight-week glide path to operational readiness</h2>
+              <p className="mt-3 text-sm text-slate-600">
+                Follow a structured onboarding cadence that keeps administrators, parents, and suppliers aligned from the first
+                workshop to full-scale distribution.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Button
+                  asChild
+                  className="rounded-full bg-[var(--brand-emerald)] px-5 py-2 text-white hover:bg-[color-mix(in_srgb,var(--brand-emerald)_85%,#000_15%)]"
+                >
+                  <a href="/templates/mou-template.pdf" download>
+                    Download MoU template
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="rounded-full border-[var(--brand-emerald)]/40 bg-white px-5 py-2 text-[var(--brand-emerald)] hover:border-[var(--brand-emerald)]"
+                >
+                  <a href="/templates/data-sharing-template.pdf" download>
+                    Download data sharing template
+                  </a>
+                </Button>
+              </div>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {pilotPlaybook.map((phase) => (
+                  <div key={phase.week} className="rounded-3xl bg-white p-5 shadow-lg shadow-black/5">
+                    <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--brand-emerald)]">
+                      <CalendarCheck className="size-4" aria-hidden="true" />
+                      {phase.week}
+                    </div>
+                    <h3 className="mt-3 text-lg font-semibold text-[var(--brand-emerald)]">{phase.title}</h3>
+                    <ul className="mt-3 space-y-2 text-sm text-slate-600">
+                      {phase.highlights.map((highlight) => (
+                        <li key={highlight}>• {highlight}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
+              <OperationalReadinessChecklist />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="mx-auto max-w-6xl px-4">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">School cycle bundles</p>
           <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Packages tuned to the academic calendar</h2>
           <p className="mt-2 max-w-2xl text-sm text-slate-600">
@@ -308,6 +406,12 @@ export default function HowItWorks() {
           </div>
         </div>
       </section>
+
+      <section className="bg-[var(--brand-cream)] pb-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <ComplianceKit className="border border-white/40" />
+        </div>
+      </section>
     </div>
   )
 }
@@ -343,5 +447,71 @@ function AnimatedRouteMap() {
       <text x="130" y="70" fill="var(--brand-emerald)" fontSize="11">Dynamic rerouting</text>
       <text x="200" y="190" fill="var(--brand-emerald)" fontSize="11">Cold-chain ready</text>
     </svg>
+  )
+}
+
+function OperationalReadinessChecklist() {
+  return (
+    <svg
+      viewBox="0 0 360 360"
+      className="h-full w-full"
+      role="img"
+      aria-labelledby="readinessTitle readinessDesc"
+    >
+      <title id="readinessTitle">Operational readiness checklist</title>
+      <desc id="readinessDesc">Infographic highlighting people, process, and technology tasks required for launch.</desc>
+      <defs>
+        <linearGradient id="readinessGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="var(--brand-emerald)" stopOpacity="0.1" />
+          <stop offset="100%" stopColor="var(--brand-gold)" stopOpacity="0.2" />
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="360" height="360" rx="32" fill="url(#readinessGradient)" />
+      <text x="32" y="56" fill="var(--brand-emerald)" fontSize="20" fontWeight="700">
+        Operational Readiness Checklist
+      </text>
+      <g transform="translate(32 92)">
+        <ChecklistRow index="01" title="People" detail="Assign school focal persons, agent leads, and escalation owners." y={0} />
+        <ChecklistRow index="02" title="Process" detail="Approve delivery timetable, cashless policy, and feedback cadence." y={88} />
+        <ChecklistRow index="03" title="Technology" detail="Activate portal access, USSD code, and SMS alert integrations." y={176} />
+        <ChecklistRow index="04" title="Safeguarding" detail="Confirm consent forms, privacy notices, and incident reporting." y={264} />
+      </g>
+      <g transform="translate(220 84)">
+        <circle cx="60" cy="60" r="58" fill="white" stroke="var(--brand-emerald)" strokeWidth="2" />
+        <path
+          d="M60 24 A36 36 0 1 1 59.9 24"
+          fill="none"
+          stroke="var(--brand-gold)"
+          strokeWidth="6"
+          strokeLinecap="round"
+        />
+        <path d="M44 60 L56 72 L80 48" fill="none" stroke="var(--brand-emerald)" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+        <text x="20" y="140" fill="var(--brand-emerald)" fontSize="12" fontWeight="600">
+          72-Point QA script ready
+        </text>
+        <text x="20" y="160" fill="var(--brand-emerald)" fontSize="12" fontWeight="600">
+          3 go-live rehearsals booked
+        </text>
+      </g>
+    </svg>
+  )
+}
+
+function ChecklistRow({ index, title, detail, y }) {
+  return (
+    <g transform={`translate(0 ${y})`}>
+      <rect x="0" y="0" width="180" height="72" rx="18" fill="white" stroke="var(--brand-emerald)" strokeWidth="1" />
+      <text x="16" y="28" fill="var(--brand-gold)" fontSize="18" fontWeight="700">
+        {index}
+      </text>
+      <text x="16" y="48" fill="var(--brand-emerald)" fontSize="16" fontWeight="700">
+        {title}
+      </text>
+      <foreignObject x="16" y="52" width="148" height="48">
+        <div xmlns="http://www.w3.org/1999/xhtml" className="text-[11px] leading-snug text-slate-600">
+          {detail}
+        </div>
+      </foreignObject>
+    </g>
   )
 }
