@@ -30,7 +30,7 @@ const footerSections = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0F4C81] text-white">
+    <footer className="bg-[var(--brand-emerald)] text-white">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-6">
@@ -43,7 +43,7 @@ export default function Footer() {
             </div>
             <div className="space-y-4 text-sm text-white/80">
               <div className="flex items-start gap-3">
-                <MapPin className="mt-0.5 size-5 text-[#F05A28]" />
+                <MapPin className="mt-0.5 size-5 text-[var(--brand-gold)]" />
                 <div>
                   <p className="font-semibold">Uganda HQ</p>
                   <p>Plot 12, Hassim Road, Buziga</p>
@@ -51,7 +51,7 @@ export default function Footer() {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="mt-0.5 size-5 text-[#F05A28]" />
+                <MapPin className="mt-0.5 size-5 text-[var(--brand-gold)]" />
                 <div>
                   <p className="font-semibold">UK Office</p>
                   <p>128 City Road</p>
@@ -59,13 +59,13 @@ export default function Footer() {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="size-5 text-[#F05A28]" />
+                <Mail className="size-5 text-[var(--brand-gold)]" />
                 <a className="hover:text-white" href="mailto:hello@skooli.africa">
                   hello@skooli.africa
                 </a>
               </div>
               <div className="flex items-center gap-3">
-                <Phone className="size-5 text-[#F05A28]" />
+                <Phone className="size-5 text-[var(--brand-gold)]" />
                 <a className="hover:text-white" href="tel:+256414000000">
                   +256 414 000 000
                 </a>
@@ -73,7 +73,7 @@ export default function Footer() {
             </div>
             <div className="flex gap-3">
               <a
-                className="flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-[#F05A28]"
+                className="flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-[var(--brand-gold)]"
                 href="https://www.linkedin.com/company/skooli"
                 target="_blank"
                 rel="noreferrer"
@@ -82,7 +82,7 @@ export default function Footer() {
                 <Linkedin className="size-5" />
               </a>
               <a
-                className="flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-[#F05A28]"
+                className="flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-[var(--brand-gold)]"
                 href="https://twitter.com/skooli_africa"
                 target="_blank"
                 rel="noreferrer"
@@ -91,7 +91,7 @@ export default function Footer() {
                 <Twitter className="size-5" />
               </a>
               <a
-                className="flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-[#F05A28]"
+                className="flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-[var(--brand-gold)]"
                 href="https://www.youtube.com/@skooli"
                 target="_blank"
                 rel="noreferrer"
@@ -155,7 +155,7 @@ export default function Footer() {
                 }}
               >
                 <input
-                  className="h-10 flex-1 rounded-full border border-white/30 bg-white/20 px-3 text-sm text-white placeholder:text-white/70 focus:border-[#F05A28] focus:outline-none"
+                  className="h-10 flex-1 rounded-full border border-white/30 bg-white/20 px-3 text-sm text-white placeholder:text-white/70 focus:border-[var(--brand-gold)] focus:outline-none"
                   type="email"
                   name="email"
                   aria-label="Email for newsletter"
@@ -164,7 +164,7 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  className="flex h-10 items-center justify-center rounded-full bg-[#F05A28] px-3 text-sm font-semibold text-white shadow hover:bg-[#e14a1e]"
+                  className="flex h-10 items-center justify-center rounded-full bg-[var(--brand-gold)] px-3 text-sm font-semibold text-white shadow hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
                 >
                   <Send className="size-4" />
                 </button>
@@ -177,7 +177,7 @@ export default function Footer() {
             <p>© {new Date().getFullYear()} Skooli Technologies Group Ltd. All rights reserved.</p>
             <div className="flex items-center gap-2">
               <span>Made with</span>
-              <Heart className="size-4 text-[#F05A28]" />
+              <Heart className="size-4 text-[var(--brand-gold)]" />
               <span>for African education</span>
             </div>
           </div>

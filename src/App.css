@@ -42,72 +42,77 @@
 }
 
 :root {
+  --brand-emerald: #009877;
+  --brand-gold: #FFD700;
+  --brand-cream: #FCE6AE;
+  --brand-white: #FFFFFF;
+
   --radius: 1rem; /* 16px for cards, 8px for buttons */
-  --background: #F7F5EF; /* Neutral cream background */
-  --foreground: #0F4C81; /* Primary color for text */
-  --card: #FFFFFF; /* White for cards */
-  --card-foreground: #0F4C81;
-  --popover: #FFFFFF;
-  --popover-foreground: #0F4C81;
-  --primary: #0F4C81; /* Primary color - deep academic green-teal */
-  --primary-foreground: #FFFFFF;
-  --secondary: #F7F5EF;
-  --secondary-foreground: #0F4C81;
-  --muted: #F7F5EF;
-  --muted-foreground: #6B7280;
-  --accent: #F05A28; /* Accent/CTA color - warm orange */
-  --accent-foreground: #FFFFFF;
-  --destructive: #EF4444;
-  --border: #E5E7EB;
-  --input: #F9FAFB;
-  --ring: #0F4C81;
-  --chart-1: #0F4C81;
-  --chart-2: #F05A28;
-  --chart-3: #10B981;
-  --chart-4: #8B5CF6;
-  --chart-5: #F59E0B;
-  --sidebar: #FFFFFF;
-  --sidebar-foreground: #0F4C81;
-  --sidebar-primary: #0F4C81;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #F05A28;
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #E5E7EB;
-  --sidebar-ring: #0F4C81;
+  --background: var(--brand-cream); /* Warm Skooli cream */
+  --foreground: var(--brand-emerald); /* Emerald for headings and key text */
+  --card: var(--brand-white);
+  --card-foreground: var(--brand-emerald);
+  --popover: var(--brand-white);
+  --popover-foreground: var(--brand-emerald);
+  --primary: var(--brand-emerald);
+  --primary-foreground: var(--brand-white);
+  --secondary: var(--brand-cream);
+  --secondary-foreground: var(--brand-emerald);
+  --muted: color-mix(in srgb, var(--brand-cream) 70%, var(--brand-white));
+  --muted-foreground: #26594c;
+  --accent: var(--brand-gold);
+  --accent-foreground: var(--brand-emerald);
+  --destructive: #c2410c;
+  --border: color-mix(in srgb, var(--brand-emerald) 15%, var(--brand-white));
+  --input: color-mix(in srgb, var(--brand-cream) 80%, var(--brand-white));
+  --ring: color-mix(in srgb, var(--brand-emerald) 65%, #05382c);
+  --chart-1: var(--brand-emerald);
+  --chart-2: var(--brand-gold);
+  --chart-3: #7fd1b9;
+  --chart-4: #f6ab3f;
+  --chart-5: #7b4c00;
+  --sidebar: var(--brand-white);
+  --sidebar-foreground: var(--brand-emerald);
+  --sidebar-primary: var(--brand-emerald);
+  --sidebar-primary-foreground: var(--brand-white);
+  --sidebar-accent: var(--brand-gold);
+  --sidebar-accent-foreground: var(--brand-emerald);
+  --sidebar-border: color-mix(in srgb, var(--brand-emerald) 20%, var(--brand-white));
+  --sidebar-ring: color-mix(in srgb, var(--brand-emerald) 65%, #05382c);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #021d18;
+  --foreground: #e3fff9;
+  --card: #032823;
+  --card-foreground: #e3fff9;
+  --popover: #032823;
+  --popover-foreground: #e3fff9;
+  --primary: var(--brand-gold);
+  --primary-foreground: #032823;
+  --secondary: #094236;
+  --secondary-foreground: #e3fff9;
+  --muted: #094236;
+  --muted-foreground: #7fd1b9;
+  --accent: var(--brand-gold);
+  --accent-foreground: #032823;
+  --destructive: #f97316;
+  --border: rgba(255, 215, 0, 0.15);
+  --input: rgba(255, 215, 0, 0.2);
+  --ring: rgba(0, 152, 119, 0.6);
+  --chart-1: #7fd1b9;
+  --chart-2: var(--brand-gold);
+  --chart-3: #ffd55c;
+  --chart-4: #5ad1b0;
+  --chart-5: #ffeaae;
+  --sidebar: #032823;
+  --sidebar-foreground: #e3fff9;
+  --sidebar-primary: var(--brand-gold);
+  --sidebar-primary-foreground: #032823;
+  --sidebar-accent: #0b5f4d;
+  --sidebar-accent-foreground: #e3fff9;
+  --sidebar-border: rgba(255, 215, 0, 0.12);
+  --sidebar-ring: rgba(0, 152, 119, 0.6);
 }
 
 @layer base {
@@ -127,17 +132,33 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
 }
 
+/* Tone of voice guide ------------------------------------------------------
+   Skooli copy should sound hopeful, dignifying, and pragmatic. Lead with
+   evidence-backed impact, avoid hype, and always center the families and
+   educators we serve. Keep sentences warm and invitational, balancing
+   confident verbs with people-first nouns. */
+
 /* Button radius overrides */
 .btn-primary {
-  @apply bg-[#0F4C81] text-white rounded-md shadow hover:shadow-lg transition-shadow;
+  @apply text-white rounded-md shadow hover:shadow-lg transition-shadow;
+  background-color: var(--brand-emerald);
 }
 
 .btn-accent {
-  @apply bg-[#F05A28] text-white rounded-md shadow hover:shadow-lg transition-shadow;
+  @apply rounded-md shadow hover:shadow-lg transition-shadow;
+  background-color: var(--brand-gold);
+  color: var(--brand-emerald);
 }
 
 .btn-secondary {
-  @apply border-2 border-[#0F4C81] text-[#0F4C81] bg-transparent rounded-md hover:bg-[#0F4C81] hover:text-white transition-all;
+  @apply border-2 bg-transparent rounded-md transition-all;
+  border-color: var(--brand-emerald);
+  color: var(--brand-emerald);
+}
+
+.btn-secondary:hover {
+  background-color: var(--brand-emerald);
+  color: var(--brand-white);
 }
 
 /* Card styles */
@@ -147,7 +168,7 @@ body {
 
 /* Hero overlay */
 .hero-overlay {
-  background: linear-gradient(135deg, rgba(15, 76, 129, 0.3) 0%, rgba(15, 76, 129, 0.4) 100%);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--brand-emerald) 30%, transparent) 0%, color-mix(in srgb, var(--brand-emerald) 40%, transparent) 100%);
 }
 
 /* Animation utilities */
@@ -157,11 +178,11 @@ body {
 
 /* Icon styles */
 .icon-primary {
-  @apply text-[#0F4C81];
+  color: var(--brand-emerald);
 }
 
 .icon-accent {
-  @apply text-[#F05A28];
+  color: var(--brand-gold);
 }
 
 /* Responsive grid */
@@ -171,11 +192,13 @@ body {
 
 /* Typography */
 .heading-primary {
-  @apply text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F4C81] leading-tight;
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  color: var(--brand-emerald);
 }
 
 .heading-secondary {
-  @apply text-2xl md:text-3xl lg:text-4xl font-semibold text-[#0F4C81];
+  @apply text-2xl md:text-3xl lg:text-4xl font-semibold;
+  color: var(--brand-emerald);
 }
 
 .text-body {
@@ -184,10 +207,49 @@ body {
 
 /* Navigation */
 .nav-link {
-  @apply text-[#0F4C81] hover:text-[#F05A28] transition-colors font-medium;
+  @apply transition-colors font-medium;
+  color: var(--brand-emerald);
+}
+
+.nav-link:hover {
+  color: var(--brand-gold);
 }
 
 .nav-cta {
-  @apply bg-[#F05A28] text-white px-4 py-2 rounded-md hover:bg-[#E04A1F] transition-colors font-medium;
+  @apply px-4 py-2 rounded-md transition-colors font-medium;
+  background-color: var(--brand-gold);
+  color: var(--brand-emerald);
+}
+
+.nav-cta:hover {
+  background-color: color-mix(in srgb, var(--brand-gold) 80%, #000 20%);
+}
+
+.text-brand-emerald {
+  color: var(--brand-emerald);
+}
+
+.text-brand-gold {
+  color: var(--brand-gold);
+}
+
+.bg-brand-emerald {
+  background-color: var(--brand-emerald);
+}
+
+.bg-brand-gold {
+  background-color: var(--brand-gold);
+}
+
+.bg-brand-cream {
+  background-color: var(--brand-cream);
+}
+
+.border-brand-emerald {
+  border-color: var(--brand-emerald);
+}
+
+.border-brand-gold {
+  border-color: var(--brand-gold);
 }
 

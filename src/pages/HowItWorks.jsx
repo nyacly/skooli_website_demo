@@ -6,17 +6,17 @@ const carouselSlides = [
   {
     title: 'Classroom-ready kits',
     description: 'Filter by school, grade, and price to see approved packs and add optional extras.',
-    color: 'from-[#F0F7FF] to-white',
+    color: 'from-[color-mix(in_srgb,var(--brand-emerald)_18%,white)] to-white',
   },
   {
     title: 'Local supplier marketplace',
     description: 'Verified Ugandan SMEs showcase stationery, uniforms, and health products.',
-    color: 'from-[#FFF1E8] to-white',
+    color: 'from-[color-mix(in_srgb,var(--brand-gold)_22%,white)] to-white',
   },
   {
     title: 'Real-time availability',
     description: 'Live stock updates synced with our warehousing system to avoid disappointments.',
-    color: 'from-[#F3F7EC] to-white',
+    color: 'from-[color-mix(in_srgb,var(--brand-cream)_70%,white)] to-white',
   },
 ]
 
@@ -109,8 +109,8 @@ export default function HowItWorks() {
   }, [emblaApi])
 
   return (
-    <div className="bg-[#F7F5EF]">
-      <section className="relative overflow-hidden bg-[#0F4C81] py-20 text-white">
+    <div className="bg-[var(--brand-cream)]">
+      <section className="relative overflow-hidden bg-[var(--brand-emerald)] py-20 text-white">
         <div className="absolute inset-0 opacity-20" aria-hidden="true">
           <svg className="h-full w-full" viewBox="0 0 400 200" preserveAspectRatio="none">
             <path d="M0 120 C80 80, 160 160, 240 110 S360 90, 400 140" stroke="white" strokeWidth="4" fill="none" strokeDasharray="12 12" />
@@ -129,7 +129,7 @@ export default function HowItWorks() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl font-semibold text-[#0F4C81]">Step 1 — Parents shop online</h2>
+              <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">Step 1 — Parents shop online</h2>
               <p className="text-base text-slate-600">
                 Parents log in through the Parent Portal or USSD to browse curated bundles. The catalogue adapts to each school’s approved suppliers with real-time stock visibility.
               </p>
@@ -143,9 +143,9 @@ export default function HowItWorks() {
                         aria-hidden={activeSlide !== index}
                       >
                         <div className={`h-full rounded-2xl bg-gradient-to-br ${slide.color} p-8 text-left`}> 
-                          <h3 className="text-xl font-semibold text-[#0F4C81]">{slide.title}</h3>
+                          <h3 className="text-xl font-semibold text-[var(--brand-emerald)]">{slide.title}</h3>
                           <p className="mt-4 text-sm text-slate-600">{slide.description}</p>
-                          <div className="mt-6 h-40 rounded-xl border border-dashed border-[#0F4C81]/30 bg-white/60 p-4 text-xs uppercase tracking-wide text-slate-500">
+                          <div className="mt-6 h-40 rounded-xl border border-dashed border-[var(--brand-emerald)]/30 bg-white/60 p-4 text-xs uppercase tracking-wide text-slate-500">
                             Screenshot placeholder
                           </div>
                         </div>
@@ -153,11 +153,11 @@ export default function HowItWorks() {
                     ))}
                   </div>
                 </div>
-                <div className="flex items-center justify-between border-t border-slate-200 bg-[#F7F5EF] px-4 py-3">
+                <div className="flex items-center justify-between border-t border-slate-200 bg-[var(--brand-cream)] px-4 py-3">
                   <button
                     type="button"
                     onClick={scrollPrev}
-                    className="flex items-center gap-2 rounded-full border border-[#0F4C81]/30 px-4 py-2 text-sm font-semibold text-[#0F4C81] hover:border-[#0F4C81]"
+                    className="flex items-center gap-2 rounded-full border border-[var(--brand-emerald)]/30 px-4 py-2 text-sm font-semibold text-[var(--brand-emerald)] hover:border-[var(--brand-emerald)]"
                   >
                     <ArrowLeft className="size-4" /> Prev
                   </button>
@@ -165,22 +165,22 @@ export default function HowItWorks() {
                     {carouselSlides.map((slide, index) => (
                       <span
                         key={slide.title}
-                        className={`h-2 w-6 rounded-full ${index === activeSlide ? 'bg-[#F05A28]' : 'bg-slate-300'}`}
+                        className={`h-2 w-6 rounded-full ${index === activeSlide ? 'bg-[var(--brand-gold)]' : 'bg-slate-300'}`}
                       />
                     ))}
                   </div>
                   <button
                     type="button"
                     onClick={scrollNext}
-                    className="flex items-center gap-2 rounded-full border border-[#0F4C81]/30 px-4 py-2 text-sm font-semibold text-[#0F4C81] hover:border-[#0F4C81]"
+                    className="flex items-center gap-2 rounded-full border border-[var(--brand-emerald)]/30 px-4 py-2 text-sm font-semibold text-[var(--brand-emerald)] hover:border-[var(--brand-emerald)]"
                   >
                     Next <ArrowRight className="size-4" />
                   </button>
                 </div>
               </div>
             </div>
-            <div className="rounded-2xl bg-[#F7F5EF] p-8 shadow-lg shadow-black/5">
-              <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">
+            <div className="rounded-2xl bg-[var(--brand-cream)] p-8 shadow-lg shadow-black/5">
+              <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">
                 <Sparkles className="size-5" />
                 Assisted shopping
               </div>
@@ -202,12 +202,12 @@ export default function HowItWorks() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
             <div>
-              <h2 className="text-3xl font-semibold text-[#0F4C81]">Step 2 — Smart logistics</h2>
+              <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">Step 2 — Smart logistics</h2>
               <p className="mt-4 text-base text-slate-600">
                 Our AI-driven routing engine optimises loading from Kampala and Gulu warehouses. Each delivery vehicle carries IoT trackers that feed into the control tower dashboard.
               </p>
-              <div className="mt-6 flex items-center gap-3 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#0F4C81] shadow">
-                <Route className="size-4" /> SLA badge: <span className="text-[#F05A28]">95% on-time</span>
+              <div className="mt-6 flex items-center gap-3 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[var(--brand-emerald)] shadow">
+                <Route className="size-4" /> SLA badge: <span className="text-[var(--brand-gold)]">95% on-time</span>
               </div>
               <p className="mt-4 text-sm text-slate-600">
                 Dispatchers adjust for weather, traffic, and school calendars. Automated SMS alerts inform schools 30 minutes before arrival.
@@ -224,11 +224,11 @@ export default function HowItWorks() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-center">
             <div>
-              <h2 className="text-3xl font-semibold text-[#0F4C81]">Step 3 — Students receive with dignity</h2>
+              <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">Step 3 — Students receive with dignity</h2>
               <p className="mt-4 text-base text-slate-600">
                 Uniformed Skooli agents coordinate with school administrators to hand over packages. Every student signs digitally and the system updates parents instantly.
               </p>
-              <div className="mt-6 rounded-2xl bg-[#F7F5EF] p-6 text-sm text-slate-600">
+              <div className="mt-6 rounded-2xl bg-[var(--brand-cream)] p-6 text-sm text-slate-600">
                 “The excitement on distribution day is unmatched. Our children feel seen and supported.” — Head Teacher, Arua.
               </div>
             </div>
@@ -240,7 +240,7 @@ export default function HowItWorks() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
-              <div className="flex items-center gap-2 bg-[#0F4C81] px-4 py-3 text-sm font-semibold text-white">
+              <div className="flex items-center gap-2 bg-[var(--brand-emerald)] px-4 py-3 text-sm font-semibold text-white">
                 <Play className="size-4" /> 30-second testimonial
               </div>
             </div>
@@ -250,8 +250,8 @@ export default function HowItWorks() {
 
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">School cycle bundles</p>
-          <h2 className="mt-4 text-3xl font-semibold text-[#0F4C81]">Packages tuned to the academic calendar</h2>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">School cycle bundles</p>
+          <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Packages tuned to the academic calendar</h2>
           <p className="mt-2 max-w-2xl text-sm text-slate-600">
             Choose from pre-approved bundles or co-create with our merchandising team. Each accordion reveals what’s inside and the impact it unlocks.
           </p>
@@ -263,7 +263,7 @@ export default function HowItWorks() {
                   <button
                     type="button"
                     onClick={() => setOpenBundle((prev) => (prev === bundle.id ? '' : bundle.id))}
-                    className="flex w-full items-center justify-between px-6 py-4 text-left text-lg font-semibold text-[#0F4C81]"
+                    className="flex w-full items-center justify-between px-6 py-4 text-left text-lg font-semibold text-[var(--brand-emerald)]"
                     aria-expanded={isOpen}
                   >
                     {bundle.name}
@@ -289,17 +289,17 @@ export default function HowItWorks() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div className="md:w-1/3">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">FAQ</p>
-              <h2 className="mt-4 text-3xl font-semibold text-[#0F4C81]">Answers for families, schools, and donors</h2>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">FAQ</p>
+              <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Answers for families, schools, and donors</h2>
               <p className="mt-4 text-sm text-slate-600">
-                Need something more specific? Reach us via <a href="mailto:hello@skooli.africa" className="font-semibold text-[#F05A28]">hello@skooli.africa</a>.
+                Need something more specific? Reach us via <a href="mailto:hello@skooli.africa" className="font-semibold text-[var(--brand-gold)]">hello@skooli.africa</a>.
               </p>
             </div>
             <div className="md:w-2/3">
               <div className="grid gap-4 md:grid-cols-2">
                 {faqs.map((faq) => (
-                  <div key={faq.question} className="rounded-2xl bg-[#F7F5EF] p-5 shadow-lg shadow-black/5">
-                    <p className="text-sm font-semibold text-[#0F4C81]">{faq.question}</p>
+                  <div key={faq.question} className="rounded-2xl bg-[var(--brand-cream)] p-5 shadow-lg shadow-black/5">
+                    <p className="text-sm font-semibold text-[var(--brand-emerald)]">{faq.question}</p>
                     <p className="mt-2 text-sm text-slate-600">{faq.answer}</p>
                   </div>
                 ))}
@@ -334,14 +334,14 @@ function AnimatedRouteMap() {
     <svg viewBox="0 0 360 220" className="h-64 w-full" aria-labelledby="logisticsMapTitle logisticsMapDesc">
       <title id="logisticsMapTitle">Animated map of Uganda delivery route</title>
       <desc id="logisticsMapDesc">Illustration of logistics flow from Kampala warehouse to northern districts.</desc>
-      <rect x="0" y="0" width="360" height="220" rx="24" fill="#F7F5EF" />
-      <path d="M90 180 L120 120 L170 150 L220 90 L280 110" stroke="#0F4C81" strokeWidth="6" strokeLinecap="round" fill="none" strokeDasharray="1" strokeDashoffset={dashOffset} />
-      <circle cx="90" cy="180" r="12" fill="#0F4C81" />
-      <circle cx="280" cy="110" r="12" fill="#F05A28" />
-      <text x="70" y="205" fill="#0F4C81" fontSize="12" fontWeight="600">Kampala Hub</text>
-      <text x="250" y="100" fill="#F05A28" fontSize="12" fontWeight="600">Gulu Cluster</text>
-      <text x="130" y="70" fill="#0F4C81" fontSize="11">Dynamic rerouting</text>
-      <text x="200" y="190" fill="#0F4C81" fontSize="11">Cold-chain ready</text>
+      <rect x="0" y="0" width="360" height="220" rx="24" fill="var(--brand-cream)" />
+      <path d="M90 180 L120 120 L170 150 L220 90 L280 110" stroke="var(--brand-emerald)" strokeWidth="6" strokeLinecap="round" fill="none" strokeDasharray="1" strokeDashoffset={dashOffset} />
+      <circle cx="90" cy="180" r="12" fill="var(--brand-emerald)" />
+      <circle cx="280" cy="110" r="12" fill="var(--brand-gold)" />
+      <text x="70" y="205" fill="var(--brand-emerald)" fontSize="12" fontWeight="600">Kampala Hub</text>
+      <text x="250" y="100" fill="var(--brand-gold)" fontSize="12" fontWeight="600">Gulu Cluster</text>
+      <text x="130" y="70" fill="var(--brand-emerald)" fontSize="11">Dynamic rerouting</text>
+      <text x="200" y="190" fill="var(--brand-emerald)" fontSize="11">Cold-chain ready</text>
     </svg>
   )
 }

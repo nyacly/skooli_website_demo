@@ -75,22 +75,22 @@ export default function PartnerWithUs() {
   const segment = segments[activeSegment]
 
   return (
-    <div className="bg-[#F7F5EF]">
+    <div className="bg-[var(--brand-cream)]">
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">Partnerships</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Partnerships</p>
           <div className="mt-6 grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-center">
             <div>
-              <h1 className="text-4xl font-bold text-[#0F4C81]">Partner with Skooli to scale dignified access</h1>
+              <h1 className="text-4xl font-bold text-[var(--brand-emerald)]">Partner with Skooli to scale dignified access</h1>
               <p className="mt-4 text-base text-slate-600">
                 Whether you are a philanthropic sponsor, government ministry, supplier, or church network, Skooli offers infrastructure built for collaboration.
               </p>
             </div>
-            <div className="rounded-3xl bg-[#0F4C81] p-6 text-white shadow-lg shadow-black/10">
+            <div className="rounded-3xl bg-[var(--brand-emerald)] p-6 text-white shadow-lg shadow-black/10">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Dynamic Typeform</p>
               <p className="mt-2 text-lg">Tell us how you’d like to collaborate and a partnership lead will respond within 48 hours.</p>
               <Button
-                className="mt-6 rounded-md bg-[#F05A28] px-6 py-3 text-white shadow hover:bg-[#e14a1e]"
+                className="mt-6 rounded-md bg-[var(--brand-gold)] px-6 py-3 text-white shadow hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
                 asChild
               >
                 <a href="https://form.typeform.com/to/skooli-partner" target="_blank" rel="noreferrer">
@@ -110,55 +110,55 @@ export default function PartnerWithUs() {
                 type="button"
                 className={`flex flex-col items-start gap-2 rounded-2xl border px-4 py-4 text-left text-sm font-semibold transition ${
                   activeSegment === 'ngos'
-                    ? 'border-[#F05A28] bg-[#F7F5EF] text-[#0F4C81]'
-                    : 'border-transparent bg-white hover:border-[#F05A28]/40 hover:bg-[#F7F5EF]'
+                    ? 'border-[var(--brand-gold)] bg-[var(--brand-cream)] text-[var(--brand-emerald)]'
+                    : 'border-transparent bg-white hover:border-[var(--brand-gold)]/40 hover:bg-[var(--brand-cream)]'
                 }`}
                 onClick={() => setActiveSegment('ngos')}
               >
-                <Building className="size-5 text-[#0F4C81]" />
+                <Building className="size-5 text-[var(--brand-emerald)]" />
                 NGOs & Sponsors
               </button>
               <button
                 type="button"
                 className={`flex flex-col items-start gap-2 rounded-2xl border px-4 py-4 text-left text-sm font-semibold transition ${
                   activeSegment === 'governments'
-                    ? 'border-[#F05A28] bg-[#F7F5EF] text-[#0F4C81]'
-                    : 'border-transparent bg-white hover:border-[#F05A28]/40 hover:bg-[#F7F5EF]'
+                    ? 'border-[var(--brand-gold)] bg-[var(--brand-cream)] text-[var(--brand-emerald)]'
+                    : 'border-transparent bg-white hover:border-[var(--brand-gold)]/40 hover:bg-[var(--brand-cream)]'
                 }`}
                 onClick={() => setActiveSegment('governments')}
               >
-                <Landmark className="size-5 text-[#0F4C81]" />
+                <Landmark className="size-5 text-[var(--brand-emerald)]" />
                 Governments
               </button>
               <button
                 type="button"
                 className={`flex flex-col items-start gap-2 rounded-2xl border px-4 py-4 text-left text-sm font-semibold transition ${
                   activeSegment === 'suppliers'
-                    ? 'border-[#F05A28] bg-[#F7F5EF] text-[#0F4C81]'
-                    : 'border-transparent bg-white hover:border-[#F05A28]/40 hover:bg-[#F7F5EF]'
+                    ? 'border-[var(--brand-gold)] bg-[var(--brand-cream)] text-[var(--brand-emerald)]'
+                    : 'border-transparent bg-white hover:border-[var(--brand-gold)]/40 hover:bg-[var(--brand-cream)]'
                 }`}
                 onClick={() => setActiveSegment('suppliers')}
               >
-                <Handshake className="size-5 text-[#0F4C81]" />
+                <Handshake className="size-5 text-[var(--brand-emerald)]" />
                 Suppliers
               </button>
               <button
                 type="button"
                 className={`flex flex-col items-start gap-2 rounded-2xl border px-4 py-4 text-left text-sm font-semibold transition ${
                   activeSegment === 'churches'
-                    ? 'border-[#F05A28] bg-[#F7F5EF] text-[#0F4C81]'
-                    : 'border-transparent bg-white hover:border-[#F05A28]/40 hover:bg-[#F7F5EF]'
+                    ? 'border-[var(--brand-gold)] bg-[var(--brand-cream)] text-[var(--brand-emerald)]'
+                    : 'border-transparent bg-white hover:border-[var(--brand-gold)]/40 hover:bg-[var(--brand-cream)]'
                 }`}
                 onClick={() => setActiveSegment('churches')}
               >
-                <Church className="size-5 text-[#0F4C81]" />
+                <Church className="size-5 text-[var(--brand-emerald)]" />
                 Churches
               </button>
             </div>
 
             <div className="mt-8 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
               <div>
-                <h2 className="text-3xl font-semibold text-[#0F4C81]">{segment.title}</h2>
+                <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">{segment.title}</h2>
                 <p className="mt-4 text-sm text-slate-600">{segment.overview}</p>
                 <ul className="mt-6 space-y-3 text-sm text-slate-600">
                   {segment.value.map((valuePoint) => (
@@ -166,8 +166,8 @@ export default function PartnerWithUs() {
                   ))}
                 </ul>
               </div>
-              <div className="rounded-2xl bg-[#F7F5EF] p-6 shadow-inner">
-                <p className="text-sm font-semibold text-[#0F4C81]">Case study</p>
+              <div className="rounded-2xl bg-[var(--brand-cream)] p-6 shadow-inner">
+                <p className="text-sm font-semibold text-[var(--brand-emerald)]">Case study</p>
                 <p className="mt-3 text-sm text-slate-600">{segment.caseStudy}</p>
               </div>
             </div>
@@ -181,9 +181,9 @@ export default function PartnerWithUs() {
             {sharedBenefits.map(({ icon, title, description }) => {
               const BenefitIcon = icon
               return (
-                <div key={title} className="rounded-3xl bg-[#F7F5EF] p-6 shadow-lg shadow-black/5">
-                  <BenefitIcon className="size-6 text-[#0F4C81]" />
-                  <h3 className="mt-4 text-lg font-semibold text-[#0F4C81]">{title}</h3>
+                <div key={title} className="rounded-3xl bg-[var(--brand-cream)] p-6 shadow-lg shadow-black/5">
+                  <BenefitIcon className="size-6 text-[var(--brand-emerald)]" />
+                  <h3 className="mt-4 text-lg font-semibold text-[var(--brand-emerald)]">{title}</h3>
                   <p className="mt-2 text-sm text-slate-600">{description}</p>
                 </div>
               )

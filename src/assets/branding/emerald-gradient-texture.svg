@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="gradientTitle gradientDesc">
+  <title id="gradientTitle">Emerald gradient texture</title>
+  <desc id="gradientDesc">Soft emerald gradient with organic wave overlays for hero backgrounds.</desc>
+  <defs>
+    <radialGradient id="emeraldPulse" cx="30%" cy="20%" r="80%">
+      <stop offset="0%" stop-color="#009877" stop-opacity="0.85" />
+      <stop offset="55%" stop-color="#009877" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#FCE6AE" stop-opacity="0.6" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#emeraldPulse)" />
+  <path d="M0 540 Q300 480 600 520 T1200 500 V800 H0 Z" fill="#009877" opacity="0.18" />
+  <path d="M0 620 Q320 560 640 600 T1200 580 V800 H0 Z" fill="#FFD700" opacity="0.12" />
+</svg>

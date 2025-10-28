@@ -20,11 +20,11 @@ export default function NewsletterCTA() {
   return (
     <section className="bg-white py-16" id="newsletter">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl bg-[#F7F5EF] p-10 shadow-lg shadow-black/5 sm:p-16">
+        <div className="rounded-2xl bg-[var(--brand-cream)] p-10 shadow-lg shadow-black/5 sm:p-16">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">Newsletter</p>
-              <h2 className="mt-4 text-3xl font-semibold text-[#0F4C81]">Executive updates delivered monthly</h2>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Newsletter</p>
+              <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Executive updates delivered monthly</h2>
               <p className="mt-3 text-sm text-slate-600">
                 Subscribe for Mailchimp briefings on impact milestones, product launches, and fundraising notes. No spam—just actionable updates.
               </p>
@@ -36,12 +36,12 @@ export default function NewsletterCTA() {
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="you@organisation.com"
-                className="h-12 flex-1 rounded-full border border-[#0F4C81]/20 bg-white px-4 text-sm text-slate-700 placeholder:text-slate-400 focus:border-[#F05A28] focus:outline-none"
+                className="h-12 flex-1 rounded-full border border-[var(--brand-emerald)]/20 bg-white px-4 text-sm text-slate-700 placeholder:text-slate-400 focus:border-[var(--brand-gold)] focus:outline-none"
                 aria-label="Email address"
               />
               <button
                 type="submit"
-                className="flex h-12 items-center justify-center rounded-full bg-[#F05A28] px-6 text-sm font-semibold text-white shadow transition hover:-translate-y-0.5 hover:bg-[#e14a1e]"
+                className="flex h-12 items-center justify-center rounded-full bg-[var(--brand-gold)] px-6 text-sm font-semibold text-white shadow transition hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
                 disabled={status === 'loading'}
               >
                 {status === 'loading' ? 'Submitting…' : status === 'success' ? 'Subscribed!' : 'Subscribe'}
