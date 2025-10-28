@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" role="img" aria-labelledby="lineTitle lineDesc">
+  <title id="lineTitle">Gold line accents</title>
+  <desc id="lineDesc">Set of gold strokes with emerald endpoints for section dividers.</desc>
+  <g stroke="#FFD700" stroke-width="6" stroke-linecap="round" fill="none">
+    <path d="M40 60 Q160 10 320 60 T600 50" />
+    <path d="M40 120 Q200 200 360 140 T760 150" stroke-opacity="0.7" />
+    <path d="M60 190 Q220 110 420 180 T760 170" stroke-opacity="0.45" />
+  </g>
+  <g fill="#009877">
+    <circle cx="40" cy="60" r="8" />
+    <circle cx="600" cy="50" r="8" />
+    <circle cx="40" cy="120" r="8" />
+    <circle cx="760" cy="150" r="8" />
+  </g>
+</svg>

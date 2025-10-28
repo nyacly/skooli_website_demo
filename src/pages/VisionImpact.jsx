@@ -74,11 +74,11 @@ export default function VisionImpact() {
   )
 
   return (
-    <div className="bg-[#F7F5EF]">
+    <div className="bg-[var(--brand-cream)]">
       <section className="bg-white py-16" id="mission">
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
-            <div className="relative overflow-hidden rounded-3xl bg-[#0F4C81] p-10 text-white shadow-lg shadow-black/10">
+            <div className="relative overflow-hidden rounded-3xl bg-[var(--brand-emerald)] p-10 text-white shadow-lg shadow-black/10">
               <div className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full border-4 border-white/20" />
               <div className="pointer-events-none absolute bottom-10 right-8 text-white/20">
                 <span className="text-6xl font-bold">✝</span>
@@ -97,11 +97,11 @@ export default function VisionImpact() {
                 ))}
               </div>
             </div>
-            <div className="rounded-3xl bg-[#F7F5EF] p-10 shadow-lg shadow-black/5">
-              <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">
+            <div className="rounded-3xl bg-[var(--brand-cream)] p-10 shadow-lg shadow-black/5">
+              <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">
                 <Compass className="size-5" /> Vision 2030
               </div>
-              <p className="mt-5 text-lg text-[#0F4C81]">
+              <p className="mt-5 text-lg text-[var(--brand-emerald)]">
                 Skooli envisions an Africa where access to education supplies is never a barrier to learning or dignity.
               </p>
               <p className="mt-4 text-sm text-slate-600">
@@ -123,16 +123,16 @@ export default function VisionImpact() {
                 aria-labelledby="ugandaMapTitle"
               >
                 <title id="ugandaMapTitle">Uganda impact map with Skooli districts</title>
-                <rect x="0" y="0" width="320" height="240" fill="#F7F5EF" rx="32" />
+                <rect x="0" y="0" width="320" height="240" fill="var(--brand-cream)" rx="32" />
                 {districts.map((district) => (
                   <g key={district.id}>
                     <circle
                       cx={district.cx}
                       cy={district.cy}
                       r={district.radius}
-                      fill={district.id === highlightedDistrict.id ? '#F05A28' : '#0F4C81'}
+                      fill={district.id === highlightedDistrict.id ? 'var(--brand-gold)' : 'var(--brand-emerald)'}
                       fillOpacity={district.id === highlightedDistrict.id ? 0.85 : 0.65}
-                      className="cursor-pointer transition hover:fill-[#F05A28]"
+                      className="cursor-pointer transition hover:fill-[var(--brand-gold)]"
                       onMouseEnter={() => setActiveDistrict(district)}
                       onFocus={() => setActiveDistrict(district)}
                       tabIndex={0}
@@ -142,7 +142,7 @@ export default function VisionImpact() {
                       y={district.cy - district.radius - 6}
                       textAnchor="middle"
                       fontSize="11"
-                      fill="#0F4C81"
+                      fill="var(--brand-emerald)"
                       fontWeight="600"
                     >
                       {district.name}
@@ -152,20 +152,20 @@ export default function VisionImpact() {
               </svg>
             </div>
             <div className="space-y-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">Impact map</p>
-              <h2 className="text-3xl font-semibold text-[#0F4C81]">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Impact map</p>
+              <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">
                 District coverage grows every term
               </h2>
               <p className="text-sm text-slate-600">
                 Hover over each cluster to explore how many schools and students are served.
               </p>
               <div className="rounded-2xl bg-white p-6 shadow-lg shadow-black/5">
-                <p className="text-sm font-semibold text-[#0F4C81]">{highlightedDistrict.name}</p>
+                <p className="text-sm font-semibold text-[var(--brand-emerald)]">{highlightedDistrict.name}</p>
                 <p className="mt-2 text-sm text-slate-600">
                   <strong>{highlightedDistrict.schools}</strong> partner schools •
                   <strong> {highlightedDistrict.schools * 480}</strong> students supported
                 </p>
-                <p className="mt-3 text-xs uppercase tracking-[0.3em] text-[#F05A28]">Data refreshed weekly</p>
+                <p className="mt-3 text-xs uppercase tracking-[0.3em] text-[var(--brand-gold)]">Data refreshed weekly</p>
               </div>
             </div>
           </div>
@@ -174,17 +174,17 @@ export default function VisionImpact() {
 
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">SDG alignment</p>
-          <h2 className="mt-4 text-3xl font-semibold text-[#0F4C81]">Anchored to global goals</h2>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">SDG alignment</p>
+          <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Anchored to global goals</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {sdgTiles.map(({ sdg, metric, icon }) => {
               const SdgIcon = icon
               return (
                 <div
                   key={sdg}
-                  className="group rounded-3xl bg-[#F7F5EF] p-6 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:bg-[#0F4C81]"
+                  className="group rounded-3xl bg-[var(--brand-cream)] p-6 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:bg-[var(--brand-emerald)]"
                 >
-                  <div className="flex items-center gap-3 text-[#0F4C81] group-hover:text-white">
+                  <div className="flex items-center gap-3 text-[var(--brand-emerald)] group-hover:text-white">
                     <SdgIcon className="size-5" />
                     <p className="text-sm font-semibold uppercase tracking-[0.3em]">{sdg}</p>
                   </div>
@@ -198,16 +198,16 @@ export default function VisionImpact() {
 
       <section className="py-16">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">Story carousel</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Story carousel</p>
           <div className="relative mt-8 overflow-hidden rounded-3xl bg-white p-10 shadow-lg shadow-black/10">
-            <Quote className="absolute left-6 top-6 size-8 text-[#F05A28]" />
-            <p className="text-lg text-[#0F4C81]">{stories[storyIndex].narrative}</p>
+            <Quote className="absolute left-6 top-6 size-8 text-[var(--brand-gold)]" />
+            <p className="text-lg text-[var(--brand-emerald)]">{stories[storyIndex].narrative}</p>
             <p className="mt-6 text-sm font-semibold text-slate-600">{stories[storyIndex].name}</p>
             <div className="mt-8 flex items-center justify-center gap-3">
               <button
                 type="button"
                 onClick={prevStory}
-                className="flex items-center gap-2 rounded-full border border-[#0F4C81]/30 px-4 py-2 text-sm font-semibold text-[#0F4C81] hover:border-[#0F4C81]"
+                className="flex items-center gap-2 rounded-full border border-[var(--brand-emerald)]/30 px-4 py-2 text-sm font-semibold text-[var(--brand-emerald)] hover:border-[var(--brand-emerald)]"
               >
                 <ArrowLeft className="size-4" /> Prev
               </button>
@@ -215,14 +215,14 @@ export default function VisionImpact() {
                 {stories.map((_, index) => (
                   <span
                     key={index}
-                    className={`h-2 w-8 rounded-full ${index === storyIndex ? 'bg-[#F05A28]' : 'bg-slate-200'}`}
+                    className={`h-2 w-8 rounded-full ${index === storyIndex ? 'bg-[var(--brand-gold)]' : 'bg-slate-200'}`}
                   />
                 ))}
               </div>
               <button
                 type="button"
                 onClick={nextStory}
-                className="flex items-center gap-2 rounded-full border border-[#0F4C81]/30 px-4 py-2 text-sm font-semibold text-[#0F4C81] hover:border-[#0F4C81]"
+                className="flex items-center gap-2 rounded-full border border-[var(--brand-emerald)]/30 px-4 py-2 text-sm font-semibold text-[var(--brand-emerald)] hover:border-[var(--brand-emerald)]"
               >
                 Next <ArrowRight className="size-4" />
               </button>

@@ -28,11 +28,11 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="bg-[#F7F5EF]">
+    <div className="bg-[var(--brand-cream)]">
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">Contact</p>
-          <h1 className="mt-4 text-4xl font-bold text-[#0F4C81]">We’re here for parents, schools, and partners</h1>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Contact</p>
+          <h1 className="mt-4 text-4xl font-bold text-[var(--brand-emerald)]">We’re here for parents, schools, and partners</h1>
           <p className="mt-4 max-w-3xl text-base text-slate-600">
             Reach out to the Skooli team for press, partnerships, support, or prayer. We respond within one business day.
           </p>
@@ -43,15 +43,15 @@ export default function ContactPage() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr]">
             <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
-              <h2 className="text-2xl font-semibold text-[#0F4C81]">General enquiries</h2>
+              <h2 className="text-2xl font-semibold text-[var(--brand-emerald)]">General enquiries</h2>
               <p className="mt-3 text-sm text-slate-600">Fill in the form below or email hello@skooli.africa.</p>
               <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
                 <div>
-                  <label className="text-sm font-semibold text-[#0F4C81]" htmlFor="name">
+                  <label className="text-sm font-semibold text-[var(--brand-emerald)]" htmlFor="name">
                     Name
                   </label>
                   <input
-                    className="mt-1 w-full rounded-md border border-[#0F4C81]/20 bg-[#F7F5EF] px-4 py-3 text-sm text-slate-700 focus:border-[#F05A28] focus:outline-none"
+                    className="mt-1 w-full rounded-md border border-[var(--brand-emerald)]/20 bg-[var(--brand-cream)] px-4 py-3 text-sm text-slate-700 focus:border-[var(--brand-gold)] focus:outline-none"
                     type="text"
                     id="name"
                     name="name"
@@ -59,11 +59,11 @@ export default function ContactPage() {
                   />
                 </div>
                 <div>
-                  <label className="text-sm font-semibold text-[#0F4C81]" htmlFor="email">
+                  <label className="text-sm font-semibold text-[var(--brand-emerald)]" htmlFor="email">
                     Email
                   </label>
                   <input
-                    className="mt-1 w-full rounded-md border border-[#0F4C81]/20 bg-[#F7F5EF] px-4 py-3 text-sm text-slate-700 focus:border-[#F05A28] focus:outline-none"
+                    className="mt-1 w-full rounded-md border border-[var(--brand-emerald)]/20 bg-[var(--brand-cream)] px-4 py-3 text-sm text-slate-700 focus:border-[var(--brand-gold)] focus:outline-none"
                     type="email"
                     id="email"
                     name="email"
@@ -71,11 +71,11 @@ export default function ContactPage() {
                   />
                 </div>
                 <div>
-                  <label className="text-sm font-semibold text-[#0F4C81]" htmlFor="message">
+                  <label className="text-sm font-semibold text-[var(--brand-emerald)]" htmlFor="message">
                     Message
                   </label>
                   <textarea
-                    className="mt-1 h-32 w-full rounded-md border border-[#0F4C81]/20 bg-[#F7F5EF] px-4 py-3 text-sm text-slate-700 focus:border-[#F05A28] focus:outline-none"
+                    className="mt-1 h-32 w-full rounded-md border border-[var(--brand-emerald)]/20 bg-[var(--brand-cream)] px-4 py-3 text-sm text-slate-700 focus:border-[var(--brand-gold)] focus:outline-none"
                     id="message"
                     name="message"
                     required
@@ -83,7 +83,7 @@ export default function ContactPage() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full rounded-md bg-[#F05A28] py-3 text-sm font-semibold text-white shadow hover:bg-[#e14a1e]"
+                  className="w-full rounded-md bg-[var(--brand-gold)] py-3 text-sm font-semibold text-white shadow hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
                   disabled={status === 'loading'}
                 >
                   {status === 'loading' ? 'Sending…' : status === 'success' ? 'Message sent!' : 'Send message'}
@@ -92,28 +92,28 @@ export default function ContactPage() {
             </div>
             <div className="space-y-6">
               <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">Press & Media</p>
-                <a className="mt-2 block text-sm font-semibold text-[#0F4C81]" href="mailto:pr@skooli.africa">
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Press & Media</p>
+                <a className="mt-2 block text-sm font-semibold text-[var(--brand-emerald)]" href="mailto:pr@skooli.africa">
                   pr@skooli.africa
                 </a>
                 <p className="mt-4 text-sm text-slate-600">For interviews, stories, and speaking engagements.</p>
               </div>
               <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">Offices</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Offices</p>
                 <div className="mt-4 space-y-3 text-sm text-slate-600">
                   <div className="flex items-start gap-3">
-                    <MapPin className="size-5 text-[#0F4C81]" />
+                    <MapPin className="size-5 text-[var(--brand-emerald)]" />
                     <div>
-                      <p className="font-semibold text-[#0F4C81]">Uganda HQ</p>
+                      <p className="font-semibold text-[var(--brand-emerald)]">Uganda HQ</p>
                       <p>Plot 12, Hassim Road, Buziga</p>
                       <p>Kampala, Uganda</p>
-                      <a className="text-[#F05A28]" href="tel:+256414000000">+256 414 000 000</a>
+                      <a className="text-[var(--brand-gold)]" href="tel:+256414000000">+256 414 000 000</a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <MapPin className="size-5 text-[#0F4C81]" />
+                    <MapPin className="size-5 text-[var(--brand-emerald)]" />
                     <div>
-                      <p className="font-semibold text-[#0F4C81]">UK Office</p>
+                      <p className="font-semibold text-[var(--brand-emerald)]">UK Office</p>
                       <p>128 City Road</p>
                       <p>London, EC1V 2NX</p>
                     </div>
@@ -121,10 +121,10 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">Connect</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Connect</p>
                 <div className="mt-3 flex gap-3">
                   <a
-                    className="flex size-10 items-center justify-center rounded-full bg-[#0F4C81] text-white shadow hover:bg-[#F05A28]"
+                    className="flex size-10 items-center justify-center rounded-full bg-[var(--brand-emerald)] text-white shadow hover:bg-[var(--brand-gold)]"
                     href="https://www.linkedin.com/company/skooli"
                     target="_blank"
                     rel="noreferrer"
@@ -133,7 +133,7 @@ export default function ContactPage() {
                     <Linkedin className="size-5" />
                   </a>
                   <a
-                    className="flex size-10 items-center justify-center rounded-full bg-[#0F4C81] text-white shadow hover:bg-[#F05A28]"
+                    className="flex size-10 items-center justify-center rounded-full bg-[var(--brand-emerald)] text-white shadow hover:bg-[var(--brand-gold)]"
                     href="https://twitter.com/skooli_africa"
                     target="_blank"
                     rel="noreferrer"
@@ -142,7 +142,7 @@ export default function ContactPage() {
                     <Twitter className="size-5" />
                   </a>
                   <a
-                    className="flex size-10 items-center justify-center rounded-full bg-[#0F4C81] text-white shadow hover:bg-[#F05A28]"
+                    className="flex size-10 items-center justify-center rounded-full bg-[var(--brand-emerald)] text-white shadow hover:bg-[var(--brand-gold)]"
                     href="https://www.youtube.com/@skooli"
                     target="_blank"
                     rel="noreferrer"
@@ -170,10 +170,10 @@ export default function ContactPage() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-            <div className="rounded-3xl bg-[#F7F5EF] p-6 shadow-lg shadow-black/5">
-              <h3 className="text-2xl font-semibold text-[#0F4C81]">Prayer & pastoral support</h3>
+            <div className="rounded-3xl bg-[var(--brand-cream)] p-6 shadow-lg shadow-black/5">
+              <h3 className="text-2xl font-semibold text-[var(--brand-emerald)]">Prayer & pastoral support</h3>
               <p className="mt-3 text-sm text-slate-600">
-                Our chaplaincy team is available to pray with families, schools, and partners. Email <a className="font-semibold text-[#F05A28]" href="mailto:prayer@skooli.africa">prayer@skooli.africa</a> to schedule a call.
+                Our chaplaincy team is available to pray with families, schools, and partners. Email <a className="font-semibold text-[var(--brand-gold)]" href="mailto:prayer@skooli.africa">prayer@skooli.africa</a> to schedule a call.
               </p>
             </div>
           </div>

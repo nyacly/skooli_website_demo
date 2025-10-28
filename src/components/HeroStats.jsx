@@ -11,7 +11,7 @@ export default function HeroStats() {
           {items.map((item) => (
             <div key={item.label} className="flex items-center justify-center rounded-xl p-4 text-center">
               <div>
-                <p className="text-2xl font-bold text-[#0F4C81] sm:text-3xl">{item.value}</p>
+                <p className="text-2xl font-bold text-[var(--brand-emerald)] sm:text-3xl">{item.value}</p>
                 <p className="mt-1 text-sm font-medium text-slate-600">{item.label}</p>
               </div>
             </div>

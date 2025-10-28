@@ -31,7 +31,7 @@ export default function ImpactSnapshot() {
   }, [])
 
   return (
-    <section className="bg-gradient-to-br from-[#0F4C81] to-[#0B3A60] py-16 text-white" id="impact">
+    <section className="bg-gradient-to-br from-[var(--brand-emerald)] to-[color-mix(in_srgb,var(--brand-emerald)_70%,#000_30%)] py-16 text-white" id="impact">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div>

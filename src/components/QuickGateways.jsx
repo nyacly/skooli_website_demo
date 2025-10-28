@@ -28,8 +28,8 @@ export default function QuickGateways() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#F05A28]">Quick gateways</p>
-            <h2 className="mt-4 text-3xl font-semibold text-[#0F4C81] sm:text-4xl">Purpose-built portals for each stakeholder</h2>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Quick gateways</p>
+            <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)] sm:text-4xl">Purpose-built portals for each stakeholder</h2>
           </div>
           <p className="max-w-xl text-base text-slate-600">
             Access the right experience instantly—parents, students, and administrators each get a tailored, secure entry point powered by Skooli.
@@ -42,13 +42,13 @@ export default function QuickGateways() {
             <Link
               key={title}
               to={to}
-              className="group flex h-[200px] w-full flex-col justify-between rounded-2xl border border-slate-100 bg-[#F7F5EF] p-6 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:border-[#F05A28]/60 hover:shadow-xl"
+              className="group flex h-[200px] w-full flex-col justify-between rounded-2xl border border-slate-100 bg-[var(--brand-cream)] p-6 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:border-[var(--brand-gold)]/60 hover:shadow-xl"
             >
-              <div className="flex size-12 items-center justify-center rounded-2xl bg-white text-[#0F4C81] shadow-md shadow-black/5 transition group-hover:bg-[#0F4C81] group-hover:text-white">
+              <div className="flex size-12 items-center justify-center rounded-2xl bg-white text-[var(--brand-emerald)] shadow-md shadow-black/5 transition group-hover:bg-[var(--brand-emerald)] group-hover:text-white">
                 <IconComponent className="size-6" aria-hidden="true" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-[#0F4C81]">{title}</h3>
+                <h3 className="text-lg font-semibold text-[var(--brand-emerald)]">{title}</h3>
                 <p className="mt-2 text-sm text-slate-600">{description}</p>
               </div>
             </Link>

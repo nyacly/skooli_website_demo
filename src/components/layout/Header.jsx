@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2 text-[#0F4C81]">
+        <Link to="/" className="flex items-center gap-2 text-[var(--brand-emerald)]">
           <span className="text-2xl font-bold tracking-tight">Skooli</span>
         </Link>
         <nav className="hidden items-center gap-3 lg:flex">
@@ -30,8 +30,8 @@ export default function Header() {
               className={({ isActive }) =>
                 `px-4 py-2 rounded-md bg-white border border-slate-200 text-sm font-semibold transition-all duration-200 border-b-2 ${
                   isActive
-                    ? 'text-[#0F4C81] border-b-[#F05A28]'
-                    : 'text-slate-700 border-b-transparent hover:border-b-[#F05A28] hover:text-[#0F4C81]'
+                    ? 'text-[var(--brand-emerald)] border-b-[var(--brand-gold)]'
+                    : 'text-slate-700 border-b-transparent hover:border-b-[var(--brand-gold)] hover:text-[var(--brand-emerald)]'
                 }`
               }
             >
@@ -42,7 +42,7 @@ export default function Header() {
         <div className="hidden items-center gap-3 lg:flex">
           <Button
             variant="ghost"
-            className="rounded-md px-3 py-2 text-sm font-semibold text-[#0F4C81] hover:text-[#F05A28]"
+            className="rounded-md px-3 py-2 text-sm font-semibold text-[var(--brand-emerald)] hover:text-[var(--brand-gold)]"
             asChild
           >
             <Link to="/funders#investor-deck">Investor Deck</Link>
@@ -51,7 +51,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setOpen((prev) => !prev)}
-          className="rounded-md border border-slate-200 p-2 text-[#0F4C81] shadow-sm transition hover:border-[#F05A28] hover:text-[#F05A28] lg:hidden"
+          className="rounded-md border border-slate-200 p-2 text-[var(--brand-emerald)] shadow-sm transition hover:border-[var(--brand-gold)] hover:text-[var(--brand-gold)] lg:hidden"
           aria-label="Toggle navigation"
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -67,7 +67,9 @@ export default function Header() {
                 onClick={closeMenu}
                 className={({ isActive }) =>
                   `rounded-md px-3 py-2 text-sm font-semibold transition-colors ${
-                    isActive ? 'bg-[#0F4C81]/5 text-[#0F4C81]' : 'text-slate-600 hover:bg-[#0F4C81]/5 hover:text-[#0F4C81]'
+                    isActive
+                      ? 'bg-[rgba(0,152,119,0.1)] text-[var(--brand-emerald)]'
+                      : 'text-slate-600 hover:bg-[rgba(0,152,119,0.08)] hover:text-[var(--brand-emerald)]'
                   }`
                 }
               >
@@ -77,7 +79,7 @@ export default function Header() {
             <div className="mt-4 flex flex-col gap-2">
               <Button
                 variant="ghost"
-                className="w-full rounded-md py-2 text-sm font-semibold text-[#0F4C81] hover:text-[#F05A28]"
+                className="w-full rounded-md py-2 text-sm font-semibold text-[var(--brand-emerald)] hover:text-[var(--brand-gold)]"
                 asChild
               >
                 <Link to="/funders#investor-deck" onClick={closeMenu}>
