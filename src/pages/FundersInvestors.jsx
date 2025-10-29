@@ -361,19 +361,12 @@ export default function FundersInvestors() {
               <a className="mt-2 flex items-center gap-2 text-sm font-semibold text-[var(--brand-emerald)]" href="mailto:invest@skooli.africa">
                 <Mail className="size-4" /> invest@skooli.africa
               </a>
-              <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200">
-                <iframe
-                  title="Schedule due diligence call"
-                  src="https://calendly.com/skooli-investor/30min"
-                  className="h-64 w-full"
-                />
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16" id="downloads">
+      <section className="py-24" id="downloads">
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-start">
             <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
@@ -456,19 +449,12 @@ export default function FundersInvestors() {
               <a className="mt-2 flex items-center gap-2 text-sm font-semibold text-[var(--brand-emerald)]" href="mailto:invest@skooli.africa">
                 <Mail className="size-4" /> invest@skooli.africa
               </a>
-              <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200">
-                <iframe
-                  title="Schedule due diligence call"
-                  src="https://calendly.com/skooli-investor/30min"
-                  className="h-64 w-full"
-                />
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-16" id="investor-deck">
+      <section className="bg-white py-24" id="investor-deck">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">Ready to review the investor deck?</h2>
           <p className="mt-4 text-sm text-slate-600">

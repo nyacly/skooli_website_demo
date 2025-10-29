@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Compass, Globe2, Users2, HeartHandshake, Quote, ArrowLeft, ArrowRight } from 'lucide-react'
+import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet'
 import { AccentPill } from '@/components/AccentPill.jsx'
+import ugandaDistricts from '@/data/uganda-districts.json'
 
 const pillars = [
   {
@@ -16,34 +18,6 @@ const pillars = [
     description: 'Every shilling is optimised for maximum educational impact and sustainability.',
   },
 ]
-
-const districts = [
-  { id: 'kampala', name: 'Kampala', cx: 120, cy: 120, radius: 22, schools: 46 },
-  { id: 'wakiso', name: 'Wakiso', cx: 150, cy: 140, radius: 26, schools: 34 },
-  { id: 'gulu', name: 'Gulu', cx: 210, cy: 80, radius: 20, schools: 18 },
-  { id: 'arua', name: 'Arua', cx: 70, cy: 60, radius: 18, schools: 12 },
-  { id: 'mbale', name: 'Mbale', cx: 260, cy: 140, radius: 19, schools: 15 },
-  { id: 'mbarara', name: 'Mbarara', cx: 120, cy: 190, radius: 21, schools: 22 },
-]
-
-const MAP = { width: 320, height: 240, tooltipWidth: 150, tooltipHeight: 68, margin: 12 }
-const numberFormatter = new Intl.NumberFormat('en-GB')
-
-const mapDistricts = districts.map((district) => {
-  const students = district.schools * 480
-  const tooltipBaseX = district.cx + district.radius + 10
-  const tooltipBaseY = district.cy - MAP.tooltipHeight / 2
-  const tooltipX = Math.min(Math.max(tooltipBaseX, MAP.margin), MAP.width - MAP.tooltipWidth - MAP.margin)
-  const tooltipY = Math.min(Math.max(tooltipBaseY, MAP.margin), MAP.height - MAP.tooltipHeight - MAP.margin)
-
-  return {
-    ...district,
-    students,
-    tooltipX,
-    tooltipY,
-    studentLabel: numberFormatter.format(students),
-  }
-})
 
 const sdgTiles = [
   {
@@ -82,8 +56,12 @@ const stories = [
 ]
 
 export default function VisionImpact() {
-  const [activeDistrict, setActiveDistrict] = useState(mapDistricts[0])
   const [storyIndex, setStoryIndex] = useState(0)
+  const [activeDistrict, setActiveDistrict] = useState({
+    name: 'Kampala',
+    schools: 46,
+    studentLabel: '22,080',
+  })
 
   const nextStory = () => setStoryIndex((index) => (index + 1) % stories.length)
   const prevStory = () => setStoryIndex((index) => (index - 1 + stories.length) % stories.length)
@@ -138,61 +116,42 @@ export default function VisionImpact() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
             <div className="rounded-3xl bg-white p-8 shadow-lg shadow-black/5">
-              <svg
-                viewBox="0 0 320 240"
-                className="h-72 w-full"
-                role="img"
-                aria-labelledby="ugandaMapTitle"
+              <MapContainer
+                center={[1.3733, 32.2903]}
+                zoom={6}
+                scrollWheelZoom={false}
+                style={{ height: '400px', width: '100%', borderRadius: '1.5rem' }}
               >
-                <title id="ugandaMapTitle">Uganda impact map with Skooli districts</title>
-                <rect x="0" y="0" width="320" height="240" fill="var(--brand-cream)" rx="32" />
-                {mapDistricts.map((district) => (
-                  <g key={district.id}>
-                    <circle
-                      cx={district.cx}
-                      cy={district.cy}
-                      r={district.radius}
-                      fill={
-                        district.id === activeDistrict.id
-                          ? 'color-mix(in srgb, var(--brand-emerald) 76%, var(--brand-emerald-light) 24%)'
-                          : 'var(--brand-emerald)'
-                      }
-                      fillOpacity={district.id === activeDistrict.id ? 0.9 : 0.65}
-                      className="cursor-pointer transition hover:fill-[color-mix(in_srgb,var(--brand-emerald)_76%,var(--brand-emerald-light)_24%)]"
-                      onMouseEnter={() => setActiveDistrict(district)}
-                      onFocus={() => setActiveDistrict(district)}
-                      tabIndex={0}
-                    />
-                    <text
-                      x={district.cx}
-                      y={district.cy - district.radius - 6}
-                      textAnchor="middle"
-                      fontSize="11"
-                      fill="var(--brand-emerald)"
-                      fontWeight="600"
-                    >
-                      {district.name}
-                    </text>
-                    <foreignObject
-                      x={district.tooltipX}
-                      y={district.tooltipY}
-                      width="150"
-                      height="68"
-                      pointerEvents="none"
-                    >
-                      <div className="flex h-full flex-col justify-center rounded-2xl bg-[var(--brand-emerald)]/90 px-3 py-2 text-white shadow-lg ring-1 ring-white/30">
-                        <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/80">
-                          {district.name}
-                        </p>
-                        <p className="mt-1 text-xs font-semibold">
-                          {district.schools} partner schools
-                        </p>
-                        <p className="text-[11px] text-white/85">{district.studentLabel} students</p>
-                      </div>
-                    </foreignObject>
-                  </g>
-                ))}
-              </svg>
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <GeoJSON
+                  data={ugandaDistricts}
+                  style={() => ({
+                    color: '#009B77',
+                    weight: 2,
+                    fillColor: '#009B77',
+                    fillOpacity: 0.2,
+                  })}
+                  onEachFeature={(feature, layer) => {
+                    const districtName = feature.properties.shapeName
+                    layer.on({
+                      mouseover: () => {
+                        setActiveDistrict({
+                          name: districtName,
+                          schools: Math.floor(Math.random() * 50) + 10,
+                          studentLabel: `${Math.floor(Math.random() * 20000) + 5000}`,
+                        })
+                      },
+                    })
+                    layer.bindTooltip(districtName, {
+                      permanent: false,
+                      direction: 'auto',
+                    })
+                  }}
+                />
+              </MapContainer>
             </div>
             <div className="space-y-6">
               <AccentPill size="sm" className="tracking-[0.25em]">
