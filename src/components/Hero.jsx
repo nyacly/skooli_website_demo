@@ -12,7 +12,7 @@ const heroFallback = `data:image/svg+xml;utf8,${encodeURIComponent(
       </defs>
       <rect width='1200' height='800' fill='url(#g)' />
       <text x='50%' y='50%' font-family='Inter, Arial, sans-serif' font-size='42' fill='#ffffff' text-anchor='middle'>
-        Upload skooli-classroom-hero images to public/assets/branding
+        Upload skooli_banner_image.jpg to public/assets/branding
       </text>
     </svg>`
 )}`
@@ -31,18 +31,9 @@ export default function Hero() {
     <section className="relative flex min-h-[85vh] items-center justify-start overflow-hidden" id="hero">
       <div className="absolute inset-0">
         <picture>
-          <source
-            type="image/webp"
-            srcSet="/assets/branding/skooli-classroom-hero-2000.webp 2000w, /assets/branding/skooli-classroom-hero-1200.webp 1200w, /assets/branding/skooli-classroom-hero-768.webp 768w"
-            sizes="100vw"
-          />
-          <source
-            type="image/jpeg"
-            srcSet="/assets/branding/skooli-classroom-hero-2000.jpg 2000w, /assets/branding/skooli-classroom-hero-1200.jpg 1200w, /assets/branding/skooli-classroom-hero-768.jpg 768w"
-            sizes="100vw"
-          />
+          <source type="image/jpeg" srcSet="/assets/branding/skooli_banner_image.jpg" sizes="100vw" />
           <img
-            src="/assets/branding/skooli-classroom-hero-1200.jpg"
+            src="/assets/branding/skooli_banner_image.jpg"
             alt="Skooli facilitator guiding learners in class"
             className="h-full w-full object-cover object-center"
             loading="eager"
