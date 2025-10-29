@@ -1,5 +1,6 @@
 import { FileDown, ShieldCheck, ScrollText } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { AccentPill } from '@/components/AccentPill.jsx'
 
 const defaultDocuments = [
   {
@@ -30,13 +31,15 @@ export default function ComplianceKit({
 }) {
   return (
     <div className={cn('rounded-3xl bg-white p-6 shadow-lg shadow-black/5', className)}>
-      <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">{title}</p>
+      <AccentPill size="sm" className="tracking-[0.25em]">
+        {title}
+      </AccentPill>
       <p className="mt-3 text-sm text-slate-600">{blurb}</p>
       <ul className="mt-6 space-y-4">
         {documents.map((document) => {
           const Icon = document.icon
           return (
-            <li key={document.title} className="flex flex-col gap-2 rounded-2xl border border-[var(--brand-emerald)]/10 bg-[var(--brand-cream)]/40 p-4 transition hover:border-[var(--brand-gold)]/40">
+            <li key={document.title} className="flex flex-col gap-2 rounded-2xl border border-[var(--brand-emerald)]/10 bg-[var(--brand-cream)]/40 p-4 transition hover:border-[color-mix(in_srgb,var(--brand-emerald)_70%,#032823_30%)]/40">
               <div className="flex items-start gap-3">
                 <span className="flex size-9 items-center justify-center rounded-full bg-[var(--brand-emerald)]/10 text-[var(--brand-emerald)]">
                   <Icon className="size-4" aria-hidden="true" />
@@ -50,7 +53,7 @@ export default function ComplianceKit({
                 <a
                   href={document.href}
                   download
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-[var(--brand-gold)] hover:text-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
+                  className="inline-flex items-center gap-2 text-xs font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] underline decoration-[color-mix(in_srgb,var(--brand-emerald)_45%,#032823_55%)] decoration-2 underline-offset-4 hover:text-[var(--brand-emerald)]"
                 >
                   Download template
                   <FileDown className="size-3" aria-hidden="true" />

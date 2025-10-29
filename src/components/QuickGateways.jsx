@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ShieldCheck, ServerCog, BarChart3 } from 'lucide-react'
+import { AccentPill } from '@/components/AccentPill.jsx'
 
 const gateways = [
   {
@@ -28,7 +29,9 @@ export default function QuickGateways() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Quick gateways</p>
+            <AccentPill size="sm" className="tracking-[0.25em]">
+              Quick gateways
+            </AccentPill>
             <h2 className="mt-4 text-3xl font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_88%,#032823_12%)] sm:text-4xl">
               Enterprise-ready touchpoints for every operator
             </h2>
@@ -44,7 +47,7 @@ export default function QuickGateways() {
               <Link
                 key={title}
                 to={to}
-                className="group flex h-[220px] w-full flex-col justify-between rounded-2xl border border-[color-mix(in_srgb,var(--brand-emerald)_25%,#ffffff)] bg-white p-6 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:border-[var(--brand-gold)]/70 hover:shadow-xl"
+                className="group flex h-[220px] w-full flex-col justify-between rounded-2xl border border-[color-mix(in_srgb,var(--brand-emerald)_25%,#ffffff)] bg-white p-6 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--brand-emerald)_70%,#032823_30%)] hover:shadow-xl"
               >
                 <div className="flex size-12 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--brand-emerald)_12%,#ffffff_88%)] text-[var(--brand-emerald)] shadow-md shadow-black/5 transition group-hover:bg-[var(--brand-emerald)] group-hover:text-white">
                   <IconComponent className="size-6" aria-hidden="true" />
@@ -53,7 +56,7 @@ export default function QuickGateways() {
                   <h3 className="text-lg font-semibold text-[var(--brand-emerald)]">{title}</h3>
                   <p className="mt-2 text-sm text-[color-mix(in_srgb,var(--brand-emerald)_35%,#05382c_65%)]">{description}</p>
                 </div>
-                <span className="inline-flex items-center justify-start text-sm font-semibold text-[var(--brand-emerald)] transition group-hover:text-[var(--brand-gold)]">
+                <span className="inline-flex items-center justify-start text-sm font-semibold text-[var(--brand-emerald)] transition group-hover:text-[color-mix(in_srgb,var(--brand-emerald)_70%,#032823_30%)]">
                   Explore
                   <svg
                     className="ml-2 size-4 transition group-hover:translate-x-1"

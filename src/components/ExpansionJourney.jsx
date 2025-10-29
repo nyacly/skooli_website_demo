@@ -21,6 +21,8 @@ const legendItems = [
   { name: 'Expansion markets (Ghana)', background: 'rgba(252,230,174,0.75)', border: 'rgba(255,255,255,0.4)' },
 ]
 
+import { AccentPill } from '@/components/AccentPill.jsx'
+
 const phases = [
   {
     title: 'Pilot to proof',
@@ -85,7 +87,9 @@ export default function ExpansionJourney() {
               <figcaption className="mt-6 space-y-4 rounded-2xl bg-white/10 p-4 text-left text-white/90">
                 {phases.map(({ title, timeline, summary }) => (
                   <div key={title}>
-                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[var(--brand-gold)]">{timeline}</p>
+                    <AccentPill tone="inverse" size="xs" className="tracking-[0.25em]">
+                      {timeline}
+                    </AccentPill>
                     <p className="mt-1 text-lg font-semibold text-white">{title}</p>
                     <p className="mt-2 text-sm text-white/85">{summary}</p>
                   </div>

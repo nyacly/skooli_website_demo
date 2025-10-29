@@ -5,12 +5,13 @@ import { impactInsights } from '@/data/impactInsights.js'
 import heroImage from '@/assets/lakeside_cohort_graduation.png'
 import villageSavingsImage from '@/assets/village_savings_saccos.png'
 import { CalendarDays, Tag } from 'lucide-react'
+import { AccentPill } from '@/components/AccentPill.jsx'
 
 const categories = ['All', 'Impact', 'Tech', 'Press']
 
 const categoryPalette = {
   Impact: 'bg-[color-mix(in_srgb,var(--brand-emerald)_12%,#ffffff_88%)] text-[var(--brand-emerald)] border-[var(--brand-emerald)]/20',
-  Tech: 'bg-[color-mix(in_srgb,var(--brand-gold)_15%,#ffffff_85%)] text-[color-mix(in_srgb,var(--brand-emerald)_70%,#4c3410_30%)] border-[var(--brand-gold)]/30',
+  Tech: 'bg-[color-mix(in_srgb,var(--brand-emerald)_12%,#ffffff_88%)] text-[color-mix(in_srgb,var(--brand-emerald)_75%,#1d4232_25%)] border-[var(--brand-emerald)]/25',
   Press: 'bg-[color-mix(in_srgb,var(--brand-emerald)_8%,#fdf4d5_92%)] text-[color-mix(in_srgb,var(--brand-emerald)_65%,#6d4b12_35%)] border-[var(--brand-emerald)]/10',
 }
 
@@ -27,7 +28,9 @@ export default function NewsUpdates() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">News & updates</p>
+              <AccentPill size="sm" className="tracking-[0.25em]">
+                News & updates
+              </AccentPill>
               <h1 className="mt-4 text-4xl font-bold text-[var(--brand-emerald)]">Stories from the field and product desk</h1>
               <p className="mt-4 max-w-3xl text-base text-slate-600">
                 We publish quarterly impact notes, technology deep dives, and press announcements from Skooli’s mission across Uganda.
@@ -79,7 +82,7 @@ export default function NewsUpdates() {
                       </div>
                     ) : null}
                     <div className="space-y-4 p-6">
-                      <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-[var(--brand-gold)]">
+                      <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--brand-emerald)_75%,#032823_25%)]">
                         <CalendarDays className="size-4" /> {entry.date}
                       </div>
                       <h2 className="text-2xl font-semibold text-[var(--brand-emerald)]">{entry.title}</h2>
@@ -99,12 +102,16 @@ export default function NewsUpdates() {
 
             <aside className="space-y-6">
               <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Join our newsletter</p>
+                <AccentPill size="sm" className="tracking-[0.25em]">
+                  Join our newsletter
+                </AccentPill>
                 <p className="mt-3 text-sm text-slate-600">Receive monthly insights on logistics, impact, and technology.</p>
                 <NewsletterSignupModule layout="vertical" includeDownloadLink={false} className="mt-4" />
               </div>
               <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Impact insights</p>
+                <AccentPill size="sm" className="tracking-[0.25em]">
+                  Impact insights
+                </AccentPill>
                 <p className="mt-3 text-sm text-slate-600">Quick metrics from our investor dashboard.</p>
                 <figure className="mt-4 overflow-hidden rounded-2xl border border-[var(--brand-emerald)]/15 bg-[var(--brand-cream)]/60">
                   <img
@@ -119,15 +126,19 @@ export default function NewsUpdates() {
                 <div className="mt-6 grid gap-4">
                   {impactInsights.map((item) => (
                     <div key={item.label} className="rounded-2xl border border-[var(--brand-emerald)]/15 bg-[var(--brand-cream)]/70 p-4">
-                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">{item.label}</p>
+                      <AccentPill size="xs" className="tracking-[0.25em]">
+                        {item.label}
+                      </AccentPill>
                       <p className="mt-2 text-xl font-bold text-[var(--brand-emerald)]">{item.metric}</p>
                       <p className="mt-1 text-xs text-slate-600">{item.detail}</p>
                     </div>
                   ))}
-                </div>
+              </div>
               </div>
               <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Twitter</p>
+                <AccentPill size="sm" className="tracking-[0.25em]">
+                  Twitter
+                </AccentPill>
                 <p className="mt-3 text-sm text-slate-600">Latest threads from @skooli_africa.</p>
                 <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200">
                   <iframe

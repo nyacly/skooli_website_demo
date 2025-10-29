@@ -32,7 +32,7 @@ export function NewsletterSignupModule({ layout = 'horizontal', includeDownloadL
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="you@organisation.com"
-          className={`h-12 flex-1 rounded-full border border-[color-mix(in_srgb,var(--brand-emerald)_25%,#ffffff)] bg-white px-4 text-sm text-[color-mix(in_srgb,var(--brand-emerald)_75%,#05382c_25%)] placeholder:text-[color-mix(in_srgb,var(--brand-emerald)_35%,#8b9f99_65%)] focus:border-[var(--brand-gold)] focus:outline-none ${
+          className={`h-12 flex-1 rounded-full border border-[color-mix(in_srgb,var(--brand-emerald)_25%,#ffffff)] bg-white px-4 text-sm text-[color-mix(in_srgb,var(--brand-emerald)_75%,#05382c_25%)] placeholder:text-[color-mix(in_srgb,var(--brand-emerald)_35%,#8b9f99_65%)] focus:border-[var(--brand-emerald)] focus:outline-none ${
             isHorizontal ? '' : 'w-full'
           }`}
           aria-label="Email address"
@@ -51,7 +51,7 @@ export function NewsletterSignupModule({ layout = 'horizontal', includeDownloadL
           href="/downloads/skooli-pitch-deck-q3-2025.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center text-sm font-semibold text-[var(--brand-emerald)] underline decoration-[var(--brand-gold)] decoration-2 underline-offset-4 transition hover:text-[var(--brand-gold)]"
+          className="mt-4 inline-flex items-center text-sm font-semibold text-[var(--brand-emerald)] underline decoration-[color-mix(in_srgb,var(--brand-emerald)_45%,#032823_55%)] decoration-2 underline-offset-4 transition hover:text-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
         >
           Download the board briefing packet (PDF)
         </a>

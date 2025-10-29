@@ -8,7 +8,7 @@ export default function NotFound() {
       <p className="mt-4 max-w-lg text-base text-slate-600">
         We couldn’t find that page. Explore Skooli’s executive site from the home page instead.
       </p>
-      <Button className="mt-6 rounded-md bg-[var(--brand-gold)] px-6 py-3 text-white hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]" asChild>
+      <Button className="mt-6 rounded-md bg-[var(--brand-emerald)] px-6 py-3 text-white shadow-lg shadow-[var(--brand-emerald)]/20 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]" asChild>
         <Link to="/">Return home</Link>
       </Button>
     </div>

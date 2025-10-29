@@ -51,7 +51,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setOpen((prev) => !prev)}
-          className="rounded-md border border-slate-200 p-2 text-[var(--brand-emerald)] shadow-sm transition hover:border-[var(--brand-gold)] hover:text-[var(--brand-gold)] lg:hidden"
+          className="rounded-md border border-slate-200 p-2 text-[var(--brand-emerald)] shadow-sm transition hover:border-[color-mix(in_srgb,var(--brand-emerald)_70%,#032823_30%)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_70%,#032823_30%)] lg:hidden"
           aria-label="Toggle navigation"
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -79,7 +79,7 @@ export default function Header() {
             <div className="mt-4 flex flex-col gap-2">
               <Button
                 variant="ghost"
-                className="w-full rounded-md py-2 text-sm font-semibold text-[var(--brand-emerald)] hover:text-[var(--brand-gold)]"
+                className="w-full rounded-md py-2 text-sm font-semibold text-[var(--brand-emerald)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
                 asChild
               >
                 <Link to="/funders#investor-deck" onClick={closeMenu}>

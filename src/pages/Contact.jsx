@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { MapPin, Linkedin, Twitter, Youtube } from 'lucide-react'
+import { AccentPill } from '@/components/AccentPill.jsx'
 import leadershipGradient from '@/assets/leadership-gradient.svg'
 import leadershipPortrait from '@/assets/leadership-portrait.svg'
 import pastoralIllustration from '@/assets/pastoral-support-illustration.svg'
@@ -161,7 +162,9 @@ export default function ContactPage() {
           style={{ backgroundImage: `url(${leadershipGradient})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
         />
         <div className="relative mx-auto max-w-6xl px-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Contact</p>
+          <AccentPill tone="inverse" className="bg-white/15">
+            Contact
+          </AccentPill>
           <h1 className="mt-4 text-4xl font-bold leading-tight text-white sm:text-5xl">
             We steward every enquiry with speed, dignity, and prayerful care
           </h1>
@@ -177,7 +180,9 @@ export default function ContactPage() {
             <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <h2 className="text-2xl font-semibold text-[var(--brand-emerald)]">Choose your channel</h2>
-                <p className="text-xs uppercase tracking-[0.3em] text-[var(--brand-gold)]">Average response 6 hours</p>
+                <AccentPill size="xs" className="tracking-[0.25em]">
+                  Average response 6 hours
+                </AccentPill>
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
                 {segmentOrder.map((segment) => (
@@ -188,7 +193,7 @@ export default function ContactPage() {
                     className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
                       activeSegment === segment
                         ? 'bg-[var(--brand-emerald)] text-white shadow'
-                        : 'bg-[var(--brand-cream)] text-[var(--brand-emerald)] hover:bg-[var(--brand-emerald)]/10'
+                        : 'bg-[color-mix(in_srgb,var(--brand-cream)_68%,#ffffff_32%)] text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] shadow-inner shadow-white/50 hover:bg-[var(--brand-emerald)]/10'
                     }`}
                   >
                     {segmentConfig[segment].label}
@@ -200,7 +205,7 @@ export default function ContactPage() {
                 {currentSegment.fields.map((field) => {
                   const fieldId = `${activeSegment}-${field.id}`
                   const baseInputClasses =
-                    'mt-1 w-full rounded-md border border-[var(--brand-emerald)]/20 bg-[var(--brand-cream)] px-4 py-3 text-sm text-slate-700 focus:border-[var(--brand-gold)] focus:outline-none'
+                    'mt-1 w-full rounded-md border border-[var(--brand-emerald)]/20 bg-[var(--brand-cream)] px-4 py-3 text-sm text-slate-700 focus:border-[var(--brand-emerald)] focus:outline-none'
 
                   if (field.type === 'select') {
                     const isSupportType = field.id === 'support_type'
@@ -280,7 +285,7 @@ export default function ContactPage() {
                 )}
                 <button
                   type="submit"
-                  className="w-full rounded-md bg-[var(--brand-gold)] py-3 text-sm font-semibold text-[var(--brand-emerald)] shadow hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
+                  className="w-full rounded-md bg-[var(--brand-emerald)] py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--brand-emerald)]/20 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
                   disabled={status === 'loading'}
                 >
                   {status === 'loading' ? 'Sending…' : status === 'success' ? 'Message sent!' : 'Submit enquiry'}
@@ -289,23 +294,34 @@ export default function ContactPage() {
             </div>
             <div className="space-y-6">
               <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Direct contacts</p>
+                <AccentPill size="sm" className="tracking-[0.25em]">
+                  Direct contacts
+                </AccentPill>
                 <div className="mt-4 space-y-3 text-sm text-slate-600">
                   <div>
                     <p className="font-semibold text-[var(--brand-emerald)]">Investor relations</p>
-                    <a className="text-[var(--brand-gold)]" href="mailto:invest@skooli.africa">
+                    <a
+                      className="text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] hover:text-[var(--brand-emerald)]"
+                      href="mailto:invest@skooli.africa"
+                    >
                       invest@skooli.africa
                     </a>
                   </div>
                   <div>
                     <p className="font-semibold text-[var(--brand-emerald)]">Press & media</p>
-                    <a className="text-[var(--brand-gold)]" href="mailto:pr@skooli.africa">
+                    <a
+                      className="text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] hover:text-[var(--brand-emerald)]"
+                      href="mailto:pr@skooli.africa"
+                    >
                       pr@skooli.africa
                     </a>
                   </div>
                   <div>
                     <p className="font-semibold text-[var(--brand-emerald)]">Family support</p>
-                    <a className="text-[var(--brand-gold)]" href="mailto:hello@skooli.africa">
+                    <a
+                      className="text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] hover:text-[var(--brand-emerald)]"
+                      href="mailto:hello@skooli.africa"
+                    >
                       hello@skooli.africa
                     </a>
                   </div>
@@ -321,18 +337,26 @@ export default function ContactPage() {
                       </span>
                       <div>
                         <p className="text-base font-semibold text-[var(--brand-emerald)]">{office.title}</p>
-                        <p className="text-xs uppercase tracking-[0.3em] text-[var(--brand-gold)]">{office.emphasis}</p>
+                        <AccentPill size="xs" className="mt-2 tracking-[0.25em]">
+                          {office.emphasis}
+                        </AccentPill>
                         <div className="mt-3 space-y-1 text-sm text-slate-600">
                           {office.address.map((line) => (
                             <p key={line}>{line}</p>
                           ))}
                           {office.phone && (
-                            <a className="block text-[var(--brand-gold)]" href={`tel:${office.phone.replace(/[^+\d]/g, '')}`}>
+                            <a
+                              className="block text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] hover:text-[var(--brand-emerald)]"
+                              href={`tel:${office.phone.replace(/[^+\d]/g, '')}`}
+                            >
                               {office.phone}
                             </a>
                           )}
                           {office.email && (
-                            <a className="block text-[var(--brand-gold)]" href={`mailto:${office.email}`}>
+                            <a
+                              className="block text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] hover:text-[var(--brand-emerald)]"
+                              href={`mailto:${office.email}`}
+                            >
                               {office.email}
                             </a>
                           )}
@@ -343,10 +367,12 @@ export default function ContactPage() {
                 ))}
               </div>
               <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Connect</p>
+                <AccentPill size="sm" className="tracking-[0.25em]">
+                  Connect
+                </AccentPill>
                 <div className="mt-3 flex gap-3">
                   <a
-                    className="flex size-10 items-center justify-center rounded-full bg-[var(--brand-emerald)] text-white shadow hover:bg-[var(--brand-gold)]"
+                    className="flex size-10 items-center justify-center rounded-full bg-[var(--brand-emerald)] text-white shadow hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
                     href="https://www.linkedin.com/company/skooli"
                     target="_blank"
                     rel="noreferrer"
@@ -355,7 +381,7 @@ export default function ContactPage() {
                     <Linkedin className="size-5" />
                   </a>
                   <a
-                    className="flex size-10 items-center justify-center rounded-full bg-[var(--brand-emerald)] text-white shadow hover:bg-[var(--brand-gold)]"
+                    className="flex size-10 items-center justify-center rounded-full bg-[var(--brand-emerald)] text-white shadow hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
                     href="https://twitter.com/skooli_africa"
                     target="_blank"
                     rel="noreferrer"
@@ -364,7 +390,7 @@ export default function ContactPage() {
                     <Twitter className="size-5" />
                   </a>
                   <a
-                    className="flex size-10 items-center justify-center rounded-full bg-[var(--brand-emerald)] text-white shadow hover:bg-[var(--brand-gold)]"
+                    className="flex size-10 items-center justify-center rounded-full bg-[var(--brand-emerald)] text-white shadow hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
                     href="https://www.youtube.com/@skooli"
                     target="_blank"
                     rel="noreferrer"
@@ -404,13 +430,18 @@ export default function ContactPage() {
                 <h3 className="text-2xl font-semibold">Prayer & pastoral support</h3>
                 <p className="mt-3 text-sm text-white/85">
                   Our chaplaincy team offers scripture-grounded encouragement, trauma-informed care, and intercession for learners and staff. Submit requests via the support form or email
-                  <a className="font-semibold text-[var(--brand-gold)]" href="mailto:prayer@skooli.africa">
+                  <a
+                    className="font-semibold text-white underline decoration-white/60 decoration-2 underline-offset-4 hover:text-white"
+                    href="mailto:prayer@skooli.africa"
+                  >
                     {' '}
                     prayer@skooli.africa
                   </a>
                   .
                 </p>
-                <p className="mt-4 text-xs uppercase tracking-[0.3em] text-[var(--brand-gold)]">Live intercession line: +256 708 123 450</p>
+                <AccentPill tone="inverse" className="mt-4 bg-white/20 tracking-[0.25em]">
+                  Live intercession line: +256 708 123 450
+                </AccentPill>
               </div>
             </div>
           </div>

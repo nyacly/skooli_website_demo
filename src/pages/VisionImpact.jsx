@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Compass, Globe2, Users2, HeartHandshake, Quote, ArrowLeft, ArrowRight } from 'lucide-react'
+import { AccentPill } from '@/components/AccentPill.jsx'
 
 const pillars = [
   {
@@ -117,9 +118,9 @@ export default function VisionImpact() {
               </div>
             </div>
             <div className="rounded-3xl bg-[var(--brand-cream)] p-10 shadow-lg shadow-black/5">
-              <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">
-                <Compass className="size-5" /> Vision 2030
-              </div>
+              <AccentPill size="sm" icon={Compass} className="tracking-[0.25em]">
+                Vision 2030
+              </AccentPill>
               <p className="mt-5 text-lg text-[var(--brand-emerald)]">
                 Skooli envisions an Africa where access to education supplies is never a barrier to learning or dignity.
               </p>
@@ -151,9 +152,13 @@ export default function VisionImpact() {
                       cx={district.cx}
                       cy={district.cy}
                       r={district.radius}
-                      fill={district.id === activeDistrict.id ? 'var(--brand-gold)' : 'var(--brand-emerald)'}
-                      fillOpacity={district.id === activeDistrict.id ? 0.9 : 0.6}
-                      className="cursor-pointer transition hover:fill-[var(--brand-gold)]"
+                      fill={
+                        district.id === activeDistrict.id
+                          ? 'color-mix(in srgb, var(--brand-emerald) 76%, var(--brand-emerald-light) 24%)'
+                          : 'var(--brand-emerald)'
+                      }
+                      fillOpacity={district.id === activeDistrict.id ? 0.9 : 0.65}
+                      className="cursor-pointer transition hover:fill-[color-mix(in_srgb,var(--brand-emerald)_76%,var(--brand-emerald-light)_24%)]"
                       onMouseEnter={() => setActiveDistrict(district)}
                       onFocus={() => setActiveDistrict(district)}
                       tabIndex={0}
@@ -176,7 +181,7 @@ export default function VisionImpact() {
                       pointerEvents="none"
                     >
                       <div className="flex h-full flex-col justify-center rounded-2xl bg-[var(--brand-emerald)]/90 px-3 py-2 text-white shadow-lg ring-1 ring-white/30">
-                        <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/80">
                           {district.name}
                         </p>
                         <p className="mt-1 text-xs font-semibold">
@@ -190,7 +195,9 @@ export default function VisionImpact() {
               </svg>
             </div>
             <div className="space-y-6">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Impact map</p>
+              <AccentPill size="sm" className="tracking-[0.25em]">
+                Impact map
+              </AccentPill>
               <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">
                 District coverage grows every term
               </h2>
@@ -203,7 +210,9 @@ export default function VisionImpact() {
                   <strong>{activeDistrict.schools}</strong> partner schools •
                   <strong> {activeDistrict.studentLabel}</strong> students supported
                 </p>
-                <p className="mt-3 text-xs uppercase tracking-[0.3em] text-[var(--brand-gold)]">Data refreshed weekly</p>
+                <AccentPill size="xs" className="mt-3 tracking-[0.25em]">
+                  Data refreshed weekly
+                </AccentPill>
               </div>
             </div>
           </div>
@@ -212,7 +221,9 @@ export default function VisionImpact() {
 
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">SDG alignment</p>
+          <AccentPill size="sm" className="tracking-[0.25em]">
+            SDG alignment
+          </AccentPill>
           <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Anchored to global goals</h2>
           <p className="mt-3 text-sm text-slate-600">
             Every cohort of learners we serve is linked to a Sustainable Development Goal target and tracked through quarterly
@@ -231,7 +242,7 @@ export default function VisionImpact() {
                     <p className="text-sm font-semibold uppercase tracking-[0.3em]">{sdg}</p>
                   </div>
                   <p className="mt-4 text-base text-slate-600 group-hover:text-white/90">{metric}</p>
-                  <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--brand-gold)] group-hover:text-[var(--brand-gold)]/90">
+                  <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-[color-mix(in_srgb,var(--brand-emerald)_76%,var(--brand-emerald-light)_24%)] group-hover:text-white/80">
                     Independently verified twice yearly
                   </p>
                 </div>
@@ -243,9 +254,11 @@ export default function VisionImpact() {
 
       <section className="py-16">
         <div className="mx-auto max-w-4xl px-4 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Story carousel</p>
+          <AccentPill size="sm" className="mx-auto tracking-[0.25em]">
+            Story carousel
+          </AccentPill>
           <div className="relative mt-8 overflow-hidden rounded-3xl bg-white p-10 shadow-lg shadow-black/10">
-            <Quote className="absolute left-6 top-6 size-8 text-[var(--brand-gold)]" />
+            <Quote className="absolute left-6 top-6 size-8 text-[color-mix(in_srgb,var(--brand-emerald)_76%,var(--brand-emerald-light)_24%)]" />
             <p className="text-lg text-[var(--brand-emerald)]">{stories[storyIndex].narrative}</p>
             <p className="mt-6 text-sm font-semibold text-slate-600">{stories[storyIndex].name}</p>
             <div className="mt-8 flex items-center justify-center gap-3">
@@ -260,7 +273,11 @@ export default function VisionImpact() {
                 {stories.map((_, index) => (
                   <span
                     key={index}
-                    className={`h-2 w-8 rounded-full ${index === storyIndex ? 'bg-[var(--brand-gold)]' : 'bg-slate-200'}`}
+                    className={`h-2 w-8 rounded-full ${
+                      index === storyIndex
+                        ? 'bg-[color-mix(in_srgb,var(--brand-emerald)_76%,var(--brand-emerald-light)_24%)]'
+                        : 'bg-slate-200'
+                    }`}
                   />
                 ))}
               </div>

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { AccentPill } from '@/components/AccentPill.jsx'
 
 const stats = [
   { label: 'Schools Served', value: 168 },
@@ -35,9 +36,9 @@ export default function ImpactSnapshot() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div>
-            <span className="inline-flex items-center rounded-full bg-white/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)] shadow-lg shadow-black/20 backdrop-blur">
+            <AccentPill tone="inverse" size="sm" className="bg-white/25">
               Executive Dashboard Sync
-            </span>
+            </AccentPill>
             <p className="mt-6 text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Impact snapshot</p>
             <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
               Real-time mission metrics from our executive dashboard
@@ -50,7 +51,7 @@ export default function ImpactSnapshot() {
                 href="/downloads/skooli-impact-report-2025.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-[var(--brand-emerald)] shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[var(--brand-gold)] hover:text-[color-mix(in_srgb,#032823_80%,#ffffff_20%)]"
+                className="inline-flex items-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-[var(--brand-emerald)] shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_12%,#ffffff_88%)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
               >
                 Download the executive impact briefing (PDF)
               </a>
