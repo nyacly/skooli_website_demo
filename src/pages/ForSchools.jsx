@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { ShieldCheck, Wallet, BarChart3, CalendarDays, Star, Quote, Activity, BadgeCheck, AlertTriangle } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
 import ComplianceKit from '@/components/ComplianceKit.jsx'
+import { AccentPill } from '@/components/AccentPill.jsx'
 
 const benefits = [
   {
@@ -65,7 +66,9 @@ export default function ForSchools() {
     <div className="bg-[var(--brand-cream)]">
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">For schools</p>
+          <AccentPill size="sm" className="tracking-[0.25em]">
+            For schools
+          </AccentPill>
           <div className="mt-6 grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-center">
             <div>
               <h1 className="text-4xl font-bold text-[var(--brand-emerald)]">A reliable partner for school administrators</h1>
@@ -76,7 +79,7 @@ export default function ForSchools() {
                 <div className="flex items-center gap-2 rounded-full bg-[var(--brand-emerald)]/10 px-4 py-2 text-sm font-semibold text-[var(--brand-emerald)]">
                   <BadgeCheck className="size-4" aria-hidden="true" /> ≥30% parent adoption in first term
                 </div>
-                <div className="flex items-center gap-2 rounded-full bg-[var(--brand-gold)]/10 px-4 py-2 text-sm font-semibold text-[var(--brand-emerald)]">
+                <div className="flex items-center gap-2 rounded-full bg-[color-mix(in_srgb,var(--brand-emerald)_12%,#ffffff_88%)] px-4 py-2 text-sm font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)]">
                   <Activity className="size-4" aria-hidden="true" /> ≥95% delivery SLA maintained
                 </div>
               </div>
@@ -124,7 +127,9 @@ export default function ForSchools() {
 
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Implementation timeline</p>
+          <AccentPill size="sm" className="tracking-[0.25em]">
+            Implementation timeline
+          </AccentPill>
           <div className="mt-8 overflow-hidden rounded-3xl bg-white p-8 shadow-lg shadow-black/5">
             <div className="relative">
               <div className="absolute top-1/2 h-0.5 w-full -translate-y-1/2 bg-[var(--brand-emerald)]/20" aria-hidden="true" />
@@ -148,7 +153,9 @@ export default function ForSchools() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Risk mitigation</p>
+              <AccentPill size="sm" className="tracking-[0.25em]">
+                Risk mitigation
+              </AccentPill>
               <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Controls that de-risk your procurement board</h2>
               <p className="mt-3 text-sm text-slate-600">
                 Every partnership is underpinned by proactive risk ownership—from diversified suppliers to data privacy audits—so school governors stay confident in scale decisions.
@@ -156,7 +163,7 @@ export default function ForSchools() {
               <div className="mt-6 grid gap-4 sm:grid-cols-3">
                 {riskCallouts.map((item) => (
                   <div key={item.title} className="rounded-3xl bg-white p-4 shadow-lg shadow-black/5">
-                    <AlertTriangle className="size-5 text-[var(--brand-gold)]" aria-hidden="true" />
+                    <AlertTriangle className="size-5 text-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]" aria-hidden="true" />
                     <h3 className="mt-3 text-sm font-semibold text-[var(--brand-emerald)]">{item.title}</h3>
                     <p className="mt-2 text-xs text-slate-600">{item.detail}</p>
                   </div>
@@ -181,8 +188,8 @@ export default function ForSchools() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-8 md:grid-cols-3">
             {testimonials.map((testimonial) => (
-              <div key={testimonial.name} className="rounded-3xl bg-[var(--brand-cream)] p-6 shadow-lg shadow-black/5">
-                <div className="flex items-center gap-2 text-[var(--brand-gold)]">
+              <div key={testimonial.name} className="rounded-3xl bg-[color-mix(in_srgb,var(--brand-cream)_85%,#ffffff_15%)] p-6 shadow-lg shadow-black/5">
+                <div className="flex items-center gap-2 text-[color-mix(in_srgb,var(--brand-emerald)_72%,var(--brand-emerald-light)_28%)]">
                   {[...Array(testimonial.rating)].map((_, index) => (
                     <Star key={index} className="size-4 fill-current" />
                   ))}
@@ -203,7 +210,7 @@ export default function ForSchools() {
             Book a slot with our school success team. We’ll customise the walkthrough to your context and send a follow-up proposal.
           </p>
           <Button
-            className="mt-6 rounded-md bg-[var(--brand-gold)] px-8 py-3 text-white shadow hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
+            className="mt-6 rounded-md bg-[var(--brand-emerald)] px-8 py-3 text-white shadow-lg shadow-[var(--brand-emerald)]/20 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
             asChild
           >
             <a href="https://calendly.com/skooli-schools/20min-demo" target="_blank" rel="noreferrer">
@@ -248,7 +255,9 @@ function PortalLoop() {
         <div
           key={card.title}
           className={`rounded-2xl border p-4 shadow-lg shadow-black/5 transition ${
-            activeIndex === index ? 'border-[var(--brand-gold)] bg-white' : 'border-transparent bg-white/80'
+            activeIndex === index
+              ? 'border-[var(--brand-emerald)] bg-white'
+              : 'border-transparent bg-white/80'
           }`}
         >
           <h3 className="text-sm font-semibold text-[var(--brand-emerald)]">{card.title}</h3>
@@ -301,7 +310,15 @@ function RiskMitigationMatrix() {
           />
         ))}
         <g>
-          <rect x="24" y="92" width="56" height="32" rx="8" fill="var(--brand-gold)" fillOpacity="0.2" />
+          <rect
+            x="24"
+            y="92"
+            width="56"
+            height="32"
+            rx="8"
+            fill="color-mix(in srgb, var(--brand-emerald) 68%, var(--brand-emerald-light) 32%)"
+            fillOpacity="0.2"
+          />
           <text x="28" y="112" fill="var(--brand-emerald)" fontSize="10" fontWeight="600">
             Late deliveries
           </text>
@@ -319,7 +336,15 @@ function RiskMitigationMatrix() {
           </text>
         </g>
         <g>
-          <rect x="136" y="16" width="48" height="32" rx="8" fill="var(--brand-gold)" fillOpacity="0.25" />
+          <rect
+            x="136"
+            y="16"
+            width="48"
+            height="32"
+            rx="8"
+            fill="color-mix(in srgb, var(--brand-emerald) 68%, var(--brand-emerald-light) 32%)"
+            fillOpacity="0.25"
+          />
           <text x="140" y="36" fill="var(--brand-emerald)" fontSize="10" fontWeight="600">
             Fraud
           </text>

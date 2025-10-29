@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Building, Landmark, Handshake, Church, BarChart3, PieChart, LineChart, ClipboardCheck, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
 import ComplianceKit from '@/components/ComplianceKit.jsx'
+import { AccentPill } from '@/components/AccentPill.jsx'
 
 const segments = {
   ngos: {
@@ -112,7 +113,9 @@ export default function PartnerWithUs() {
     <div className="bg-[var(--brand-cream)]">
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Partnerships</p>
+          <AccentPill size="sm" className="tracking-[0.25em]">
+            Partnerships
+          </AccentPill>
           <div className="mt-6 grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-center">
             <div>
               <h1 className="text-4xl font-bold text-[var(--brand-emerald)]">Partner with Skooli to scale dignified access</h1>
@@ -124,7 +127,7 @@ export default function PartnerWithUs() {
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Dynamic Typeform</p>
               <p className="mt-2 text-lg">Tell us how you’d like to collaborate and a partnership lead will respond within 48 hours.</p>
               <Button
-                className="mt-6 rounded-md bg-[var(--brand-gold)] px-6 py-3 text-white shadow hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
+                className="mt-6 rounded-md bg-[var(--brand-emerald)] px-6 py-3 text-white shadow-lg shadow-[var(--brand-emerald)]/20 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
                 asChild
               >
                 <a href="https://form.typeform.com/to/skooli-partner" target="_blank" rel="noreferrer">
@@ -144,8 +147,8 @@ export default function PartnerWithUs() {
                 type="button"
                 className={`flex flex-col items-start gap-2 rounded-2xl border px-4 py-4 text-left text-sm font-semibold transition ${
                   activeSegment === 'ngos'
-                    ? 'border-[var(--brand-gold)] bg-[var(--brand-cream)] text-[var(--brand-emerald)]'
-                    : 'border-transparent bg-white hover:border-[var(--brand-gold)]/40 hover:bg-[var(--brand-cream)]'
+                    ? 'border-[var(--brand-emerald)] bg-[color-mix(in_srgb,var(--brand-cream)_82%,#ffffff_18%)] text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] shadow-inner shadow-white/60'
+                    : 'border-transparent bg-white hover:border-[var(--brand-emerald)]/40 hover:bg-[color-mix(in_srgb,var(--brand-cream)_82%,#ffffff_18%)]'
                 }`}
                 onClick={() => setActiveSegment('ngos')}
               >
@@ -156,8 +159,8 @@ export default function PartnerWithUs() {
                 type="button"
                 className={`flex flex-col items-start gap-2 rounded-2xl border px-4 py-4 text-left text-sm font-semibold transition ${
                   activeSegment === 'governments'
-                    ? 'border-[var(--brand-gold)] bg-[var(--brand-cream)] text-[var(--brand-emerald)]'
-                    : 'border-transparent bg-white hover:border-[var(--brand-gold)]/40 hover:bg-[var(--brand-cream)]'
+                    ? 'border-[var(--brand-emerald)] bg-[color-mix(in_srgb,var(--brand-cream)_82%,#ffffff_18%)] text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] shadow-inner shadow-white/60'
+                    : 'border-transparent bg-white hover:border-[var(--brand-emerald)]/40 hover:bg-[color-mix(in_srgb,var(--brand-cream)_82%,#ffffff_18%)]'
                 }`}
                 onClick={() => setActiveSegment('governments')}
               >
@@ -168,8 +171,8 @@ export default function PartnerWithUs() {
                 type="button"
                 className={`flex flex-col items-start gap-2 rounded-2xl border px-4 py-4 text-left text-sm font-semibold transition ${
                   activeSegment === 'suppliers'
-                    ? 'border-[var(--brand-gold)] bg-[var(--brand-cream)] text-[var(--brand-emerald)]'
-                    : 'border-transparent bg-white hover:border-[var(--brand-gold)]/40 hover:bg-[var(--brand-cream)]'
+                    ? 'border-[var(--brand-emerald)] bg-[color-mix(in_srgb,var(--brand-cream)_82%,#ffffff_18%)] text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] shadow-inner shadow-white/60'
+                    : 'border-transparent bg-white hover:border-[var(--brand-emerald)]/40 hover:bg-[color-mix(in_srgb,var(--brand-cream)_82%,#ffffff_18%)]'
                 }`}
                 onClick={() => setActiveSegment('suppliers')}
               >
@@ -180,8 +183,8 @@ export default function PartnerWithUs() {
                 type="button"
                 className={`flex flex-col items-start gap-2 rounded-2xl border px-4 py-4 text-left text-sm font-semibold transition ${
                   activeSegment === 'churches'
-                    ? 'border-[var(--brand-gold)] bg-[var(--brand-cream)] text-[var(--brand-emerald)]'
-                    : 'border-transparent bg-white hover:border-[var(--brand-gold)]/40 hover:bg-[var(--brand-cream)]'
+                    ? 'border-[var(--brand-emerald)] bg-[color-mix(in_srgb,var(--brand-cream)_82%,#ffffff_18%)] text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] shadow-inner shadow-white/60'
+                    : 'border-transparent bg-white hover:border-[var(--brand-emerald)]/40 hover:bg-[color-mix(in_srgb,var(--brand-cream)_82%,#ffffff_18%)]'
                 }`}
                 onClick={() => setActiveSegment('churches')}
               >
@@ -230,7 +233,9 @@ export default function PartnerWithUs() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Stakeholder alignment</p>
+              <AccentPill size="sm" className="tracking-[0.25em]">
+                Stakeholder alignment
+              </AccentPill>
               <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Value narratives tailored to every decision maker</h2>
               <p className="mt-3 text-sm text-slate-600">
                 Ensure every stakeholder group understands the programme promise and has ready-to-share collateral for swift
@@ -245,7 +250,7 @@ export default function PartnerWithUs() {
                     </div>
                     <a
                       href={stakeholder.collateral.href}
-                      className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-[var(--brand-gold)] hover:text-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
+                      className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] underline decoration-[color-mix(in_srgb,var(--brand-emerald)_40%,#032823_60%)] decoration-2 underline-offset-4 hover:text-[var(--brand-emerald)]"
                       download={stakeholder.collateral.download}
                     >
                       {stakeholder.collateral.label}

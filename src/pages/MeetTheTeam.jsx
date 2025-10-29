@@ -1,4 +1,5 @@
 import { Linkedin } from 'lucide-react'
+import { AccentPill } from '@/components/AccentPill.jsx'
 
 const founders = [
   {
@@ -83,7 +84,9 @@ export default function MeetTheTeam() {
     <div className="bg-[var(--brand-cream)]">
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Meet the team</p>
+          <AccentPill size="sm" className="mx-auto tracking-[0.25em]">
+            Meet the team
+          </AccentPill>
           <h1 className="mt-4 text-4xl font-bold text-[var(--brand-emerald)]">Faithful leaders stewarding Skooli’s mission</h1>
           <p className="mt-4 text-base text-slate-600">
             Our team blends logistics, technology, and ministry experience to deliver for learners across Uganda.
@@ -109,9 +112,9 @@ export default function MeetTheTeam() {
                 <div className="flex flex-1 flex-col p-6">
                   <div>
                     <h3 className="text-xl font-semibold text-[var(--brand-emerald)]">{founder.name}</h3>
-                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--brand-gold)]">
+                    <AccentPill size="xs" className="mt-2 tracking-[0.2em]">
                       {founder.role}
-                    </p>
+                    </AccentPill>
                     <p className="mt-3 text-sm text-slate-600">{founder.bio}</p>
                   </div>
                   <dl className="mt-4 grid gap-3 rounded-2xl bg-[var(--brand-cream)]/70 p-4 text-sm text-[var(--brand-emerald)]">
@@ -146,7 +149,9 @@ export default function MeetTheTeam() {
             {advisors.map((advisor) => (
               <div key={advisor.name} className="rounded-3xl bg-[var(--brand-cream)] p-6 shadow-lg shadow-black/5">
                 <h3 className="text-lg font-semibold text-[var(--brand-emerald)]">{advisor.name}</h3>
-                <p className="text-sm font-semibold text-[var(--brand-gold)]">{advisor.focus}</p>
+                <AccentPill size="xs" className="mt-2 tracking-[0.2em]">
+                  {advisor.focus}
+                </AccentPill>
                 <p className="mt-3 text-sm text-slate-600">{advisor.summary}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {advisor.tags.map((tag) => (

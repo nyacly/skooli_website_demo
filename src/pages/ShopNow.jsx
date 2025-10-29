@@ -1,5 +1,6 @@
 import { ShoppingBag, ShieldCheck, Smartphone, Clock, Sparkles, PackageSearch } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
+import { AccentPill } from '@/components/AccentPill.jsx'
 
 const benefits = [
   {
@@ -47,13 +48,15 @@ export default function ShopNow() {
     <div className="bg-[var(--brand-cream)]">
       <section className="bg-white py-16">
         <div className="mx-auto max-w-5xl px-4 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Parents & guardians</p>
+          <AccentPill size="sm" className="tracking-[0.25em]">
+            Parents & guardians
+          </AccentPill>
           <h1 className="mt-4 text-4xl font-bold text-[var(--brand-emerald)]">Shop, schedule, and track every supply with confidence</h1>
           <p className="mt-6 text-base text-slate-600">
             The Skooli Parent Portal puts everything in one place: curated bundles, secure payments, and live delivery alerts so your child never misses a school day.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button className="rounded-md bg-[var(--brand-gold)] px-8 py-3 text-white shadow hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]">
+            <Button className="rounded-md bg-[var(--brand-emerald)] px-8 py-3 text-white shadow-lg shadow-[var(--brand-emerald)]/20 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]">
               Launch Parent Portal
             </Button>
             <Button
@@ -90,10 +93,9 @@ export default function ShopNow() {
               </div>
             </div>
             <div className="rounded-3xl bg-white p-8 shadow-xl shadow-black/10">
-              <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">
-                <Sparkles className="size-5" />
+              <AccentPill size="sm" icon={Sparkles} className="tracking-[0.25em]">
                 Demo view
-              </div>
+              </AccentPill>
               <div className="mt-6 space-y-4 text-left">
                 <div className="rounded-2xl border border-slate-200 p-4">
                   <p className="text-xs uppercase tracking-wide text-slate-500">Child accounts</p>
@@ -146,7 +148,9 @@ export default function ShopNow() {
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex flex-col gap-6 text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Featured bundles</p>
+            <AccentPill size="sm" className="mx-auto tracking-[0.25em]">
+              Featured bundles
+            </AccentPill>
             <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">Term-perfect packs families rely on</h2>
             <p className="mx-auto max-w-2xl text-sm text-slate-600">
               Every bundle is co-designed with partner schools and refreshed each term based on curriculum updates and pastoral needs.
@@ -166,7 +170,7 @@ export default function ShopNow() {
                   ))}
                 </ul>
                 <p className="mt-4 text-lg font-semibold text-[var(--brand-emerald)]">{bundle.price}</p>
-                <Button className="mt-4 rounded-md bg-[var(--brand-gold)] text-white hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]">
+                <Button className="mt-4 rounded-md bg-[var(--brand-emerald)] text-white shadow-lg shadow-[var(--brand-emerald)]/20 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]">
                   Pre-order
                 </Button>
               </div>

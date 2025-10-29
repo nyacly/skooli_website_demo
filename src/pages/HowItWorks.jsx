@@ -3,6 +3,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { ArrowLeft, ArrowRight, Sparkles, Route, Play, CalendarCheck, FileDown } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
 import ComplianceKit from '@/components/ComplianceKit.jsx'
+import { AccentPill } from '@/components/AccentPill.jsx'
 
 const carouselSlides = [
   {
@@ -13,7 +14,7 @@ const carouselSlides = [
   {
     title: 'Local supplier marketplace',
     description: 'Verified Ugandan SMEs showcase stationery, uniforms, and health products.',
-    color: 'from-[color-mix(in_srgb,var(--brand-gold)_22%,white)] to-white',
+    color: 'from-[color-mix(in_srgb,var(--brand-emerald)_18%,white)] to-white',
   },
   {
     title: 'Real-time availability',
@@ -210,7 +211,11 @@ export default function HowItWorks() {
                     {carouselSlides.map((slide, index) => (
                       <span
                         key={slide.title}
-                        className={`h-2 w-6 rounded-full ${index === activeSlide ? 'bg-[var(--brand-gold)]' : 'bg-slate-300'}`}
+                        className={`h-2 w-6 rounded-full ${
+                          index === activeSlide
+                            ? 'bg-[color-mix(in_srgb,var(--brand-emerald)_76%,var(--brand-emerald-light)_24%)]'
+                            : 'bg-slate-300'
+                        }`}
                       />
                     ))}
                   </div>
@@ -225,10 +230,9 @@ export default function HowItWorks() {
               </div>
             </div>
             <div className="rounded-2xl bg-[var(--brand-cream)] p-8 shadow-lg shadow-black/5">
-              <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">
-                <Sparkles className="size-5" />
+              <AccentPill size="sm" icon={Sparkles} className="tracking-[0.25em]">
                 Assisted shopping
-              </div>
+              </AccentPill>
               <p className="mt-4 text-sm text-slate-600">
                 Community agents guide parents at churches and SACCO halls using tablets connected to the same catalogue.
               </p>
@@ -252,7 +256,8 @@ export default function HowItWorks() {
                 Our AI-driven routing engine optimises loading from Kampala and Gulu warehouses. Each delivery vehicle carries IoT trackers that feed into the control tower dashboard.
               </p>
               <div className="mt-6 flex items-center gap-3 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[var(--brand-emerald)] shadow">
-                <Route className="size-4" /> SLA badge: <span className="text-[var(--brand-gold)]">95% on-time</span>
+                <Route className="size-4" /> SLA badge:{' '}
+                <span className="text-[color-mix(in_srgb,var(--brand-emerald)_76%,var(--brand-emerald-light)_24%)]">95% on-time</span>
               </div>
               <p className="mt-4 text-sm text-slate-600">
                 Dispatchers adjust for weather, traffic, and school calendars. Automated SMS alerts inform schools 30 minutes before arrival.
@@ -297,7 +302,9 @@ export default function HowItWorks() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-start">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Pilot launch playbook</p>
+              <AccentPill size="sm" className="tracking-[0.25em]">
+                Pilot launch playbook
+              </AccentPill>
               <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Eight-week glide path to operational readiness</h2>
               <p className="mt-3 text-sm text-slate-600">
                 Follow a structured onboarding cadence that keeps administrators, parents, and suppliers aligned from the first
@@ -350,7 +357,9 @@ export default function HowItWorks() {
 
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">School cycle bundles</p>
+          <AccentPill size="sm" className="tracking-[0.25em]">
+            School cycle bundles
+          </AccentPill>
           <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Packages tuned to the academic calendar</h2>
           <p className="mt-2 max-w-2xl text-sm text-slate-600">
             Choose from pre-approved bundles or co-create with our merchandising team. Each accordion reveals what’s inside and the impact it unlocks.
@@ -389,10 +398,19 @@ export default function HowItWorks() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div className="md:w-1/3">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">FAQ</p>
+              <AccentPill size="sm" className="tracking-[0.25em]">
+                FAQ
+              </AccentPill>
               <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Answers for families, schools, and donors</h2>
               <p className="mt-4 text-sm text-slate-600">
-                Need something more specific? Reach us via <a href="mailto:hello@skooli.africa" className="font-semibold text-[var(--brand-gold)]">hello@skooli.africa</a>.
+                Need something more specific? Reach us via{' '}
+                <a
+                  href="mailto:hello@skooli.africa"
+                  className="font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] underline decoration-[color-mix(in_srgb,var(--brand-emerald)_40%,#032823_60%)] decoration-2 underline-offset-4 hover:text-[var(--brand-emerald)]"
+                >
+                  hello@skooli.africa
+                </a>
+                .
               </p>
             </div>
             <div className="md:w-2/3">
@@ -443,9 +461,17 @@ function AnimatedRouteMap() {
       <rect x="0" y="0" width="360" height="220" rx="24" fill="var(--brand-cream)" />
       <path d="M90 180 L120 120 L170 150 L220 90 L280 110" stroke="var(--brand-emerald)" strokeWidth="6" strokeLinecap="round" fill="none" strokeDasharray="1" strokeDashoffset={dashOffset} />
       <circle cx="90" cy="180" r="12" fill="var(--brand-emerald)" />
-      <circle cx="280" cy="110" r="12" fill="var(--brand-gold)" />
+      <circle cx="280" cy="110" r="12" fill="color-mix(in srgb, var(--brand-emerald) 76%, var(--brand-emerald-light) 24%)" />
       <text x="70" y="205" fill="var(--brand-emerald)" fontSize="12" fontWeight="600">Kampala Hub</text>
-      <text x="250" y="100" fill="var(--brand-gold)" fontSize="12" fontWeight="600">Gulu Cluster</text>
+      <text
+        x="250"
+        y="100"
+        fill="color-mix(in srgb, var(--brand-emerald) 76%, var(--brand-emerald-light) 24%)"
+        fontSize="12"
+        fontWeight="600"
+      >
+        Gulu Cluster
+      </text>
       <text x="130" y="70" fill="var(--brand-emerald)" fontSize="11">Dynamic rerouting</text>
       <text x="200" y="190" fill="var(--brand-emerald)" fontSize="11">Cold-chain ready</text>
     </svg>
@@ -465,7 +491,11 @@ function OperationalReadinessChecklist() {
       <defs>
         <linearGradient id="readinessGradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="var(--brand-emerald)" stopOpacity="0.1" />
-          <stop offset="100%" stopColor="var(--brand-gold)" stopOpacity="0.2" />
+          <stop
+            offset="100%"
+            stopColor="color-mix(in srgb, var(--brand-emerald) 68%, var(--brand-emerald-light) 32%)"
+            stopOpacity="0.2"
+          />
         </linearGradient>
       </defs>
       <rect x="0" y="0" width="360" height="360" rx="32" fill="url(#readinessGradient)" />
@@ -483,7 +513,7 @@ function OperationalReadinessChecklist() {
         <path
           d="M60 24 A36 36 0 1 1 59.9 24"
           fill="none"
-          stroke="var(--brand-gold)"
+          stroke="color-mix(in srgb, var(--brand-emerald) 70%, var(--brand-emerald-light) 30%)"
           strokeWidth="6"
           strokeLinecap="round"
         />
@@ -503,7 +533,13 @@ function ChecklistRow({ index, title, detail, y }) {
   return (
     <g transform={`translate(0 ${y})`}>
       <rect x="0" y="0" width="180" height="72" rx="18" fill="white" stroke="var(--brand-emerald)" strokeWidth="1" />
-      <text x="16" y="28" fill="var(--brand-gold)" fontSize="18" fontWeight="700">
+      <text
+        x="16"
+        y="28"
+        fill="color-mix(in srgb, var(--brand-emerald) 76%, var(--brand-emerald-light) 24%)"
+        fontSize="18"
+        fontWeight="700"
+      >
         {index}
       </text>
       <text x="16" y="48" fill="var(--brand-emerald)" fontSize="16" fontWeight="700">

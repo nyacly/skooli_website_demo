@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Bot, Map, Shield, Lock, Briefcase } from 'lucide-react'
+import { AccentPill } from '@/components/AccentPill.jsx'
 
 const agents = [
   {
@@ -50,7 +51,9 @@ export default function TechnologyAI() {
     <div className="bg-[var(--brand-cream)]">
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Technology & AI</p>
+          <AccentPill size="sm" className="tracking-[0.25em]">
+            Technology & AI
+          </AccentPill>
           <h1 className="mt-4 text-4xl font-bold text-[var(--brand-emerald)]">Infrastructure that keeps mission promises</h1>
           <p className="mt-4 max-w-3xl text-base text-slate-600">
             Skooli’s stack blends modern web technology, AI copilots, and secure integrations with mobile money and warehousing partners.
@@ -83,7 +86,9 @@ export default function TechnologyAI() {
                   type="button"
                   onClick={() => setOpenCard((prev) => (prev === agent.id ? '' : agent.id))}
                   className={`flex h-full flex-col rounded-3xl border p-6 text-left shadow-lg shadow-black/5 transition ${
-                    isOpen ? 'border-[var(--brand-gold)] bg-[var(--brand-cream)]' : 'border-transparent bg-white hover:border-[var(--brand-gold)]/40 hover:bg-[var(--brand-cream)]'
+                    isOpen
+                      ? 'border-[var(--brand-emerald)] bg-[color-mix(in_srgb,var(--brand-cream)_80%,#ffffff_20%)]'
+                      : 'border-transparent bg-white hover:border-[var(--brand-emerald)]/40 hover:bg-[color-mix(in_srgb,var(--brand-cream)_80%,#ffffff_20%)]'
                   }`}
                 >
                   <div className="flex items-center gap-3 text-[var(--brand-emerald)]">
@@ -91,7 +96,11 @@ export default function TechnologyAI() {
                     <h3 className="text-lg font-semibold">{agent.name}</h3>
                   </div>
                   <p className="mt-3 text-sm text-slate-600">{agent.summary}</p>
-                  {isOpen && <p className="mt-4 text-xs uppercase tracking-[0.3em] text-[var(--brand-gold)]">{agent.tech}</p>}
+                  {isOpen && (
+                    <AccentPill size="xs" className="mt-4 tracking-[0.25em]">
+                      {agent.tech}
+                    </AccentPill>
+                  )}
                 </button>
               )
             })}
@@ -133,7 +142,9 @@ export default function TechnologyAI() {
             ))}
           </div>
           <div className="mt-10 rounded-3xl bg-[var(--brand-cream)] p-6 shadow-lg shadow-black/5">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Open roles</p>
+            <AccentPill size="sm" className="tracking-[0.25em]">
+              Open roles
+            </AccentPill>
             <p className="mt-3 text-sm text-slate-600">We’re expanding our engineering and AI teams. Join the waitlist for future roles.</p>
             <a
               className="mt-4 inline-flex items-center gap-2 rounded-md border border-[var(--brand-emerald)] px-4 py-2 text-sm font-semibold text-[var(--brand-emerald)] shadow hover:bg-[var(--brand-emerald)] hover:text-white"
@@ -158,7 +169,15 @@ function ArchitectureDiagram() {
       <rect x="20" y="30" width="160" height="80" rx="20" fill="var(--brand-emerald)" opacity="0.9" />
       <text x="100" y="75" textAnchor="middle" fontSize="14" fill="white">Web App</text>
 
-      <rect x="220" y="30" width="160" height="80" rx="20" fill="var(--brand-gold)" opacity="0.9" />
+      <rect
+        x="220"
+        y="30"
+        width="160"
+        height="80"
+        rx="20"
+        fill="color-mix(in srgb, var(--brand-emerald) 72%, var(--brand-emerald-light) 28%)"
+        opacity="0.9"
+      />
       <text x="300" y="75" textAnchor="middle" fontSize="14" fill="white">AI Layer</text>
 
       <rect x="420" y="30" width="160" height="80" rx="20" fill="var(--brand-emerald)" opacity="0.9" />
@@ -172,12 +191,28 @@ function ArchitectureDiagram() {
 
       <line x1="180" y1="70" x2="220" y2="70" stroke="var(--brand-emerald)" strokeWidth="4" markerEnd="url(#arrow)" />
       <line x1="380" y1="70" x2="420" y2="70" stroke="var(--brand-emerald)" strokeWidth="4" markerEnd="url(#arrow)" />
-      <line x1="300" y1="110" x2="200" y2="160" stroke="var(--brand-gold)" strokeWidth="4" markerEnd="url(#arrow)" />
-      <line x1="300" y1="110" x2="400" y2="160" stroke="var(--brand-gold)" strokeWidth="4" markerEnd="url(#arrow)" />
+      <line
+        x1="300"
+        y1="110"
+        x2="200"
+        y2="160"
+        stroke="color-mix(in srgb, var(--brand-emerald) 76%, var(--brand-emerald-light) 24%)"
+        strokeWidth="4"
+        markerEnd="url(#arrow)"
+      />
+      <line
+        x1="300"
+        y1="110"
+        x2="400"
+        y2="160"
+        stroke="color-mix(in srgb, var(--brand-emerald) 76%, var(--brand-emerald-light) 24%)"
+        strokeWidth="4"
+        markerEnd="url(#arrow)"
+      />
 
       <defs>
         <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-          <path d="M0,0 L6,3 L0,6" fill="var(--brand-gold)" />
+          <path d="M0,0 L6,3 L0,6" fill="color-mix(in srgb, var(--brand-emerald) 76%, var(--brand-emerald-light) 24%)" />
         </marker>
       </defs>
     </svg>

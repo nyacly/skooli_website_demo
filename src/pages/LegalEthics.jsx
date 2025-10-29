@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ShieldCheck, BookOpen, HeartHandshake, Download } from 'lucide-react'
+import { AccentPill } from '@/components/AccentPill.jsx'
 
 const compliancePacks = [
   {
@@ -61,7 +62,9 @@ export default function LegalEthics() {
     <div className="bg-[var(--brand-cream)]">
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Legal & ethics</p>
+          <AccentPill size="sm" className="tracking-[0.25em]">
+            Legal & ethics
+          </AccentPill>
           <h1 className="mt-4 text-4xl font-bold text-[var(--brand-emerald)]">Our commitments to privacy, trust, and faith</h1>
           <p className="mt-4 text-base text-slate-600">
             Skooli protects family data, honours Ugandan and UK regulations, and operates with a Christ-centered ethic.
@@ -81,7 +84,16 @@ export default function LegalEthics() {
             </p>
             <ul className="mt-4 space-y-2 text-sm text-slate-600">
               <li>• Data is encrypted, stored in EU and Ugandan data centres, and retained for seven years.</li>
-              <li>• Parents can request deletion or correction via <a className="font-semibold text-[var(--brand-gold)]" href="mailto:privacy@skooli.africa">privacy@skooli.africa</a>.</li>
+              <li>
+                • Parents can request deletion or correction via{' '}
+                <a
+                  className="font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] underline decoration-[color-mix(in_srgb,var(--brand-emerald)_45%,#032823_55%)] decoration-2 underline-offset-4 hover:text-[var(--brand-emerald)]"
+                  href="mailto:privacy@skooli.africa"
+                >
+                  privacy@skooli.africa
+                </a>
+                .
+              </li>
               <li>• Student data is never sold or shared outside approved ministries and donors bound by agreements.</li>
             </ul>
           </div>
@@ -138,7 +150,7 @@ export default function LegalEthics() {
                     </div>
                     <div className="mt-5 flex items-center justify-between text-xs font-semibold text-[var(--brand-emerald)] group-hover:text-white">
                       <span>{pack.size}</span>
-                      <span className="inline-flex items-center gap-1 rounded-full bg-white/40 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-[var(--brand-emerald)] group-hover:bg-[var(--brand-gold)] group-hover:text-[var(--brand-emerald)]">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-white/40 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-[var(--brand-emerald)] group-hover:bg-white group-hover:text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)]">
                         <Download className="size-3" /> PDF
                       </span>
                     </div>
@@ -168,7 +180,9 @@ export default function LegalEthics() {
                   type="button"
                   onClick={() => setAnalyticsCookies((prev) => !prev)}
                   className={`flex items-center rounded-full border px-4 py-1 text-xs font-semibold transition ${
-                    analyticsCookies ? 'border-[var(--brand-gold)] bg-[var(--brand-gold)] text-white' : 'border-[var(--brand-emerald)] text-[var(--brand-emerald)]'
+                    analyticsCookies
+                      ? 'border-[var(--brand-emerald)] bg-[color-mix(in_srgb,var(--brand-emerald)_88%,#032823_12%)] text-white shadow'
+                      : 'border-[var(--brand-emerald)] bg-white text-[var(--brand-emerald)]'
                   }`}
                 >
                   {analyticsCookies ? 'Enabled' : 'Disabled'}
@@ -176,7 +190,14 @@ export default function LegalEthics() {
               </div>
             </div>
             <p className="mt-4 text-xs text-slate-500">
-              Preferences are stored locally on your device. Change them anytime or email <a className="font-semibold text-[var(--brand-gold)]" href="mailto:privacy@skooli.africa">privacy@skooli.africa</a>.
+              Preferences are stored locally on your device. Change them anytime or email{' '}
+              <a
+                className="font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] underline decoration-[color-mix(in_srgb,var(--brand-emerald)_45%,#032823_55%)] decoration-2 underline-offset-4 hover:text-[var(--brand-emerald)]"
+                href="mailto:privacy@skooli.africa"
+              >
+                privacy@skooli.africa
+              </a>
+              .
             </p>
           </div>
         </div>
@@ -184,7 +205,9 @@ export default function LegalEthics() {
 
       {cookieBannerVisible && (
         <div className="fixed bottom-6 left-1/2 z-40 w-[min(90%,32rem)] -translate-x-1/2 rounded-3xl bg-[var(--brand-emerald)]/95 p-6 text-white shadow-2xl shadow-black/30 ring-1 ring-white/20">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Cookies & stewardship</p>
+          <AccentPill tone="inverse" className="bg-white/20 tracking-[0.25em]">
+            Cookies & stewardship
+          </AccentPill>
           <p className="mt-3 text-sm text-white/90">
             We use essential cookies to run Skooli and analytics cookies to understand how leaders engage with our resources. Accept all or customise your preferences.
           </p>
@@ -192,7 +215,7 @@ export default function LegalEthics() {
             <button
               type="button"
               onClick={handleAcceptAll}
-              className="inline-flex flex-1 items-center justify-center rounded-full bg-[var(--brand-gold)] px-5 py-2 text-sm font-semibold text-[var(--brand-emerald)] shadow transition hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
+              className="inline-flex flex-1 items-center justify-center rounded-full bg-white px-5 py-2 text-sm font-semibold text-[var(--brand-emerald)] shadow transition hover:bg-white/90"
             >
               Accept all cookies
             </button>

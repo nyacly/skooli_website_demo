@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { FileDown, Mail, LineChart, DollarSign, ArrowRight, ExternalLink } from 'lucide-react'
+import { AccentPill } from '@/components/AccentPill.jsx'
 import logisticsBackbone from '@/assets/logistics_backbone.png'
 import routeIntelligence from '@/assets/route_intelligence.png'
 import worldEducationForum from '@/assets/world_education_forum.png'
@@ -109,7 +110,9 @@ export default function FundersInvestors() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Investor centre</p>
+              <AccentPill size="sm" className="tracking-[0.25em]">
+                Investor centre
+              </AccentPill>
               <h1 className="mt-4 text-4xl font-bold text-[var(--brand-emerald)]">Back Africa’s education logistics backbone</h1>
               <p className="mt-4 max-w-3xl text-base text-slate-600">
                 Skooli is raising to scale our AI-enabled supply chain, deepen school integrations, and expand to three additional East African markets by 2027.
@@ -122,7 +125,9 @@ export default function FundersInvestors() {
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">{column.title}</p>
+                        <AccentPill size="xs" className="tracking-[0.25em]">
+                          {column.title}
+                        </AccentPill>
                         <h2 className="mt-3 text-xl font-semibold text-[var(--brand-emerald)]">{column.highlight}</h2>
                         <p className="mt-2 text-sm text-slate-600">{column.summary}</p>
                       </div>
@@ -134,10 +139,20 @@ export default function FundersInvestors() {
                       <defs>
                         <linearGradient id={`heroGradient${index}`} x1="0" x2="1" y1="1" y2="0">
                           <stop offset="0%" stopColor="var(--brand-emerald)" stopOpacity="0.15" />
-                          <stop offset="100%" stopColor="var(--brand-gold)" stopOpacity="0.4" />
+                          <stop
+                            offset="100%"
+                            stopColor="color-mix(in srgb, var(--brand-emerald) 70%, var(--brand-emerald-light) 30%)"
+                            stopOpacity="0.4"
+                          />
                         </linearGradient>
                       </defs>
-                      <path d={thesisSparklines[index].linePath} stroke="var(--brand-gold)" strokeWidth="3" fill="none" strokeLinecap="round" />
+                      <path
+                        d={thesisSparklines[index].linePath}
+                        stroke="color-mix(in srgb, var(--brand-emerald) 74%, var(--brand-emerald-light) 26%)"
+                        strokeWidth="3"
+                        fill="none"
+                        strokeLinecap="round"
+                      />
                       <path d={thesisSparklines[index].areaPath} fill={`url(#heroGradient${index})`} opacity="0.65" />
                     </svg>
                   </div>
@@ -147,7 +162,7 @@ export default function FundersInvestors() {
             <div className="relative mx-auto w-full max-w-md lg:max-w-lg">
               <div
                 aria-hidden
-                className="absolute -top-10 right-6 hidden h-64 w-64 rounded-full bg-[color-mix(in_srgb,var(--brand-gold)_18%,#ffffff_82%)] blur-3xl lg:block"
+                className="absolute -top-10 right-6 hidden h-64 w-64 rounded-full bg-[color-mix(in_srgb,var(--brand-emerald)_20%,#ffffff_80%)] blur-3xl lg:block"
               />
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[var(--brand-emerald)]/15 bg-[var(--brand-cream)] shadow-lg shadow-black/10">
                 <div
@@ -168,7 +183,9 @@ export default function FundersInvestors() {
 
       <section className="border-y border-[var(--brand-emerald)]/10 bg-[color-mix(in_srgb,var(--brand-emerald)_6%,#ffffff_94%)] py-8">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="text-xs font-semibold uppercase tracking-[0.4em] text-[var(--brand-gold)]">Traction snapshot</div>
+          <AccentPill size="xs" className="tracking-[0.35em]">
+            Traction snapshot
+          </AccentPill>
           <div className="grid flex-1 gap-6 sm:grid-cols-3">
             {tractionSnapshot.map((item) => (
               <div key={item.label} className="rounded-2xl border border-[var(--brand-emerald)]/15 bg-white/60 p-4 text-center shadow-sm shadow-black/5">
@@ -195,14 +212,22 @@ export default function FundersInvestors() {
                     <div className="grid gap-4 sm:grid-cols-3">
                       {projectionData.map((item) => (
                         <div key={item.year} className="rounded-2xl bg-white p-4 text-sm text-slate-600 shadow">
-                          <p className="text-xs uppercase tracking-[0.3em] text-[var(--brand-gold)]">{item.year}</p>
+                          <AccentPill size="xs" className="tracking-[0.25em]">
+                            {item.year}
+                          </AccentPill>
                           <p className="mt-3 text-lg font-semibold text-[var(--brand-emerald)]">Revenue ${item.revenue.toFixed(1)}M</p>
                           <p className="text-sm text-emerald-600">EBITDA ${item.ebitda.toFixed(1)}M</p>
                         </div>
                       ))}
                     </div>
                     <svg viewBox="0 0 140 70" className="mt-6 h-16 w-full">
-                      <path d={sparklinePath} stroke="var(--brand-gold)" strokeWidth="3" fill="none" strokeLinecap="round" />
+                      <path
+                        d={sparklinePath}
+                        stroke="color-mix(in srgb, var(--brand-emerald) 74%, var(--brand-emerald-light) 26%)"
+                        strokeWidth="3"
+                        fill="none"
+                        strokeLinecap="round"
+                      />
                     </svg>
                   </div>
                   <div className="relative flex h-full items-center justify-center">
@@ -223,11 +248,16 @@ export default function FundersInvestors() {
               </div>
             </div>
             <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Key assumptions</p>
+              <AccentPill size="sm" className="tracking-[0.25em]">
+                Key assumptions
+              </AccentPill>
               <ul className="mt-4 space-y-3 text-sm text-slate-600">
                 {projectionAssumptions.map((assumption) => (
                   <li key={assumption} className="flex items-start gap-3">
-                    <span className="mt-1 size-2 rounded-full bg-[var(--brand-gold)]" aria-hidden />
+                    <span
+                      className="mt-1 size-2 rounded-full bg-[color-mix(in_srgb,var(--brand-emerald)_72%,var(--brand-emerald-light)_28%)]"
+                      aria-hidden
+                    />
                     <span>{assumption}</span>
                   </li>
                 ))}
@@ -294,7 +324,9 @@ export default function FundersInvestors() {
               </div>
             </div>
             <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Due diligence support</p>
+              <AccentPill size="sm" className="tracking-[0.25em]">
+                Due diligence support
+              </AccentPill>
               <div className="mt-4 overflow-hidden rounded-2xl border border-[var(--brand-emerald)]/15 bg-[var(--brand-cream)]/70 p-3">
                 <div
                   aria-hidden
@@ -323,7 +355,9 @@ export default function FundersInvestors() {
                   <span>Weekly investor notes summarising milestones, cash position, and risks.</span>
                 </li>
               </ul>
-              <p className="mt-6 text-xs uppercase tracking-[0.3em] text-[var(--brand-gold)]">Due diligence contact</p>
+              <AccentPill size="xs" className="mt-6 tracking-[0.25em]">
+                Due diligence contact
+              </AccentPill>
               <a className="mt-2 flex items-center gap-2 text-sm font-semibold text-[var(--brand-emerald)]" href="mailto:invest@skooli.africa">
                 <Mail className="size-4" /> invest@skooli.africa
               </a>
@@ -343,7 +377,9 @@ export default function FundersInvestors() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-start">
             <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Download area</p>
+              <AccentPill size="sm" className="tracking-[0.25em]">
+                Download area
+              </AccentPill>
               <p className="mt-3 text-sm text-slate-600">Enter your work email to unlock investor materials.</p>
               <form
                 className="mt-6 flex flex-col gap-3 sm:flex-row"
@@ -359,11 +395,14 @@ export default function FundersInvestors() {
                   required
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
-                  className="h-12 flex-1 rounded-md border border-[var(--brand-emerald)]/20 bg-[var(--brand-cream)] px-4 text-sm text-slate-700 placeholder:text-slate-400 focus:border-[var(--brand-gold)] focus:outline-none"
+                  className="h-12 flex-1 rounded-md border border-[var(--brand-emerald)]/20 bg-[var(--brand-cream)] px-4 text-sm text-slate-700 placeholder:text-slate-400 focus:border-[var(--brand-emerald)] focus:outline-none"
                   placeholder="you@fund.org"
                   aria-label="Work email"
                 />
-                <Button type="submit" className="h-12 rounded-md bg-[var(--brand-gold)] px-6 text-white hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]">
+                <Button
+                  type="submit"
+                  className="h-12 rounded-md bg-[var(--brand-emerald)] px-6 text-white shadow-lg shadow-[var(--brand-emerald)]/20 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
+                >
                   Unlock files
                 </Button>
               </form>
@@ -372,7 +411,9 @@ export default function FundersInvestors() {
                   <a
                     key={link.name}
                     className={`flex items-center justify-between rounded-2xl border px-4 py-3 text-sm font-semibold transition ${
-                      unlocked ? 'border-[var(--brand-emerald)] text-[var(--brand-emerald)] hover:border-[var(--brand-gold)]' : 'border-dashed border-slate-300 text-slate-400'
+                      unlocked
+                        ? 'border-[var(--brand-emerald)] text-[var(--brand-emerald)] hover:border-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]'
+                        : 'border-dashed border-slate-300 text-slate-400'
                     }`}
                     href={unlocked ? link.href : undefined}
                     aria-disabled={!unlocked}
@@ -385,7 +426,9 @@ export default function FundersInvestors() {
               </div>
             </div>
             <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Cap table</p>
+              <AccentPill size="sm" className="tracking-[0.25em]">
+                Cap table
+              </AccentPill>
               <div className="mt-4 grid gap-4">
                 {capTable.map((slice) => (
                   <div key={slice.label} className="flex items-center justify-between rounded-2xl bg-[var(--brand-cream)] p-4 text-sm text-slate-600">
@@ -394,7 +437,9 @@ export default function FundersInvestors() {
                   </div>
                 ))}
               </div>
-              <p className="mt-6 text-xs uppercase tracking-[0.3em] text-[var(--brand-gold)]">Due diligence contact</p>
+              <AccentPill size="xs" className="mt-6 tracking-[0.25em]">
+                Due diligence contact
+              </AccentPill>
               <div className="mt-3 overflow-hidden rounded-2xl border border-[var(--brand-emerald)]/15 bg-[var(--brand-cream)]/70 p-3">
                 <div
                   aria-hidden
@@ -430,7 +475,7 @@ export default function FundersInvestors() {
             Unlock the downloads above or request a personal walkthrough with our founders.
           </p>
           <Button
-            className="mt-6 rounded-md bg-[var(--brand-gold)] px-6 py-3 text-white shadow hover:bg-[color-mix(in_srgb,var(--brand-gold)_80%,#000_20%)]"
+            className="mt-6 rounded-md bg-[var(--brand-emerald)] px-6 py-3 text-white shadow-lg shadow-[var(--brand-emerald)]/20 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
             asChild
           >
             <a href="mailto:invest@skooli.africa?subject=Investor%20Deck%20Request">Request briefing</a>

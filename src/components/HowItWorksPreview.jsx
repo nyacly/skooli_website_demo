@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ShoppingBag, Route, Gift } from 'lucide-react'
+import { AccentPill } from '@/components/AccentPill.jsx'
 
 const steps = [
   {
@@ -25,12 +26,14 @@ export default function HowItWorksPreview() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">How it works</p>
+            <AccentPill size="sm" className="tracking-[0.25em]">
+              How it works
+            </AccentPill>
             <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)] sm:text-4xl">A frictionless supply chain from cart to classroom</h2>
           </div>
           <Link
             to="/how-it-works"
-            className="text-sm font-semibold text-[var(--brand-gold)] transition hover:text-[var(--brand-emerald)]"
+            className="text-sm font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] transition hover:text-[var(--brand-emerald)]"
           >
             Explore the full playbook →
           </Link>
