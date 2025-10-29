@@ -54,7 +54,7 @@ export default function ExpansionJourney() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div className="flex flex-col justify-center">
-            <p className="inline-flex w-max items-center rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)] shadow-lg shadow-black/10 backdrop-blur">
+            <p className="inline-flex w-max items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/90 shadow-lg shadow-black/10 backdrop-blur">
               Expansion journey
             </p>
             <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
@@ -73,7 +73,7 @@ export default function ExpansionJourney() {
             </ul>
           </div>
           <div className="overflow-hidden">
-            <figure className="rounded-3xl bg-white/5 p-4 shadow-xl shadow-black/20 backdrop-blur">
+            <figure className="mx-auto max-w-xl rounded-3xl bg-white/5 p-4 shadow-xl shadow-black/20 backdrop-blur lg:max-w-lg">
               <img
                 src={expansionMapSrc}
                 alt="Africa map with Skooli pilot, scale, and expansion countries tinted in emerald and gold"
