@@ -1,6 +1,10 @@
 import { useMemo, useState } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { FileDown, Mail, LineChart, DollarSign, ArrowRight, ExternalLink } from 'lucide-react'
+import logisticsBackbone from '@/assets/logistics_backbone.png'
+import routeIntelligence from '@/assets/route_intelligence.png'
+import worldEducationForum from '@/assets/world_education_forum.png'
+import pastoralSupport from '@/assets/pastoral_support.png'
 
 const thesisColumns = [
   {
@@ -103,39 +107,61 @@ export default function FundersInvestors() {
     <div className="bg-[var(--brand-cream)]">
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Investor centre</p>
-          <h1 className="mt-4 text-4xl font-bold text-[var(--brand-emerald)]">Back Africa’s education logistics backbone</h1>
-          <p className="mt-4 max-w-3xl text-base text-slate-600">
-            Skooli is raising to scale our AI-enabled supply chain, deepen school integrations, and expand to three additional East African markets by 2027.
-          </p>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {thesisColumns.map((column, index) => (
-              <div
-                key={column.title}
-                className="relative overflow-hidden rounded-3xl border border-[var(--brand-emerald)]/10 bg-white p-6 shadow-lg shadow-black/5"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">{column.title}</p>
-                    <h2 className="mt-3 text-xl font-semibold text-[var(--brand-emerald)]">{column.highlight}</h2>
-                    <p className="mt-2 text-sm text-slate-600">{column.summary}</p>
+          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Investor centre</p>
+              <h1 className="mt-4 text-4xl font-bold text-[var(--brand-emerald)]">Back Africa’s education logistics backbone</h1>
+              <p className="mt-4 max-w-3xl text-base text-slate-600">
+                Skooli is raising to scale our AI-enabled supply chain, deepen school integrations, and expand to three additional East African markets by 2027.
+              </p>
+              <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {thesisColumns.map((column, index) => (
+                  <div
+                    key={column.title}
+                    className="relative overflow-hidden rounded-3xl border border-[var(--brand-emerald)]/10 bg-white p-6 shadow-lg shadow-black/5"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">{column.title}</p>
+                        <h2 className="mt-3 text-xl font-semibold text-[var(--brand-emerald)]">{column.highlight}</h2>
+                        <p className="mt-2 text-sm text-slate-600">{column.summary}</p>
+                      </div>
+                      <span className="rounded-full bg-[color-mix(in_srgb,var(--brand-emerald)_12%,#ffffff_88%)] px-3 py-1 text-xs font-semibold text-[var(--brand-emerald)]">
+                        {column.trend[column.trend.length - 1] > column.trend[0] ? '+Growth' : 'Stable'}
+                      </span>
+                    </div>
+                    <svg viewBox="0 0 140 70" className="mt-6 h-20 w-full">
+                      <defs>
+                        <linearGradient id={`heroGradient${index}`} x1="0" x2="1" y1="1" y2="0">
+                          <stop offset="0%" stopColor="var(--brand-emerald)" stopOpacity="0.15" />
+                          <stop offset="100%" stopColor="var(--brand-gold)" stopOpacity="0.4" />
+                        </linearGradient>
+                      </defs>
+                      <path d={thesisSparklines[index].linePath} stroke="var(--brand-gold)" strokeWidth="3" fill="none" strokeLinecap="round" />
+                      <path d={thesisSparklines[index].areaPath} fill={`url(#heroGradient${index})`} opacity="0.65" />
+                    </svg>
                   </div>
-                  <span className="rounded-full bg-[color-mix(in_srgb,var(--brand-emerald)_12%,#ffffff_88%)] px-3 py-1 text-xs font-semibold text-[var(--brand-emerald)]">
-                    {column.trend[column.trend.length - 1] > column.trend[0] ? '+Growth' : 'Stable'}
-                  </span>
-                </div>
-                <svg viewBox="0 0 140 70" className="mt-6 h-20 w-full">
-                  <defs>
-                    <linearGradient id={`heroGradient${index}`} x1="0" x2="1" y1="1" y2="0">
-                      <stop offset="0%" stopColor="var(--brand-emerald)" stopOpacity="0.15" />
-                      <stop offset="100%" stopColor="var(--brand-gold)" stopOpacity="0.4" />
-                    </linearGradient>
-                  </defs>
-                  <path d={thesisSparklines[index].linePath} stroke="var(--brand-gold)" strokeWidth="3" fill="none" strokeLinecap="round" />
-                  <path d={thesisSparklines[index].areaPath} fill={`url(#heroGradient${index})`} opacity="0.65" />
-                </svg>
+                ))}
               </div>
-            ))}
+            </div>
+            <div className="relative mx-auto w-full max-w-md lg:max-w-lg">
+              <div
+                aria-hidden
+                className="absolute -top-10 right-6 hidden h-64 w-64 rounded-full bg-[color-mix(in_srgb,var(--brand-gold)_18%,#ffffff_82%)] blur-3xl lg:block"
+              />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[var(--brand-emerald)]/15 bg-[var(--brand-cream)] shadow-lg shadow-black/10">
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-br from-white/60 via-transparent to-[var(--brand-emerald)]/20"
+                />
+                <img
+                  src={logisticsBackbone}
+                  alt="Skooli logistics control tower coordinating partner routes"
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -163,19 +189,37 @@ export default function FundersInvestors() {
               <p className="mt-4 text-sm text-slate-600">
                 Revenue and EBITDA forecasts based on confirmed school contracts and expansion assumptions.
               </p>
-              <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-[var(--brand-cream)] p-6">
-                <div className="grid gap-4 sm:grid-cols-3">
-                  {projectionData.map((item) => (
-                    <div key={item.year} className="rounded-2xl bg-white p-4 text-sm text-slate-600 shadow">
-                      <p className="text-xs uppercase tracking-[0.3em] text-[var(--brand-gold)]">{item.year}</p>
-                      <p className="mt-3 text-lg font-semibold text-[var(--brand-emerald)]">Revenue ${item.revenue.toFixed(1)}M</p>
-                      <p className="text-sm text-emerald-600">EBITDA ${item.ebitda.toFixed(1)}M</p>
+              <div className="relative mt-6 overflow-hidden rounded-3xl border border-[var(--brand-emerald)]/15 bg-white/70 p-6 shadow-lg shadow-black/5">
+                <div className="grid gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
+                  <div className="rounded-2xl bg-[var(--brand-cream)]/80 p-6">
+                    <div className="grid gap-4 sm:grid-cols-3">
+                      {projectionData.map((item) => (
+                        <div key={item.year} className="rounded-2xl bg-white p-4 text-sm text-slate-600 shadow">
+                          <p className="text-xs uppercase tracking-[0.3em] text-[var(--brand-gold)]">{item.year}</p>
+                          <p className="mt-3 text-lg font-semibold text-[var(--brand-emerald)]">Revenue ${item.revenue.toFixed(1)}M</p>
+                          <p className="text-sm text-emerald-600">EBITDA ${item.ebitda.toFixed(1)}M</p>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                    <svg viewBox="0 0 140 70" className="mt-6 h-16 w-full">
+                      <path d={sparklinePath} stroke="var(--brand-gold)" strokeWidth="3" fill="none" strokeLinecap="round" />
+                    </svg>
+                  </div>
+                  <div className="relative flex h-full items-center justify-center">
+                    <div
+                      aria-hidden
+                      className="absolute -right-10 top-6 hidden h-40 w-40 rounded-full bg-[color-mix(in_srgb,var(--brand-emerald)_14%,#ffffff_86%)] blur-3xl lg:block"
+                    />
+                    <div className="relative w-full max-w-xs overflow-hidden rounded-2xl border border-[var(--brand-emerald)]/15 bg-[var(--brand-cream)]/70 p-3">
+                      <img
+                        src={routeIntelligence}
+                        alt="Route intelligence interface predicting delivery performance"
+                        className="h-full w-full rounded-xl object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <svg viewBox="0 0 140 70" className="mt-6 h-16 w-full">
-                  <path d={sparklinePath} stroke="var(--brand-gold)" strokeWidth="3" fill="none" strokeLinecap="round" />
-                </svg>
               </div>
             </div>
             <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
@@ -232,9 +276,38 @@ export default function FundersInvestors() {
                   </blockquote>
                 ))}
               </div>
+              <div className="mt-6 flex flex-col gap-4 rounded-2xl bg-white/10 p-4 sm:flex-row sm:items-center">
+                <div className="relative overflow-hidden rounded-2xl border border-white/20 bg-white/5 p-2">
+                  <img
+                    src={worldEducationForum}
+                    alt="Skooli panel at the World Education Forum impact plenary"
+                    className="h-28 w-28 rounded-xl object-cover sm:h-24 sm:w-24"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-white">World Education Forum</p>
+                  <p className="mt-2 text-xs text-white/80">
+                    2025 plenary spotlight on Skooli’s logistics backbone for faith-based schools.
+                  </p>
+                </div>
+              </div>
             </div>
             <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Due diligence support</p>
+              <div className="mt-4 overflow-hidden rounded-2xl border border-[var(--brand-emerald)]/15 bg-[var(--brand-cream)]/70 p-3">
+                <div
+                  aria-hidden
+                  className="rounded-xl bg-gradient-to-br from-white via-transparent to-[var(--brand-emerald)]/20 p-[1px]"
+                >
+                  <img
+                    src={pastoralSupport}
+                    alt="Investor diligence session with Skooli partnership leads"
+                    className="block h-36 w-full rounded-[0.9rem] object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
               <p className="mt-3 text-sm text-slate-600">We facilitate structured review calls, shared dashboards, and rapid follow-ups within 24 hours.</p>
               <ul className="mt-4 space-y-3 text-sm text-slate-600">
                 <li className="flex items-start gap-3">
@@ -322,6 +395,19 @@ export default function FundersInvestors() {
                 ))}
               </div>
               <p className="mt-6 text-xs uppercase tracking-[0.3em] text-[var(--brand-gold)]">Due diligence contact</p>
+              <div className="mt-3 overflow-hidden rounded-2xl border border-[var(--brand-emerald)]/15 bg-[var(--brand-cream)]/70 p-3">
+                <div
+                  aria-hidden
+                  className="rounded-xl bg-gradient-to-br from-white via-transparent to-[var(--brand-emerald)]/20 p-[1px]"
+                >
+                  <img
+                    src={pastoralSupport}
+                    alt="Skooli diligence workspace overview"
+                    className="block h-36 w-full rounded-[0.9rem] object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
               <a className="mt-2 flex items-center gap-2 text-sm font-semibold text-[var(--brand-emerald)]" href="mailto:invest@skooli.africa">
                 <Mail className="size-4" /> invest@skooli.africa
               </a>
