@@ -54,7 +54,7 @@ export default function ExpansionJourney() {
   return (
     <section className="bg-[color-mix(in_srgb,var(--brand-emerald)_70%,#000_30%)] py-16 text-white sm:py-20" id="expansion-journey">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:grid-cols-2">
           <div className="flex flex-col justify-center">
             <p className="inline-flex w-max items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/90 shadow-lg shadow-black/10 backdrop-blur">
               Expansion journey

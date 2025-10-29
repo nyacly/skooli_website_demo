@@ -42,10 +42,11 @@
 }
 
 :root {
-  --brand-emerald: #009877;
+  --brand-emerald: #009B77;
   --brand-emerald-dark: #032823;
   --brand-emerald-light: #7fd1b9;
-  --brand-cream: #FCE6AE;
+  --brand-cream: #FDF4D5;
+  --brand-gold: #FFD700;
   --brand-white: #FFFFFF;
 
   --radius: 1rem; /* 16px for cards, 8px for buttons */
@@ -61,8 +62,8 @@
   --secondary-foreground: var(--brand-emerald);
   --muted: color-mix(in srgb, var(--brand-cream) 70%, var(--brand-white));
   --muted-foreground: #26594c;
-  --accent: color-mix(in srgb, var(--brand-emerald) 88%, var(--brand-emerald-light) 12%);
-  --accent-foreground: var(--brand-white);
+  --accent: var(--brand-gold);
+  --accent-foreground: var(--brand-emerald-dark);
   --destructive: #c2410c;
   --border: color-mix(in srgb, var(--brand-emerald) 15%, var(--brand-white));
   --input: color-mix(in srgb, var(--brand-cream) 80%, var(--brand-white));
@@ -95,7 +96,7 @@
   --secondary-foreground: #e3fff9;
   --muted: #094236;
   --muted-foreground: var(--brand-emerald-light);
-  --accent: color-mix(in srgb, var(--brand-emerald) 65%, var(--brand-emerald-light) 35%);
+  --accent: var(--brand-gold);
   --accent-foreground: #021d18;
   --destructive: #f97316;
   --border: color-mix(in srgb, var(--brand-emerald) 25%, transparent);
@@ -183,7 +184,7 @@ body {
 }
 
 .icon-accent {
-  color: color-mix(in srgb, var(--brand-emerald) 78%, var(--brand-emerald-light) 22%);
+  color: var(--brand-gold);
 }
 
 /* Responsive grid */
@@ -254,3 +255,9 @@ body {
   border-color: var(--accent);
 }
 
+/* Accessibility */
+:focus-visible {
+  outline: 3px solid var(--brand-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
