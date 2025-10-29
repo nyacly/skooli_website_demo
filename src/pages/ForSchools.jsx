@@ -64,7 +64,7 @@ const testimonials = [
 export default function ForSchools() {
   return (
     <div className="bg-[var(--brand-cream)]">
-      <section className="bg-white py-16">
+      <section className="bg-white py-24">
         <div className="mx-auto max-w-6xl px-4">
           <AccentPill size="sm" className="tracking-[0.25em]">
             For schools
@@ -84,7 +84,7 @@ export default function ForSchools() {
                 </div>
               </div>
             </div>
-            <div className="rounded-3xl bg-[var(--brand-emerald)] p-6 text-white shadow-lg shadow-black/10">
+            <div className="rounded-3xl bg-gradient-to-br from-[var(--brand-emerald)] to-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] p-6 text-white shadow-lg shadow-black/10">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Bursar hotline</p>
               <p className="mt-2 text-lg">Dedicated school support: +256 414 000 221 (Mon–Sat 8am–8pm)</p>
             </div>
@@ -92,7 +92,7 @@ export default function ForSchools() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-24">
         <div className="mx-auto max-w-6xl px-4" id="admin">
           <div className="grid gap-8 md:grid-cols-3">
             {benefits.map(({ icon, title, description }) => {
@@ -109,7 +109,7 @@ export default function ForSchools() {
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-24">
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
             <div>
@@ -125,7 +125,7 @@ export default function ForSchools() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-24">
         <div className="mx-auto max-w-6xl px-4">
           <AccentPill size="sm" className="tracking-[0.25em]">
             Implementation timeline
@@ -149,7 +149,7 @@ export default function ForSchools() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-24">
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
             <div>
@@ -163,7 +163,7 @@ export default function ForSchools() {
               <div className="mt-6 grid gap-4 sm:grid-cols-3">
                 {riskCallouts.map((item) => (
                   <div key={item.title} className="rounded-3xl bg-white p-4 shadow-lg shadow-black/5">
-                    <AlertTriangle className="size-5 text-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]" aria-hidden="true" />
+                    <AlertTriangle className="size-5 text-[var(--brand-emerald)]" aria-hidden="true" />
                     <h3 className="mt-3 text-sm font-semibold text-[var(--brand-emerald)]">{item.title}</h3>
                     <p className="mt-2 text-xs text-slate-600">{item.detail}</p>
                   </div>
@@ -184,12 +184,12 @@ export default function ForSchools() {
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="bg-white py-24">
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-8 md:grid-cols-3">
             {testimonials.map((testimonial) => (
-              <div key={testimonial.name} className="rounded-3xl bg-[color-mix(in_srgb,var(--brand-cream)_85%,#ffffff_15%)] p-6 shadow-lg shadow-black/5">
-                <div className="flex items-center gap-2 text-[color-mix(in_srgb,var(--brand-emerald)_72%,var(--brand-emerald-light)_28%)]">
+              <div key={testimonial.name} className="rounded-3xl bg-[var(--brand-cream)] p-6 shadow-lg shadow-black/5">
+                <div className="flex items-center gap-2 text-[var(--brand-gold)]">
                   {[...Array(testimonial.rating)].map((_, index) => (
                     <Star key={index} className="size-4 fill-current" />
                   ))}
@@ -203,7 +203,7 @@ export default function ForSchools() {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-24">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">Ready for a 20-minute demo?</h2>
           <p className="mt-3 text-sm text-slate-600">
