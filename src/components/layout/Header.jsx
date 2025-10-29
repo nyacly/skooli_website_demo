@@ -4,9 +4,10 @@ import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
 
 const navItems = [
-  { name: 'About', to: '/how-it-works' },
+  { name: 'About', to: '/about-us' },
   { name: 'Impact', to: '/vision-impact' },
-  { name: 'Services', to: '/schools' },
+  { name: 'For Schools', to: '/schools' },
+  { name: 'For Business', to: '/for-business' },
   { name: 'Investor centre', to: '/funders' },
   { name: 'Join our impact', to: '/partner' },
 ]

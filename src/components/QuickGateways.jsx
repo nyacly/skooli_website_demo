@@ -4,22 +4,22 @@ import { AccentPill } from '@/components/AccentPill.jsx'
 
 const gateways = [
   {
-    title: 'Enterprise Control Center',
-    description: 'Real-time governance dashboards, escalation workflows, and enterprise authentication baked in.',
+    title: 'For Businesses',
+    description: 'Discover partnership opportunities, corporate social responsibility initiatives, and how your business can drive innovation in education.',
     icon: ShieldCheck,
-    to: '/enterprise#governance',
+    to: '/for-business',
   },
   {
-    title: 'Integration Hub',
-    description: 'Secure APIs for SIS, ERP, and treasury systems with data residency controls for each market.',
+    title: 'For Schools',
+    description: 'Learn how Skooli can streamline your supply chain, digitize orders, and provide quality resources for your students.',
     icon: ServerCog,
-    to: '/platform#integrations',
+    to: '/schools',
   },
   {
-    title: 'Partner Success Desk',
-    description: 'Dedicated facilitator enablement, compliance tooling, and multi-country SLA monitoring.',
+    title: 'Partner With Us',
+    description: 'Join our network of suppliers, NGOs, and community agents to make a lasting impact on education in Africa.',
     icon: BarChart3,
-    to: '/support#partner-success',
+    to: '/partner',
   },
 ]
 
@@ -30,14 +30,14 @@ export default function QuickGateways() {
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div>
             <AccentPill size="sm" className="tracking-[0.25em]">
-              Quick gateways
+              Our Services
             </AccentPill>
             <h2 className="mt-4 text-3xl font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_88%,#032823_12%)] sm:text-4xl">
-              Enterprise-ready touchpoints for every operator
+              Enterprise-ready solutions for every stakeholder
             </h2>
           </div>
           <p className="max-w-xl text-base text-[color-mix(in_srgb,var(--brand-emerald)_35%,#05382c_65%)]">
-            Each tile is wired for enterprise security and reporting so procurement leaders, technology teams, and field facilitators land on the exact controls they need.
+            Each of our services is designed with enterprise-grade security and reporting, ensuring that stakeholders at every level have the tools they need to succeed.
           </p>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -47,7 +47,7 @@ export default function QuickGateways() {
               <Link
                 key={title}
                 to={to}
-                className="group flex h-[220px] w-full flex-col justify-between rounded-2xl border border-[color-mix(in_srgb,var(--brand-emerald)_25%,#ffffff)] bg-white p-6 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--brand-emerald)_70%,#032823_30%)] hover:shadow-xl"
+                className="group flex flex-col justify-between rounded-2xl border border-[color-mix(in_srgb,var(--brand-emerald)_25%,#ffffff)] bg-white p-6 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--brand-emerald)_70%,#032823_30%)] hover:shadow-xl"
               >
                 <div className="flex size-12 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--brand-emerald)_12%,#ffffff_88%)] text-[var(--brand-emerald)] shadow-md shadow-black/5 transition group-hover:bg-[var(--brand-emerald)] group-hover:text-white">
                   <IconComponent className="size-6" aria-hidden="true" />
