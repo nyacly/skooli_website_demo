@@ -1,3 +1,9 @@
+import ntvSpotlightImage from '@/assets/skooli_solar_distribution.png'
+import lakesideCohortImage from '@/assets/lakeside_cohort_graduation.png'
+import routeIntelligenceImage from '@/assets/route_intelligence.png'
+import worldEducationImage from '@/assets/world_education_forum.png'
+import savingsCircleImage from '@/assets/village_savings_saccos.png'
+
 export const newsEntries = [
   {
     id: 'press-uganda-tv',
@@ -5,7 +11,7 @@ export const newsEntries = [
     excerpt: 'Prime-time feature covers the new Gulu fulfillment centre and its 100% renewable footprint.',
     category: 'Press',
     date: 'Oct 05, 2025',
-    image: '/assets/news/ntv-spotlight.svg',
+    image: ntvSpotlightImage,
     imageAlt: 'Broadcast studio featuring Skooli team',
   },
   {
@@ -14,7 +20,7 @@ export const newsEntries = [
     excerpt: 'Community-led micro-fulfillment ensures girls receive textbooks and hygiene kits before term start.',
     category: 'Impact',
     date: 'Sep 18, 2025',
-    image: '/assets/news/lakeside-cohort.svg',
+    image: lakesideCohortImage,
     imageAlt: 'Students celebrating with books in hand',
   },
   {
@@ -23,7 +29,7 @@ export const newsEntries = [
     excerpt: 'New release reduces driver idle minutes by 23% across Kampala and Fort Portal corridors.',
     category: 'Tech',
     date: 'Aug 27, 2025',
-    image: '/assets/news/route-intelligence.svg',
+    image: routeIntelligenceImage,
     imageAlt: 'Logistics dashboard showing route efficiency',
   },
   {
@@ -32,7 +38,7 @@ export const newsEntries = [
     excerpt: 'Global convening recognises Skooli as a leading faith-and-tech supply chain innovator.',
     category: 'Press',
     date: 'Jul 14, 2025',
-    image: '/assets/news/world-education.svg',
+    image: worldEducationImage,
     imageAlt: 'Conference stage with spotlight on Skooli logo',
   },
   {
@@ -41,7 +47,7 @@ export const newsEntries = [
     excerpt: 'Parent microfinance cohorts leverage Skooli wallets to underwrite school essentials.',
     category: 'Impact',
     date: 'Jun 29, 2025',
-    image: '/assets/news/savings-circle.svg',
+    image: savingsCircleImage,
     imageAlt: 'Group of parents reviewing digital wallets',
   },
 ]

@@ -2,6 +2,8 @@ import { useMemo, useState } from 'react'
 import { newsEntries } from '@/lib/cms.js'
 import { NewsletterSignupModule } from '@/components/NewsletterSignupModule.jsx'
 import { impactInsights } from '@/data/impactInsights.js'
+import heroImage from '@/assets/lakeside_cohort_graduation.png'
+import villageSavingsImage from '@/assets/village_savings_saccos.png'
 import { CalendarDays, Tag } from 'lucide-react'
 
 const categories = ['All', 'Impact', 'Tech', 'Press']
@@ -23,11 +25,21 @@ export default function NewsUpdates() {
     <div className="bg-[var(--brand-cream)]">
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">News & updates</p>
-          <h1 className="mt-4 text-4xl font-bold text-[var(--brand-emerald)]">Stories from the field and product desk</h1>
-          <p className="mt-4 max-w-3xl text-base text-slate-600">
-            We publish quarterly impact notes, technology deep dives, and press announcements from Skooli’s mission across Uganda.
-          </p>
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">News & updates</p>
+              <h1 className="mt-4 text-4xl font-bold text-[var(--brand-emerald)]">Stories from the field and product desk</h1>
+              <p className="mt-4 max-w-3xl text-base text-slate-600">
+                We publish quarterly impact notes, technology deep dives, and press announcements from Skooli’s mission across Uganda.
+              </p>
+            </div>
+            <figure className="overflow-hidden rounded-3xl border border-[var(--brand-emerald)]/15 bg-[var(--brand-cream)]/60 shadow-lg shadow-black/5">
+              <img src={heroImage} alt="Graduates from the lakeside cohort celebrating with their certificates." className="h-64 w-full object-cover" />
+              <figcaption className="px-4 py-3 text-xs uppercase tracking-[0.2em] text-slate-600">
+                Lakeside cohort graduation, Gulu hub
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
@@ -94,7 +106,17 @@ export default function NewsUpdates() {
               <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Impact insights</p>
                 <p className="mt-3 text-sm text-slate-600">Quick metrics from our investor dashboard.</p>
-                <div className="mt-4 space-y-4">
+                <figure className="mt-4 overflow-hidden rounded-2xl border border-[var(--brand-emerald)]/15 bg-[var(--brand-cream)]/60">
+                  <img
+                    src={villageSavingsImage}
+                    alt="Members of a village savings SACCO reviewing their shared ledger."
+                    className="h-44 w-full object-cover"
+                  />
+                  <figcaption className="px-4 py-3 text-xs text-slate-600">
+                    Village savings SACCO partners co-fund learner kits across the north.
+                  </figcaption>
+                </figure>
+                <div className="mt-6 grid gap-4">
                   {impactInsights.map((item) => (
                     <div key={item.label} className="rounded-2xl border border-[var(--brand-emerald)]/15 bg-[var(--brand-cream)]/70 p-4">
                       <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">{item.label}</p>
