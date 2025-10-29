@@ -1,0 +1,1 @@
+Merge changes that improve pages with images and colors into master.
