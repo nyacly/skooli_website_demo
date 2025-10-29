@@ -21,6 +21,7 @@ const sizeStyles = {
 }
 
 export function AccentPill({
+  // eslint-disable-next-line no-unused-vars
   as: Component = 'p',
   tone = 'emerald',
   size = 'xs',

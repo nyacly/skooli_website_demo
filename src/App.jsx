@@ -4,6 +4,7 @@ import Home from '@/pages/Home.jsx'
 import AboutUs from '@/pages/AboutUs.jsx'
 import VisionImpact from '@/pages/VisionImpact.jsx'
 import PartnerWithUs from '@/pages/PartnerWithUs.jsx'
+import PartnerInquiry from '@/pages/PartnerInquiry.jsx'
 import FundersInvestors from '@/pages/FundersInvestors.jsx'
 import ForSchools from '@/pages/ForSchools.jsx'
 import ForBusiness from '@/pages/ForBusiness.jsx'
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/vision-impact" element={<VisionImpact />} />
         <Route path="/partner" element={<PartnerWithUs />} />
+        <Route path="/partner-inquiry" element={<PartnerInquiry />} />
         <Route path="/funders" element={<FundersInvestors />} />
         <Route path="/schools" element={<ForSchools />} />
         <Route path="/for-business" element={<ForBusiness />} />
