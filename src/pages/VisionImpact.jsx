@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { Compass, Globe2, Users2, HeartHandshake, Quote, ArrowLeft, ArrowRight } from 'lucide-react'
-import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet'
+import { APIProvider, Map } from '@vis.gl/react-google-maps'
 import { AccentPill } from '@/components/AccentPill.jsx'
-import ugandaDistricts from '@/data/uganda-districts.json'
 
 const pillars = [
   {
@@ -57,11 +56,6 @@ const stories = [
 
 export default function VisionImpact() {
   const [storyIndex, setStoryIndex] = useState(0)
-  const [activeDistrict, setActiveDistrict] = useState({
-    name: 'Kampala',
-    schools: 46,
-    studentLabel: '22,080',
-  })
 
   const nextStory = () => setStoryIndex((index) => (index + 1) % stories.length)
   const prevStory = () => setStoryIndex((index) => (index - 1 + stories.length) % stories.length)
@@ -115,64 +109,28 @@ export default function VisionImpact() {
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-            <div className="rounded-3xl bg-white p-8 shadow-lg shadow-black/5">
-              <MapContainer
-                center={[1.3733, 32.2903]}
-                zoom={6}
-                scrollWheelZoom={false}
-                style={{ height: '400px', width: '100%', borderRadius: '1.5rem' }}
-              >
-                <TileLayer
-                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            <div className="overflow-hidden rounded-3xl bg-white p-8 shadow-lg shadow-black/5">
+              <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
+                <Map
+                  defaultCenter={{ lat: 1.3733, lng: 32.2903 }}
+                  defaultZoom={6}
+                  mapId="skooli_map"
+                  disableDefaultUI
+                  style={{ height: '400px', width: '100%', border: 'none' }}
                 />
-                <GeoJSON
-                  data={ugandaDistricts}
-                  style={() => ({
-                    color: '#009B77',
-                    weight: 2,
-                    fillColor: '#009B77',
-                    fillOpacity: 0.2,
-                  })}
-                  onEachFeature={(feature, layer) => {
-                    const districtName = feature.properties.shapeName
-                    layer.on({
-                      mouseover: () => {
-                        setActiveDistrict({
-                          name: districtName,
-                          schools: Math.floor(Math.random() * 50) + 10,
-                          studentLabel: `${Math.floor(Math.random() * 20000) + 5000}`,
-                        })
-                      },
-                    })
-                    layer.bindTooltip(districtName, {
-                      permanent: false,
-                      direction: 'auto',
-                    })
-                  }}
-                />
-              </MapContainer>
+              </APIProvider>
             </div>
             <div className="space-y-6">
               <AccentPill size="sm" className="tracking-[0.25em]">
                 Impact map
               </AccentPill>
               <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">
-                District coverage grows every term
+                Our footprint is growing every term
               </h2>
               <p className="text-sm text-slate-600">
-                Hover over each cluster to explore how many schools and students are served.
+                From Kampala to remote villages, we are reaching learners across Uganda. Our interactive dashboards (available
+                to partners) provide real-time data on school engagement, supply chain efficiency, and student outcomes.
               </p>
-              <div className="rounded-2xl bg-white p-6 shadow-lg shadow-black/5">
-                <p className="text-sm font-semibold text-[var(--brand-emerald)]">{activeDistrict.name}</p>
-                <p className="mt-2 text-sm text-slate-600">
-                  <strong>{activeDistrict.schools}</strong> partner schools •
-                  <strong> {activeDistrict.studentLabel}</strong> students supported
-                </p>
-                <AccentPill size="xs" className="mt-3 tracking-[0.25em]">
-                  Data refreshed weekly
-                </AccentPill>
-              </div>
             </div>
           </div>
         </div>

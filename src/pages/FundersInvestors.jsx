@@ -361,12 +361,19 @@ export default function FundersInvestors() {
               <a className="mt-2 flex items-center gap-2 text-sm font-semibold text-[var(--brand-emerald)]" href="mailto:invest@skooli.africa">
                 <Mail className="size-4" /> invest@skooli.africa
               </a>
+              <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200">
+                <iframe
+                  title="Schedule due diligence call"
+                  src="https://calendly.com/skooli-investor/30min"
+                  className="h-64 w-full"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-24" id="downloads">
+      <section className="py-16" id="downloads">
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-start">
             <div className="rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
@@ -449,25 +456,18 @@ export default function FundersInvestors() {
               <a className="mt-2 flex items-center gap-2 text-sm font-semibold text-[var(--brand-emerald)]" href="mailto:invest@skooli.africa">
                 <Mail className="size-4" /> invest@skooli.africa
               </a>
+              <div className="mt-4 overflow-hidden rounded-2xl border border-slate-200">
+                <iframe
+                  title="Schedule due diligence call"
+                  src="https://calendly.com/skooli-investor/30min"
+                  className="h-64 w-full"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-24" id="investor-deck">
-        <div className="mx-auto max-w-4xl px-4 text-center">
-          <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">Ready to review the investor deck?</h2>
-          <p className="mt-4 text-sm text-slate-600">
-            Unlock the downloads above or request a personal walkthrough with our founders.
-          </p>
-          <Button
-            className="mt-6 rounded-md bg-[var(--brand-emerald)] px-6 py-3 text-white shadow-lg shadow-[var(--brand-emerald)]/20 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
-            asChild
-          >
-            <a href="mailto:invest@skooli.africa?subject=Investor%20Deck%20Request">Request briefing</a>
-          </Button>
-        </div>
-      </section>
     </div>
   )
 }
