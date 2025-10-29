@@ -39,7 +39,7 @@ export function NewsletterSignupModule({ layout = 'horizontal', includeDownloadL
         />
         <button
           type="submit"
-          className="flex h-12 items-center justify-center rounded-full bg-[var(--brand-emerald)] px-6 text-sm font-semibold text-white shadow-lg shadow-black/15 transition hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)]"
+          className="flex h-12 items-center justify-center rounded-full bg-[var(--brand-emerald)] px-6 text-sm font-semibold text-white shadow-lg shadow-black/15 transition hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] whitespace-nowrap"
           disabled={status === 'loading'}
         >
           {status === 'loading' ? 'Delivering…' : status === 'success' ? 'Briefing Sent!' : 'Send briefing PDF'}

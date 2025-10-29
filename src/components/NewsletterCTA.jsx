@@ -12,7 +12,9 @@ export default function NewsletterCTA() {
                 <span className="inline-flex items-center rounded-full bg-[color-mix(in_srgb,var(--brand-emerald)_10%,#ffffff_90%)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-emerald)] shadow-inner shadow-white">
                   Executive Dashboard Sync
                 </span>
-                <p className="mt-4 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Newsletter</p>
+                <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-[var(--brand-emerald)]/20 bg-[color-mix(in_srgb,var(--brand-cream)_75%,#ffffff_25%)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)]">
+                  Newsletter
+                </p>
                 <h2 className="mt-4 text-3xl font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_88%,#032823_12%)]">
                   Executive updates delivered monthly
                 </h2>
@@ -26,17 +28,19 @@ export default function NewsletterCTA() {
             <div className="rounded-3xl border border-[var(--brand-emerald)]/15 bg-white/70 p-6">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">Impact Insights</p>
+                  <p className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-emerald)]/20 bg-[color-mix(in_srgb,var(--brand-cream)_70%,#ffffff_30%)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)]">
+                    Impact Insights
+                  </p>
                   <h3 className="mt-2 text-xl font-semibold text-[var(--brand-emerald)]">Operational highlights from the latest quarter</h3>
                 </div>
-                <span className="rounded-full bg-[color-mix(in_srgb,var(--brand-emerald)_10%,#ffffff_90%)] px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-emerald)]">
+                <span className="rounded-full border border-[var(--brand-emerald)]/15 bg-[color-mix(in_srgb,var(--brand-emerald)_8%,#ffffff_92%)] px-4 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)]">
                   Q3 2025
                 </span>
               </div>
               <div className="mt-6 grid gap-4 sm:grid-cols-3">
                 {impactInsights.map((item) => (
-                  <div key={item.label} className="rounded-2xl border border-[var(--brand-emerald)]/20 bg-[var(--brand-cream)]/60 p-4">
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--brand-gold)]">{item.label}</p>
+                  <div key={item.label} className="rounded-2xl border border-[var(--brand-emerald)]/20 bg-[color-mix(in_srgb,var(--brand-cream)_65%,#ffffff_35%)] p-4">
+                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)]">{item.label}</p>
                     <p className="mt-3 text-2xl font-bold text-[var(--brand-emerald)]">{item.metric}</p>
                     <p className="mt-2 text-xs text-slate-600">{item.detail}</p>
                   </div>
