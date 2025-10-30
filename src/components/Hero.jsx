@@ -29,7 +29,7 @@ const handleHeroImageError = (event) => {
 
 export default function Hero() {
   return (
-    <section className="section-shell relative flex min-h-[85vh] items-center justify-start overflow-hidden" id="hero">
+    <section className="section-shell relative flex min-h-[70vh] items-center justify-start overflow-hidden sm:min-h-[85vh]" id="hero">
       <div className="absolute inset-0">
         <picture>
           <source type="image/jpeg" srcSet="/assets/branding/skooli_banner_image.jpg" sizes="100vw" />
@@ -50,17 +50,17 @@ export default function Hero() {
         />
       </div>
       <div className="relative z-10 section-container text-left text-[var(--brand-white)]">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl space-y-[var(--space-md)] text-center sm:text-left">
           <AccentPill tone="inverse" size="sm" className="bg-[color-mix(in_srgb,var(--brand-white)_20%,transparent)]">
             Executive briefing
           </AccentPill>
-          <h1 className="mt-[var(--space-md)] typography-display font-semibold text-[var(--brand-white)]">
+          <h1 className="typography-display font-semibold text-[var(--brand-white)]">
             Operational assurance for national education pilots
           </h1>
-          <p className="mt-[var(--space-md)] typography-body-lg font-medium text-[color-mix(in_srgb,var(--brand-white)_90%,transparent)]">
+          <p className="typography-body-lg font-medium text-[color-mix(in_srgb,var(--brand-white)_90%,transparent)]">
             Skooli deploys accountable facilitators, verified suppliers, and transparent financial rails so ministries see auditable results from the first cohort through national scale.
           </p>
-          <div className="mt-[var(--space-xl)]">
+          <div className="pt-[var(--space-md)]">
             <Button
               size="lg"
               className="rounded-md bg-[var(--brand-emerald)] px-[var(--space-xl)] py-[var(--space-sm)] text-base font-semibold text-[var(--brand-white)] shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,var(--emerald-ink)_20%)]"

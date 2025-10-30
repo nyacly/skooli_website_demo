@@ -6,7 +6,7 @@ export default function NewsletterCTA() {
   return (
     <section className="bg-white py-16" id="newsletter">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-br from-[var(--brand-white)] via-[var(--brand-cream)] to-[color-mix(in_srgb,var(--brand-emerald)_12%,var(--brand-white)_88%)] p-10 shadow-xl shadow-black/10 sm:p-16">
+        <div className="rounded-3xl bg-gradient-to-br from-[var(--brand-white)] via-[var(--brand-cream)] to-[color-mix(in_srgb,var(--brand-emerald)_12%,var(--brand-white)_88%)] p-8 shadow-xl shadow-black/10 sm:p-12 lg:p-16">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
               <div className="max-w-2xl">
@@ -23,7 +23,7 @@ export default function NewsletterCTA() {
                   Subscribe for Mailchimp briefings on impact milestones, product launches, and treasury notes. Every confirmation email now includes the latest PDF dashboard sync for your leadership team.
                 </p>
               </div>
-              <NewsletterSignupModule layout="horizontal" includeDownloadLink className="flex flex-col items-start gap-4" />
+              <NewsletterSignupModule layout="horizontal" includeDownloadLink className="flex flex-col items-start gap-4 lg:items-end" />
             </div>
 
             <Card
@@ -45,7 +45,7 @@ export default function NewsletterCTA() {
                 </span>
               </CardHeader>
               <CardContent className="gap-6 p-0">
-                <div className="grid gap-4 sm:grid-cols-3">
+                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                   {impactInsights.map((item) => (
                     <Card
                       key={item.label}

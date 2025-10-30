@@ -7,7 +7,7 @@ export default function HeroStats() {
   return (
     <section className="section-shell bg-transparent" data-spacing="tight">
       <div className="section-container max-w-6xl">
-        <div className="grid gap-[var(--space-md)] rounded-2xl bg-[color-mix(in_srgb,var(--brand-white)_95%,transparent)] p-[var(--space-md)] shadow-xl shadow-black/5 backdrop-blur sm:grid-cols-3">
+        <div className="grid gap-[var(--space-md)] rounded-2xl bg-[color-mix(in_srgb,var(--brand-white)_95%,transparent)] p-[var(--space-md)] shadow-xl shadow-black/5 backdrop-blur sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => (
             <div key={item.label} className="flex items-center justify-center rounded-xl p-[var(--space-md)] text-center">
               <div>

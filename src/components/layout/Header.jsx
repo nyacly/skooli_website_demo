@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
 
 const primaryNavItems = [
@@ -19,6 +18,7 @@ export default function Header() {
   const [open, setOpen] = useState(false)
   const toggleRef = useRef(null)
   const firstNavLinkRef = useRef(null)
+  const bodyLockRef = useRef(false)
 
   useEffect(() => {
     if (open && firstNavLinkRef.current) {
@@ -43,6 +43,24 @@ export default function Header() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [open])
 
+  useEffect(() => {
+    const body = document.body
+    if (open) {
+      bodyLockRef.current = !body.classList.contains('overflow-hidden')
+      body.classList.add('overflow-hidden')
+    } else if (bodyLockRef.current) {
+      body.classList.remove('overflow-hidden')
+      bodyLockRef.current = false
+    }
+
+    return () => {
+      if (bodyLockRef.current) {
+        body.classList.remove('overflow-hidden')
+        bodyLockRef.current = false
+      }
+    }
+  }, [open])
+
   const closeMenu = () => {
     setOpen(false)
     toggleRef.current?.focus()
@@ -50,7 +68,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:py-4 lg:px-8">
         <Link to="/" className="flex items-center gap-2 text-[var(--brand-emerald)]">
           <span className="text-2xl font-bold tracking-tight">Skooli</span>
         </Link>
@@ -86,22 +104,47 @@ export default function Header() {
           variant="outline"
           size="icon"
           shape="square"
-          className="border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] text-[var(--brand-emerald)] shadow-sm transition hover:border-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)] lg:hidden"
+          className={`border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] text-[var(--brand-emerald)] shadow-sm transition hover:border-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)] lg:hidden ${
+            open ? 'bg-[color-mix(in_srgb,var(--brand-emerald)_8%,var(--brand-white)_92%)]' : ''
+          }`}
           aria-label="Toggle navigation"
           aria-expanded={open}
           aria-controls="mobile-navigation"
           aria-haspopup="true"
           ref={toggleRef}
         >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          <span className="relative block h-5 w-6" aria-hidden="true">
+            <span
+              className={`absolute left-0 h-0.5 w-full rounded-full bg-current transition-transform duration-300 ease-out ${
+                open ? 'top-1/2 -translate-y-1/2 rotate-45' : 'top-0'
+              }`}
+            />
+            <span
+              className={`absolute left-0 top-1/2 h-0.5 w-full -translate-y-1/2 rounded-full bg-current transition-all duration-200 ease-out ${
+                open ? 'opacity-0' : 'opacity-100'
+              }`}
+            />
+            <span
+              className={`absolute left-0 h-0.5 w-full rounded-full bg-current transition-transform duration-300 ease-out ${
+                open ? 'bottom-1/2 translate-y-1/2 -rotate-45' : 'bottom-0'
+              }`}
+            />
+          </span>
         </Button>
       </div>
       <div
         id="mobile-navigation"
-        className="border-t border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] bg-white/95 shadow-lg shadow-black/5 lg:hidden"
-        hidden={!open}
+        className={`origin-top overflow-hidden border-t border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] bg-white/95 shadow-lg shadow-black/5 transition-[max-height,opacity,transform] duration-300 ease-out lg:hidden ${
+          open ? 'max-h-[32rem] scale-y-100 opacity-100' : 'pointer-events-none max-h-0 scale-y-95 opacity-0'
+        }`}
+        aria-hidden={!open}
       >
-        <nav aria-label="Mobile" className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
+        <nav
+          aria-label="Mobile"
+          className={`mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 transition-transform duration-300 ease-out ${
+            open ? 'translate-y-0' : '-translate-y-2'
+          }`}
+        >
           {primaryNavItems.map(({ name, to }) => (
             <NavLink
               key={to}

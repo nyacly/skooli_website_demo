@@ -93,7 +93,6 @@
   --sidebar-accent-foreground: var(--brand-white);
   --sidebar-border: color-mix(in srgb, var(--brand-emerald) 20%, var(--brand-white));
   --sidebar-ring: color-mix(in srgb, var(--brand-emerald) 65%, var(--emerald-canopy));
-  --section-max-width: 80rem;
 }
 
 .dark {
