@@ -125,7 +125,7 @@ export default function VisionImpact() {
               ) : (
                 <div className="flex h-[400px] flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-[var(--brand-emerald)]/30 bg-[color-mix(in_srgb,var(--brand-emerald)_4%,white)] p-6 text-center">
                   <img
-                    src="/assets/branding/skooli-expansion-map.svg"
+                    src="/assets/branding/skooli_african_map.png"
                     alt="Illustrated map of Uganda highlighting Skooli's impact regions"
                     className="h-40 w-auto"
                     loading="lazy"
