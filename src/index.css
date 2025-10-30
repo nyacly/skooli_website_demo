@@ -177,29 +177,6 @@ body {
    educators we serve. Keep sentences warm and invitational, balancing
    confident verbs with people-first nouns. */
 
-/* Button radius overrides */
-.btn-primary {
-  @apply text-white rounded-md shadow hover:shadow-lg transition-shadow;
-  background-color: var(--brand-emerald);
-}
-
-.btn-accent {
-  @apply rounded-md shadow hover:shadow-lg transition-shadow;
-  background-color: var(--accent);
-  color: var(--accent-foreground);
-}
-
-.btn-secondary {
-  @apply border-2 bg-transparent rounded-md transition-all;
-  border-color: var(--brand-emerald);
-  color: var(--brand-emerald);
-}
-
-.btn-secondary:hover {
-  background-color: var(--brand-emerald);
-  color: var(--brand-white);
-}
-
 /* Card styles */
 .skooli-card {
   @apply bg-white rounded-3xl shadow-lg shadow-black/5;
