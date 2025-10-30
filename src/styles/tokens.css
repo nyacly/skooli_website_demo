@@ -2,15 +2,15 @@
   /* Typography */
   --font-family-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  --font-size-display: clamp(2.75rem, 1.25rem + 4vw, 4rem);
-  --font-size-h1: clamp(2.25rem, 1.1rem + 2.5vw, 3.25rem);
-  --font-size-h2: clamp(2rem, 1rem + 2vw, 2.75rem);
-  --font-size-h3: clamp(1.75rem, 0.9rem + 1.5vw, 2.25rem);
-  --font-size-h4: clamp(1.5rem, 0.75rem + 1.2vw, 1.75rem);
-  --font-size-body-lg: 1.25rem;
-  --font-size-body-md: 1rem;
-  --font-size-body-sm: 0.875rem;
-  --font-size-body-xs: 0.75rem;
+  --font-size-display: clamp(2.1rem, 1.3rem + 3vw, 3.75rem);
+  --font-size-h1: clamp(1.8rem, 1.1rem + 2.5vw, 3rem);
+  --font-size-h2: clamp(1.6rem, 1rem + 2vw, 2.5rem);
+  --font-size-h3: clamp(1.4rem, 0.9rem + 1.5vw, 2rem);
+  --font-size-h4: clamp(1.25rem, 0.85rem + 1vw, 1.6rem);
+  --font-size-body-lg: clamp(1.05rem, 0.95rem + 0.8vw, 1.25rem);
+  --font-size-body-md: clamp(0.95rem, 0.9rem + 0.45vw, 1.1rem);
+  --font-size-body-sm: clamp(0.85rem, 0.8rem + 0.3vw, 0.95rem);
+  --font-size-body-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.85rem);
 
   --line-height-tight: 1.1;
   --line-height-snug: 1.25;
@@ -47,9 +47,10 @@
   --space-5xl: 6rem;
 
   /* Section layout */
-  --space-section-inline: clamp(var(--space-sm), 4vw, var(--space-xl));
-  --space-section-y: clamp(var(--space-3xl), 6vw, var(--space-5xl));
+  --space-section-inline: clamp(var(--space-sm), 6vw, var(--space-xl));
+  --space-section-y: clamp(var(--space-xl), 8vw, var(--space-5xl));
   --space-section-tight-y: calc(var(--space-section-y) * 0.6);
+  --section-max-width: clamp(22rem, 90vw, 80rem);
 }
 
 body {
@@ -114,4 +115,28 @@ p,
 .body-xs {
   font-size: var(--font-size-body-xs);
   line-height: var(--line-height-relaxed);
+}
+
+@media (max-width: 40rem) {
+  :root {
+    --space-section-inline: clamp(var(--space-2xs), 7vw, var(--space-md));
+    --space-section-y: clamp(var(--space-lg), 12vw, var(--space-3xl));
+  }
+
+  .section-shell[data-spacing='tight'] {
+    padding-block: clamp(var(--space-md), 10vw, var(--space-xl));
+  }
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --space-section-inline: clamp(var(--space-md), 4vw, var(--space-2xl));
+  }
+}
+
+@media (min-width: 90rem) {
+  :root {
+    --section-max-width: 90rem;
+    --space-section-inline: clamp(var(--space-lg), 3vw, var(--space-3xl));
+  }
 }

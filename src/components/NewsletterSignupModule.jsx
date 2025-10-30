@@ -22,7 +22,7 @@ export function NewsletterSignupModule({ layout = 'horizontal', includeDownloadL
 
   const isHorizontal = layout === 'horizontal'
   const formClasses = isHorizontal
-    ? 'flex w-full max-w-md flex-col gap-[var(--space-xs)] sm:flex-row'
+    ? 'flex w-full max-w-md flex-col gap-[var(--space-xs)] md:flex-row'
     : 'flex w-full flex-col gap-[var(--space-xs)]'
 
   return (

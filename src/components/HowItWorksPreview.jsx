@@ -38,13 +38,13 @@ export default function HowItWorksPreview() {
             Explore the full playbook →
           </Link>
         </div>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {steps.map(({ title, description, icon }, index) => {
             const StepIcon = icon
             return (
               <div
                 key={title}
-                className="rounded-2xl bg-[var(--brand-cream)] p-8 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:shadow-xl"
+                className="rounded-2xl bg-[var(--brand-cream)] p-6 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:shadow-xl sm:p-8"
               >
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--brand-white)] text-[var(--brand-emerald)] shadow-md">
                   <StepIcon className="size-6" aria-hidden="true" />

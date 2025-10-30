@@ -34,7 +34,7 @@ export default function ImpactSnapshot() {
   return (
     <section className="bg-gradient-to-br from-[var(--brand-emerald)] to-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--neutral-black)_30%)] py-16 text-[var(--brand-white)]" id="impact">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
             <AccentPill tone="inverse" size="sm" className="bg-[var(--brand-white)]/25">
               Executive Dashboard Sync
@@ -70,7 +70,7 @@ export default function ImpactSnapshot() {
             <p className="typography-heading-3 font-semibold">29 Jan 2025 • 14:00 EAT</p>
           </div>
         </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-3" ref={ref}>
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3" ref={ref}>
           {stats.map(({ label, value, suffix, format }) => {
             const displayValue = visible
               ? format
