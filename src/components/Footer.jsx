@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, Heart, Send } from 'lucide-react'
+import { Button } from '@/components/ui/button.jsx'
+import { Input } from '@/components/ui/input.jsx'
+import { Card } from '@/components/ui/card.jsx'
 import leadershipGradient from '@/assets/leadership-gradient.svg'
 import leadershipPortrait from '@/assets/leadership-portrait.svg'
 
@@ -153,11 +156,15 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="mt-[var(--space-xl)] space-y-[var(--space-2xs)] rounded-2xl border border-[var(--brand-emerald)]/15 bg-[color-mix(in_srgb,var(--brand-cream)_75%,var(--brand-white)_25%)] p-[var(--space-md)] shadow-sm">
+            <Card
+              variant="muted"
+              padding="md"
+              className="mt-[var(--space-xl)] gap-[var(--space-2xs)] shadow-sm"
+            >
               <p className="typography-body-sm font-semibold text-[var(--brand-emerald)]">Stay in the loop</p>
               <p className="typography-body-xs text-[color-mix(in_srgb,var(--brand-emerald)_60%,var(--emerald-ink)_40%)]">Monthly executive briefings on logistics, impact and technology.</p>
               <form
-                className="flex items-center gap-[var(--space-2xs)]"
+                className="flex flex-col gap-[var(--space-2xs)] sm:flex-row sm:items-center"
                 onSubmit={(event) => {
                   event.preventDefault()
                   const form = event.currentTarget
@@ -168,22 +175,25 @@ export default function Footer() {
                   }
                 }}
               >
-                <input
-                  className="h-10 flex-1 rounded-full border border-[var(--brand-emerald)]/25 bg-[var(--brand-white)] px-[var(--space-xs)] typography-body-sm text-[color-mix(in_srgb,var(--brand-emerald)_80%,var(--emerald-ink)_20%)] placeholder:text-[color-mix(in_srgb,var(--brand-emerald)_45%,var(--emerald-haze)_55%)] focus:border-[var(--brand-emerald)] focus:outline-none"
+                <Input
+                  className="flex-1 rounded-full bg-[var(--brand-white)]"
                   type="email"
                   name="email"
                   aria-label="Email for newsletter"
                   placeholder="you@organisation.com"
                   required
                 />
-                <button
+                <Button
                   type="submit"
-                  className="flex h-10 items-center justify-center rounded-full bg-[var(--brand-emerald)] px-[var(--space-sm)] typography-body-sm font-semibold text-[var(--brand-white)] shadow-sm shadow-black/10 transition hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_85%,var(--emerald-ink)_15%)]"
+                  variant="primary"
+                  shape="pill"
+                  className="w-full sm:w-auto"
                 >
-                  <Send className="size-4" />
-                </button>
+                  Subscribe
+                  <Send aria-hidden="true" className="size-4" />
+                </Button>
               </form>
-            </div>
+            </Card>
           </div>
         </div>
         <div className="mt-[var(--space-3xl)] border-t border-[var(--brand-emerald)]/20 pt-[var(--space-md)]">

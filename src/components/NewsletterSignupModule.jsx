@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Send } from 'lucide-react'
+import { Button } from '@/components/ui/button.jsx'
+import { Input } from '@/components/ui/input.jsx'
 
 export function NewsletterSignupModule({ layout = 'horizontal', includeDownloadLink = false, className = '' }) {
   const [email, setEmail] = useState('')
@@ -26,25 +28,30 @@ export function NewsletterSignupModule({ layout = 'horizontal', includeDownloadL
   return (
     <div className={className}>
       <form onSubmit={handleSubmit} className={formClasses}>
-        <input
+        <Input
           type="email"
           required
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="you@organisation.com"
-          className={`h-12 flex-1 rounded-full border border-[color-mix(in_srgb,var(--brand-emerald)_25%,var(--brand-white))] bg-[var(--brand-white)] px-[var(--space-sm)] typography-body-sm text-[color-mix(in_srgb,var(--brand-emerald)_75%,var(--emerald-canopy)_25%)] placeholder:text-[color-mix(in_srgb,var(--brand-emerald)_40%,var(--emerald-bough)_60%)] focus:border-[var(--brand-emerald)] focus:outline-none ${
-            isHorizontal ? '' : 'w-full'
-          }`}
           aria-label="Email address"
+          size="lg"
+          density="relaxed"
+          variant="default"
+          className={isHorizontal ? 'flex-1 rounded-full bg-[var(--brand-white)]' : 'w-full rounded-full bg-[var(--brand-white)]'}
         />
-        <button
+        <Button
           type="submit"
-          className="flex h-12 items-center justify-center rounded-full bg-[var(--brand-emerald)] px-[var(--space-md)] typography-body-sm font-semibold text-[var(--brand-white)] shadow-lg shadow-black/15 transition hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_85%,var(--emerald-ink)_15%)] whitespace-nowrap"
-          disabled={status === 'loading'}
+          shape="pill"
+          size="lg"
+          variant="primary"
+          className="whitespace-nowrap"
+          isLoading={status === 'loading'}
+          loadingText="Delivering…"
         >
-          {status === 'loading' ? 'Delivering…' : status === 'success' ? 'Briefing Sent!' : 'Send briefing PDF'}
-          <Send className="ml-[var(--space-2xs)] size-4" aria-hidden="true" />
-        </button>
+          {status === 'success' ? 'Briefing Sent!' : 'Send briefing PDF'}
+          {status !== 'loading' ? <Send className="size-4" aria-hidden="true" /> : null}
+        </Button>
       </form>
       {includeDownloadLink ? (
         <a
