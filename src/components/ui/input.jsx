@@ -1,7 +1,7 @@
 import * as React from "react"
 import { cva } from "class-variance-authority"
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils.js'
 
 const inputVariants = cva(
   "flex w-full min-w-0 items-center border bg-white font-medium text-[color-mix(in_srgb,var(--brand-emerald)_72%,var(--emerald-ink)_28%)] placeholder:text-[color-mix(in_srgb,var(--brand-emerald)_45%,var(--emerald-haze)_55%)] transition-[border,box-shadow,background-color,color] focus-visible:outline-none focus-visible:border-[color-mix(in_srgb,var(--brand-emerald)_75%,var(--emerald-ink)_25%)] focus-visible:ring-[3px] focus-visible:ring-[color-mix(in_srgb,var(--brand-emerald)_45%,var(--emerald-ink)_55%)]/30 disabled:cursor-not-allowed disabled:opacity-60 aria-invalid:border-[color-mix(in_srgb,rgba(220,38,38,1)_70%,var(--brand-emerald)_30%)] aria-invalid:ring-[color-mix(in_srgb,rgba(220,38,38,1)_55%,var(--brand-emerald)_45%)]/30",
