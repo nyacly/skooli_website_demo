@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button.jsx'
+import { NavLink } from '@/components/ui/navlink.jsx'
 
 const primaryNavItems = [
   { name: 'Shop Now', to: '/shop-now' },
