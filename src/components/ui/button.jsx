@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
 import { Loader2 } from "lucide-react"
 import { cva } from "class-variance-authority"
 
@@ -59,26 +58,49 @@ const Button = React.forwardRef(
     },
     ref
   ) => {
-    const Comp = asChild ? Slot : "button"
     const { disabled, type, ...rest } = props
     const mergedDisabled = isLoading ? true : disabled
     const resolvedType = type ?? (asChild ? undefined : "button")
-    const content = isLoading ? loadingText ?? children : children
+    const computedClassName = buttonVariants({ variant, size, shape, className })
 
-    return (
-      <Comp
-        ref={asChild ? undefined : ref}
-        data-slot="button"
-        data-state={isLoading ? "loading" : undefined}
-        className={cn(buttonVariants({ variant, size, shape, className }))}
-        aria-busy={isLoading || undefined}
-        aria-disabled={asChild && mergedDisabled ? true : undefined}
-        {...(!asChild ? { disabled: mergedDisabled, type: resolvedType } : {})}
-        {...rest}
-      >
+    const renderContent = (content) => (
+      <>
         {isLoading && <Loader2 aria-hidden="true" className={spinnerStyles} />}
         <span className="inline-flex items-center gap-2 leading-none">{content}</span>
-      </Comp>
+      </>
+    )
+
+    if (asChild) {
+      const child = React.Children.only(children)
+      const childContent = isLoading ? loadingText ?? child.props.children : child.props.children
+
+      return React.cloneElement(child, {
+        ...rest,
+        ref,
+        className: cn(computedClassName, child.props.className),
+        "data-slot": "button",
+        "data-state": isLoading ? "loading" : undefined,
+        "aria-busy": isLoading || undefined,
+        "aria-disabled": mergedDisabled ? true : child.props["aria-disabled"],
+        children: renderContent(childContent),
+      })
+    }
+
+    const buttonContent = isLoading ? loadingText ?? children : children
+
+    return (
+      <button
+        ref={ref}
+        data-slot="button"
+        data-state={isLoading ? "loading" : undefined}
+        className={computedClassName}
+        aria-busy={isLoading || undefined}
+        disabled={mergedDisabled}
+        type={resolvedType}
+        {...rest}
+      >
+        {renderContent(buttonContent)}
+      </button>
     )
   }
 )

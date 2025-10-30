@@ -56,6 +56,9 @@ const stories = [
 
 export default function VisionImpact() {
   const [storyIndex, setStoryIndex] = useState(0)
+  const [mapLoadError, setMapLoadError] = useState(false)
+  const mapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+  const canRenderMap = typeof mapsApiKey === 'string' && mapsApiKey.trim().length > 0 && !mapLoadError
 
   const nextStory = () => setStoryIndex((index) => (index + 1) % stories.length)
   const prevStory = () => setStoryIndex((index) => (index - 1 + stories.length) % stories.length)
@@ -110,15 +113,33 @@ export default function VisionImpact() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
             <div className="overflow-hidden rounded-3xl bg-white p-8 shadow-lg shadow-black/5">
-              <APIProvider apiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-                <Map
-                  defaultCenter={{ lat: 1.3733, lng: 32.2903 }}
-                  defaultZoom={6}
-                  mapId="skooli_map"
-                  disableDefaultUI
-                  style={{ height: '400px', width: '100%', border: 'none' }}
-                />
-              </APIProvider>
+              {canRenderMap ? (
+                <APIProvider apiKey={mapsApiKey} onError={() => setMapLoadError(true)}>
+                  <Map
+                    defaultCenter={{ lat: 1.3733, lng: 32.2903 }}
+                    defaultZoom={6}
+                    disableDefaultUI
+                    style={{ height: '400px', width: '100%', border: 'none' }}
+                  />
+                </APIProvider>
+              ) : (
+                <div className="flex h-[400px] flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-[var(--brand-emerald)]/30 bg-[color-mix(in_srgb,var(--brand-emerald)_4%,white)] p-6 text-center">
+                  <img
+                    src="/assets/branding/skooli_african_map.png"
+                    alt="Illustrated map of Uganda highlighting Skooli's impact regions"
+                    className="h-40 w-auto"
+                    loading="lazy"
+                  />
+                  <div className="space-y-2">
+                    <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--brand-emerald)]">
+                      Map preview unavailable
+                    </p>
+                    <p className="text-sm text-slate-600">
+                      Our live impact map requires location services from Google Maps. Until it loads, explore the snapshot of our current coverage.
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
             <div className="space-y-6">
               <AccentPill size="sm" className="tracking-[0.25em]">
