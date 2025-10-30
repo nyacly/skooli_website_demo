@@ -2,12 +2,12 @@ const expansionMapFallback = `data:image/svg+xml;utf8,${encodeURIComponent(
   `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'>
       <defs>
         <linearGradient id='expansionGradient' x1='0%' y1='0%' x2='100%' y2='100%'>
-          <stop offset='0%' stop-color='#009877'/>
-          <stop offset='100%' stop-color='rgba(0,152,119,0)'/>
+          <stop offset='0%' stop-color='var(--brand-emerald)'/>
+          <stop offset='100%' stop-color='rgba(0,0,0,0)'/>
         </linearGradient>
       </defs>
       <rect width='1200' height='800' fill='url(#expansionGradient)' />
-      <text x='50%' y='50%' font-family='Inter, Arial, sans-serif' font-size='42' fill='#ffffff' text-anchor='middle'>
+      <text x='50%' y='50%' font-family='Inter, Arial, sans-serif' font-size='42' fill='var(--brand-white)' text-anchor='middle'>
         Upload skooli_african_map.png to public/assets/branding
       </text>
     </svg>`
@@ -16,9 +16,9 @@ const expansionMapFallback = `data:image/svg+xml;utf8,${encodeURIComponent(
 const expansionMapSrc = '/assets/branding/skooli_african_map.png'
 
 const legendItems = [
-  { name: 'Pilot districts (Uganda)', background: 'rgba(255, 215, 0, 0.85)', border: 'rgba(255,255,255,0.25)' },
-  { name: 'Scale-ready hubs (Kenya)', background: 'rgba(0,152,119,0.65)', border: 'rgba(255,255,255,0.25)' },
-  { name: 'Expansion markets (Ghana)', background: 'rgba(252,230,174,0.75)', border: 'rgba(255,255,255,0.4)' },
+  { name: 'Pilot districts (Uganda)', background: 'color-mix(in srgb, var(--brand-gold) 85%, transparent)', border: 'color-mix(in srgb, var(--brand-white) 25%, transparent)' },
+  { name: 'Scale-ready hubs (Kenya)', background: 'color-mix(in srgb, var(--brand-emerald) 65%, transparent)', border: 'color-mix(in srgb, var(--brand-white) 25%, transparent)' },
+  { name: 'Expansion markets (Ghana)', background: 'color-mix(in srgb, var(--brand-cream) 75%, transparent)', border: 'color-mix(in srgb, var(--brand-white) 40%, transparent)' },
 ]
 
 import { AccentPill } from '@/components/AccentPill.jsx'
@@ -52,7 +52,7 @@ const handleMapError = (event) => {
 
 export default function ExpansionJourney() {
   return (
-    <section className="bg-[color-mix(in_srgb,var(--brand-emerald)_70%,#000_30%)] py-16 text-white sm:py-20" id="expansion-journey">
+    <section className="bg-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--neutral-black)_30%)] py-16 text-white sm:py-20" id="expansion-journey">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:grid-cols-2">
           <div className="flex flex-col justify-center">

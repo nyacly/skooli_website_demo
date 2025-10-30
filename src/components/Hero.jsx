@@ -7,12 +7,12 @@ const heroFallback = `data:image/svg+xml;utf8,${encodeURIComponent(
   `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'>
       <defs>
         <linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'>
-          <stop offset='0%' stop-color='#009877'/>
-          <stop offset='100%' stop-color='rgba(0,152,119,0)'/>
+          <stop offset='0%' stop-color='var(--brand-emerald)'/>
+          <stop offset='100%' stop-color='rgba(0,0,0,0)'/>
         </linearGradient>
       </defs>
       <rect width='1200' height='800' fill='url(#g)' />
-      <text x='50%' y='50%' font-family='Inter, Arial, sans-serif' font-size='42' fill='#ffffff' text-anchor='middle'>
+      <text x='50%' y='50%' font-family='Inter, Arial, sans-serif' font-size='42' fill='var(--brand-white)' text-anchor='middle'>
         Upload skooli_banner_image.jpg to public/assets/branding
       </text>
     </svg>`
@@ -45,25 +45,25 @@ export default function Hero() {
           />
         </picture>
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[rgba(0,152,119,0.85)] via-[rgba(2,45,36,0.65)] to-transparent"
+          className="absolute inset-0 bg-gradient-to-r from-[color-mix(in_srgb,var(--brand-emerald)_85%,transparent)] via-[color-mix(in_srgb,var(--emerald-ink)_65%,transparent)] to-transparent"
           aria-hidden="true"
         />
       </div>
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-24 text-left text-white sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-24 text-left text-[var(--brand-white)] sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <AccentPill tone="inverse" size="sm" className="bg-white/20">
+          <AccentPill tone="inverse" size="sm" className="bg-[color-mix(in_srgb,var(--brand-white)_20%,transparent)]">
             Executive briefing
           </AccentPill>
-          <h1 className="mt-6 typography-display font-semibold text-white">
+          <h1 className="mt-6 typography-display font-semibold text-[var(--brand-white)]">
             Operational assurance for national education pilots
           </h1>
-          <p className="mt-6 typography-body-lg font-medium text-white/90">
+          <p className="mt-6 typography-body-lg font-medium text-[color-mix(in_srgb,var(--brand-white)_90%,transparent)]">
             Skooli deploys accountable facilitators, verified suppliers, and transparent financial rails so ministries see auditable results from the first cohort through national scale.
           </p>
           <div className="mt-10">
             <Button
               size="lg"
-              className="rounded-md bg-[var(--brand-emerald)] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
+              className="rounded-md bg-[var(--brand-emerald)] px-8 py-4 text-base font-semibold text-[var(--brand-white)] shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,var(--emerald-ink)_20%)]"
               asChild
             >
               <Link to="/downloads/skooli-impact-report-2025.pdf" target="_blank" rel="noreferrer noopener">

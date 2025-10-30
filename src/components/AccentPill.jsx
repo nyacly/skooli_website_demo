@@ -2,15 +2,15 @@ import { cn } from '@/lib/utils.js'
 
 const toneStyles = {
   emerald: {
-    text: 'text-[color-mix(in_srgb,var(--brand-emerald)_88%,#032823_12%)]',
+    text: 'text-[color-mix(in_srgb,var(--brand-emerald)_88%,var(--emerald-ink)_12%)]',
     border: 'border-[var(--brand-emerald)]/20',
-    background: 'bg-[color-mix(in_srgb,var(--brand-cream)_72%,#ffffff_28%)]',
+    background: 'bg-[color-mix(in_srgb,var(--brand-cream)_72%,var(--brand-white)_28%)]',
     shadow: 'shadow-white/60',
   },
   inverse: {
-    text: 'text-white',
-    border: 'border-white/30',
-    background: 'bg-white/10',
+    text: 'text-[var(--brand-white)]',
+    border: 'border-[color-mix(in_srgb,var(--brand-white)_30%,transparent)]',
+    background: 'bg-[color-mix(in_srgb,var(--brand-white)_10%,transparent)]',
     shadow: 'shadow-black/20',
   },
 }

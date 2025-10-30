@@ -22,7 +22,7 @@ const steps = [
 
 export default function HowItWorksPreview() {
   return (
-    <section className="bg-white py-16" id="how-it-works-preview">
+    <section className="bg-[var(--brand-white)] py-16" id="how-it-works-preview">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div>
@@ -33,7 +33,7 @@ export default function HowItWorksPreview() {
           </div>
           <Link
             to="/how-it-works"
-            className="typography-body-sm font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] transition hover:text-[var(--brand-emerald)]"
+            className="typography-body-sm font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_85%,var(--emerald-ink)_15%)] transition hover:text-[var(--brand-emerald)]"
           >
             Explore the full playbook →
           </Link>
@@ -46,12 +46,12 @@ export default function HowItWorksPreview() {
                 key={title}
                 className="rounded-2xl bg-[var(--brand-cream)] p-8 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-[var(--brand-emerald)] shadow-md">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--brand-white)] text-[var(--brand-emerald)] shadow-md">
                   <StepIcon className="size-6" aria-hidden="true" />
                 </div>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Step {index + 1}</p>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--emerald-bough)_45%,var(--emerald-mist)_55%)]">Step {index + 1}</p>
                 <h3 className="mt-2 typography-heading-4 font-semibold text-[var(--brand-emerald)]">{title}</h3>
-                <p className="mt-2 typography-body-sm text-slate-600">{description}</p>
+                <p className="mt-2 typography-body-sm text-[color-mix(in_srgb,var(--emerald-bough)_65%,var(--emerald-mist)_35%)]">{description}</p>
               </div>
             )
           })}

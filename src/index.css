@@ -61,13 +61,6 @@
 }
 
 :root {
-  --brand-emerald: #009B77;
-  --brand-emerald-dark: #032823;
-  --brand-emerald-light: #7fd1b9;
-  --brand-cream: #FDF4D5;
-  --brand-gold: #FFD700;
-  --brand-white: #FFFFFF;
-
   --radius: 1rem; /* 16px for cards, 8px for buttons */
   --background: var(--brand-cream); /* Warm Skooli cream */
   --foreground: var(--brand-emerald); /* Emerald for headings and key text */
@@ -80,18 +73,18 @@
   --secondary: var(--brand-cream);
   --secondary-foreground: var(--brand-emerald);
   --muted: color-mix(in srgb, var(--brand-cream) 70%, var(--brand-white));
-  --muted-foreground: #26594c;
+  --muted-foreground: var(--emerald-bough);
   --accent: var(--brand-gold);
-  --accent-foreground: var(--brand-emerald-dark);
+  --accent-foreground: var(--emerald-ink);
   --destructive: #c2410c;
   --border: color-mix(in srgb, var(--brand-emerald) 15%, var(--brand-white));
   --input: color-mix(in srgb, var(--brand-cream) 80%, var(--brand-white));
-  --ring: color-mix(in srgb, var(--brand-emerald) 65%, #05382c);
+  --ring: color-mix(in srgb, var(--brand-emerald) 65%, var(--emerald-canopy));
   --chart-1: var(--brand-emerald);
   --chart-2: color-mix(in srgb, var(--brand-emerald) 65%, var(--brand-emerald-light) 35%);
   --chart-3: var(--brand-emerald-light);
   --chart-4: color-mix(in srgb, var(--brand-emerald) 50%, var(--brand-emerald-light) 50%);
-  --chart-5: color-mix(in srgb, var(--brand-emerald-dark) 65%, var(--brand-emerald-light) 35%);
+  --chart-5: color-mix(in srgb, var(--emerald-ink) 65%, var(--brand-emerald-light) 35%);
   --sidebar: var(--brand-white);
   --sidebar-foreground: var(--brand-emerald);
   --sidebar-primary: var(--brand-emerald);
@@ -99,41 +92,41 @@
   --sidebar-accent: color-mix(in srgb, var(--brand-emerald) 80%, var(--brand-emerald-light) 20%);
   --sidebar-accent-foreground: var(--brand-white);
   --sidebar-border: color-mix(in srgb, var(--brand-emerald) 20%, var(--brand-white));
-  --sidebar-ring: color-mix(in srgb, var(--brand-emerald) 65%, #05382c);
+  --sidebar-ring: color-mix(in srgb, var(--brand-emerald) 65%, var(--emerald-canopy));
 }
 
 .dark {
   --background: #021d18;
   --foreground: #e3fff9;
-  --card: #032823;
+  --card: var(--emerald-ink);
   --card-foreground: #e3fff9;
-  --popover: #032823;
+  --popover: var(--emerald-ink);
   --popover-foreground: #e3fff9;
   --primary: color-mix(in srgb, var(--brand-emerald) 70%, var(--brand-emerald-light) 30%);
   --primary-foreground: #021d18;
-  --secondary: #094236;
+  --secondary: color-mix(in srgb, var(--emerald-canopy) 85%, transparent);
   --secondary-foreground: #e3fff9;
-  --muted: #094236;
+  --muted: color-mix(in srgb, var(--emerald-canopy) 85%, transparent);
   --muted-foreground: var(--brand-emerald-light);
   --accent: var(--brand-gold);
   --accent-foreground: #021d18;
   --destructive: #f97316;
   --border: color-mix(in srgb, var(--brand-emerald) 25%, transparent);
   --input: color-mix(in srgb, var(--brand-emerald) 35%, transparent);
-  --ring: rgba(0, 152, 119, 0.6);
+  --ring: color-mix(in srgb, var(--brand-emerald) 60%, var(--brand-emerald-light) 40%);
   --chart-1: var(--brand-emerald-light);
   --chart-2: color-mix(in srgb, var(--brand-emerald) 55%, var(--brand-emerald-light) 45%);
   --chart-3: #a5edd5;
   --chart-4: #5ad1b0;
   --chart-5: #b6f7e5;
-  --sidebar: #032823;
+  --sidebar: var(--emerald-ink);
   --sidebar-foreground: #e3fff9;
   --sidebar-primary: color-mix(in srgb, var(--brand-emerald) 68%, var(--brand-emerald-light) 32%);
   --sidebar-primary-foreground: #021d18;
   --sidebar-accent: color-mix(in srgb, var(--brand-emerald) 55%, var(--brand-emerald-light) 45%);
   --sidebar-accent-foreground: #021d18;
   --sidebar-border: color-mix(in srgb, var(--brand-emerald) 20%, transparent);
-  --sidebar-ring: rgba(0, 152, 119, 0.6);
+  --sidebar-ring: color-mix(in srgb, var(--brand-emerald) 60%, var(--brand-emerald-light) 40%);
 }
 
 /* Skooli Custom Styles */
