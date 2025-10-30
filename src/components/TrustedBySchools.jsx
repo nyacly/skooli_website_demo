@@ -15,12 +15,12 @@ export default function TrustedBySchools() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-emerald)]/20 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)]">
+            <p className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-emerald)]/20 bg-[var(--brand-white)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--brand-emerald)_85%,var(--emerald-ink)_15%)]">
               Trusted by schools
             </p>
             <h2 className="mt-4 typography-heading-2 font-semibold text-[var(--brand-emerald)]">Serving Uganda’s most trusted institutions</h2>
           </div>
-          <p className="max-w-xl typography-body-sm text-slate-600">
+          <p className="max-w-xl typography-body-sm text-[color-mix(in_srgb,var(--emerald-bough)_85%,var(--emerald-mist)_15%)]">
             From rural diocesan schools to national academies, Skooli powers reliable delivery and transparent reporting.
           </p>
         </div>
@@ -28,10 +28,10 @@ export default function TrustedBySchools() {
           {schools.map((school) => (
             <div
               key={school.name}
-              className="group flex h-24 items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 text-center typography-body-sm font-semibold tracking-wide text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:border-[var(--brand-emerald)] hover:shadow-md"
+              className="group flex h-24 items-center justify-center gap-2 rounded-2xl border border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] bg-[var(--brand-white)] px-4 text-center typography-body-sm font-semibold tracking-wide text-[color-mix(in_srgb,var(--emerald-bough)_70%,var(--emerald-mist)_30%)] shadow-sm transition hover:-translate-y-0.5 hover:border-[var(--brand-emerald)] hover:shadow-md"
               title={school.tooltip}
             >
-              <Shield className="size-4 text-slate-400 transition group-hover:text-[var(--brand-emerald)]" aria-hidden="true" />
+              <Shield className="size-4 text-[color-mix(in_srgb,var(--brand-emerald)_40%,var(--emerald-bough)_60%)] transition group-hover:text-[var(--brand-emerald)]" aria-hidden="true" />
               <span className="uppercase">{school.name}</span>
             </div>
           ))}

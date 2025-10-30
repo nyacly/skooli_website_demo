@@ -49,7 +49,7 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-2 text-[var(--brand-emerald)]">
           <span className="text-2xl font-bold tracking-tight">Skooli</span>
@@ -60,7 +60,7 @@ export default function Header() {
               key={to}
               to={to}
               className={({ isActive }) =>
-                `relative rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-semibold shadow-[0_6px_18px_rgba(13,37,29,0.08)] transition-all duration-200 after:absolute after:inset-x-3 after:bottom-1 after:h-1 after:rounded-full after:bg-transparent after:transition-colors after:content-[''] ${
+                `relative rounded-md border border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] bg-white px-4 py-2 text-sm font-semibold shadow-[0_6px_18px_rgba(13,37,29,0.08)] transition-all duration-200 after:absolute after:inset-x-3 after:bottom-1 after:h-1 after:rounded-full after:bg-transparent after:transition-colors after:content-[''] ${
                   isActive
                     ? 'text-[var(--brand-emerald)] ring-1 ring-[var(--brand-emerald)]/20 shadow-[0_10px_28px_rgba(5,56,44,0.12)] after:bg-[var(--brand-emerald)]'
                     : 'text-slate-700 hover:-translate-y-0.5 hover:text-[var(--brand-emerald)] hover:shadow-[0_12px_30px_rgba(5,56,44,0.16)] hover:after:bg-[var(--brand-emerald)]/70'
@@ -83,7 +83,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setOpen((prev) => !prev)}
-          className="rounded-md border border-slate-200 p-2 text-[var(--brand-emerald)] shadow-sm transition hover:border-[color-mix(in_srgb,var(--brand-emerald)_70%,#032823_30%)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_70%,#032823_30%)] lg:hidden"
+          className="rounded-md border border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] p-2 text-[var(--brand-emerald)] shadow-sm transition hover:border-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)] lg:hidden"
           aria-label="Toggle navigation"
           aria-expanded={open}
           aria-controls="mobile-navigation"
@@ -95,7 +95,7 @@ export default function Header() {
       </div>
       <div
         id="mobile-navigation"
-        className="border-t border-slate-200 bg-white/95 shadow-lg shadow-black/5 lg:hidden"
+        className="border-t border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] bg-white/95 shadow-lg shadow-black/5 lg:hidden"
         hidden={!open}
       >
         <nav aria-label="Mobile" className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
@@ -123,7 +123,7 @@ export default function Header() {
           <div className="mt-4 flex flex-col gap-2">
             <Button
               variant="ghost"
-              className="w-full rounded-md py-2 text-sm font-semibold text-[var(--brand-emerald)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
+              className="w-full rounded-md py-2 text-sm font-semibold text-[var(--brand-emerald)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_80%,var(--emerald-ink)_20%)]"
               asChild
             >
               <Link to="/funders#investor-deck" onClick={closeMenu}>
