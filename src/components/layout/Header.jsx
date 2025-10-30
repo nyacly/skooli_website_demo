@@ -147,19 +147,13 @@ export default function Header() {
             <NavLink
               key={to}
               to={to}
+              variant="mobile"
               onClick={closeMenu}
               ref={(element) => {
                 if (element && primaryNavItems[0].to === to) {
                   firstNavLinkRef.current = element
                 }
               }}
-              className={({ isActive }) =>
-                `rounded-md px-3 py-2 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color-mix(in_srgb,var(--brand-emerald)_80%,var(--emerald-ink)_20%)] ${
-                  isActive
-                    ? 'bg-[rgba(0,152,119,0.1)] text-[var(--brand-emerald)]'
-                    : 'text-slate-600 hover:bg-[rgba(0,152,119,0.08)] hover:text-[var(--brand-emerald)]'
-                }`
-              }
             >
               {name}
             </NavLink>
