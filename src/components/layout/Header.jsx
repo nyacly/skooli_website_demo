@@ -1,21 +1,52 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
 
-const navItems = [
-  { name: 'About', to: '/about-us' },
-  { name: 'Impact', to: '/vision-impact' },
+const primaryNavItems = [
+  { name: 'Shop Now', to: '/shop-now' },
+  { name: 'About Us', to: '/about-us' },
+  { name: 'Vision & Impact', to: '/vision-impact' },
   { name: 'For Schools', to: '/schools' },
   { name: 'For Business', to: '/for-business' },
-  { name: 'Investor centre', to: '/funders' },
-  { name: 'Join our impact', to: '/partner' },
+  { name: 'Technology & AI', to: '/technology-ai' },
+  { name: 'Funders & Investors', to: '/funders' },
+  { name: 'Partner With Us', to: '/partner' },
+  { name: 'Contact', to: '/contact' },
 ]
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const toggleRef = useRef(null)
+  const firstNavLinkRef = useRef(null)
 
-  const closeMenu = () => setOpen(false)
+  useEffect(() => {
+    if (open && firstNavLinkRef.current) {
+      firstNavLinkRef.current.focus()
+    }
+  }, [open])
+
+  useEffect(() => {
+    if (!open) {
+      return undefined
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setOpen(false)
+        toggleRef.current?.focus()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [open])
+
+  const closeMenu = () => {
+    setOpen(false)
+    toggleRef.current?.focus()
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
@@ -23,8 +54,8 @@ export default function Header() {
         <Link to="/" className="flex items-center gap-2 text-[var(--brand-emerald)]">
           <span className="text-2xl font-bold tracking-tight">Skooli</span>
         </Link>
-        <nav className="hidden items-center gap-3 lg:flex">
-          {navItems.map(({ name, to }) => (
+        <nav aria-label="Primary" className="hidden items-center gap-3 lg:flex">
+          {primaryNavItems.map(({ name, to }) => (
             <NavLink
               key={to}
               to={to}
@@ -54,43 +85,54 @@ export default function Header() {
           onClick={() => setOpen((prev) => !prev)}
           className="rounded-md border border-slate-200 p-2 text-[var(--brand-emerald)] shadow-sm transition hover:border-[color-mix(in_srgb,var(--brand-emerald)_70%,#032823_30%)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_70%,#032823_30%)] lg:hidden"
           aria-label="Toggle navigation"
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
+          aria-haspopup="true"
+          ref={toggleRef}
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
       </div>
-      {open && (
-        <div className="border-t border-slate-200 bg-white/95 shadow-lg shadow-black/5 lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
-            {navItems.map(({ name, to }) => (
-              <NavLink
-                key={to}
-                to={to}
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `rounded-md px-3 py-2 text-sm font-semibold transition-colors ${
-                    isActive
-                      ? 'bg-[rgba(0,152,119,0.1)] text-[var(--brand-emerald)]'
-                      : 'text-slate-600 hover:bg-[rgba(0,152,119,0.08)] hover:text-[var(--brand-emerald)]'
-                  }`
+      <div
+        id="mobile-navigation"
+        className="border-t border-slate-200 bg-white/95 shadow-lg shadow-black/5 lg:hidden"
+        hidden={!open}
+      >
+        <nav aria-label="Mobile" className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
+          {primaryNavItems.map(({ name, to }) => (
+            <NavLink
+              key={to}
+              to={to}
+              onClick={closeMenu}
+              ref={(element) => {
+                if (element && primaryNavItems[0].to === to) {
+                  firstNavLinkRef.current = element
                 }
-              >
-                {name}
-              </NavLink>
-            ))}
-            <div className="mt-4 flex flex-col gap-2">
-              <Button
-                variant="ghost"
-                className="w-full rounded-md py-2 text-sm font-semibold text-[var(--brand-emerald)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
-                asChild
-              >
-                <Link to="/funders#investor-deck" onClick={closeMenu}>
-                  Investor Deck
-                </Link>
-              </Button>
-            </div>
-          </nav>
-        </div>
-      )}
+              }}
+              className={({ isActive }) =>
+                `rounded-md px-3 py-2 text-sm font-semibold transition-colors ${
+                  isActive
+                    ? 'bg-[rgba(0,152,119,0.1)] text-[var(--brand-emerald)]'
+                    : 'text-slate-600 hover:bg-[rgba(0,152,119,0.08)] hover:text-[var(--brand-emerald)]'
+                }`
+              }
+            >
+              {name}
+            </NavLink>
+          ))}
+          <div className="mt-4 flex flex-col gap-2">
+            <Button
+              variant="ghost"
+              className="w-full rounded-md py-2 text-sm font-semibold text-[var(--brand-emerald)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
+              asChild
+            >
+              <Link to="/funders#investor-deck" onClick={closeMenu}>
+                Investor Deck
+              </Link>
+            </Button>
+          </div>
+        </nav>
+      </div>
     </header>
   )
 }
