@@ -25,14 +25,14 @@ const gateways = [
 
 export default function QuickGateways() {
   return (
-    <section className="bg-[var(--brand-white)] py-16" id="gateways">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+    <section className="section-shell bg-[var(--brand-white)]" id="gateways">
+      <div className="section-container">
+        <div className="flex flex-col items-start justify-between gap-[var(--space-xl)] md:flex-row md:items-end">
           <div>
             <AccentPill size="sm" className="tracking-[0.25em]">
               Our Services
             </AccentPill>
-            <h2 className="mt-4 typography-heading-2 font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_82%,var(--emerald-ink)_18%)]">
+            <h2 className="mt-[var(--space-sm)] typography-heading-2 font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_82%,var(--emerald-ink)_18%)]">
               Enterprise-ready solutions for every stakeholder
             </h2>
           </div>
@@ -40,26 +40,26 @@ export default function QuickGateways() {
             Each of our services is designed with enterprise-grade security and reporting, ensuring that stakeholders at every level have the tools they need to succeed.
           </p>
         </div>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-[var(--space-2xl)] grid gap-[var(--space-lg)] sm:grid-cols-2 lg:grid-cols-3">
           {gateways.map(({ title, description, icon, to }) => {
             const IconComponent = icon
             return (
               <Link
                 key={title}
                 to={to}
-                className="group flex flex-col justify-between rounded-2xl border border-[color-mix(in_srgb,var(--brand-emerald)_25%,var(--brand-white))] bg-[var(--brand-white)] p-6 shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)] hover:shadow-xl"
+                className="group flex flex-col justify-between rounded-2xl border border-[color-mix(in_srgb,var(--brand-emerald)_25%,var(--brand-white))] bg-[var(--brand-white)] p-[var(--space-lg)] shadow-lg shadow-black/5 transition hover:-translate-y-1 hover:border-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)] hover:shadow-xl"
               >
                 <div className="flex size-12 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--brand-emerald)_12%,var(--brand-white)_88%)] text-[var(--brand-emerald)] shadow-md shadow-black/5 transition group-hover:bg-[var(--brand-emerald)] group-hover:text-[var(--brand-white)]">
                   <IconComponent className="size-6" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="typography-heading-4 font-semibold text-[var(--brand-emerald)]">{title}</h3>
-                  <p className="mt-2 typography-body-sm text-[color-mix(in_srgb,var(--brand-emerald)_35%,var(--emerald-canopy)_65%)]">{description}</p>
+                  <p className="mt-[var(--space-2xs)] typography-body-sm text-[color-mix(in_srgb,var(--brand-emerald)_35%,var(--emerald-canopy)_65%)]">{description}</p>
                 </div>
                 <span className="inline-flex items-center justify-start typography-body-sm font-semibold text-[var(--brand-emerald)] transition group-hover:text-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)]">
                   Explore
                   <svg
-                    className="ml-2 size-4 transition group-hover:translate-x-1"
+                    className="ml-[var(--space-2xs)] size-4 transition group-hover:translate-x-1"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="none"
