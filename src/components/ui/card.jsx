@@ -50,13 +50,7 @@ function Card({
   children,
   ...props
 }) {
-  const Comp = asChild ? Slot : (interactive ? motion.div : "div")
-
-  // Motion props for interactive cards
-  const motionProps = interactive && !asChild ? {
-    whileHover: { y: -4, scale: 1.01 },
-    transition: { duration: 0.2, ease: [0, 0, 0.2, 1] }
-  } : {}
+  const Comp = asChild ? Slot : "div"
 
   return (
     <Comp
@@ -65,7 +59,6 @@ function Card({
         "outline-none",
         cardVariants({ variant, padding, interactive, className })
       )}
-      {...motionProps}
       {...props}
     >
       {isLoading ? (
