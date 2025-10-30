@@ -1,0 +1,82 @@
+:root {
+  --font-family-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --font-size-display: clamp(2.75rem, 1.25rem + 4vw, 4rem);
+  --font-size-h1: clamp(2.25rem, 1.1rem + 2.5vw, 3.25rem);
+  --font-size-h2: clamp(2rem, 1rem + 2vw, 2.75rem);
+  --font-size-h3: clamp(1.75rem, 0.9rem + 1.5vw, 2.25rem);
+  --font-size-h4: clamp(1.5rem, 0.75rem + 1.2vw, 1.75rem);
+  --font-size-body-lg: 1.25rem;
+  --font-size-body-md: 1rem;
+  --font-size-body-sm: 0.875rem;
+  --font-size-body-xs: 0.75rem;
+
+  --line-height-tight: 1.1;
+  --line-height-snug: 1.25;
+  --line-height-relaxed: 1.4;
+  --line-height-body: 1.6;
+}
+
+body {
+  font-family: var(--font-family-sans);
+}
+
+.typography-display {
+  font-size: var(--font-size-display);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.015em;
+}
+
+.typography-heading-1,
+h1,
+.h1 {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.01em;
+}
+
+.typography-heading-2,
+h2,
+.h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-snug);
+  letter-spacing: -0.01em;
+}
+
+.typography-heading-3,
+h3,
+.h3 {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-snug);
+}
+
+.typography-heading-4,
+h4,
+.h4 {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-relaxed);
+}
+
+.typography-body-lg {
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-body);
+}
+
+.typography-body-md,
+p,
+.body-md {
+  font-size: var(--font-size-body-md);
+  line-height: var(--line-height-body);
+}
+
+.typography-body-sm,
+.body-sm {
+  font-size: var(--font-size-body-sm);
+  line-height: var(--line-height-body);
+}
+
+.typography-body-xs,
+.body-xs {
+  font-size: var(--font-size-body-xs);
+  line-height: var(--line-height-relaxed);
+}

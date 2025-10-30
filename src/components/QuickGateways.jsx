@@ -32,11 +32,11 @@ export default function QuickGateways() {
             <AccentPill size="sm" className="tracking-[0.25em]">
               Our Services
             </AccentPill>
-            <h2 className="mt-4 text-3xl font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_88%,#032823_12%)] sm:text-4xl">
+            <h2 className="mt-4 typography-heading-2 font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_88%,#032823_12%)]">
               Enterprise-ready solutions for every stakeholder
             </h2>
           </div>
-          <p className="max-w-xl text-base text-[color-mix(in_srgb,var(--brand-emerald)_35%,#05382c_65%)]">
+          <p className="max-w-xl typography-body-md text-[color-mix(in_srgb,var(--brand-emerald)_35%,#05382c_65%)]">
             Each of our services is designed with enterprise-grade security and reporting, ensuring that stakeholders at every level have the tools they need to succeed.
           </p>
         </div>
@@ -53,10 +53,10 @@ export default function QuickGateways() {
                   <IconComponent className="size-6" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-[var(--brand-emerald)]">{title}</h3>
-                  <p className="mt-2 text-sm text-[color-mix(in_srgb,var(--brand-emerald)_35%,#05382c_65%)]">{description}</p>
+                  <h3 className="typography-heading-4 font-semibold text-[var(--brand-emerald)]">{title}</h3>
+                  <p className="mt-2 typography-body-sm text-[color-mix(in_srgb,var(--brand-emerald)_35%,#05382c_65%)]">{description}</p>
                 </div>
-                <span className="inline-flex items-center justify-start text-sm font-semibold text-[var(--brand-emerald)] transition group-hover:text-[color-mix(in_srgb,var(--brand-emerald)_70%,#032823_30%)]">
+                <span className="inline-flex items-center justify-start typography-body-sm font-semibold text-[var(--brand-emerald)] transition group-hover:text-[color-mix(in_srgb,var(--brand-emerald)_70%,#032823_30%)]">
                   Explore
                   <svg
                     className="ml-2 size-4 transition group-hover:translate-x-1"

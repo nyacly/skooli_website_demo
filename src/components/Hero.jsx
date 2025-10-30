@@ -54,10 +54,10 @@ export default function Hero() {
           <AccentPill tone="inverse" size="sm" className="bg-white/20">
             Executive briefing
           </AccentPill>
-          <h1 className="mt-6 text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 typography-display font-semibold text-white">
             Operational assurance for national education pilots
           </h1>
-          <p className="mt-6 text-xl font-medium text-white/90">
+          <p className="mt-6 typography-body-lg font-medium text-white/90">
             Skooli deploys accountable facilitators, verified suppliers, and transparent financial rails so ministries see auditable results from the first cohort through national scale.
           </p>
           <div className="mt-10">

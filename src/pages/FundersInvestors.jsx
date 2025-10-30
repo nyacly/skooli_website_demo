@@ -113,8 +113,8 @@ export default function FundersInvestors() {
               <AccentPill size="sm" className="tracking-[0.25em]">
                 Investor centre
               </AccentPill>
-              <h1 className="mt-4 text-4xl font-bold text-[var(--brand-emerald)]">Back Africa’s education logistics backbone</h1>
-              <p className="mt-4 max-w-3xl text-base text-slate-600">
+              <h1 className="mt-4 typography-heading-1 font-bold text-[var(--brand-emerald)]">Back Africa’s education logistics backbone</h1>
+              <p className="mt-4 max-w-3xl typography-body-md text-slate-600">
                 Skooli is raising to scale our AI-enabled supply chain, deepen school integrations, and expand to three additional East African markets by 2027.
               </p>
               <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -128,10 +128,10 @@ export default function FundersInvestors() {
                         <AccentPill size="xs" className="tracking-[0.25em]">
                           {column.title}
                         </AccentPill>
-                        <h2 className="mt-3 text-xl font-semibold text-[var(--brand-emerald)]">{column.highlight}</h2>
-                        <p className="mt-2 text-sm text-slate-600">{column.summary}</p>
+                        <h2 className="mt-3 typography-heading-4 font-semibold text-[var(--brand-emerald)]">{column.highlight}</h2>
+                        <p className="mt-2 typography-body-sm text-slate-600">{column.summary}</p>
                       </div>
-                      <span className="rounded-full bg-[color-mix(in_srgb,var(--brand-emerald)_12%,#ffffff_88%)] px-3 py-1 text-xs font-semibold text-[var(--brand-emerald)]">
+                      <span className="rounded-full bg-[color-mix(in_srgb,var(--brand-emerald)_12%,#ffffff_88%)] px-3 py-1 typography-body-xs font-semibold text-[var(--brand-emerald)]">
                         {column.trend[column.trend.length - 1] > column.trend[0] ? '+Growth' : 'Stable'}
                       </span>
                     </div>
@@ -189,9 +189,9 @@ export default function FundersInvestors() {
           <div className="grid flex-1 gap-6 sm:grid-cols-3">
             {tractionSnapshot.map((item) => (
               <div key={item.label} className="rounded-2xl border border-[var(--brand-emerald)]/15 bg-white/60 p-4 text-center shadow-sm shadow-black/5">
-                <p className="text-sm font-semibold text-[var(--brand-emerald)]">{item.label}</p>
-                <p className="mt-2 text-xl font-bold text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)]">{item.value}</p>
-                <p className="mt-1 text-xs text-slate-600">{item.detail}</p>
+                <p className="typography-body-sm font-semibold text-[var(--brand-emerald)]">{item.label}</p>
+                <p className="mt-2 typography-heading-4 font-bold text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)]">{item.value}</p>
+                <p className="mt-1 typography-body-xs text-slate-600">{item.detail}</p>
               </div>
             ))}
           </div>
@@ -202,8 +202,8 @@ export default function FundersInvestors() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-start">
             <div>
-              <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">Financial projections snapshot</h2>
-              <p className="mt-4 text-sm text-slate-600">
+              <h2 className="typography-heading-2 font-semibold text-[var(--brand-emerald)]">Financial projections snapshot</h2>
+              <p className="mt-4 typography-body-sm text-slate-600">
                 Revenue and EBITDA forecasts based on confirmed school contracts and expansion assumptions.
               </p>
               <div className="relative mt-6 overflow-hidden rounded-3xl border border-[var(--brand-emerald)]/15 bg-white/70 p-6 shadow-lg shadow-black/5">
@@ -211,12 +211,12 @@ export default function FundersInvestors() {
                   <div className="rounded-2xl bg-[var(--brand-cream)]/80 p-6">
                     <div className="grid gap-4 sm:grid-cols-3">
                       {projectionData.map((item) => (
-                        <div key={item.year} className="rounded-2xl bg-white p-4 text-sm text-slate-600 shadow">
+                        <div key={item.year} className="rounded-2xl bg-white p-4 typography-body-sm text-slate-600 shadow">
                           <AccentPill size="xs" className="tracking-[0.25em]">
                             {item.year}
                           </AccentPill>
-                          <p className="mt-3 text-lg font-semibold text-[var(--brand-emerald)]">Revenue ${item.revenue.toFixed(1)}M</p>
-                          <p className="text-sm text-emerald-600">EBITDA ${item.ebitda.toFixed(1)}M</p>
+                          <p className="mt-3 typography-heading-4 font-semibold text-[var(--brand-emerald)]">Revenue ${item.revenue.toFixed(1)}M</p>
+                          <p className="typography-body-sm text-emerald-600">EBITDA ${item.ebitda.toFixed(1)}M</p>
                         </div>
                       ))}
                     </div>

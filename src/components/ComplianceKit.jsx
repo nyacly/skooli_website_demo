@@ -34,7 +34,7 @@ export default function ComplianceKit({
       <AccentPill size="sm" className="tracking-[0.25em]">
         {title}
       </AccentPill>
-      <p className="mt-3 text-sm text-slate-600">{blurb}</p>
+      <p className="mt-3 typography-body-sm text-slate-600">{blurb}</p>
       <ul className="mt-6 space-y-4">
         {documents.map((document) => {
           const Icon = document.icon
@@ -45,15 +45,15 @@ export default function ComplianceKit({
                   <Icon className="size-4" aria-hidden="true" />
                 </span>
                 <div>
-                  <p className="text-sm font-semibold text-[var(--brand-emerald)]">{document.title}</p>
-                  <p className="text-xs text-slate-600">{document.description}</p>
+                  <p className="typography-body-sm font-semibold text-[var(--brand-emerald)]">{document.title}</p>
+                  <p className="typography-body-xs text-slate-600">{document.description}</p>
                 </div>
               </div>
               <div>
                 <a
                   href={document.href}
                   download
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] underline decoration-[color-mix(in_srgb,var(--brand-emerald)_45%,#032823_55%)] decoration-2 underline-offset-4 hover:text-[var(--brand-emerald)]"
+                  className="inline-flex items-center gap-2 typography-body-xs font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] underline decoration-[color-mix(in_srgb,var(--brand-emerald)_45%,#032823_55%)] decoration-2 underline-offset-4 hover:text-[var(--brand-emerald)]"
                 >
                   Download template
                   <FileDown className="size-3" aria-hidden="true" />

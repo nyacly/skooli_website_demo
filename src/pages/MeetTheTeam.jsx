@@ -87,8 +87,8 @@ export default function MeetTheTeam() {
           <AccentPill size="sm" className="mx-auto tracking-[0.25em]">
             Meet the team
           </AccentPill>
-          <h1 className="mt-4 text-4xl font-bold text-[var(--brand-emerald)]">Faithful leaders stewarding Skooli’s mission</h1>
-          <p className="mt-4 text-base text-slate-600">
+          <h1 className="mt-4 typography-heading-1 font-bold text-[var(--brand-emerald)]">Faithful leaders stewarding Skooli’s mission</h1>
+          <p className="mt-4 typography-body-md text-slate-600">
             Our team blends logistics, technology, and ministry experience to deliver for learners across Uganda.
           </p>
         </div>
@@ -96,7 +96,7 @@ export default function MeetTheTeam() {
 
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">Founders</h2>
+          <h2 className="typography-heading-2 font-semibold text-[var(--brand-emerald)]">Founders</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {founders.map((founder) => (
               <article
@@ -111,24 +111,24 @@ export default function MeetTheTeam() {
                 />
                 <div className="flex flex-1 flex-col p-6">
                   <div>
-                    <h3 className="text-xl font-semibold text-[var(--brand-emerald)]">{founder.name}</h3>
+                    <h3 className="typography-heading-4 font-semibold text-[var(--brand-emerald)]">{founder.name}</h3>
                     <AccentPill size="xs" className="mt-2 tracking-[0.2em]">
                       {founder.role}
                     </AccentPill>
-                    <p className="mt-3 text-sm text-slate-600">{founder.bio}</p>
+                    <p className="mt-3 typography-body-sm text-slate-600">{founder.bio}</p>
                   </div>
-                  <dl className="mt-4 grid gap-3 rounded-2xl bg-[var(--brand-cream)]/70 p-4 text-sm text-[var(--brand-emerald)]">
+                  <dl className="mt-4 grid gap-3 rounded-2xl bg-[var(--brand-cream)]/70 p-4 typography-body-sm text-[var(--brand-emerald)]">
                     {founder.metrics.map((metric) => (
                       <div key={metric.label} className="flex flex-col">
                         <dt className="font-semibold">{metric.value}</dt>
-                        <dd className="text-xs uppercase tracking-[0.3em] text-[var(--brand-emerald)]/70">
+                        <dd className="typography-body-xs uppercase tracking-[0.3em] text-[var(--brand-emerald)]/70">
                           {metric.label}
                         </dd>
                       </div>
                     ))}
                   </dl>
                   <a
-                    className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md border border-[var(--brand-emerald)] px-4 py-2 text-sm font-semibold text-[var(--brand-emerald)] shadow transition hover:bg-[var(--brand-emerald)] hover:text-white"
+                    className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md border border-[var(--brand-emerald)] px-4 py-2 typography-body-sm font-semibold text-[var(--brand-emerald)] shadow transition hover:bg-[var(--brand-emerald)] hover:text-white"
                     href={founder.linkedin}
                     target="_blank"
                     rel="noreferrer"
@@ -144,18 +144,18 @@ export default function MeetTheTeam() {
 
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">Advisors</h2>
+          <h2 className="typography-heading-2 font-semibold text-[var(--brand-emerald)]">Advisors</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {advisors.map((advisor) => (
               <div key={advisor.name} className="rounded-3xl bg-[var(--brand-cream)] p-6 shadow-lg shadow-black/5">
-                <h3 className="text-lg font-semibold text-[var(--brand-emerald)]">{advisor.name}</h3>
+                <h3 className="typography-heading-4 font-semibold text-[var(--brand-emerald)]">{advisor.name}</h3>
                 <AccentPill size="xs" className="mt-2 tracking-[0.2em]">
                   {advisor.focus}
                 </AccentPill>
-                <p className="mt-3 text-sm text-slate-600">{advisor.summary}</p>
+                <p className="mt-3 typography-body-sm text-slate-600">{advisor.summary}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {advisor.tags.map((tag) => (
-                    <span key={tag} className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-[var(--brand-emerald)] shadow">
+                    <span key={tag} className="rounded-full bg-white px-3 py-1 typography-body-xs font-semibold text-[var(--brand-emerald)] shadow">
                       {tag}
                     </span>
                   ))}
@@ -168,13 +168,13 @@ export default function MeetTheTeam() {
 
       <section className="py-16">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl font-semibold text-[var(--brand-emerald)]">Culture values</h2>
+          <h2 className="typography-heading-2 font-semibold text-[var(--brand-emerald)]">Culture values</h2>
           <div className="mt-6 overflow-x-auto">
             <div className="flex gap-4">
               {cultureQuotes.map((item) => (
                 <div key={item.staff} className="min-w-[260px] rounded-3xl bg-white p-6 shadow-lg shadow-black/5">
-                  <p className="text-sm text-slate-600">{item.quote}</p>
-                  <p className="mt-4 text-sm font-semibold text-[var(--brand-emerald)]">{item.staff}</p>
+                  <p className="typography-body-sm text-slate-600">{item.quote}</p>
+                  <p className="mt-4 typography-body-sm font-semibold text-[var(--brand-emerald)]">{item.staff}</p>
                 </div>
               ))}
             </div>
