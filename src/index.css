@@ -60,6 +60,30 @@
   }
 }
 
+@layer components {
+  .skip-link {
+    position: fixed;
+    left: 50%;
+    top: 1rem;
+    transform: translate(-50%, -150%);
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    background-color: color-mix(in srgb, var(--brand-emerald) 85%, var(--emerald-ink));
+    box-shadow: 0 12px 30px rgba(5, 56, 44, 0.16);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0;
+  }
+
+  .skip-link:focus-visible {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
 :root {
   --radius: 1rem; /* 16px for cards, 8px for buttons */
   --background: var(--brand-cream); /* Warm Skooli cream */

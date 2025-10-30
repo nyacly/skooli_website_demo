@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Send } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
 import { Input } from '@/components/ui/input.jsx'
+import { FormField } from '@/components/forms/FormField.jsx'
+import { FormStatusMessage } from '@/components/forms/FormStatusMessage.jsx'
 
 export function NewsletterSignupModule({ layout = 'horizontal', includeDownloadLink = false, className = '' }) {
   const [email, setEmail] = useState('')
@@ -9,7 +11,10 @@ export function NewsletterSignupModule({ layout = 'horizontal', includeDownloadL
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    if (!email) return
+    if (!email) {
+      setStatus('error')
+      return
+    }
     setStatus('loading')
     setTimeout(() => {
       setStatus('success')
@@ -25,21 +30,51 @@ export function NewsletterSignupModule({ layout = 'horizontal', includeDownloadL
     ? 'flex w-full max-w-md flex-col gap-[var(--space-xs)] md:flex-row'
     : 'flex w-full flex-col gap-[var(--space-xs)]'
 
+  const statusCopy = {
+    loading: {
+      tone: 'polite',
+      variant: 'info',
+      message: 'Preparing your executive briefing…',
+    },
+    success: {
+      tone: 'polite',
+      variant: 'success',
+      message: 'Check your new tab for the briefing and pitch deck download.',
+    },
+    error: {
+      tone: 'assertive',
+      variant: 'error',
+      message: 'Enter a valid email address to receive the download link.',
+    },
+  }
+
+  const activeStatus = statusCopy[status]
+
   return (
     <div className={className}>
-      <form onSubmit={handleSubmit} className={formClasses}>
-        <Input
-          type="email"
-          required
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          placeholder="you@organisation.com"
-          aria-label="Email address"
-          size="lg"
-          density="relaxed"
-          variant="default"
-          className={isHorizontal ? 'flex-1 rounded-full bg-[var(--brand-white)]' : 'w-full rounded-full bg-[var(--brand-white)]'}
-        />
+      <form onSubmit={handleSubmit} className={formClasses} aria-busy={status === 'loading'}>
+        <FormField label="Email address" required>
+          {({ id, ...controlProps }) => (
+            <Input
+              {...controlProps}
+              id={id}
+              type="email"
+              value={email}
+              onChange={(event) => {
+                setEmail(event.target.value)
+                if (status !== 'idle') {
+                  setStatus('idle')
+                }
+              }}
+              placeholder="you@organisation.com"
+              size="lg"
+              density="relaxed"
+              variant="default"
+              className={isHorizontal ? 'flex-1 rounded-full bg-[var(--brand-white)]' : 'w-full rounded-full bg-[var(--brand-white)]'}
+              autoComplete="email"
+            />
+          )}
+        </FormField>
         <Button
           type="submit"
           shape="pill"
@@ -53,6 +88,9 @@ export function NewsletterSignupModule({ layout = 'horizontal', includeDownloadL
           {status !== 'loading' ? <Send className="size-4" aria-hidden="true" /> : null}
         </Button>
       </form>
+      <FormStatusMessage tone={activeStatus?.tone ?? 'polite'} variant={activeStatus?.variant ?? 'info'}>
+        {activeStatus?.message}
+      </FormStatusMessage>
       {includeDownloadLink ? (
         <a
           href="/downloads/skooli-pitch-deck-q3-2025.pdf"

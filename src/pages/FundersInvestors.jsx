@@ -6,6 +6,8 @@ import logisticsBackbone from '@/assets/logistics_backbone.png'
 import routeIntelligence from '@/assets/route_intelligence.png'
 import worldEducationForum from '@/assets/world_education_forum.png'
 import pastoralSupport from '@/assets/pastoral_support.png'
+import { FormField } from '@/components/forms/FormField.jsx'
+import { FormStatusMessage } from '@/components/forms/FormStatusMessage.jsx'
 
 const thesisColumns = [
   {
@@ -72,6 +74,7 @@ const investorQuotes = [
 export default function FundersInvestors() {
   const [email, setEmail] = useState('')
   const [unlocked, setUnlocked] = useState(false)
+  const [downloadStatus, setDownloadStatus] = useState('idle')
 
   const sparklinePath = useMemo(() => {
     const maxRevenue = Math.max(...projectionData.map((item) => item.revenue))
@@ -103,6 +106,33 @@ export default function FundersInvestors() {
       return { linePath, areaPath }
     })
   }, [])
+
+  const handleDownloadSubmit = (event) => {
+    event.preventDefault()
+    if (!email.trim()) {
+      setDownloadStatus('error')
+      setUnlocked(false)
+      return
+    }
+
+    setUnlocked(true)
+    setDownloadStatus('success')
+  }
+
+  const downloadStatusCopy = {
+    success: {
+      tone: 'polite',
+      variant: 'success',
+      message: 'Investor documents unlocked. Each link will open in a new tab.',
+    },
+    error: {
+      tone: 'assertive',
+      variant: 'error',
+      message: 'Enter your work email so we can verify access to the data room.',
+    },
+  }
+
+  const downloadStatusDetails = downloadStatusCopy[downloadStatus]
 
   return (
     <div className="bg-[var(--brand-cream)]">
@@ -381,30 +411,45 @@ export default function FundersInvestors() {
                 Download area
               </AccentPill>
               <p className="mt-3 text-sm text-slate-600">Enter your work email to unlock investor materials.</p>
-              <form
-                className="mt-6 flex flex-col gap-3 sm:flex-row"
-                onSubmit={(event) => {
-                  event.preventDefault()
-                  if (email.trim()) {
-                    setUnlocked(true)
-                  }
-                }}
-              >
-                <input
-                  type="email"
+              <form className="mt-6 space-y-3" onSubmit={handleDownloadSubmit}>
+                <FormField
+                  label="Work email"
+                  description="We use verified work emails to issue data room credentials."
                   required
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  className="h-12 flex-1 rounded-md border border-[var(--brand-emerald)]/20 bg-[var(--brand-cream)] px-4 text-sm text-slate-700 placeholder:text-slate-400 focus:border-[var(--brand-emerald)] focus:outline-none"
-                  placeholder="you@fund.org"
-                  aria-label="Work email"
-                />
-                <Button
-                  type="submit"
-                  className="h-12 rounded-md bg-[var(--brand-emerald)] px-6 text-white shadow-lg shadow-[var(--brand-emerald)]/20 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
                 >
-                  Unlock files
-                </Button>
+                  {({ id, ...controlProps }) => (
+                    <input
+                      {...controlProps}
+                      id={id}
+                      type="email"
+                      value={email}
+                      onChange={(event) => {
+                        setEmail(event.target.value)
+                        if (downloadStatus !== 'idle') {
+                          setDownloadStatus('idle')
+                        }
+                      }}
+                      className="h-12 w-full rounded-md border border-[var(--brand-emerald)]/20 bg-[var(--brand-cream)] px-4 text-sm text-slate-700 placeholder:text-slate-400 focus:border-[var(--brand-emerald)] focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)]"
+                      placeholder="you@fund.org"
+                      autoComplete="email"
+                    />
+                  )}
+                </FormField>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <Button
+                    type="submit"
+                    className="h-12 rounded-md bg-[var(--brand-emerald)] px-6 text-white shadow-lg shadow-[var(--brand-emerald)]/20 transition hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color-mix(in_srgb,var(--brand-emerald)_80%,var(--emerald-ink)_20%)]"
+                  >
+                    Unlock files
+                  </Button>
+                  <FormStatusMessage
+                    tone={downloadStatusDetails?.tone ?? 'polite'}
+                    variant={downloadStatusDetails?.variant ?? 'info'}
+                    className="sm:flex-1"
+                  >
+                    {downloadStatusDetails?.message}
+                  </FormStatusMessage>
+                </div>
               </form>
               <div className="mt-6 grid gap-4 sm:grid-cols-3">
                 {downloadLinks.map((link) => (
