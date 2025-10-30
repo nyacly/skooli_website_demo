@@ -60,11 +60,18 @@ const Button = React.forwardRef(
     },
     ref
   ) => {
-    const Comp = asChild ? Slot : "button"
+    const Comp = asChild ? Slot : motion.button
     const { disabled, type, ...rest } = props
     const mergedDisabled = isLoading ? true : disabled
     const resolvedType = type ?? (asChild ? undefined : "button")
     const content = isLoading ? loadingText ?? children : children
+
+    // Motion props for non-asChild buttons
+    const motionProps = !asChild && !mergedDisabled ? {
+      whileHover: { y: -2, scale: 1.02 },
+      whileTap: { scale: 0.98 },
+      transition: { duration: 0.15, ease: [0, 0, 0.2, 1] }
+    } : {}
 
     return (
       <Comp
@@ -75,6 +82,7 @@ const Button = React.forwardRef(
         aria-busy={isLoading || undefined}
         aria-disabled={asChild && mergedDisabled ? true : undefined}
         {...(!asChild ? { disabled: mergedDisabled, type: resolvedType } : {})}
+        {...motionProps}
         {...rest}
       >
         {isLoading && <Loader2 aria-hidden="true" className={spinnerStyles} />}
