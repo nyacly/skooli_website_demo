@@ -8,12 +8,15 @@ const expansionMapFallback = `data:image/svg+xml;utf8,${encodeURIComponent(
       </defs>
       <rect width='1200' height='800' fill='url(#expansionGradient)' />
       <text x='50%' y='50%' font-family='Inter, Arial, sans-serif' font-size='42' fill='var(--brand-white)' text-anchor='middle'>
-        Upload skooli_african_map.png to public/assets/branding
+        Upload skooli_african_map.webp to public/assets/branding
       </text>
     </svg>`
 )}`
 
-const expansionMapSrc = '/assets/branding/skooli_african_map.png'
+const expansionMapSources = {
+  webp: '/assets/branding/skooli_african_map.webp',
+  png: '/assets/branding/skooli_african_map.png',
+}
 
 const legendItems = [
   { name: 'Pilot districts (Uganda)', background: 'color-mix(in srgb, var(--brand-gold) 85%, transparent)', border: 'color-mix(in srgb, var(--brand-white) 25%, transparent)' },
@@ -48,6 +51,7 @@ const handleMapError = (event) => {
 
   event.currentTarget.dataset.fallbackApplied = 'true'
   event.currentTarget.src = expansionMapFallback
+  event.currentTarget.removeAttribute('srcset')
 }
 
 export default function ExpansionJourney() {
@@ -76,14 +80,19 @@ export default function ExpansionJourney() {
           </div>
           <div className="overflow-hidden">
             <figure className="mx-auto max-w-xl rounded-3xl bg-white/5 p-4 shadow-xl shadow-black/20 backdrop-blur lg:max-w-lg">
-              <img
-                src={expansionMapSrc}
-                alt="Africa map with Skooli pilot, scale, and expansion countries tinted in emerald and gold"
-                loading="lazy"
-                className="h-auto w-full object-contain"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                onError={handleMapError}
-              />
+              <picture>
+                <source type="image/webp" srcSet={expansionMapSources.webp} sizes="(max-width: 1024px) 100vw, 50vw" />
+                <source type="image/png" srcSet={expansionMapSources.png} sizes="(max-width: 1024px) 100vw, 50vw" />
+                <img
+                  src={expansionMapSources.png}
+                  alt="Africa map with Skooli pilot, scale, and expansion countries tinted in emerald and gold"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-auto w-full object-contain"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  onError={handleMapError}
+                />
+              </picture>
               <figcaption className="mt-6 space-y-4 rounded-2xl bg-white/10 p-4 text-left text-white/90">
                 {phases.map(({ title, timeline, summary }) => (
                   <div key={title}>

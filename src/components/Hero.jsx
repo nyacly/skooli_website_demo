@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button.jsx'
 import { AccentPill } from '@/components/AccentPill.jsx'
 
+const heroSources = {
+  webp: '/assets/branding/skooli_banner_image.webp',
+  jpeg: '/assets/branding/skooli_banner_image.jpg',
+}
+
 const heroFallback = `data:image/svg+xml;utf8,${encodeURIComponent(
   `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'>
       <defs>
@@ -13,7 +18,7 @@ const heroFallback = `data:image/svg+xml;utf8,${encodeURIComponent(
       </defs>
       <rect width='1200' height='800' fill='url(#g)' />
       <text x='50%' y='50%' font-family='Inter, Arial, sans-serif' font-size='42' fill='var(--brand-white)' text-anchor='middle'>
-        Upload skooli_banner_image.jpg to public/assets/branding
+        Upload skooli_banner_image.webp to public/assets/branding
       </text>
     </svg>`
 )}`
@@ -25,6 +30,7 @@ const handleHeroImageError = (event) => {
 
   event.currentTarget.dataset.fallbackApplied = 'true'
   event.currentTarget.src = heroFallback
+  event.currentTarget.removeAttribute('srcset')
 }
 
 export default function Hero() {
@@ -32,9 +38,10 @@ export default function Hero() {
     <section className="section-shell relative flex min-h-[70vh] items-center justify-start overflow-hidden sm:min-h-[85vh]" id="hero">
       <div className="absolute inset-0">
         <picture>
-          <source type="image/jpeg" srcSet="/assets/branding/skooli_banner_image.jpg" sizes="100vw" />
+          <source type="image/webp" srcSet={heroSources.webp} sizes="100vw" />
+          <source type="image/jpeg" srcSet={heroSources.jpeg} sizes="100vw" />
           <img
-            src="/assets/branding/skooli_banner_image.jpg"
+            src={heroSources.jpeg}
             alt="Skooli facilitator guiding learners in class"
             className="h-full w-full object-cover object-center"
             loading="eager"
