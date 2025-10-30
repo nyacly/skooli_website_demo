@@ -1,4 +1,5 @@
 import { NewsletterSignupModule } from '@/components/NewsletterSignupModule.jsx'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { impactInsights } from '@/data/impactInsights.js'
 
 export default function NewsletterCTA() {
@@ -25,28 +26,47 @@ export default function NewsletterCTA() {
               <NewsletterSignupModule layout="horizontal" includeDownloadLink className="flex flex-col items-start gap-4" />
             </div>
 
-            <div className="rounded-3xl border border-[var(--brand-emerald)]/15 bg-white/70 p-6">
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <Card
+              variant="surface"
+              padding="lg"
+              className="rounded-3xl border border-[var(--brand-emerald)]/15 bg-white/70 backdrop-blur-sm"
+            >
+              <CardHeader className="gap-3 p-0 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-emerald)]/20 bg-[color-mix(in_srgb,var(--brand-cream)_70%,var(--brand-white)_30%)] px-3 py-1 typography-body-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--brand-emerald)_85%,var(--emerald-ink)_15%)]">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-emerald)]/20 bg-[color-mix(in_srgb,var(--brand-cream)_70%,var(--brand-white)_30%)] px-3 py-1 typography-body-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--brand-emerald)_85%,var(--emerald-ink)_15%)]">
                     Impact Insights
-                  </p>
-                  <h3 className="mt-2 typography-heading-4 font-semibold text-[var(--brand-emerald)]">Operational highlights from the latest quarter</h3>
+                  </span>
+                  <CardTitle className="mt-2 typography-heading-4 text-[var(--brand-emerald)]">
+                    Operational highlights from the latest quarter
+                  </CardTitle>
                 </div>
                 <span className="rounded-full border border-[var(--brand-emerald)]/15 bg-[color-mix(in_srgb,var(--brand-emerald)_8%,var(--brand-white)_92%)] px-4 py-1 typography-body-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--brand-emerald)_85%,var(--emerald-ink)_15%)]">
                   Q3 2025
                 </span>
-              </div>
-              <div className="mt-6 grid gap-4 sm:grid-cols-3">
-                {impactInsights.map((item) => (
-                  <div key={item.label} className="rounded-2xl border border-[var(--brand-emerald)]/20 bg-[color-mix(in_srgb,var(--brand-cream)_65%,var(--brand-white)_35%)] p-4">
-                    <p className="typography-body-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--brand-emerald)_85%,var(--emerald-ink)_15%)]">{item.label}</p>
-                    <p className="mt-3 typography-heading-3 font-bold text-[var(--brand-emerald)]">{item.metric}</p>
-                    <p className="mt-2 typography-body-xs text-slate-600">{item.detail}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+              </CardHeader>
+              <CardContent className="gap-6 p-0">
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {impactInsights.map((item) => (
+                    <Card
+                      key={item.label}
+                      variant="muted"
+                      padding="sm"
+                      className="gap-[var(--space-xs)] border-[var(--brand-emerald)]/20 bg-[color-mix(in_srgb,var(--brand-cream)_65%,var(--brand-white)_35%)]"
+                    >
+                      <span className="typography-body-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--brand-emerald)_85%,var(--emerald-ink)_15%)]">
+                        {item.label}
+                      </span>
+                      <CardTitle className="typography-heading-3 font-bold text-[var(--brand-emerald)]">
+                        {item.metric}
+                      </CardTitle>
+                      <CardDescription className="typography-body-xs text-slate-600">
+                        {item.detail}
+                      </CardDescription>
+                    </Card>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>

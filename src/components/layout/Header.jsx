@@ -80,10 +80,13 @@ export default function Header() {
             <Link to="/funders#investor-deck">Investor Deck</Link>
           </Button>
         </div>
-        <button
+        <Button
           type="button"
           onClick={() => setOpen((prev) => !prev)}
-          className="rounded-md border border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] p-2 text-[var(--brand-emerald)] shadow-sm transition hover:border-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)] lg:hidden"
+          variant="outline"
+          size="icon"
+          shape="square"
+          className="border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] text-[var(--brand-emerald)] shadow-sm transition hover:border-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)] lg:hidden"
           aria-label="Toggle navigation"
           aria-expanded={open}
           aria-controls="mobile-navigation"
@@ -91,7 +94,7 @@ export default function Header() {
           ref={toggleRef}
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
+        </Button>
       </div>
       <div
         id="mobile-navigation"
