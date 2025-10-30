@@ -49,6 +49,14 @@
   body {
     @apply bg-background text-foreground;
   }
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+  :focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
 }
 
 :root {
