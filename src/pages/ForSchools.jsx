@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react'
-import { ShieldCheck, Wallet, BarChart3, CalendarDays, Star, Quote, Activity, BadgeCheck, AlertTriangle } from 'lucide-react'
+import { Suspense, lazy, useEffect, useState } from 'react'
+import { ShieldCheck, Wallet, BarChart3, CalendarDays, Activity, BadgeCheck, AlertTriangle } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
 import ComplianceKit from '@/components/ComplianceKit.jsx'
 import { AccentPill } from '@/components/AccentPill.jsx'
+
+const TestimonialsGrid = lazy(() => import('@/components/TestimonialsGrid.jsx'))
+const FaqSection = lazy(() => import('@/components/FaqSection.jsx'))
 
 const benefits = [
   {
@@ -58,6 +61,25 @@ const testimonials = [
     name: 'Mr. Ssenoga — Deputy Head, Wakiso',
     quote: '“Our bursar closed monthly books three days earlier thanks to automated reconciliations.”',
     rating: 4,
+  },
+]
+
+const faqItems = [
+  {
+    question: 'How quickly can we move from signing to first deliveries?',
+    answer: 'We align with your academic calendar. Most schools move from MOU to first cohort deliveries within four weeks, including staff training and parent onboarding.',
+  },
+  {
+    question: 'Do you integrate with existing finance systems?',
+    answer: 'Yes. Our finance rails export reconciliation files for Tally, QuickBooks, and Sage. We also provide real-time dashboards for bursars and treasurers.',
+  },
+  {
+    question: 'How are safeguarding and data privacy handled?',
+    answer: 'We operate with audited safeguarding protocols, role-based access controls, and parent consent flows that map to Uganda’s Data Protection and Privacy Act.',
+  },
+  {
+    question: 'Can parents without smartphones participate?',
+    answer: 'Absolutely. Parents can opt into USSD and call-centre flows. Our facilitators also support in-person enrolment during school visit days.',
   },
 ]
 
@@ -184,24 +206,52 @@ export default function ForSchools() {
         </div>
       </section>
 
-      <section className="bg-white py-24">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="grid gap-8 md:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.name} className="rounded-3xl bg-[var(--brand-cream)] p-6 shadow-lg shadow-black/5">
-                <div className="flex items-center gap-2 text-[var(--brand-gold)]">
-                  {[...Array(testimonial.rating)].map((_, index) => (
-                    <Star key={index} className="size-4 fill-current" />
-                  ))}
-                </div>
-                <Quote className="mt-4 size-6 text-[var(--brand-emerald)]" />
-                <p className="mt-4 text-sm text-slate-600">{testimonial.quote}</p>
-                <p className="mt-4 text-sm font-semibold text-[var(--brand-emerald)]">{testimonial.name}</p>
+      <Suspense
+        fallback={
+          <section className="bg-white py-24" aria-label="Testimonials loading">
+            <div className="mx-auto max-w-6xl px-4">
+              <div className="grid gap-8 md:grid-cols-3">
+                {Array.from({ length: 3 }).map((_, index) => (
+                  <div
+                    key={index}
+                    className="animate-pulse rounded-3xl bg-[var(--brand-cream)]/60 p-6 shadow-lg shadow-black/5"
+                  >
+                    <div className="h-4 w-24 rounded bg-white/70" />
+                    <div className="mt-6 h-6 w-16 rounded bg-white/70" />
+                    <div className="mt-4 space-y-2">
+                      <div className="h-4 w-full rounded bg-white/70" />
+                      <div className="h-4 w-5/6 rounded bg-white/70" />
+                      <div className="h-4 w-2/3 rounded bg-white/70" />
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+          </section>
+        }
+      >
+        <TestimonialsGrid testimonials={testimonials} />
+      </Suspense>
+
+      <Suspense
+        fallback={
+          <section className="bg-white py-24" aria-label="Frequently asked questions loading">
+            <div className="mx-auto max-w-5xl px-4">
+              <div className="mx-auto h-6 w-64 animate-pulse rounded bg-[var(--brand-emerald)]/10" />
+              <div className="mt-8 space-y-4">
+                {Array.from({ length: 4 }).map((_, index) => (
+                  <div
+                    key={index}
+                    className="h-20 animate-pulse rounded-3xl bg-[var(--brand-emerald)]/5"
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+        }
+      >
+        <FaqSection items={faqItems} heading="Questions schools often ask" />
+      </Suspense>
 
       <section className="py-24">
         <div className="mx-auto max-w-4xl px-4 text-center">

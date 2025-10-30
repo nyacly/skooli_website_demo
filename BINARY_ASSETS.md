@@ -5,3 +5,5 @@ drop them into the listed paths before publishing the build:
 - `public/downloads/Skooli Uganda_ Comprehensive Compliance Framework 2025.pdf`
 - `public/downloads/Skooli_ UK Governance Upgrade for African Logistics.pdf`
 - `public/downloads/Uganda Education Logistics Safeguarding Framework.pdf`
+- `public/assets/branding/skooli_banner_image.webp`
+- `public/assets/branding/skooli_african_map.webp`
