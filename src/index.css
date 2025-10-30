@@ -294,8 +294,4 @@ body {
 }
 
 /* Accessibility */
-:focus-visible {
-  outline: 3px solid var(--brand-gold);
-  outline-offset: 2px;
-  border-radius: 2px;
-}
+/* Focus-visible styles defined in @layer base above */
