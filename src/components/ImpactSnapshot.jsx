@@ -32,8 +32,8 @@ export default function ImpactSnapshot() {
   }, [])
 
   return (
-    <section className="bg-gradient-to-br from-[var(--brand-emerald)] to-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--neutral-black)_30%)] py-16 text-[var(--brand-white)]" id="impact">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="section-shell bg-gradient-to-br from-[var(--brand-emerald)] to-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--neutral-black)_30%)] text-[var(--brand-white)]" id="impact">
+      <div className="section-container">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
             <AccentPill tone="inverse" size="sm" className="bg-[var(--brand-white)]/25">
