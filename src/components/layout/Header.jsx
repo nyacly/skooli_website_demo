@@ -4,15 +4,12 @@ import { Button } from '@/components/ui/button.jsx'
 import { NavLink } from '@/components/ui/navlink.jsx'
 
 const primaryNavItems = [
-  { name: 'Shop Now', to: '/shop-now' },
-  { name: 'About Us', to: '/about-us' },
-  { name: 'Vision & Impact', to: '/vision-impact' },
+  { name: 'About', to: '/about' },
+  { name: 'Impact', to: '/impact' },
   { name: 'For Schools', to: '/schools' },
   { name: 'For Business', to: '/for-business' },
-  { name: 'Technology & AI', to: '/technology-ai' },
-  { name: 'Funders & Investors', to: '/funders' },
-  { name: 'Partner With Us', to: '/partner' },
-  { name: 'Contact', to: '/contact' },
+  { name: 'Investor centre', to: '/investor-centre' },
+  { name: 'Join our impact', to: '/join-our-impact' },
 ]
 
 export default function Header() {
