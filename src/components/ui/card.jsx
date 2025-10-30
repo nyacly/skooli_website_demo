@@ -45,7 +45,9 @@ function Card({
   variant,
   padding,
   interactive,
+  isLoading = false,
   asChild = false,
+  children,
   ...props
 }) {
   const Comp = asChild ? Slot : "div"
@@ -58,7 +60,21 @@ function Card({
         cardVariants({ variant, padding, interactive, className })
       )}
       {...props}
-    />
+    >
+      {isLoading ? (
+        <>
+          <CardHeader>
+            <Skeleton variant="text" width="60%" height="1.5rem" />
+            <Skeleton variant="text" width="90%" height="1rem" className="mt-2" />
+          </CardHeader>
+          <CardContent>
+            <Skeleton variant="rectangular" width="100%" height="200px" />
+          </CardContent>
+        </>
+      ) : (
+        children
+      )}
+    </Comp>
   );
 }
 
