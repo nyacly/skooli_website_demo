@@ -22,8 +22,8 @@ const steps = [
 
 export default function HowItWorksPreview() {
   return (
-    <section className="bg-[var(--brand-white)] py-16" id="how-it-works-preview">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="section-shell bg-[var(--brand-white)]" id="how-it-works-preview">
+      <div className="section-container">
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div>
             <AccentPill size="sm" className="tracking-[0.25em]">
