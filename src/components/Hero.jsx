@@ -70,7 +70,9 @@ export default function Hero() {
           <div className="pt-[var(--space-md)]">
             <Button
               size="lg"
-              className="rounded-md bg-[var(--brand-emerald)] px-[var(--space-xl)] py-[var(--space-sm)] text-base font-semibold text-[var(--brand-white)] shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,var(--emerald-ink)_20%)]"
+              variant="primary"
+              shape="rounded"
+              className="px-[var(--space-xl)]"
               asChild
             >
               <Link to="/downloads/skooli-impact-report-2025.pdf" target="_blank" rel="noreferrer noopener">

@@ -51,6 +51,21 @@
   --space-section-y: clamp(var(--space-xl), 8vw, var(--space-5xl));
   --space-section-tight-y: calc(var(--space-section-y) * 0.6);
   --section-max-width: clamp(22rem, 90vw, 80rem);
+
+  /* Animation & Transition Timings */
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-medium: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 700ms;
+  --duration-slowest: 1000ms;
+
+  /* Easing Functions */
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 body {

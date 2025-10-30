@@ -3,6 +3,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils"
+import { Skeleton, SkeletonText } from "@/components/ui/skeleton.jsx"
 
 const cardVariants = cva(
   "group/card relative flex flex-col gap-5 rounded-2xl border shadow-lg shadow-black/5 transition-shadow",
@@ -44,7 +45,9 @@ function Card({
   variant,
   padding,
   interactive,
+  isLoading = false,
   asChild = false,
+  children,
   ...props
 }) {
   const Comp = asChild ? Slot : "div"
@@ -57,7 +60,21 @@ function Card({
         cardVariants({ variant, padding, interactive, className })
       )}
       {...props}
-    />
+    >
+      {isLoading ? (
+        <>
+          <CardHeader>
+            <Skeleton variant="text" width="60%" height="1.5rem" />
+            <Skeleton variant="text" width="90%" height="1rem" className="mt-2" />
+          </CardHeader>
+          <CardContent>
+            <Skeleton variant="rectangular" width="100%" height="200px" />
+          </CardContent>
+        </>
+      ) : (
+        children
+      )}
+    </Comp>
   );
 }
 
