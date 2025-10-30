@@ -69,7 +69,10 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:py-4 lg:px-8">
-        <Link to="/" className="flex items-center gap-2 text-[var(--brand-emerald)]">
+        <Link
+          to="/"
+          className="flex items-center gap-2 text-[var(--brand-emerald)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color-mix(in_srgb,var(--brand-emerald)_80%,var(--emerald-ink)_20%)]"
+        >
           <span className="text-2xl font-bold tracking-tight">Skooli</span>
         </Link>
         <nav aria-label="Primary" className="hidden items-center gap-3 lg:flex">
@@ -78,7 +81,7 @@ export default function Header() {
               key={to}
               to={to}
               className={({ isActive }) =>
-                `relative rounded-md border border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] bg-white px-4 py-2 text-sm font-semibold shadow-[0_6px_18px_rgba(13,37,29,0.08)] transition-all duration-200 after:absolute after:inset-x-3 after:bottom-1 after:h-1 after:rounded-full after:bg-transparent after:transition-colors after:content-[''] ${
+                `relative rounded-md border border-[color-mix(in_srgb,var(--emerald-haze)_25%,var(--brand-white)_75%)] bg-white px-4 py-2 text-sm font-semibold shadow-[0_6px_18px_rgba(13,37,29,0.08)] transition-all duration-200 after:absolute after:inset-x-3 after:bottom-1 after:h-1 after:rounded-full after:bg-transparent after:transition-colors after:content-[''] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color-mix(in_srgb,var(--brand-emerald)_80%,var(--emerald-ink)_20%)] ${
                   isActive
                     ? 'text-[var(--brand-emerald)] ring-1 ring-[var(--brand-emerald)]/20 shadow-[0_10px_28px_rgba(5,56,44,0.12)] after:bg-[var(--brand-emerald)]'
                     : 'text-slate-700 hover:-translate-y-0.5 hover:text-[var(--brand-emerald)] hover:shadow-[0_12px_30px_rgba(5,56,44,0.16)] hover:after:bg-[var(--brand-emerald)]/70'
@@ -156,7 +159,7 @@ export default function Header() {
                 }
               }}
               className={({ isActive }) =>
-                `rounded-md px-3 py-2 text-sm font-semibold transition-colors ${
+                `rounded-md px-3 py-2 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color-mix(in_srgb,var(--brand-emerald)_80%,var(--emerald-ink)_20%)] ${
                   isActive
                     ? 'bg-[rgba(0,152,119,0.1)] text-[var(--brand-emerald)]'
                     : 'text-slate-600 hover:bg-[rgba(0,152,119,0.08)] hover:text-[var(--brand-emerald)]'

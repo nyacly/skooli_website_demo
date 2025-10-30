@@ -53,7 +53,10 @@ export default function QuickGateways() {
                 interactive
                 className="justify-between"
               >
-                <Link to={to} className="focus-visible:outline-none">
+                <Link
+                  to={to}
+                  className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)]"
+                >
                   <div className="flex size-12 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--brand-emerald)_12%,var(--brand-white)_88%)] text-[var(--brand-emerald)] shadow-md shadow-black/5 transition group-hover/card:bg-[var(--brand-emerald)] group-hover/card:text-[var(--brand-white)]">
                     <IconComponent className="size-6" aria-hidden="true" />
                   </div>

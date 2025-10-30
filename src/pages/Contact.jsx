@@ -4,6 +4,9 @@ import { AccentPill } from '@/components/AccentPill.jsx'
 import leadershipGradient from '@/assets/leadership-gradient.svg'
 import leadershipPortrait from '@/assets/leadership-portrait.svg'
 import pastoralIllustration from '@/assets/pastoral-support-illustration.svg'
+import { FormField } from '@/components/forms/FormField.jsx'
+import { FormFieldset } from '@/components/forms/FormFieldset.jsx'
+import { FormStatusMessage } from '@/components/forms/FormStatusMessage.jsx'
 
 const segmentConfig = {
   investors: {
@@ -36,7 +39,7 @@ const segmentConfig = {
       { id: 'name', label: 'Full name', type: 'text', autoComplete: 'name' },
       { id: 'email', label: 'Email', type: 'email', autoComplete: 'email' },
       { id: 'outlet', label: 'Media outlet', type: 'text' },
-      { id: 'deadline', label: 'Deadline (if applicable)', type: 'text' },
+      { id: 'deadline', label: 'Deadline (if applicable)', type: 'text', required: false },
       { id: 'message', label: 'Story focus or interview request', type: 'textarea' },
     ],
   },
@@ -88,6 +91,18 @@ const segmentConfig = {
   },
 }
 
+const fieldDescriptions = {
+  investment_focus: 'Select the investment lens that best represents your current mandate.',
+  capital_timeline: 'Let us know when you intend to deploy capital so we can align diligence cadences.',
+  message: 'Share context, deadlines, or prayer requests to help our team respond quickly.',
+  outlet: 'Tell us which publication or platform you represent.',
+  deadline: 'Optional, but it helps us prioritise press requests with tight timelines.',
+  region: 'Choose the geography where your work is currently focused.',
+  partnership_type: 'We tailor our collaboration team based on the partnership avenue you select.',
+  support_type: 'We route each support type directly to the right chaplaincy or operations lead.',
+  urgency: 'Flag the urgency so our service desk can meet your timeline.',
+}
+
 const offices = [
   {
     title: 'Uganda Headquarters',
@@ -120,12 +135,51 @@ export default function ContactPage() {
   const segmentOrder = useMemo(() => Object.keys(segmentConfig), [])
   const currentSegment = segmentConfig[activeSegment]
 
+  const handleSegmentChange = (segment) => {
+    setActiveSegment(segment)
+    setStatus('idle')
+    if (segment !== 'support') {
+      setSupportType('Prayer & pastoral support')
+    }
+  }
+
+  const statusMessages = {
+    loading: {
+      tone: 'polite',
+      variant: 'info',
+      message: 'Sending your message…',
+    },
+    success: {
+      tone: 'polite',
+      variant: 'success',
+      message: 'Thanks! Our team will respond within one business day.',
+    },
+    offline: {
+      tone: 'assertive',
+      variant: 'info',
+      message:
+        'We could not reach the live API, but your enquiry has been saved for manual follow up. Expect a response within one business day.',
+    },
+    error: {
+      tone: 'assertive',
+      variant: 'error',
+      message: 'Something went wrong while sending your enquiry. Please try again or email hello@skooli.africa.',
+    },
+  }
+
+  const statusDetails = statusMessages[status]
+
   const handleSubmit = async (event) => {
     event.preventDefault()
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const segment = formData.get('segment') ?? activeSegment
+
+    setActiveSegment(segment)
     setStatus('loading')
-    const formData = new FormData(event.currentTarget)
+
     const payload = Object.fromEntries(formData.entries())
-    payload.segment = activeSegment
+    payload.segment = segment
 
     try {
       const response = await fetch('/api/contact', {
@@ -137,14 +191,11 @@ export default function ContactPage() {
       setStatus('success')
     } catch (error) {
       console.warn('Falling back to offline contact submission', error)
-      setTimeout(() => {
-        setStatus('success')
-      }, 600)
+      setStatus('offline')
     }
-    event.currentTarget.reset()
-    if (activeSegment === 'support') {
-      setSupportType('Prayer & pastoral support')
-    }
+
+    form.reset()
+    setSupportType('Prayer & pastoral support')
   }
 
   return (
@@ -184,95 +235,140 @@ export default function ContactPage() {
                   Average response 6 hours
                 </AccentPill>
               </div>
-              <div className="mt-6 flex flex-wrap gap-3">
-                {segmentOrder.map((segment) => (
-                  <button
-                    key={segment}
-                    type="button"
-                    onClick={() => setActiveSegment(segment)}
-                    className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-                      activeSegment === segment
-                        ? 'bg-[var(--brand-emerald)] text-white shadow'
-                        : 'bg-[color-mix(in_srgb,var(--brand-cream)_68%,#ffffff_32%)] text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] shadow-inner shadow-white/50 hover:bg-[var(--brand-emerald)]/10'
-                    }`}
-                  >
-                    {segmentConfig[segment].label}
-                  </button>
-                ))}
-              </div>
-              <p className="mt-4 text-sm text-slate-600">{currentSegment.description}</p>
-              <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
+              <FormFieldset
+                legend="Select contact channel"
+                description={currentSegment.description}
+                className="mt-6 bg-[var(--brand-cream)]/60"
+                bodyClassName="space-y-3"
+              >
+                <div
+                  className="flex flex-wrap gap-3"
+                  role="radiogroup"
+                  aria-label="Select the contact channel that best matches your enquiry"
+                >
+                  {segmentOrder.map((segment) => {
+                    const isActive = activeSegment === segment
+                    return (
+                      <label key={segment} className="cursor-pointer">
+                        <input
+                          type="radio"
+                          name="segment"
+                          value={segment}
+                          className="peer sr-only"
+                          checked={isActive}
+                          onChange={() => handleSegmentChange(segment)}
+                        />
+                        <span
+                          className={`inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color-mix(in_srgb,var(--brand-emerald)_80%,var(--emerald-ink)_20%)] peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-[color-mix(in_srgb,var(--brand-emerald)_80%,var(--emerald-ink)_20%)] ${
+                            isActive
+                              ? 'bg-[var(--brand-emerald)] text-white shadow-lg shadow-[var(--brand-emerald)]/25'
+                              : 'border border-[color-mix(in_srgb,var(--brand-emerald)_22%,var(--brand-white)_78%)] bg-white text-[color-mix(in_srgb,var(--brand-emerald)_78%,var(--emerald-ink)_22%)] shadow-inner shadow-white/50 hover:border-[var(--brand-emerald)]/70 hover:bg-[var(--brand-emerald)]/10'
+                          }`}
+                        >
+                          {segmentConfig[segment].label}
+                        </span>
+                      </label>
+                    )
+                  })}
+                </div>
+              </FormFieldset>
+              <form className="mt-6 space-y-5" onSubmit={handleSubmit} aria-busy={status === 'loading'}>
                 {currentSegment.fields.map((field) => {
-                  const fieldId = `${activeSegment}-${field.id}`
                   const baseInputClasses =
-                    'mt-1 w-full rounded-md border border-[var(--brand-emerald)]/20 bg-[var(--brand-cream)] px-4 py-3 text-sm text-slate-700 focus:border-[var(--brand-emerald)] focus:outline-none'
+                    'mt-1 w-full rounded-md border border-[var(--brand-emerald)]/20 bg-[var(--brand-cream)] px-4 py-3 text-sm text-slate-700 transition focus:border-[var(--brand-emerald)] focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color-mix(in_srgb,var(--brand-emerald)_70%,var(--emerald-ink)_30%)]'
+                  const isRequired = field.required !== false
+                  const description = fieldDescriptions[field.id]
 
                   if (field.type === 'select') {
                     const isSupportType = field.id === 'support_type'
+                    const selectProps = isSupportType ? { value: supportType } : { defaultValue: '' }
                     return (
-                      <div key={field.id}>
-                        <label className="text-sm font-semibold text-[var(--brand-emerald)]" htmlFor={fieldId}>
-                          {field.label}
-                        </label>
-                        <select
-                          id={fieldId}
-                          name={field.id}
-                          className={`${baseInputClasses} appearance-none`}
-                          onChange={(event) => {
-                            if (isSupportType) {
-                              setSupportType(event.target.value)
-                            }
-                          }}
-                          {...(isSupportType
-                            ? { value: supportType }
-                            : { defaultValue: '' })}
-                          required
-                        >
-                          {!isSupportType && (
-                            <option value="" disabled>
-                              Select an option
-                            </option>
-                          )}
-                          {field.options.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
+                      <FormField
+                        key={field.id}
+                        label={field.label}
+                        required={isRequired}
+                        description={description}
+                      >
+                        {({ id, ...controlProps }) => (
+                          <select
+                            {...controlProps}
+                            id={id}
+                            name={field.id}
+                            className={`${baseInputClasses} appearance-none`}
+                            {...selectProps}
+                            onChange={(event) => {
+                              if (isSupportType) {
+                                setSupportType(event.target.value)
+                              }
+                              if (status !== 'idle') {
+                                setStatus('idle')
+                              }
+                            }}
+                          >
+                            {!isSupportType && (
+                              <option value="" disabled>
+                                Select an option
+                              </option>
+                            )}
+                            {field.options.map((option) => (
+                              <option key={option} value={option}>
+                                {option}
+                              </option>
+                            ))}
+                          </select>
+                        )}
+                      </FormField>
                     )
                   }
 
                   if (field.type === 'textarea') {
                     return (
-                      <div key={field.id}>
-                        <label className="text-sm font-semibold text-[var(--brand-emerald)]" htmlFor={fieldId}>
-                          {field.label}
-                        </label>
-                        <textarea
-                          className={`${baseInputClasses} h-32`}
-                          id={fieldId}
-                          name={field.id}
-                          required
-                        />
-                      </div>
+                      <FormField
+                        key={field.id}
+                        label={field.label}
+                        required={isRequired}
+                        description={description}
+                      >
+                        {({ id, ...controlProps }) => (
+                          <textarea
+                            {...controlProps}
+                            id={id}
+                            name={field.id}
+                            className={`${baseInputClasses} h-32`}
+                            onChange={() => {
+                              if (status !== 'idle') {
+                                setStatus('idle')
+                              }
+                            }}
+                          />
+                        )}
+                      </FormField>
                     )
                   }
 
                   return (
-                    <div key={field.id}>
-                      <label className="text-sm font-semibold text-[var(--brand-emerald)]" htmlFor={fieldId}>
-                        {field.label}
-                      </label>
-                      <input
-                        className={baseInputClasses}
-                        type={field.type}
-                        id={fieldId}
-                        name={field.id}
-                        autoComplete={field.autoComplete}
-                        required
-                      />
-                    </div>
+                    <FormField
+                      key={field.id}
+                      label={field.label}
+                      required={isRequired}
+                      description={description}
+                    >
+                      {({ id, ...controlProps }) => (
+                        <input
+                          {...controlProps}
+                          id={id}
+                          className={baseInputClasses}
+                          type={field.type}
+                          name={field.id}
+                          autoComplete={field.autoComplete}
+                          onChange={() => {
+                            if (status !== 'idle') {
+                              setStatus('idle')
+                            }
+                          }}
+                        />
+                      )}
+                    </FormField>
                   )
                 })}
                 {activeSegment === 'support' && supportType === 'Prayer & pastoral support' && (
@@ -283,13 +379,21 @@ export default function ContactPage() {
                     </p>
                   </div>
                 )}
-                <button
-                  type="submit"
-                  className="w-full rounded-md bg-[var(--brand-emerald)] py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--brand-emerald)]/20 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
-                  disabled={status === 'loading'}
-                >
-                  {status === 'loading' ? 'Sending…' : status === 'success' ? 'Message sent!' : 'Submit enquiry'}
-                </button>
+                <div className="space-y-3">
+                  <button
+                    type="submit"
+                    className="w-full rounded-md bg-[var(--brand-emerald)] py-3 text-sm font-semibold text-white shadow-lg shadow-[var(--brand-emerald)]/20 transition hover:bg-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[color-mix(in_srgb,var(--brand-emerald)_80%,var(--emerald-ink)_20%)]"
+                    disabled={status === 'loading'}
+                  >
+                    {status === 'loading' ? 'Sending…' : 'Submit enquiry'}
+                  </button>
+                  <FormStatusMessage
+                    tone={statusDetails?.tone ?? 'polite'}
+                    variant={statusDetails?.variant ?? 'info'}
+                  >
+                    {statusDetails?.message}
+                  </FormStatusMessage>
+                </div>
               </form>
             </div>
             <div className="space-y-6">

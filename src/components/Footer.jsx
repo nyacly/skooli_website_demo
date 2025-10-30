@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin, Linkedin, Twitter, Youtube, Heart, Send } from 'lucide-react'
 import { Button } from '@/components/ui/button.jsx'
@@ -5,6 +6,8 @@ import { Input } from '@/components/ui/input.jsx'
 import { Card } from '@/components/ui/card.jsx'
 import leadershipGradient from '@/assets/leadership-gradient.svg'
 import leadershipPortrait from '@/assets/leadership-portrait.svg'
+import { FormField } from '@/components/forms/FormField.jsx'
+import { FormStatusMessage } from '@/components/forms/FormStatusMessage.jsx'
 
 const footerSections = {
   company: [
@@ -34,6 +37,23 @@ const footerSections = {
 }
 
 export default function Footer() {
+  const [newsletterStatus, setNewsletterStatus] = useState('idle')
+
+  const handleNewsletterSubmit = (event) => {
+    event.preventDefault()
+    const form = event.currentTarget
+    const email = form.email.value.trim()
+
+    if (!email) {
+      setNewsletterStatus('error')
+      return
+    }
+
+    setNewsletterStatus('success')
+    window.open(`https://skooli.us7.list-manage.com/subscribe?MERGE0=${encodeURIComponent(email)}`)
+    form.reset()
+  }
+
   return (
     <footer className="section-shell relative overflow-hidden text-[color-mix(in_srgb,var(--brand-emerald)_88%,var(--emerald-ink)_12%)]">
       <div
@@ -163,35 +183,55 @@ export default function Footer() {
             >
               <p className="typography-body-sm font-semibold text-[var(--brand-emerald)]">Stay in the loop</p>
               <p className="typography-body-xs text-[color-mix(in_srgb,var(--brand-emerald)_60%,var(--emerald-ink)_40%)]">Monthly executive briefings on logistics, impact and technology.</p>
-              <form
-                className="flex flex-col gap-[var(--space-2xs)] sm:flex-row sm:items-center"
-                onSubmit={(event) => {
-                  event.preventDefault()
-                  const form = event.currentTarget
-                  const email = form.email.value
-                  if (email) {
-                    window.open(`https://skooli.us7.list-manage.com/subscribe?MERGE0=${encodeURIComponent(email)}`)
-                    form.reset()
-                  }
-                }}
-              >
-                <Input
-                  className="flex-1 rounded-full bg-[var(--brand-white)]"
-                  type="email"
-                  name="email"
-                  aria-label="Email for newsletter"
-                  placeholder="you@organisation.com"
+              <form className="flex flex-col gap-[var(--space-2xs)]" onSubmit={handleNewsletterSubmit} noValidate>
+                <FormField
+                  label="Email address"
+                  description="We send one executive briefing each month."
                   required
-                />
-                <Button
-                  type="submit"
-                  variant="primary"
-                  shape="pill"
-                  className="w-full sm:w-auto"
+                  className="sm:flex sm:items-end sm:gap-[var(--space-sm)]"
+                  labelClassName="sm:w-40"
+                  descriptionClassName="sm:ml-40"
                 >
-                  Subscribe
-                  <Send aria-hidden="true" className="size-4" />
-                </Button>
+                  {({ id, ...controlProps }) => (
+                    <Input
+                      {...controlProps}
+                      id={id}
+                      className="flex-1 rounded-full bg-[var(--brand-white)]"
+                      type="email"
+                      name="email"
+                      placeholder="you@organisation.com"
+                      autoComplete="email"
+                      required
+                      onChange={() => {
+                        if (newsletterStatus !== 'idle') {
+                          setNewsletterStatus('idle')
+                        }
+                      }}
+                    />
+                  )}
+                </FormField>
+                <div className="flex flex-col gap-[var(--space-2xs)] sm:flex-row sm:items-center sm:justify-between">
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    shape="pill"
+                    className="w-full sm:w-auto"
+                  >
+                    Subscribe
+                    <Send aria-hidden="true" className="size-4" />
+                  </Button>
+                  <FormStatusMessage
+                    tone={newsletterStatus === 'error' ? 'assertive' : 'polite'}
+                    variant={newsletterStatus === 'error' ? 'error' : 'success'}
+                    className="sm:flex-1"
+                  >
+                    {newsletterStatus === 'success'
+                      ? 'Thanks! Your subscription preferences will open in a new tab.'
+                      : newsletterStatus === 'error'
+                        ? 'Enter a valid email address so we can stay in touch.'
+                        : null}
+                  </FormStatusMessage>
+                </div>
               </form>
             </Card>
           </div>
