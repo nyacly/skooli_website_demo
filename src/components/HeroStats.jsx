@@ -5,7 +5,7 @@ export default function HeroStats() {
     { value: '4.8/5', label: 'Facilitator satisfaction from pilot surveys' },
   ]
   return (
-    <section className="section-shell bg-transparent" data-spacing="tight">
+    <section className="section-shell bg-transparent sm:-mt-16 lg:-mt-20" data-spacing="tight">
       <div className="section-container max-w-6xl">
         <div className="grid gap-[var(--space-md)] rounded-2xl bg-[color-mix(in_srgb,var(--brand-white)_95%,transparent)] p-[var(--space-md)] shadow-xl shadow-black/5 backdrop-blur sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => (
