@@ -1,5 +1,5 @@
 import { FileDown, ShieldCheck, ScrollText } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils.js'
 import { AccentPill } from '@/components/AccentPill.jsx'
 
 const defaultDocuments = [
