@@ -18,9 +18,9 @@ export default function TrustedBySchools() {
             <p className="inline-flex items-center gap-2 rounded-full border border-[var(--brand-emerald)]/20 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)]">
               Trusted by schools
             </p>
-            <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)]">Serving Uganda’s most trusted institutions</h2>
+            <h2 className="mt-4 typography-heading-2 font-semibold text-[var(--brand-emerald)]">Serving Uganda’s most trusted institutions</h2>
           </div>
-          <p className="max-w-xl text-sm text-slate-600">
+          <p className="max-w-xl typography-body-sm text-slate-600">
             From rural diocesan schools to national academies, Skooli powers reliable delivery and transparent reporting.
           </p>
         </div>
@@ -28,7 +28,7 @@ export default function TrustedBySchools() {
           {schools.map((school) => (
             <div
               key={school.name}
-              className="group flex h-24 items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 text-center text-sm font-semibold tracking-wide text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:border-[var(--brand-emerald)] hover:shadow-md"
+              className="group flex h-24 items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 text-center typography-body-sm font-semibold tracking-wide text-slate-500 shadow-sm transition hover:-translate-y-0.5 hover:border-[var(--brand-emerald)] hover:shadow-md"
               title={school.tooltip}
             >
               <Shield className="size-4 text-slate-400 transition group-hover:text-[var(--brand-emerald)]" aria-hidden="true" />

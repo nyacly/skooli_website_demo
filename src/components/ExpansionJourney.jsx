@@ -59,7 +59,7 @@ export default function ExpansionJourney() {
             <p className="inline-flex w-max items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/90 shadow-lg shadow-black/10 backdrop-blur">
               Expansion journey
             </p>
-            <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-6 typography-heading-2 font-semibold tracking-tight text-white">
               From pilot validation to multi-country scale
             </h2>
             <ul className="mt-8 space-y-4">
@@ -69,7 +69,7 @@ export default function ExpansionJourney() {
                     className="mr-4 inline-block size-4 rounded-full border"
                     style={{ background: item.background, borderColor: item.border }}
                   />
-                  <span className="text-base font-medium text-white/85">{item.name}</span>
+                  <span className="typography-body-md font-medium text-white/85">{item.name}</span>
                 </li>
               ))}
             </ul>
@@ -90,8 +90,8 @@ export default function ExpansionJourney() {
                     <AccentPill tone="inverse" size="xs" className="tracking-[0.25em]">
                       {timeline}
                     </AccentPill>
-                    <p className="mt-1 text-lg font-semibold text-white">{title}</p>
-                    <p className="mt-2 text-sm text-white/85">{summary}</p>
+                    <p className="mt-1 typography-heading-4 font-semibold text-white">{title}</p>
+                    <p className="mt-2 typography-body-sm text-white/85">{summary}</p>
                   </div>
                 ))}
               </figcaption>

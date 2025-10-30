@@ -21,10 +21,10 @@ export default function PartnerInquiry() {
           <AccentPill tone="inverse" className="bg-white/15">
             Partner Inquiry
           </AccentPill>
-          <h1 className="mt-4 text-4xl font-bold leading-tight text-[var(--brand-emerald)] sm:text-5xl">
+          <h1 className="mt-4 typography-heading-1 font-bold leading-tight text-[var(--brand-emerald)]">
             Let's build something great together
           </h1>
-          <p className="mt-4 max-w-3xl text-base text-[var(--brand-emerald)]">
+          <p className="mt-4 max-w-3xl typography-body-md text-[var(--brand-emerald)]">
             Tell us about your organization and how you'd like to collaborate. A partnership lead will respond within 48 hours.
           </p>
         </div>

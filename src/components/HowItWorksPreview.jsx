@@ -29,11 +29,11 @@ export default function HowItWorksPreview() {
             <AccentPill size="sm" className="tracking-[0.25em]">
               How it works
             </AccentPill>
-            <h2 className="mt-4 text-3xl font-semibold text-[var(--brand-emerald)] sm:text-4xl">A frictionless supply chain from cart to classroom</h2>
+            <h2 className="mt-4 typography-heading-2 font-semibold text-[var(--brand-emerald)]">A frictionless supply chain from cart to classroom</h2>
           </div>
           <Link
             to="/how-it-works"
-            className="text-sm font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] transition hover:text-[var(--brand-emerald)]"
+            className="typography-body-sm font-semibold text-[color-mix(in_srgb,var(--brand-emerald)_85%,#032823_15%)] transition hover:text-[var(--brand-emerald)]"
           >
             Explore the full playbook →
           </Link>
@@ -50,8 +50,8 @@ export default function HowItWorksPreview() {
                   <StepIcon className="size-6" aria-hidden="true" />
                 </div>
                 <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Step {index + 1}</p>
-                <h3 className="mt-2 text-xl font-semibold text-[var(--brand-emerald)]">{title}</h3>
-                <p className="mt-2 text-sm text-slate-600">{description}</p>
+                <h3 className="mt-2 typography-heading-4 font-semibold text-[var(--brand-emerald)]">{title}</h3>
+                <p className="mt-2 typography-body-sm text-slate-600">{description}</p>
               </div>
             )
           })}

@@ -39,11 +39,11 @@ export default function ImpactSnapshot() {
             <AccentPill tone="inverse" size="sm" className="bg-white/25">
               Executive Dashboard Sync
             </AccentPill>
-            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Impact snapshot</p>
-            <h2 className="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">
+            <p className="mt-6 typography-body-sm font-semibold uppercase tracking-[0.3em] text-white/70">Impact snapshot</p>
+            <h2 className="mt-4 typography-heading-2 font-semibold">
               Real-time mission metrics from our executive dashboard
             </h2>
-            <p className="mt-4 max-w-xl text-sm text-white/80">
+            <p className="mt-4 max-w-xl typography-body-sm text-white/80">
               Figures sync hourly from our internal CMS—giving partners and investors visibility into performance and promises delivered.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4">
@@ -51,7 +51,7 @@ export default function ImpactSnapshot() {
                 href="/downloads/skooli-impact-report-2025.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-[var(--brand-emerald)] shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_12%,#ffffff_88%)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
+                className="inline-flex items-center rounded-full bg-white px-5 py-3 typography-body-sm font-semibold text-[var(--brand-emerald)] shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-emerald)_12%,#ffffff_88%)] hover:text-[color-mix(in_srgb,var(--brand-emerald)_80%,#032823_20%)]"
               >
                 Download the executive impact briefing (PDF)
               </a>
@@ -59,15 +59,15 @@ export default function ImpactSnapshot() {
                 href="/downloads/skooli-unit-economics-2025.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-white hover:bg-white/10"
+                className="inline-flex items-center rounded-full border border-white/30 px-5 py-3 typography-body-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-white hover:bg-white/10"
               >
                 View unit economics supplement (PDF)
               </a>
             </div>
           </div>
           <div className="rounded-2xl border border-white/20 bg-white/10 p-6 shadow-lg shadow-black/10 backdrop-blur">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">Updated</p>
-            <p className="text-2xl font-semibold">29 Jan 2025 • 14:00 EAT</p>
+            <p className="typography-body-sm font-semibold uppercase tracking-[0.3em] text-white/70">Updated</p>
+            <p className="typography-heading-3 font-semibold">29 Jan 2025 • 14:00 EAT</p>
           </div>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-3" ref={ref}>
@@ -82,12 +82,12 @@ export default function ImpactSnapshot() {
                 key={label}
                 className="rounded-2xl border border-white/15 bg-white/10 p-8 text-center shadow-lg shadow-black/15 backdrop-blur transition hover:bg-white/15"
               >
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">{label}</p>
-                <p className="mt-4 text-4xl font-bold">
+                <p className="typography-body-sm font-semibold uppercase tracking-[0.3em] text-white/70">{label}</p>
+                <p className="mt-4 typography-heading-1 font-bold">
                   {displayValue.toLocaleString()}
                   {suffix || ''}
                 </p>
-                <p className="mt-2 text-sm text-white/80">Live counter powered by Sanity CMS</p>
+                <p className="mt-2 typography-body-sm text-white/80">Live counter powered by Sanity CMS</p>
               </div>
             )
           })}
