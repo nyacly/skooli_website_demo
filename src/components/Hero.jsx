@@ -12,12 +12,12 @@ const heroFallback = `data:image/svg+xml;utf8,${encodeURIComponent(
   `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'>
       <defs>
         <linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'>
-          <stop offset='0%' stop-color='var(--brand-emerald)'/>
+          <stop offset='0%' stop-color='#009B77'/>
           <stop offset='100%' stop-color='rgba(0,0,0,0)'/>
         </linearGradient>
       </defs>
       <rect width='1200' height='800' fill='url(#g)' />
-      <text x='50%' y='50%' font-family='Inter, Arial, sans-serif' font-size='42' fill='var(--brand-white)' text-anchor='middle'>
+      <text x='50%' y='50%' font-size='42' fill='#FFFFFF' text-anchor='middle'>
         Upload skooli_banner_image.webp to public/assets/branding
       </text>
     </svg>`
