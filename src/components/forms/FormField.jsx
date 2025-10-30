@@ -1,4 +1,5 @@
 import { cloneElement, isValidElement, useId } from 'react'
+import { AlertCircle, CheckCircle } from 'lucide-react'
 
 import { cn } from '@/lib/utils.js'
 
@@ -10,6 +11,7 @@ export function FormField({
   error,
   required,
   optionalLabel = 'Optional',
+  showSuccess = false,
   className,
   labelClassName,
   descriptionClassName,
@@ -69,16 +71,26 @@ export function FormField({
         </p>
       ) : null}
       {error ? (
-        <p
+        <div
           id={errorId}
           role="alert"
+          aria-live="polite"
           className={cn(
-            'text-sm font-medium text-[color-mix(in_srgb,var(--brand-emerald)_15%,#b91c1c_85%)]',
+            'flex items-center gap-2 text-sm font-medium text-[color-mix(in_srgb,var(--brand-emerald)_15%,#b91c1c_85%)] animate-in fade-in slide-in-from-top-1 duration-200',
             errorClassName
           )}
         >
-          {error}
-        </p>
+          <AlertCircle className="size-4 flex-shrink-0" aria-hidden="true" />
+          <span>{error}</span>
+        </div>
+      ) : null}
+      {showSuccess && !error ? (
+        <div
+          className="flex items-center gap-2 text-sm font-medium text-[color-mix(in_srgb,var(--brand-emerald)_85%,#16a34a_15%)] animate-in fade-in slide-in-from-top-1 duration-200"
+        >
+          <CheckCircle className="size-4 flex-shrink-0" aria-hidden="true" />
+          <span>Looks good!</span>
+        </div>
       ) : null}
     </div>
   )
