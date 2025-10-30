@@ -3,6 +3,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva } from "class-variance-authority";
 
 import { cn } from "@/lib/utils"
+import { Skeleton, SkeletonText } from "@/components/ui/skeleton.jsx"
 
 const cardVariants = cva(
   "group/card relative flex flex-col gap-5 rounded-2xl border shadow-lg shadow-black/5 transition-shadow",
