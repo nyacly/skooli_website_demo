@@ -135,7 +135,7 @@ export default function VisionImpact() {
                       Map preview unavailable
                     </p>
                     <p className="text-sm text-slate-600">
-                      Our live impact map requires location services from Google Maps. Until it loads, explore the snapshot of our current coverage.
+                      Map preview unavailable. Please check that the Google Maps API key is properly configured.
                     </p>
                   </div>
                 </div>
